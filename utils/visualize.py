@@ -1,0 +1,749 @@
+import os
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from typing import List, Dict, Any, Optional, Tuple, Union
+
+def set_plot_style():
+    """设置绘图样式"""
+    sns.set_style("whitegrid")
+    plt.rcParams['font.family'] = 'DejaVu Sans'
+    plt.rcParams['font.size'] = 12
+    plt.rcParams['axes.labelsize'] = 14
+    plt.rcParams['axes.titlesize'] = 16
+    plt.rcParams['xtick.labelsize'] = 12
+    plt.rcParams['ytick.labelsize'] = 12
+    plt.rcParams['legend.fontsize'] = 12
+    plt.rcParams['figure.titlesize'] = 20
+
+def plot_learning_curves(train_losses: List[float], 
+                         val_losses: List[float], 
+                         save_path: Optional[str] = None,
+                         title: str = "Learning Curves",
+                         metric_name: str = "Loss") -> plt.Figure:
+    """
+    绘制学习曲线
+    
+    Args:
+        train_losses: 训练损失列表
+        val_losses: 验证损失列表
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+        metric_name: 指标名称
+        
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+    
+    fig, ax = plt.subplots(figsize=(10, 6))
+    
+    epochs = range(1, len(train_losses) + 1)
+    
+    ax.plot(epochs, train_losses, 'b-', marker='o', label=f'Training {metric_name}')
+    ax.plot(epochs, val_losses, 'r-', marker='s', label=f'Validation {metric_name}')
+    
+    ax.set_title(title)
+    ax.set_xlabel('Epochs')
+    ax.set_ylabel(metric_name)
+    ax.legend()
+    ax.grid(True)
+    
+    # 添加最低点标记
+    best_epoch = val_losses.index(min(val_losses)) + 1
+    best_val = min(val_losses)
+    ax.axvline(x=best_epoch, color='g', linestyle='--', alpha=0.5)
+    ax.axhline(y=best_val, color='g', linestyle='--', alpha=0.5)
+    ax.annotate(f'Best: {best_val:.4f} (Epoch {best_epoch})', 
+               xy=(best_epoch, best_val), 
+               xytext=(best_epoch + 1, best_val * 1.1),
+               arrowprops=dict(facecolor='black', shrink=0.05, width=1.5, headwidth=8),
+               fontsize=12)
+    
+    plt.tight_layout()
+    
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+    
+    return fig
+
+def plot_lr_schedule(learning_rates: List[float], 
+                    save_path: Optional[str] = None,
+                    title: str = "Learning Rate Schedule") -> plt.Figure:
+    """
+    绘制学习率调度曲线
+    
+    Args:
+        learning_rates: 学习率列表
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+        
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+    
+    fig, ax = plt.subplots(figsize=(10, 6))
+    
+    epochs = range(1, len(learning_rates) + 1)
+    
+    ax.plot(epochs, learning_rates, 'g-', marker='o')
+    ax.set_yscale('log')
+    
+    ax.set_title(title)
+    ax.set_xlabel('Epochs')
+    ax.set_ylabel('Learning Rate')
+    ax.grid(True)
+    
+    plt.tight_layout()
+    
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+    
+    return fig
+
+def plot_prediction_scatter(y_true: np.ndarray, 
+                           y_pred: np.ndarray, 
+                           save_path: Optional[str] = None,
+                           title: str = "Prediction vs Ground Truth",
+                           x_label: str = "Ground Truth",
+                           y_label: str = "Prediction") -> plt.Figure:
+    """
+    绘制预测值与真实值的散点图
+    
+    Args:
+        y_true: 真实值数组
+        y_pred: 预测值数组
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+        x_label: x轴标签
+        y_label: y轴标签
+        
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+    
+    fig, ax = plt.subplots(figsize=(10, 8))
+    
+    # 绘制散点图
+    scatter = ax.scatter(y_true, y_pred, alpha=0.6, c='#3498db', edgecolors='k', linewidths=0.5)
+    
+    # 添加对角线（完美预测线）
+    min_val = min(np.min(y_true), np.min(y_pred))
+    max_val = max(np.max(y_true), np.max(y_pred))
+    margin = (max_val - min_val) * 0.05
+    ax.plot([min_val - margin, max_val + margin], 
+            [min_val - margin, max_val + margin], 
+            'r--', label='Perfect Prediction')
+    
+    # 计算并显示相关系数
+    correlation = np.corrcoef(y_true, y_pred)[0, 1]
+    ax.annotate(f'Correlation: {correlation:.4f}', 
+               xy=(0.05, 0.95), 
+               xycoords='axes fraction',
+               fontsize=12, 
+               bbox=dict(boxstyle="round,pad=0.3", fc="white", ec="gray", alpha=0.8))
+    
+    # 设置轴标签和标题
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(y_label)
+    ax.set_title(title)
+    
+    # 调整坐标轴范围
+    ax.set_xlim(min_val - margin, max_val + margin)
+    ax.set_ylim(min_val - margin, max_val + margin)
+    
+    # 添加网格
+    ax.grid(True, linestyle='--', alpha=0.7)
+    
+    plt.tight_layout()
+    
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+    
+    return fig
+
+def plot_error_histogram(errors: np.ndarray, 
+                        save_path: Optional[str] = None,
+                        title: str = "Prediction Error Distribution",
+                        x_label: str = "Error",
+                        bins: int = 30) -> plt.Figure:
+    """
+    绘制预测误差直方图
+    
+    Args:
+        errors: 误差数组
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+        x_label: x轴标签
+        bins: 直方图的箱数
+        
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+    
+    fig, ax = plt.subplots(figsize=(10, 6))
+    
+    # 绘制直方图
+    n, bins, patches = ax.hist(errors, bins=bins, color='#2ecc71', alpha=0.7, edgecolor='black', linewidth=0.5)
+    
+    # 添加核密度估计
+    sns.kdeplot(errors, color='#e74c3c', ax=ax, label='Density')
+    
+    # 添加均值和中位数线
+    mean_error = np.mean(errors)
+    median_error = np.median(errors)
+    
+    ax.axvline(mean_error, color='#3498db', linestyle='--', linewidth=2, label=f'Mean: {mean_error:.4f}')
+    ax.axvline(median_error, color='#9b59b6', linestyle='-.', linewidth=2, label=f'Median: {median_error:.4f}')
+    
+    # 设置轴标签和标题
+    ax.set_xlabel(x_label)
+    ax.set_ylabel('Frequency')
+    ax.set_title(title)
+    
+    # 添加图例
+    ax.legend()
+    
+    plt.tight_layout()
+    
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+    
+    return fig
+
+def plot_error_boxplot(errors_by_group: Dict[str, np.ndarray], 
+                      save_path: Optional[str] = None,
+                      title: str = "Error Distribution by Group",
+                      y_label: str = "Error") -> plt.Figure:
+    """
+    按组绘制误差箱线图
+    
+    Args:
+        errors_by_group: 按组分类的误差字典
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+        y_label: y轴标签
+        
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+    
+    fig, ax = plt.subplots(figsize=(12, 8))
+    
+    # 准备数据
+    data = []
+    labels = []
+    
+    for group, errors in errors_by_group.items():
+        data.append(errors)
+        labels.append(group)
+    
+    # 绘制箱线图
+    box = ax.boxplot(data, patch_artist=True, labels=labels)
+    
+    # 设置箱线图颜色
+    colors = plt.cm.viridis(np.linspace(0, 1, len(data)))
+    for patch, color in zip(box['boxes'], colors):
+        patch.set_facecolor(color)
+    
+    # 设置轴标签和标题
+    ax.set_xlabel('Group')
+    ax.set_ylabel(y_label)
+    ax.set_title(title)
+    
+    # 旋转x轴标签（如果有很多组）
+    if len(labels) > 5:
+        plt.xticks(rotation=45, ha='right')
+    
+    plt.tight_layout()
+    
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+    
+    return fig
+
+def plot_feature_importance(feature_names: List[str], 
+                           importance_scores: np.ndarray, 
+                           save_path: Optional[str] = None,
+                           title: str = "Feature Importance",
+                           x_label: str = "Importance Score") -> plt.Figure:
+    """
+    绘制特征重要性条形图
+    
+    Args:
+        feature_names: 特征名称列表
+        importance_scores: 重要性分数数组
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+        x_label: x轴标签
+        
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+    
+    # 对特征重要性排序
+    sorted_idx = np.argsort(importance_scores)
+    sorted_names = [feature_names[i] for i in sorted_idx]
+    sorted_scores = importance_scores[sorted_idx]
+    
+    # 设置图表大小，根据特征数量调整
+    fig_height = max(6, len(feature_names) * 0.3)
+    fig, ax = plt.subplots(figsize=(10, fig_height))
+    
+    # 设置横向条形图的颜色渐变
+    colors = plt.cm.viridis(np.linspace(0, 0.8, len(sorted_scores)))
+    
+    # 绘制横向条形图
+    y_pos = np.arange(len(sorted_names))
+    ax.barh(y_pos, sorted_scores, align='center', color=colors, edgecolor='black', linewidth=0.5)
+    
+    # 设置轴标签和标题
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(sorted_names)
+    ax.set_xlabel(x_label)
+    ax.set_title(title)
+    
+    # 反转y轴，使最重要的特征在顶部
+    ax.invert_yaxis()
+    
+    # 添加数值标签
+    for i, v in enumerate(sorted_scores):
+        ax.text(v + 0.01, i, f'{v:.4f}', va='center')
+    
+    plt.tight_layout()
+    
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+    
+    return fig
+
+def plot_confusion_matrix(y_true: np.ndarray, 
+                          y_pred: np.ndarray, 
+                          classes: Optional[List[str]] = None,
+                          normalize: bool = False, 
+                          save_path: Optional[str] = None,
+                          title: str = "Confusion Matrix") -> plt.Figure:
+    """
+    绘制混淆矩阵
+    
+    Args:
+        y_true: 真实标签数组
+        y_pred: 预测标签数组
+        classes: 类别名称列表
+        normalize: 是否归一化
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+        
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+    
+    # 计算混淆矩阵
+    from sklearn.metrics import confusion_matrix
+    cm = confusion_matrix(y_true, y_pred)
+    
+    # 如果需要归一化
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+        fmt = '.2f'
+    else:
+        fmt = 'd'
+    
+    # 设置类别名称
+    if classes is None:
+        classes = [str(i) for i in range(cm.shape[0])]
+    
+    fig, ax = plt.subplots(figsize=(10, 8))
+    
+    # 绘制热图
+    im = ax.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
+    ax.figure.colorbar(im, ax=ax)
+    
+    # 设置轴标签和标题
+    ax.set(xticks=np.arange(cm.shape[1]),
+           yticks=np.arange(cm.shape[0]),
+           xticklabels=classes, yticklabels=classes,
+           title=title,
+           ylabel='True label',
+           xlabel='Predicted label')
+    
+    # 旋转x轴标签
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
+    
+    # 添加数值标签
+    thresh = cm.max() / 2.
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            ax.text(j, i, format(cm[i, j], fmt),
+                    ha="center", va="center",
+                    color="white" if cm[i, j] > thresh else "black")
+    
+    fig.tight_layout()
+    
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+    
+    return fig
+
+def create_training_report(train_history: Dict[str, List], 
+                          y_true: np.ndarray, 
+                          y_pred: np.ndarray, 
+                          metrics: Dict[str, float],
+                          output_dir: str,
+                          report_name: str = "training_report") -> None:
+    """
+    创建综合训练报告
+    
+    Args:
+        train_history: 训练历史字典，包含'train_losses'和'val_losses'等
+        y_true: 真实值数组
+        y_pred: 预测值数组
+        metrics: 评估指标字典
+        output_dir: 输出目录
+        report_name: 报告名称前缀
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # 绘制学习曲线
+    plot_learning_curves(
+        train_history['train_losses'], 
+        train_history['val_losses'],
+        save_path=os.path.join(output_dir, f"{report_name}_learning_curves.png")
+    )
+    
+    # 如果有学习率历史，绘制学习率曲线
+    if 'learning_rates' in train_history:
+        plot_lr_schedule(
+            train_history['learning_rates'],
+            save_path=os.path.join(output_dir, f"{report_name}_lr_schedule.png")
+        )
+    
+    # 绘制预测散点图
+    plot_prediction_scatter(
+        y_true, 
+        y_pred,
+        save_path=os.path.join(output_dir, f"{report_name}_predictions.png")
+    )
+    
+    # 计算并绘制误差分布
+    errors = y_true - y_pred
+    plot_error_histogram(
+        errors,
+        save_path=os.path.join(output_dir, f"{report_name}_error_distribution.png")
+    )
+    
+    # 保存评估指标
+    import json
+    with open(os.path.join(output_dir, f"{report_name}_metrics.json"), 'w') as f:
+        json.dump(metrics, f, indent=4)
+    
+    # 创建综合报告HTML
+    create_html_report(
+        train_history, 
+        metrics, 
+        output_dir, 
+        f"{report_name}.html"
+    )
+    
+    print(f"完整训练报告已保存到 {output_dir}")
+
+def create_html_report(train_history: Dict[str, List], 
+                      metrics: Dict[str, float], 
+                      output_dir: str, 
+                      filename: str) -> None:
+    """
+    创建HTML格式的训练报告
+    
+    Args:
+        train_history: 训练历史字典
+        metrics: 评估指标字典
+        output_dir: 输出目录
+        filename: HTML文件名
+    """
+    # 生成HTML内容
+    html_content = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>RISC-V Throughput Prediction Report</title>
+        <style>
+            body {{ font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }}
+            h1 {{ color: #2c3e50; }}
+            h2 {{ color: #3498db; margin-top: 30px; }}
+            table {{ border-collapse: collapse; width: 100%; margin: 20px 0; }}
+            th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
+            th {{ background-color: #f2f2f2; }}
+            tr:nth-child(even) {{ background-color: #f9f9f9; }}
+            img {{ max-width: 100%; height: auto; margin: 20px 0; border: 1px solid #ddd; }}
+            .container {{ display: flex; flex-wrap: wrap; }}
+            .chart {{ width: 48%; margin: 1%; }}
+            @media (max-width: 800px) {{ .chart {{ width: 100%; }} }}
+        </style>
+    </head>
+    <body>
+        <h1>RISC-V Throughput Prediction Training Report</h1>
+        
+        <h2>Training Summary</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Total Epochs</td>
+                <td>{len(train_history['train_losses'])}</td>
+            </tr>
+            <tr>
+                <td>Best Validation Loss</td>
+                <td>{min(train_history['val_losses']):.6f}</td>
+            </tr>
+            <tr>
+                <td>Best Epoch</td>
+                <td>{train_history['val_losses'].index(min(train_history['val_losses'])) + 1}</td>
+            </tr>
+        </table>
+        
+        <h2>Evaluation Metrics</h2>
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Value</th>
+            </tr>
+    """
+    
+    # 添加评估指标
+    for metric, value in metrics.items():
+        if isinstance(value, (int, float)):
+            html_content += f"""
+            <tr>
+                <td>{metric}</td>
+                <td>{value:.6f}</td>
+            </tr>
+            """
+    
+    html_content += """
+        </table>
+        
+        <h2>Training Visualizations</h2>
+        <div class="container">
+            <div class="chart">
+                <h3>Learning Curves</h3>
+                <img src="training_report_learning_curves.png" alt="Learning Curves">
+            </div>
+    """
+    
+    # 如果有学习率历史，添加学习率曲线
+    if 'learning_rates' in train_history:
+        html_content += """
+            <div class="chart">
+                <h3>Learning Rate Schedule</h3>
+                <img src="training_report_lr_schedule.png" alt="Learning Rate Schedule">
+            </div>
+        """
+    
+    html_content += """
+            <div class="chart">
+                <h3>Predictions vs Ground Truth</h3>
+                <img src="training_report_predictions.png" alt="Predictions vs Ground Truth">
+            </div>
+            
+            <div class="chart">
+                <h3>Error Distribution</h3>
+                <img src="training_report_error_distribution.png" alt="Error Distribution">
+            </div>
+        </div>
+    </body>
+    </html>
+    """
+    
+    # 保存HTML文件
+    with open(os.path.join(output_dir, filename), 'w') as f:
+        f.write(html_content)
+
+
+def plot_instruction_losses(instruction_losses, instruction_counts=None, save_path=None,
+                            title="Instruction Type Loss Distribution"):
+    """
+    绘制不同指令类型的平均损失
+
+    Args:
+        instruction_losses: 指令类型到损失的映射
+        instruction_counts: 指令类型到出现次数的映射（可选）
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+
+    # 转换为列表以便绘图
+    instr_types = list(instruction_losses.keys())
+    losses = list(instruction_losses.values())
+
+    # 按损失排序
+    sorted_idx = np.argsort(losses)[::-1]  # 降序
+    sorted_types = [instr_types[i] for i in sorted_idx]
+    sorted_losses = [losses[i] for i in sorted_idx]
+
+    # 仅显示前20个指令类型（如果超过20个）
+    display_limit = 20
+    if len(sorted_types) > display_limit:
+        sorted_types = sorted_types[:display_limit]
+        sorted_losses = sorted_losses[:display_limit]
+        title += f" (Top {display_limit})"
+
+    # 设置图表大小（根据指令类型数量调整）
+    fig_height = max(6, len(sorted_types) * 0.3)
+    fig, ax = plt.subplots(figsize=(10, fig_height))
+
+    # 创建条形图
+    bars = ax.barh(sorted_types, sorted_losses, color='skyblue', edgecolor='black', linewidth=0.5)
+
+    # 如果有指令计数信息，添加标签
+    if instruction_counts:
+        for i, (instr_type, loss) in enumerate(zip(sorted_types, sorted_losses)):
+            count = instruction_counts.get(instr_type, 0)
+            ax.text(loss + max(sorted_losses) * 0.02, i, f"n={count}", va='center')
+
+    # 设置标题和标签
+    ax.set_title(title)
+    ax.set_xlabel('Average Loss')
+    ax.set_ylabel('Instruction Type')
+
+    # 添加网格线
+    ax.grid(axis='x', linestyle='--', alpha=0.7)
+
+    # 调整布局
+    plt.tight_layout()
+
+    # 保存图表
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+
+    return fig
+
+
+def plot_block_length_losses(block_length_losses, block_length_counts=None, save_path=None,
+                             title="Basic Block Length Loss Distribution"):
+    """
+    绘制不同基本块长度的平均损失
+
+    Args:
+        block_length_losses: 基本块长度到损失的映射
+        block_length_counts: 基本块长度到出现次数的映射（可选）
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+
+    # 转换为列表以便绘图
+    block_lengths = sorted(list(block_length_losses.keys()))  # 按长度排序
+    losses = [block_length_losses[length] for length in block_lengths]
+
+    # 设置图表
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    # 创建条形图
+    bars = ax.bar(block_lengths, losses, color='lightgreen', edgecolor='black', linewidth=0.5)
+
+    # 如果有基本块长度计数信息，添加标签
+    if block_length_counts:
+        for i, (length, loss) in enumerate(zip(block_lengths, losses)):
+            count = block_length_counts.get(length, 0)
+            ax.text(i, loss + max(losses) * 0.02, f"n={count}", ha='center')
+
+    # 设置标题和标签
+    ax.set_title(title)
+    ax.set_xlabel('Basic Block Length')
+    ax.set_ylabel('Average Loss')
+    ax.set_xticks(block_lengths)
+
+    # 添加网格线
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+
+    # 调整布局
+    plt.tight_layout()
+
+    # 保存图表
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+
+    return fig
+
+
+def create_detailed_training_report(train_history, val_metrics, instruction_metrics, block_length_metrics, output_dir,
+                                    report_name="training_detailed_report"):
+    """
+    创建包含详细统计的训练报告
+
+    Args:
+        train_history: 训练历史字典
+        val_metrics: 验证指标字典
+        instruction_metrics: 指令类型统计信息
+        block_length_metrics: 基本块长度统计信息
+        output_dir: 输出目录
+        report_name: 报告名称前缀
+    """
+    os.makedirs(output_dir, exist_ok=True)
+
+    # 保存详细指标为JSON
+    import json
+    with open(os.path.join(output_dir, f"{report_name}_detailed.json"), 'w') as f:
+        json.dump({
+            "val_metrics": val_metrics,
+            "instruction_metrics": instruction_metrics,
+            "block_length_metrics": block_length_metrics
+        }, f, indent=4)
+
+    # 绘制指令类型损失分布
+    plot_instruction_losses(
+        instruction_metrics["instruction_avg_loss"],
+        instruction_metrics["instruction_counts"],
+        save_path=os.path.join(output_dir, f"{report_name}_instruction_losses.png"),
+        title="Average Loss by Instruction Type"
+    )
+
+    # 绘制基本块长度损失分布
+    plot_block_length_losses(
+        block_length_metrics["block_length_avg_loss"],
+        block_length_metrics["block_length_counts"],
+        save_path=os.path.join(output_dir, f"{report_name}_block_length_losses.png"),
+        title="Average Loss by Basic Block Length"
+    )
+
+    # 绘制标准的学习曲线
+    plot_learning_curves(
+        train_history['train_losses'],
+        train_history['val_losses'],
+        save_path=os.path.join(output_dir, f"{report_name}_learning_curves.png")
+    )
+
+    print(f"详细训练报告已保存到 {output_dir}")
