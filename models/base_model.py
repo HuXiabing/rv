@@ -4,39 +4,25 @@ import torch.nn as nn
 from typing import Dict, Any, Optional, Union
 
 class BaseModel(nn.Module):
-    """所有模型的基类"""
-    
+
     def __init__(self, config):
-        """
-        初始化基础模型
-        
-        Args:
-            config: 配置对象
-        """
         super(BaseModel, self).__init__()
         self.config = config
         self.device = torch.device(config.device)
     
     def forward(self, x, instruction_count=None):
         """
-        前向传播方法，子类必须实现
-        
         Args:
             x: 输入数据 [batch_size, max_instr_count, max_instr_length]
             instruction_count: 每个样本的指令数量 [batch_size]
             
         Returns:
-            模型输出
+
         """
-        raise NotImplementedError("子类必须实现forward方法")
+        raise NotImplementedError("Implemented in child class")
     
     def save(self, path: str) -> None:
-        """
-        保存模型状态和配置
-        
-        Args:
-            path: 保存路径
-        """
+
         os.makedirs(os.path.dirname(path), exist_ok=True)
         
         state_dict = {
@@ -46,13 +32,11 @@ class BaseModel(nn.Module):
         }
         
         torch.save(state_dict, path)
-        print(f"模型已保存到 {path}")
+        print(f"Saved model to {path}")
     
     @classmethod
     def load(cls, path: str, config=None, device=None) -> 'BaseModel':
         """
-        加载模型
-        
         Args:
             path: 模型路径
             config: 配置对象（如果为None，则从checkpoint加载）
@@ -80,7 +64,7 @@ class BaseModel(nn.Module):
         model.load_state_dict(checkpoint['model_state'])
         model.to(torch.device(config.device))
         
-        print(f"已从 {path} 加载模型")
+        print(f"Loaded model from {path}")
         return model
     
     def count_parameters(self) -> int:

@@ -24,14 +24,27 @@ def main():
     
     # 创建子命令
     subparsers = parser.add_subparsers(dest="command", help="请选择要执行的操作")
-    
+
     # 预处理命令
     preprocess_parser = subparsers.add_parser("preprocess", help="预处理RISC-V指令数据")
     preprocess_parser.add_argument("--raw_data", type=str, required=True, help="原始JSON数据文件路径")
     preprocess_parser.add_argument("--output_dir", type=str, default="data", help="输出目录")
-    preprocess_parser.add_argument("--max_instr_length", type=int, default=20, help="指令最大长度")
-    preprocess_parser.add_argument("--max_instr_count", type=int, default=20, help="样本最大指令数量")
-    preprocess_parser.add_argument("--vocab_size", type=int, default=2000, help="词汇表大小")
+    preprocess_parser.add_argument("--max_instr_length", type=int, default=8, help="指令最大长度")
+    preprocess_parser.add_argument("--max_instr_count", type=int, default=200, help="样本最大指令数量")
+    preprocess_parser.add_argument("--train_ratio", type=float, default=0.8, help="训练集比例")
+    preprocess_parser.add_argument("--val_ratio", type=float, default=0.2, help="验证集比例")
+    preprocess_parser.add_argument("--test_ratio", type=float, default=0, help="测试集比例")
+
+    # 增量预处理命令
+    incremental_preprocess_parser = subparsers.add_parser("incremental_preprocess", help="增量预处理RISC-V指令数据")
+    incremental_preprocess_parser.add_argument("--raw_data", type=str, required=True, help="新的原始JSON数据文件路径")
+    incremental_preprocess_parser.add_argument("--existing_train_json", type=str, default="data/train_data.json",
+                                               help="已有的训练JSON数据文件路径")
+    incremental_preprocess_parser.add_argument("--existing_train_h5", type=str, default="data/train_data.h5",
+                                               help="已有的训练HDF5数据文件路径")
+    incremental_preprocess_parser.add_argument("--output_dir", type=str, default="data", help="输出目录")
+    incremental_preprocess_parser.add_argument("--max_instr_length", type=int, default=8, help="指令最大长度")
+    incremental_preprocess_parser.add_argument("--max_instr_count", type=int, default=200, help="样本最大指令数量")
     
     # 训练命令
     train_parser = subparsers.add_parser("train", help="训练RISC-V吞吐量预测模型")
@@ -64,6 +77,27 @@ def main():
     resume_parser.add_argument("--checkpoint", type=str, required=True, help="检查点路径")
     resume_parser.add_argument("--additional_epochs", type=int, default=10, help="额外训练的轮数")
     resume_parser.add_argument("--experiment_name", type=str, default=None, help="新实验名称")
+
+    # 增量学习命令
+    incremental_parser = subparsers.add_parser("incremental", help="基于已有模型进行增量学习")
+    incremental_parser.add_argument("--model_path", type=str, default=None,
+                                    help="已训练模型的检查点路径，默认使用最新训练的模型")
+    incremental_parser.add_argument("--experiment_dir", type=str, default="experiments",
+                                    help="原实验目录，用于自动查找最新模型（如果未指定model_path）")
+    incremental_parser.add_argument("--new_train_data", type=str, default="data/incremental_train.h5",
+                                    help="新生成的训练数据路径(HDF5)")
+    incremental_parser.add_argument("--val_data", type=str, default="data/val_data.h5",
+                                    help="验证数据路径(HDF5)")
+    incremental_parser.add_argument("--epochs", type=int, default=10, help="增量训练的轮数")
+    incremental_parser.add_argument("--batch_size", type=int, default=32, help="批量大小")
+    incremental_parser.add_argument("--lr", type=float, default=5e-5,
+                                    help="学习率，通常比初始学习率小")
+    incremental_parser.add_argument("--output_dir", type=str, default="experiments",
+                                    help="输出目录")
+    incremental_parser.add_argument("--experiment_name", type=str, default=None,
+                                    help="实验名称，默认为incremental_{原模型名称}")
+    incremental_parser.add_argument("--restart_optimizer", action="store_true",
+                                    help="是否重新初始化优化器（默认使用原模型的优化器状态）")
     
     # 全局参数
     parser.add_argument("--seed", type=int, default=42, help="随机种子")
@@ -79,8 +113,7 @@ def main():
         from datetime import datetime
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         args.experiment_name = f"{args.model_type}_{timestamp}"
-    
-    # 执行对应的命令
+
     if args.command == "preprocess":
         from scripts.preprocess import main as preprocess_main
         sys.argv = [sys.argv[0]] + [
@@ -88,10 +121,26 @@ def main():
             "--output_dir", args.output_dir,
             "--max_instr_length", str(args.max_instr_length),
             "--max_instr_count", str(args.max_instr_count),
-            "--vocab_size", str(args.vocab_size),
+            "--train_ratio", str(args.train_ratio),
+            "--val_ratio", str(args.val_ratio),
+            "--test_ratio", str(args.test_ratio),
             "--seed", str(args.seed)
         ]
         preprocess_main()
+
+    elif args.command == "incremental_preprocess":
+        from scripts.incremental_preprocessing import main as incremental_preprocess_main
+        sys.argv = [sys.argv[0]] + [
+            "--raw_data", args.raw_data,
+            "--existing_train_json", args.existing_train_json,
+            "--existing_train_h5", args.existing_train_h5,
+            "--output_dir", args.output_dir,
+            "--max_instr_length", str(args.max_instr_length),
+            "--max_instr_count", str(args.max_instr_count),
+            "--seed", str(args.seed)
+        ]
+        incremental_preprocess_main()
+
     
     elif args.command == "train":
         from scripts.train import main as train_main
@@ -153,6 +202,31 @@ def main():
         if args.device:
             sys.argv.extend(["--device", args.device])
         resume_main()
+
+    elif args.command == "incremental":
+        from scripts.incremental_learning import main as incremental_main
+        sys.argv = [sys.argv[0]] + [
+            "--new_train_data", args.new_train_data,
+            "--val_data", args.val_data,
+            "--batch_size", str(args.batch_size),
+            "--epochs", str(args.epochs),
+            "--lr", str(args.lr),
+            "--output_dir", args.output_dir,
+            "--seed", str(args.seed)
+        ]
+
+        if args.model_path:
+            sys.argv.extend(["--model_path", args.model_path])
+        if args.experiment_dir:
+            sys.argv.extend(["--experiment_dir", args.experiment_dir])
+        if args.experiment_name:
+            sys.argv.extend(["--experiment_name", args.experiment_name])
+        if args.restart_optimizer:
+            sys.argv.append("--restart_optimizer")
+        if args.device:
+            sys.argv.extend(["--device", args.device])
+
+        incremental_main()
     
     else:
         parser.print_help()

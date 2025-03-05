@@ -144,39 +144,7 @@ class ExperimentManager:
 
         # 保存指标
         self.save_metrics()
-    # def log_metrics(self, metrics: Dict[str, float], step: int, prefix: str = ""):
-    #     """
-    #     记录训练/验证指标
-    #
-    #     Args:
-    #         metrics: 指标字典
-    #         step: 当前步数（如epoch）
-    #         prefix: 指标前缀（如'train_'或'val_'）
-    #     """
-    #     # 记录到实验指标
-    #     if prefix not in self.metrics:
-    #         self.metrics[prefix] = {}
-    #
-    #     for name, value in metrics.items():
-    #         metric_name = f"{prefix}{name}"
-    #
-    #         if metric_name not in self.metrics[prefix]:
-    #             self.metrics[prefix][name] = []
-    #
-    #         self.metrics[prefix][name].append((step, value))
-    #
-    #         # 记录到历史
-    #         if metric_name not in self.history["metrics"]:
-    #             self.history["metrics"][metric_name] = []
-    #
-    #         self.history["metrics"][metric_name].append(value)
-    #
-    #     # 记录到日志
-    #     metrics_str = ", ".join([f"{name}: {value:.6f}" for name, value in metrics.items()])
-    #     self.logger.info(f"Step {step} - {prefix} metrics: {metrics_str}")
-    #
-    #     # 保存指标
-    #     self.save_metrics()
+
     
     def log_train_val_metrics(self, train_metrics: Dict[str, float], val_metrics: Dict[str, float], epoch: int):
         """
@@ -299,3 +267,145 @@ class ExperimentManager:
             'duration': duration,
             'metrics': self.metrics
         })
+
+    def save_instruction_stats(self, instruction_stats, epoch):
+        """
+        保存指令类型统计信息
+
+        Args:
+            instruction_stats: 指令统计信息字典
+            epoch: 当前周期
+        """
+        stats_dir = os.path.join(self.experiment_dir, "stats")
+        os.makedirs(stats_dir, exist_ok=True)
+
+        stats_path = os.path.join(stats_dir, f"instruction_stats_epoch_{epoch + 1}.json")
+
+        with open(stats_path, 'w') as f:
+            json.dump(instruction_stats, f, indent=4)
+
+        self.logger.info(f"指令统计信息已保存到 {stats_path}")
+
+    def save_block_length_stats(self, block_length_stats, epoch):
+        """
+        保存基本块长度统计信息
+
+        Args:
+            block_length_stats: 基本块长度统计信息字典
+            epoch: 当前周期
+        """
+        stats_dir = os.path.join(self.experiment_dir, "stats")
+        os.makedirs(stats_dir, exist_ok=True)
+
+        stats_path = os.path.join(stats_dir, f"block_length_stats_epoch_{epoch + 1}.json")
+
+        with open(stats_path, 'w') as f:
+            json.dump(block_length_stats, f, indent=4)
+
+        self.logger.info(f"基本块长度统计信息已保存到 {stats_path}")
+
+    # def visualize_epoch_stats(self, instruction_stats, block_length_stats, epoch):
+    #     """
+    #     为当前周期生成统计可视化
+    #
+    #     Args:
+    #         instruction_stats: 指令统计信息字典
+    #         block_length_stats: 基本块长度统计信息字典
+    #         epoch: 当前周期
+    #     """
+    #     from utils.visualize import plot_instruction_losses, plot_block_length_losses
+    #
+    #     viz_dir = os.path.join(self.experiment_dir, "visualizations")
+    #     os.makedirs(viz_dir, exist_ok=True)
+    #
+    #     # 绘制指令类型损失分布
+    #     instr_viz_path = os.path.join(viz_dir, f"instruction_losses_epoch_{epoch + 1}.png")
+    #     plot_instruction_losses(
+    #         instruction_stats["instruction_avg_loss"],
+    #         instruction_stats["instruction_counts"],
+    #         save_path=instr_viz_path,
+    #         title=f"Average Loss by Instruction Type (Epoch {epoch + 1})"
+    #     )
+    #
+    #     # 绘制基本块长度损失分布
+    #     block_viz_path = os.path.join(viz_dir, f"block_length_losses_epoch_{epoch + 1}.png")
+    #     plot_block_length_losses(
+    #         block_length_stats["block_length_avg_loss"],
+    #         block_length_stats["block_length_counts"],
+    #         save_path=block_viz_path,
+    #         title=f"Average Loss by Basic Block Length (Epoch {epoch + 1})"
+    #     )
+    #
+    #     self.logger.info(f"已为周期 {epoch + 1} 生成统计可视化")
+
+    def visualize_epoch_stats(self, instruction_stats, block_length_stats, epoch):
+        """
+        为当前周期生成统计可视化
+
+        Args:
+            instruction_stats: 指令统计信息字典
+            block_length_stats: 基本块长度统计信息字典
+            epoch: 当前周期
+        """
+        from utils.visualize import plot_instruction_losses, plot_block_length_losses
+        from utils.analysis import analyze_instruction_statistics, analyze_block_length_statistics
+
+        viz_dir = os.path.join(self.experiment_dir, "visualizations")
+        stats_dir = os.path.join(self.experiment_dir, "stats")
+        os.makedirs(viz_dir, exist_ok=True)
+        os.makedirs(stats_dir, exist_ok=True)
+
+        # 保存原始统计数据
+        instruction_avg_loss_path = os.path.join(stats_dir, f"instruction_avg_loss_epoch_{epoch + 1}.txt")
+        block_length_avg_loss_path = os.path.join(stats_dir, f"block_length_avg_loss_epoch_{epoch + 1}.txt")
+
+        with open(instruction_avg_loss_path, 'w') as file:
+            for key, value in instruction_stats["instruction_avg_loss"].items():
+                file.write(f'{key}: {value}\n')
+
+        with open(block_length_avg_loss_path, 'w') as file:
+            for key, value in block_length_stats["block_length_avg_loss"].items():
+                file.write(f'{key}: {value}\n')
+
+        # 分析统计数据
+        analysis_output_dir = os.path.join(self.experiment_dir, f"analysis_epoch_{epoch + 1}")
+
+        instruction_vec = analyze_instruction_statistics(
+            instruction_stats["instruction_avg_loss"],
+            mapping_dict_path="data/mapping_dict.dump",
+            output_dir=analysis_output_dir
+        )
+
+        block_dict = analyze_block_length_statistics(
+            block_length_stats["block_length_avg_loss"],
+            output_dir=analysis_output_dir
+        )
+
+        # 保存分析结果
+        analysis_summary = {
+            "instruction_vec": instruction_vec,
+            "block_dict": {str(k): v for k, v in block_dict.items()}  # 转换键为字符串以便JSON序列化
+        }
+
+        with open(os.path.join(analysis_output_dir, "analysis_summary.json"), 'w') as f:
+            json.dump(analysis_summary, f, indent=2)
+
+        # 绘制指令类型损失分布
+        instr_viz_path = os.path.join(viz_dir, f"instruction_losses_epoch_{epoch + 1}.png")
+        plot_instruction_losses(
+            instruction_stats["instruction_avg_loss"],
+            instruction_stats["instruction_counts"],
+            save_path=instr_viz_path,
+            title=f"Average Loss by Instruction Type (Epoch {epoch + 1})"
+        )
+
+        # 绘制基本块长度损失分布
+        block_viz_path = os.path.join(viz_dir, f"block_length_losses_epoch_{epoch + 1}.png")
+        plot_block_length_losses(
+            block_length_stats["block_length_avg_loss"],
+            block_length_stats["block_length_counts"],
+            save_path=block_viz_path,
+            title=f"Average Loss by Basic Block Length (Epoch {epoch + 1})"
+        )
+
+        self.logger.info(f"已为周期 {epoch + 1} 生成统计可视化和分析")

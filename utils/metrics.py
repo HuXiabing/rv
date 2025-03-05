@@ -1,101 +1,3 @@
-# import numpy as np
-# from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-# import torch
-# import torch.nn as nn
-# import torch.nn.functional as F
-# import numpy as np
-# from typing import Dict, Any
-#
-#
-# # 添加MAPE损失函数
-# class MapeLoss(nn.Module):
-#     def __init__(self, epsilon=1e-5):
-#         """
-#         初始化MAPE损失函数
-#
-#         Args:
-#             epsilon: 小常数，防止除零
-#         """
-#         super().__init__()
-#         self.loss_fn = nn.L1Loss(reduction='none')
-#         self.epsilon = epsilon
-#
-#     def forward(self, output, target):
-#         """
-#         计算MAPE损失
-#
-#         Args:
-#             output: 模型预测值
-#             target: 真实值
-#
-#         Returns:
-#             损失值
-#         """
-#         loss = self.loss_fn(output, target) / (torch.abs(target) + self.epsilon)
-#         return torch.mean(loss)
-#
-#
-# def correct_regression(pred, answer, tolerance=10.0):
-#     """
-#     计算回归预测的正确率
-#
-#     Args:
-#         pred: 预测值
-#         answer: 真实值
-#         tolerance: 容忍度百分比，默认10%
-#
-#     Returns:
-#         正确预测的数量
-#     """
-#     if isinstance(pred, list):
-#         pred = torch.tensor(pred)
-#     if isinstance(answer, list):
-#         answer = torch.tensor(answer)
-#
-#     percentage = torch.abs(pred - answer) * 100.0 / (torch.abs(answer) + 1e-3)
-#     return torch.sum(percentage < tolerance).item()
-#
-# def compute_regression_metrics(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:
-#     """
-#     计算回归评估指标
-#
-#     Args:
-#         y_true: 真实值数组
-#         y_pred: 预测值数组
-#
-#     Returns:
-#         包含评估指标的字典
-#     """
-#     # 计算均方误差(MSE)
-#     mse = mean_squared_error(y_true, y_pred)
-#
-#     # 计算均方根误差(RMSE)
-#     rmse = np.sqrt(mse)
-#
-#     # 计算平均绝对误差(MAE)
-#     mae = mean_absolute_error(y_true, y_pred)
-#
-#     # 计算决定系数(R²)
-#     r2 = r2_score(y_true, y_pred)
-#
-#     # 计算平均绝对百分比误差(MAPE)
-#     epsilon = 1e-10  # 防止除零错误
-#     mape = np.mean(np.abs((y_true - y_pred) / (np.abs(y_true) + epsilon))) * 100
-#
-#     # 计算平均百分比误差(MPE)
-#     mpe = np.mean((y_true - y_pred) / (np.abs(y_true) + epsilon)) * 100
-#
-#     return {
-#         "mse": mse,
-#         "rmse": rmse,
-#         "mae": mae,
-#         "r2": r2,
-#         "mape": mape,
-#         "mpe": mpe
-#     }
-#
-
-
 import numpy as np
 import torch
 from typing import Dict, Any, List, Optional, Union
@@ -110,8 +12,7 @@ class MapeLoss(nn.Module):
 
     def forward(self, output, target):
         loss = self.loss_fn(output, target) / (torch.abs(target) + self.epsilon)
-        return loss  # 返回逐元素损失
-
+        return loss
 
 def correct_regression(pred, answer, tolerance=10.0):
     """

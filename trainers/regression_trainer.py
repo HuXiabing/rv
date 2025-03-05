@@ -9,12 +9,13 @@ from tqdm import tqdm
 
 from .base_trainer import BaseTrainer
 from utils.metrics import compute_regression_metrics, MapeLoss, BatchResult, correct_regression
-
+import time
+import os
 
 class RegressionTrainer(BaseTrainer):
     """回归任务训练器"""
 
-    def __init__(self, model, config, experiment_dir=None):
+    def __init__(self, model, config, experiment_dir=None, experiment=None):
         """
         初始化回归训练器
 
@@ -24,6 +25,7 @@ class RegressionTrainer(BaseTrainer):
             experiment_dir: 实验目录
         """
         super(RegressionTrainer, self).__init__(model, config, experiment_dir)
+        self.experiment = experiment
 
         # 设置训练组件
         self.setup_criterion()
@@ -112,7 +114,7 @@ class RegressionTrainer(BaseTrainer):
             train_loader: 训练数据加载器
 
         Returns:
-            包含训练指标的字典
+            包含训练指标的字典和BatchResult对象
         """
         self.model.train()
         batch_result = BatchResult()
@@ -199,7 +201,119 @@ class RegressionTrainer(BaseTrainer):
         if hasattr(self, 'experiment') and self.experiment is not None:
             self.experiment.log_metrics(metrics, self.current_epoch, prefix="train_")
 
-        return metrics
+        return metrics, batch_result
+
+    def train(self, train_loader, val_loader, num_epochs=None, resume=False, checkpoint_path=None):
+        """
+        训练模型
+
+        Args:
+            train_loader: 训练数据加载器
+            val_loader: 验证数据加载器
+            num_epochs: 训练轮数，如果为None则使用config中的epochs
+            resume: 是否从检查点恢复训练
+            checkpoint_path: 检查点路径，如果为None且resume为True则加载最新检查点
+
+        Returns:
+            训练历史
+        """
+        # 设置训练轮数
+        num_epochs = num_epochs or self.config.epochs
+
+        # 如果需要恢复训练
+        if resume:
+            self._resume_checkpoint(checkpoint_path)
+
+        # 记录开始时间
+        start_time = time.time()
+
+        print(f"Starting training: from epoch {self.start_epoch + 1} to {num_epochs}")
+
+        for epoch in range(self.start_epoch, num_epochs):
+            self.current_epoch = epoch
+
+            train_metrics, train_batch_result = self.train_epoch(train_loader)
+
+            val_metrics = self.validate(val_loader)
+
+            # 更新学习率
+            if self.scheduler:
+                if isinstance(self.scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
+                    self.scheduler.step(val_metrics["loss"])
+                else:
+                    self.scheduler.step()
+
+            # 检查是否是最佳模型
+            is_best = val_metrics["loss"] < self.best_metric
+            if is_best:
+                self.best_metric = val_metrics["loss"]
+                self.best_epoch = epoch
+                self.early_stopping_counter = 0
+            else:
+                self.early_stopping_counter += 1
+
+            # 保存检查点
+            if (epoch + 1) % self.config.save_freq == 0 or is_best:
+                self._save_checkpoint(epoch, train_metrics, val_metrics, is_best)
+
+            # 保存指令类型和基本块长度的统计数据
+            instruction_stats = {
+                    "instruction_avg_loss": train_batch_result.get_instruction_avg_loss(),
+                    "instruction_counts": train_batch_result.instruction_counts
+            }
+
+            block_length_stats = {
+                "block_length_avg_loss": train_batch_result.get_block_length_avg_loss(),
+                "block_length_counts": train_batch_result.block_lengths_counts
+            }
+            # 使用实验管理器保存这些统计数据（需要添加到experiment.py）
+            if hasattr(self, 'experiment') and self.experiment:
+                self.experiment.save_instruction_stats(instruction_stats, epoch)
+                self.experiment.save_block_length_stats(block_length_stats, epoch)
+
+                # 生成可视化
+                self.experiment.visualize_epoch_stats(
+                    instruction_stats,
+                    block_length_stats,
+                    epoch
+                )
+
+            # 打印进度
+            print(f"Epoch {epoch + 1}/{num_epochs} - "
+                  f"Train Loss: {train_metrics['loss']:.6f} - "
+                  f"Val Loss: {val_metrics['loss']:.6f}" +
+                  (f" - Best Val Loss: {self.best_metric:.6f} (Epoch {self.best_epoch + 1})" if is_best else ""))
+
+            # 绘制训练进度
+            if (epoch + 1) % 5 == 0 or epoch == num_epochs - 1:
+                self._plot_progress()
+
+            # 早停
+            if self.early_stopping_counter >= self.config.patience:
+                print(f"早停: 验证损失在{self.config.patience}个周期内没有改善")
+                break
+
+        # 训练完成
+        training_time = time.time() - start_time
+        print(f"训练完成! 总时间: {training_time:.2f} 秒")
+        print(f"最佳验证损失: {self.best_metric:.6f} at Epoch {self.best_epoch + 1}")
+
+        # 绘制最终训练进度
+        self._plot_progress()
+
+        # 加载最佳模型
+        best_checkpoint_path = os.path.join(self.checkpoint_dir, "model_best.pth")
+        if os.path.exists(best_checkpoint_path):
+            self._resume_checkpoint(best_checkpoint_path, only_model=True)
+            print(f"已加载最佳模型 (Epoch {self.best_epoch + 1})")
+
+        return {
+            "train_losses": self.train_losses,
+            "val_losses": self.val_losses,
+            "learning_rates": self.learning_rates,
+            "best_metric": self.best_metric,
+            "best_epoch": self.best_epoch
+        }
 
     def validate(self, val_loader, epoch=None):
         """
@@ -280,7 +394,7 @@ class RegressionTrainer(BaseTrainer):
             metrics["is_best_accuracy"] = True
 
         # 记录详细信息到实验管理器，如果存在
-        if hasattr(self, 'experiment') and self.experiment is not None:
-            self.experiment.log_metrics(metrics, epoch, prefix="val_")
+        # if hasattr(self, 'experiment') and self.experiment is not None:
+        self.experiment.log_metrics(metrics, epoch, prefix="val_")
 
         return metrics

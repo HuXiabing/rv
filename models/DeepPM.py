@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-
 from .pos_encoder import get_positional_encoding_1d, get_positional_encoding_2d
 from .deeppm_basic_blocks import DeepPMBasicBlock, DeepPMSeq, DeepPMOp
 

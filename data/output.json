@@ -1,0 +1,4409 @@
+[
+  {
+    "instructions": [
+      "slliw x30, x31, 15",
+      "slt x27, x26, x25",
+      "lb x27, 8(x24)",
+      "ori x28, x29, 0",
+      "divw x13, x30, x29",
+      "ld x18, -8(x26)",
+      "sltiu x17, x14, -8",
+      "mulhsu x2, x28, x28",
+      "mul x23, x3, x18",
+      "sh x11, -8(x21)"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "lw x30, 0(x31)",
+      "srai x27, x26, 34",
+      "lw x27, 0(x25)",
+      "lh x28, 8(x29)",
+      "andi x2, x27, 8",
+      "srlw x3, x19, x9",
+      "sub x2, x21, x24",
+      "srli x13, x11, 12",
+      "ld x9, 8(x11)",
+      "remu x12, x6, x20",
+      "sb x13, -8(x14)",
+      "andi x21, x22, 8",
+      "divuw x4, x29, x23",
+      "subw x1, x16, x18",
+      "sraw x21, x10, x3"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "addw x29, x31, x30",
+      "lui x25, 0x8",
+      "sltu x25, x24, x23",
+      "sd x27, 0(x28)",
+      "lbu x6, 0(x30)",
+      "lui x8, 0x0",
+      "srlw x21, x15, x19",
+      "lh x28, -8(x11)",
+      "add x26, x29, x0",
+      "srai x24, x23, 0",
+      "remuw x22, x21, x13",
+      "div x31, x31, x20",
+      "sub x12, x5, x11",
+      "and x31, x5, x16",
+      "sra x29, x30, x31"
+    ],
+    "throughput": 19.0
+  },
+  {
+    "instructions": [
+      "remu x29, x31, x30",
+      "subw x26, x25, x24",
+      "lb x26, 8(x23)",
+      "srli x27, x28, 31",
+      "auipc x0, 0x8",
+      "sd x9, 8(x25)",
+      "srlw x29, x16, x4",
+      "xori x10, x30, 0",
+      "xori x10, x13, -8",
+      "lh x9, -8(x6)",
+      "sw x0, -8(x13)",
+      "addi x18, x12, -8",
+      "sllw x31, x25, x27",
+      "and x4, x14, x15",
+      "sra x10, x22, x2"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "xori x30, x31, -8",
+      "lwu x27, -8(x26)",
+      "andi x27, x25, -8",
+      "lb x28, -8(x29)",
+      "mulhu x14, x15, x14",
+      "lhu x7, 8(x2)",
+      "lw x13, 0(x12)",
+      "and x12, x21, x3",
+      "lbu x17, 0(x22)",
+      "ld x8, 8(x9)",
+      "andi x24, x3, -8",
+      "xor x20, x10, x5",
+      "mul x7, x2, x22",
+      "andi x27, x7, 8",
+      "remw x10, x20, x9"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "mul x29, x31, x30",
+      "addi x26, x25, -8",
+      "mulw x26, x24, x23",
+      "lh x27, -8(x28)",
+      "sub x1, x19, x7",
+      "divuw x16, x13, x9",
+      "srliw x7, x3, 12",
+      "sd x26, 0(x31)",
+      "remu x8, x0, x23",
+      "ld x30, 0(x10)"
+    ],
+    "throughput": 15.0
+  },
+  {
+    "instructions": [
+      "lui x30, 0x8",
+      "sb x24, 0(x25)",
+      "lwu x26, -8(x23)",
+      "xor x27, x29, x28",
+      "mulhsu x18, x31, x0",
+      "addiw x30, x5, 8",
+      "sw x14, -8(x6)",
+      "remw x30, x12, x15",
+      "lw x0, 0(x16)",
+      "sltu x22, x6, x11",
+      "sra x30, x11, x4",
+      "lb x25, 0(x28)",
+      "add x1, x11, x27",
+      "slt x29, x14, x9",
+      "mulw x7, x18, x8",
+      "srlw x18, x9, x27",
+      "mul x25, x24, x17",
+      "mulhu x8, x15, x6",
+      "mulhsu x24, x29, x29",
+      "slti x17, x5, 8",
+      "slli x7, x21, 17",
+      "addi x8, x4, 8",
+      "lhu x31, 0(x20)",
+      "lb x19, 8(x1)",
+      "sll x6, x6, x2",
+      "sllw x2, x0, x16",
+      "xor x19, x20, x15",
+      "divu x10, x26, x7",
+      "divw x14, x14, x16",
+      "srliw x0, x4, 29",
+      "sh x12, 8(x31)"
+    ],
+    "throughput": 30.0
+  },
+  {
+    "instructions": [
+      "divw x29, x31, x30",
+      "slli x25, x24, 23",
+      "sd x22, -8(x23)",
+      "sb x27, 0(x28)",
+      "and x13, x30, x27",
+      "lw x7, 0(x9)"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "lui x30, 0x8",
+      "sd x24, 0(x25)",
+      "lb x26, 0(x23)",
+      "mul x27, x29, x28",
+      "rem x22, x13, x1",
+      "sltiu x6, x9, 8"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "sltu x29, x31, x30",
+      "lb x25, 8(x24)",
+      "addw x25, x23, x22",
+      "remu x26, x28, x27",
+      "mulhu x5, x17, x20",
+      "remw x3, x13, x5"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "sub x29, x31, x30",
+      "lwu x26, 8(x25)",
+      "lh x26, -8(x24)",
+      "addiw x27, x28, 0",
+      "xor x27, x30, x9",
+      "slliw x30, x14, 4"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "sltiu x30, x31, 0",
+      "slli x27, x26, 52",
+      "auipc x27, 0x8",
+      "addi x28, x29, -8",
+      "srl x20, x9, x17",
+      "lh x19, -8(x31)"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "subw x29, x31, x30",
+      "sraiw x26, x25, 24",
+      "sllw x26, x24, x23",
+      "lbu x27, 0(x28)",
+      "xor x14, x24, x12",
+      "addi x12, x5, -8"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "sll x29, x31, x30",
+      "srlw x25, x24, x23",
+      "sub x25, x22, x21",
+      "and x26, x28, x27",
+      "lwu x21, -8(x7)",
+      "lwu x0, 8(x4)",
+      "sra x31, x30, x6",
+      "lw x21, 0(x9)",
+      "ld x13, 8(x5)",
+      "lhu x26, -8(x13)"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "sraw x29, x31, x30",
+      "lb x25, 8(x24)",
+      "rem x25, x23, x22",
+      "mulhu x26, x28, x27",
+      "sraiw x16, x3, 9",
+      "rem x29, x11, x29"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "lbu x30, 8(x31)",
+      "sub x26, x25, x24",
+      "sltu x26, x23, x22",
+      "divu x27, x29, x28",
+      "addiw x2, x19, 0",
+      "rem x29, x4, x8"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "lbu x30, -8(x31)",
+      "xori x26, x25, -8",
+      "divu x26, x24, x23",
+      "add x27, x29, x28",
+      "addiw x13, x17, 0",
+      "sltu x6, x3, x12"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "slti x30, x31, 8",
+      "sraiw x26, x25, 17",
+      "sraw x26, x24, x23",
+      "subw x27, x29, x28",
+      "subw x3, x24, x7",
+      "lb x13, -8(x18)"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "mulhsu x29, x31, x30",
+      "sd x23, 0(x24)",
+      "sra x25, x22, x21",
+      "add x26, x28, x27",
+      "lhu x29, -8(x4)",
+      "sh x17, 0(x4)"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "sltiu x30, x31, 0",
+      "lh x27, 0(x26)",
+      "addi x27, x25, 8",
+      "lwu x28, 0(x29)",
+      "remu x21, x9, x16",
+      "remw x5, x7, x8"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "sraw x29, x31, x30",
+      "add x26, x25, x24",
+      "slliw x26, x23, 2",
+      "srliw x27, x28, 28",
+      "auipc x10, 0x8",
+      "remuw x4, x23, x31"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "xor x29, x31, x30",
+      "addw x26, x25, x24",
+      "sw x22, -8(x23)",
+      "sltiu x27, x28, 0",
+      "rem x15, x22, x21",
+      "sra x27, x22, x23"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "lhu x30, 8(x31)",
+      "sraw x26, x25, x24",
+      "lwu x26, 0(x23)",
+      "subw x27, x29, x28",
+      "mulh x11, x24, x21",
+      "sb x18, -8(x10)"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "sll x29, x31, x30",
+      "and x26, x25, x24",
+      "sb x22, 0(x23)",
+      "addi x27, x28, 0",
+      "mulhsu x22, x18, x23",
+      "lh x16, 0(x17)",
+      "srl x1, x10, x3",
+      "srl x10, x6, x19",
+      "slt x7, x23, x7",
+      "addiw x13, x3, -8",
+      "srlw x15, x24, x3",
+      "lhu x22, 0(x2)",
+      "remu x31, x28, x13",
+      "slliw x13, x11, 11"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "lhu x30, 8(x31)",
+      "sw x24, -8(x25)",
+      "slli x26, x23, 38",
+      "remu x27, x29, x28",
+      "sraw x26, x28, x20",
+      "lw x9, 8(x31)",
+      "remu x28, x27, x13",
+      "sraiw x3, x1, 4",
+      "mulh x13, x9, x27",
+      "sw x15, -8(x23)",
+      "xor x0, x1, x26",
+      "lh x28, 0(x18)",
+      "remu x17, x3, x20",
+      "lwu x19, 8(x16)"
+    ],
+    "throughput": 19.0
+  },
+  {
+    "instructions": [
+      "sb x30, 0(x31)",
+      "lbu x25, -8(x24)",
+      "lbu x25, 0(x23)",
+      "srlw x26, x28, x27",
+      "sraiw x29, x12, 8",
+      "divu x5, x18, x27",
+      "lui x29, 0x8",
+      "srlw x5, x25, x3",
+      "srliw x4, x8, 29",
+      "sraiw x17, x13, 26",
+      "xor x31, x24, x8",
+      "srlw x13, x28, x24",
+      "ori x16, x14, -8",
+      "mulw x4, x12, x7"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "sra x29, x31, x30",
+      "subw x26, x25, x24",
+      "remu x26, x23, x22",
+      "slliw x27, x28, 16",
+      "addiw x18, x27, 8",
+      "sw x7, 0(x8)",
+      "sra x19, x12, x3",
+      "sraiw x22, x18, 28",
+      "lbu x30, -8(x25)",
+      "addw x7, x7, x1",
+      "sd x27, -8(x2)",
+      "srai x30, x21, 26",
+      "lbu x5, 0(x7)",
+      "lb x29, 8(x12)"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "sraiw x30, x31, 3",
+      "sd x25, -8(x26)",
+      "lb x27, -8(x24)",
+      "xori x28, x29, 0",
+      "mulhsu x21, x30, x24",
+      "xor x8, x10, x29",
+      "add x2, x24, x2",
+      "mulhsu x2, x29, x14",
+      "add x28, x24, x24",
+      "xori x11, x5, 8",
+      "lw x11, 8(x28)",
+      "sra x4, x0, x8",
+      "lwu x5, 0(x29)",
+      "ori x7, x12, 8"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "lh x30, 8(x31)",
+      "and x26, x25, x24",
+      "sltu x26, x23, x22",
+      "sh x28, 0(x29)",
+      "ld x28, -8(x7)",
+      "sub x22, x27, x18",
+      "lui x31, 0x8",
+      "lhu x1, 8(x3)",
+      "div x28, x7, x25",
+      "sra x11, x7, x14",
+      "addiw x5, x20, -8",
+      "sd x9, 8(x18)",
+      "xor x21, x27, x5",
+      "srlw x29, x11, x1"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "sb x30, 0(x31)",
+      "srlw x26, x25, x24",
+      "lh x26, 8(x23)",
+      "andi x27, x28, -8",
+      "lw x28, -8(x15)",
+      "mulhsu x3, x27, x8",
+      "remu x2, x8, x11",
+      "addw x10, x18, x11",
+      "sh x25, 8(x5)",
+      "sll x22, x16, x9",
+      "mulhsu x17, x23, x28",
+      "lh x5, 0(x28)",
+      "lui x26, 0x8",
+      "xor x13, x16, x2"
+    ],
+    "throughput": 85.0
+  },
+  {
+    "instructions": [
+      "sraw x29, x31, x30",
+      "sll x26, x25, x24",
+      "srai x26, x23, 48",
+      "auipc x27, 0x8",
+      "ld x11, -8(x4)",
+      "xori x2, x4, 0",
+      "sraw x8, x0, x6",
+      "lwu x27, 0(x24)",
+      "add x28, x1, x1",
+      "ori x3, x12, -8",
+      "ld x8, 8(x19)",
+      "mulhu x30, x24, x18",
+      "lwu x16, 0(x12)",
+      "sw x10, -8(x21)"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "auipc x25, 0x0",
+      "lw x25, 0(x24)",
+      "sraw x26, x28, x27",
+      "sw x9, 8(x22)"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "srai x30, x31, 13",
+      "sd x25, -8(x26)",
+      "sd x23, 0(x24)",
+      "srli x28, x29, 3",
+      "lh x1, 8(x23)"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "auipc x30, 0x0",
+      "slliw x26, x25, 7",
+      "ori x26, x24, 8",
+      "sraw x27, x29, x28",
+      "sd x21, 8(x4)"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "addiw x30, x31, 8",
+      "subw x26, x25, x24",
+      "xor x26, x23, x22",
+      "xor x27, x29, x28",
+      "lwu x28, 8(x21)"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "srliw x30, x31, 9",
+      "srliw x26, x25, 4",
+      "srlw x26, x24, x23",
+      "sd x28, 0(x29)",
+      "srlw x20, x0, x4"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "addw x29, x31, x30",
+      "ld x25, 8(x24)",
+      "lbu x25, 0(x23)",
+      "and x26, x28, x27",
+      "sll x0, x4, x21"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "sub x29, x31, x30",
+      "ld x26, 8(x25)",
+      "lb x26, 8(x24)",
+      "lw x27, 8(x28)",
+      "addiw x17, x26, 0"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "lh x30, 8(x31)",
+      "lwu x26, -8(x25)",
+      "lb x26, 8(x24)",
+      "remuw x27, x29, x28",
+      "sraw x27, x5, x26"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "subw x29, x31, x30",
+      "sd x24, -8(x25)",
+      "sb x22, -8(x23)",
+      "lw x27, 8(x28)",
+      "sub x28, x8, x21"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "subw x29, x31, x30",
+      "xor x25, x24, x23",
+      "lw x25, -8(x22)",
+      "sd x27, 0(x28)",
+      "sub x16, x24, x19",
+      "sllw x30, x2, x2",
+      "sh x27, -8(x4)",
+      "lhu x30, 8(x10)",
+      "mulhsu x28, x6, x16",
+      "lb x23, -8(x30)"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "sub x29, x31, x30",
+      "lhu x25, 8(x24)",
+      "divu x25, x23, x22",
+      "sltu x26, x28, x27",
+      "lui x30, 0x8"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "div x29, x31, x30",
+      "sltiu x26, x25, 8",
+      "remw x26, x24, x23",
+      "lb x27, 8(x28)",
+      "sd x24, -8(x14)"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "sw x30, 8(x31)",
+      "ori x26, x25, 8",
+      "sraw x26, x24, x23",
+      "ld x27, -8(x28)",
+      "sb x27, -8(x24)"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "sub x29, x31, x30",
+      "ld x25, -8(x24)",
+      "addi x25, x23, 0",
+      "sw x27, -8(x28)",
+      "sb x11, 8(x23)"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "andi x30, x31, 8",
+      "slt x27, x26, x25",
+      "sraw x27, x24, x23",
+      "ld x28, 0(x29)",
+      "xor x10, x12, x21"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "remu x29, x31, x30",
+      "add x25, x24, x23",
+      "srli x25, x22, 51",
+      "sh x27, 0(x28)",
+      "lwu x18, 8(x4)"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "slti x30, x31, 8",
+      "auipc x26, 0x0",
+      "mulhsu x26, x25, x24",
+      "sw x28, -8(x29)",
+      "srai x1, x9, 7"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "ld x30, 8(x31)",
+      "lui x26, 0x8",
+      "add x26, x25, x24",
+      "divu x27, x29, x28",
+      "sra x3, x1, x20"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "slli x30, x31, 36",
+      "auipc x27, 0x8",
+      "ori x27, x26, 8",
+      "lui x28, 0x8",
+      "sub x4, x12, x19"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "lui x30, 0x0",
+      "auipc x27, 0x8",
+      "sraiw x27, x26, 5",
+      "lw x28, 0(x29)",
+      "lh x17, -8(x22)"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "lwu x30, -8(x31)",
+      "lhu x26, 0(x25)",
+      "sll x26, x24, x23",
+      "mul x27, x29, x28",
+      "mulh x25, x11, x24",
+      "ori x31, x15, 0",
+      "lw x23, 8(x21)",
+      "sll x29, x0, x5",
+      "mulh x8, x6, x11",
+      "sra x19, x27, x2"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "lh x30, -8(x31)",
+      "lbu x27, 8(x26)",
+      "add x27, x25, x24",
+      "lw x28, -8(x29)",
+      "srli x26, x23, 36",
+      "add x25, x9, x17",
+      "sraw x12, x2, x15",
+      "divuw x8, x23, x26",
+      "sllw x12, x18, x16",
+      "xor x22, x4, x27",
+      "lw x21, 8(x19)",
+      "srlw x1, x30, x0",
+      "sra x16, x18, x28",
+      "add x6, x25, x26",
+      "lh x31, -8(x29)",
+      "lbu x18, 8(x30)",
+      "sraiw x17, x18, 13"
+    ],
+    "throughput": 93.0
+  },
+  {
+    "instructions": [
+      "ld x30, 0(x31)",
+      "subw x27, x26, x25",
+      "lui x27, 0x8",
+      "srli x28, x29, 37",
+      "lbu x20, 0(x8)",
+      "srai x2, x2, 6",
+      "auipc x22, 0x0",
+      "sh x9, 8(x11)",
+      "lhu x30, 8(x10)",
+      "slliw x30, x10, 24",
+      "srli x22, x20, 26",
+      "auipc x23, 0x0",
+      "sub x8, x26, x22",
+      "srliw x22, x30, 10",
+      "ld x7, -8(x17)",
+      "slti x22, x13, 0",
+      "subw x19, x17, x20"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "lw x30, 8(x31)",
+      "auipc x27, 0x8",
+      "lbu x27, -8(x26)",
+      "ld x28, 8(x29)",
+      "sb x17, 8(x25)",
+      "lhu x22, 0(x6)",
+      "mul x4, x21, x27",
+      "mulh x29, x16, x20",
+      "lhu x28, 0(x10)",
+      "addw x31, x21, x3",
+      "sraw x31, x26, x19",
+      "slt x25, x17, x13",
+      "subw x4, x17, x30",
+      "sub x13, x10, x13",
+      "divuw x0, x30, x4",
+      "sd x30, -8(x24)",
+      "sw x28, -8(x31)"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "sb x23, -8(x24)",
+      "sllw x25, x22, x21",
+      "sd x27, 0(x28)",
+      "srl x2, x11, x2",
+      "lb x12, 0(x26)",
+      "xori x19, x28, -8",
+      "mulhsu x14, x22, x24",
+      "sb x6, 8(x6)",
+      "slti x16, x5, 0",
+      "srl x0, x29, x2",
+      "sltu x15, x12, x14",
+      "addi x14, x22, -8",
+      "mulhsu x31, x24, x14",
+      "addiw x31, x28, 8",
+      "addw x22, x25, x17",
+      "srliw x9, x28, 19"
+    ],
+    "throughput": 19.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "sraiw x25, x24, 20",
+      "sltiu x25, x23, 8",
+      "sllw x26, x28, x27",
+      "sraiw x27, x20, 3",
+      "auipc x15, 0x8",
+      "xori x29, x19, -8",
+      "lui x21, 0x8",
+      "mulh x26, x14, x12",
+      "ori x15, x17, -8",
+      "mulhu x4, x18, x11",
+      "divuw x22, x31, x8",
+      "and x11, x25, x27",
+      "mulw x4, x31, x11",
+      "xor x9, x11, x28",
+      "mulw x10, x0, x28",
+      "and x9, x23, x14"
+    ],
+    "throughput": 17.0
+  },
+  {
+    "instructions": [
+      "lb x30, 0(x31)",
+      "ori x27, x26, 8",
+      "lh x27, 8(x25)",
+      "xori x28, x29, 0"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "lh x30, 8(x31)",
+      "add x27, x26, x25",
+      "ori x27, x24, 0",
+      "sltiu x28, x29, -8",
+      "addiw x9, x30, 0",
+      "sltiu x12, x10, 8",
+      "sraiw x11, x15, 24",
+      "remuw x22, x25, x16",
+      "sd x11, 8(x18)",
+      "sb x1, -8(x15)",
+      "srai x13, x9, 25",
+      "auipc x19, 0x0",
+      "xor x25, x16, x22",
+      "ld x23, 0(x18)",
+      "addi x29, x24, 8",
+      "sraiw x3, x13, 19",
+      "rem x25, x19, x12"
+    ],
+    "throughput": 15.0
+  },
+  {
+    "instructions": [
+      "sh x30, 0(x31)",
+      "lw x26, 8(x25)",
+      "remuw x26, x24, x23",
+      "xori x27, x28, -8",
+      "lh x5, 0(x5)",
+      "sub x7, x6, x17",
+      "srliw x31, x3, 10",
+      "divu x7, x9, x26",
+      "slt x10, x4, x25",
+      "srlw x26, x19, x11",
+      "add x7, x5, x25",
+      "ori x9, x1, -8",
+      "lhu x7, -8(x22)",
+      "sd x25, -8(x18)",
+      "ori x8, x21, -8",
+      "sll x11, x15, x20",
+      "lh x10, -8(x2)"
+    ],
+    "throughput": 17.0
+  },
+  {
+    "instructions": [
+      "add x29, x31, x30",
+      "remuw x26, x25, x24",
+      "auipc x26, 0x0",
+      "srli x27, x28, 12",
+      "mulw x7, x9, x6",
+      "divu x30, x12, x21",
+      "div x27, x5, x11",
+      "sd x2, -8(x12)",
+      "lh x0, 8(x17)",
+      "mulhsu x7, x19, x9",
+      "sra x28, x4, x21",
+      "srlw x15, x10, x11",
+      "ori x4, x0, 8",
+      "slt x26, x27, x26",
+      "lb x13, 0(x13)",
+      "add x27, x28, x2",
+      "ori x19, x16, 8"
+    ],
+    "throughput": 24.0
+  },
+  {
+    "instructions": [
+      "sb x30, 8(x31)",
+      "ld x28, 8(x27)",
+      "addiw x28, x26, 8"
+    ],
+    "throughput": 11.0
+  },
+  {
+    "instructions": [
+      "lb x30, 0(x31)",
+      "sraw x29, x28, x27",
+      "sb x25, 0(x26)"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "lhu x30, 0(x31)",
+      "srlw x26, x25, x24",
+      "rem x26, x23, x22",
+      "sll x27, x29, x28"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "srli x30, x31, 63",
+      "andi x29, x28, 0",
+      "lh x29, 0(x27)"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "sh x30, -8(x31)",
+      "and x28, x27, x26",
+      "sllw x28, x25, x24"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "slti x28, x27, 0",
+      "sub x28, x26, x25"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "srai x30, x31, 53",
+      "sraiw x29, x28, 31",
+      "sb x26, 8(x27)"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "lhu x30, 8(x31)",
+      "div x29, x28, x27",
+      "addiw x29, x26, 8"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "sw x30, 0(x31)",
+      "lb x28, -8(x27)",
+      "sd x25, -8(x26)"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "lhu x30, 8(x31)",
+      "remu x29, x28, x27",
+      "slt x29, x26, x25"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "lhu x30, 8(x31)",
+      "sra x29, x28, x27",
+      "lui x29, 0x8"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "sub x29, x31, x30",
+      "lb x28, -8(x27)",
+      "lw x28, -8(x26)"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "remuw x28, x27, x26",
+      "lb x28, 0(x25)"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "lwu x30, 8(x31)",
+      "divw x26, x25, x24",
+      "div x26, x23, x22",
+      "and x27, x29, x28"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "sb x30, 0(x31)",
+      "srli x28, x27, 29",
+      "slti x28, x26, 8"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "addiw x30, x31, -8",
+      "sltu x29, x28, x27",
+      "ori x29, x26, 8"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "slli x30, x31, 28",
+      "srl x29, x28, x27",
+      "lb x29, 8(x26)"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "remw x28, x27, x26",
+      "ori x28, x25, 0"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "lh x30, 8(x31)",
+      "mulhu x29, x28, x27",
+      "add x29, x26, x25"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "lh x30, -8(x31)",
+      "sb x27, 8(x28)",
+      "lwu x29, -8(x26)"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "srl x29, x31, x30",
+      "lw x25, -8(x24)",
+      "slliw x25, x23, 18",
+      "xor x26, x28, x27",
+      "remu x1, x9, x16",
+      "remuw x5, x0, x20",
+      "lb x13, -8(x18)",
+      "mulw x7, x22, x16",
+      "sh x4, -8(x12)",
+      "subw x0, x26, x30",
+      "lhu x30, 0(x14)",
+      "slt x25, x25, x2",
+      "srai x5, x0, 41"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "lbu x30, 0(x31)",
+      "remw x27, x26, x25",
+      "mulhu x27, x24, x23",
+      "lb x28, 0(x29)"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "addw x29, x31, x30",
+      "and x26, x25, x24",
+      "sub x26, x23, x22",
+      "lbu x27, 0(x28)",
+      "addiw x27, x13, 8",
+      "srli x3, x0, 34",
+      "srai x11, x27, 20",
+      "srliw x5, x28, 10",
+      "sraiw x30, x27, 20",
+      "sltiu x15, x24, 0"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "auipc x30, 0x0",
+      "sllw x27, x26, x25",
+      "auipc x27, 0x8",
+      "lbu x28, 8(x29)",
+      "sraw x2, x8, x9",
+      "sra x19, x6, x24",
+      "mulh x26, x12, x18",
+      "div x2, x1, x11",
+      "auipc x14, 0x8",
+      "addw x15, x12, x0",
+      "lw x4, 8(x11)",
+      "lh x18, 0(x16)",
+      "lb x18, 0(x3)"
+    ],
+    "throughput": 11.0
+  },
+  {
+    "instructions": [
+      "sh x30, 8(x31)",
+      "lw x25, 0(x24)",
+      "lwu x25, 0(x23)",
+      "xor x26, x28, x27",
+      "mulhsu x12, x11, x8",
+      "subw x8, x11, x6",
+      "sltu x18, x12, x8",
+      "remu x17, x31, x27",
+      "xor x11, x1, x30",
+      "srliw x0, x20, 12",
+      "add x26, x13, x7",
+      "sw x28, 0(x6)",
+      "addw x17, x28, x10"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "srl x29, x31, x30",
+      "sh x23, 0(x24)",
+      "lw x25, -8(x22)",
+      "sub x26, x28, x27",
+      "sh x26, 0(x14)",
+      "slliw x5, x24, 26",
+      "lhu x17, 0(x14)",
+      "sh x13, 8(x31)",
+      "add x7, x9, x22",
+      "srliw x8, x7, 11",
+      "srl x9, x25, x4",
+      "addw x12, x19, x27",
+      "sd x19, -8(x25)"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "srai x30, x31, 49",
+      "lhu x26, 8(x25)",
+      "sd x23, 8(x24)",
+      "and x27, x29, x28",
+      "sltiu x17, x30, 0",
+      "and x11, x1, x2",
+      "xor x15, x30, x13",
+      "and x5, x1, x18",
+      "mulh x0, x2, x14"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "srlw x29, x31, x30",
+      "rem x25, x24, x23",
+      "sw x21, 0(x22)",
+      "xor x26, x28, x27",
+      "rem x24, x13, x31",
+      "rem x20, x21, x21",
+      "addi x29, x15, 0",
+      "add x0, x20, x20",
+      "auipc x10, 0x8"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "andi x30, x31, -8",
+      "sub x27, x26, x25",
+      "sw x23, -8(x24)",
+      "ori x28, x29, 8",
+      "divuw x28, x19, x28",
+      "sh x13, 8(x14)",
+      "ld x30, 8(x29)",
+      "srai x23, x17, 30",
+      "ori x22, x5, 8"
+    ],
+    "throughput": 15.0
+  },
+  {
+    "instructions": [
+      "sra x29, x31, x30",
+      "and x25, x24, x23",
+      "lb x25, -8(x22)",
+      "srlw x26, x28, x27",
+      "remuw x14, x7, x8",
+      "srli x24, x30, 49",
+      "slliw x2, x22, 18",
+      "srli x20, x22, 59",
+      "div x16, x23, x24"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "addiw x30, x31, 8",
+      "ld x26, -8(x25)",
+      "lw x26, -8(x24)",
+      "sllw x27, x29, x28",
+      "sra x19, x8, x27",
+      "lw x28, -8(x17)",
+      "slt x12, x29, x21",
+      "mulhu x3, x31, x27",
+      "slti x22, x12, 8"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "lh x30, 8(x31)",
+      "slliw x26, x25, 6",
+      "srl x26, x24, x23",
+      "rem x27, x29, x28"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "lwu x30, -8(x31)",
+      "addi x26, x25, 8",
+      "addw x26, x24, x23",
+      "sraw x27, x29, x28",
+      "sll x5, x9, x20",
+      "mulhu x25, x10, x19",
+      "lbu x1, 0(x30)",
+      "lhu x29, 8(x31)",
+      "mulw x2, x28, x15"
+    ],
+    "throughput": 83.0
+  },
+  {
+    "instructions": [
+      "andi x30, x31, -8",
+      "ori x26, x25, 8",
+      "slli x26, x24, 27",
+      "sh x28, -8(x29)",
+      "sw x17, 8(x3)",
+      "lbu x1, 0(x13)",
+      "lh x22, -8(x28)",
+      "sb x20, 0(x9)",
+      "lui x26, 0x8"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "mul x29, x31, x30",
+      "addw x25, x24, x23",
+      "sra x25, x22, x21",
+      "subw x26, x28, x27",
+      "sltiu x27, x12, 8",
+      "andi x25, x31, -8",
+      "lh x26, 0(x21)",
+      "lbu x22, 0(x14)",
+      "sh x8, -8(x10)"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "slt x29, x31, x30",
+      "lwu x26, -8(x25)",
+      "lw x26, -8(x24)",
+      "xori x27, x28, -8",
+      "addw x10, x16, x4",
+      "srl x5, x7, x4",
+      "remw x6, x11, x19",
+      "auipc x22, 0x8",
+      "lb x14, 8(x14)"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "mulhsu x29, x31, x30",
+      "andi x25, x24, -8",
+      "srai x25, x23, 27",
+      "remw x26, x28, x27",
+      "sb x22, -8(x3)",
+      "lh x14, -8(x15)",
+      "rem x7, x10, x14",
+      "sw x2, -8(x12)",
+      "sllw x3, x20, x4"
+    ],
+    "throughput": 16.0
+  },
+  {
+    "instructions": [
+      "addi x30, x31, 8",
+      "slti x27, x26, 0",
+      "remw x27, x25, x24",
+      "auipc x28, 0x8",
+      "add x22, x0, x29",
+      "sraiw x3, x26, 16",
+      "mul x24, x5, x29",
+      "lui x14, 0x8",
+      "sltu x28, x2, x1"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "and x29, x31, x30",
+      "srli x26, x25, 11",
+      "srl x26, x24, x23",
+      "lhu x27, -8(x28)",
+      "andi x1, x31, 8",
+      "xori x13, x12, 0",
+      "addi x20, x15, -8",
+      "sb x8, 0(x26)",
+      "mulhu x27, x26, x27"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "addw x29, x31, x30",
+      "lwu x25, 0(x24)",
+      "remw x25, x23, x22",
+      "sllw x26, x28, x27",
+      "ld x20, 0(x30)",
+      "lui x28, 0x0",
+      "sll x10, x19, x10"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "ld x30, -8(x31)",
+      "sb x24, -8(x25)",
+      "srl x26, x23, x22",
+      "add x27, x29, x28",
+      "srliw x16, x0, 18",
+      "mul x15, x10, x26",
+      "mulh x4, x25, x27"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "add x29, x31, x30",
+      "addw x25, x24, x23",
+      "sd x21, -8(x22)",
+      "remw x26, x28, x27"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "srai x30, x31, 37",
+      "sllw x27, x26, x25",
+      "sraw x27, x24, x23",
+      "lwu x28, 8(x29)",
+      "auipc x27, 0x8",
+      "mulhsu x29, x9, x15",
+      "xori x19, x10, 8"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "lhu x30, -8(x31)",
+      "srl x26, x25, x24",
+      "sd x22, 0(x23)",
+      "sraw x27, x29, x28",
+      "ori x8, x17, 0",
+      "sw x28, -8(x24)",
+      "addiw x24, x30, 0"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "rem x29, x31, x30",
+      "sb x23, 0(x24)",
+      "lbu x25, 8(x22)",
+      "div x26, x28, x27",
+      "sll x31, x24, x22",
+      "srl x2, x3, x25",
+      "lbu x22, 8(x10)"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "ld x30, 8(x31)",
+      "slt x27, x26, x25",
+      "srai x27, x24, 37",
+      "lw x28, -8(x29)",
+      "lh x10, 8(x23)",
+      "mul x24, x1, x2",
+      "sd x16, 8(x22)"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "mulhsu x29, x31, x30",
+      "xor x25, x24, x23",
+      "slli x25, x22, 20",
+      "sltu x26, x28, x27",
+      "sltu x31, x9, x9",
+      "add x31, x2, x21",
+      "subw x7, x11, x4"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "mulw x29, x31, x30",
+      "sw x24, 8(x25)",
+      "lh x26, 8(x23)",
+      "auipc x27, 0x8",
+      "remu x28, x25, x2",
+      "xori x27, x18, 8",
+      "ld x3, -8(x31)"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "divu x29, x31, x30",
+      "sllw x26, x25, x24",
+      "lb x26, 0(x23)",
+      "srli x27, x28, 54",
+      "ori x0, x8, 8",
+      "sll x22, x24, x5",
+      "lui x25, 0x8"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "slti x30, x31, 8",
+      "srliw x27, x26, 17",
+      "sb x24, -8(x25)",
+      "ori x28, x29, 8",
+      "lw x5, 0(x15)",
+      "srl x28, x26, x30",
+      "mulw x10, x0, x27"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "lw x30, 0(x31)",
+      "lb x26, 0(x25)",
+      "sra x26, x24, x23",
+      "sw x28, 0(x29)",
+      "and x12, x12, x18",
+      "div x13, x11, x13",
+      "remw x11, x27, x22"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "add x29, x31, x30",
+      "divw x26, x25, x24",
+      "addi x26, x23, 8",
+      "slli x27, x28, 28"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "lb x30, -8(x31)",
+      "mulw x26, x25, x24",
+      "srliw x26, x23, 23",
+      "sd x28, 8(x29)",
+      "xor x21, x5, x6",
+      "sraw x6, x8, x21",
+      "auipc x21, 0x8"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "remu x29, x31, x30",
+      "sltiu x26, x25, -8",
+      "lhu x26, 8(x24)",
+      "lui x27, 0x8",
+      "xori x5, x12, -8",
+      "lbu x27, 8(x16)",
+      "lw x25, 0(x31)"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "divw x29, x31, x30",
+      "lwu x26, -8(x25)",
+      "divuw x26, x24, x23",
+      "lb x27, -8(x28)",
+      "mulh x29, x20, x16",
+      "lw x24, 8(x31)",
+      "andi x21, x0, 0"
+    ],
+    "throughput": 11.0
+  },
+  {
+    "instructions": [
+      "sb x30, -8(x31)",
+      "addiw x25, x24, 8",
+      "divu x25, x23, x22",
+      "remu x26, x28, x27",
+      "div x30, x3, x11",
+      "sw x5, -8(x15)",
+      "sraw x15, x30, x24"
+    ],
+    "throughput": 15.0
+  },
+  {
+    "instructions": [
+      "sh x30, -8(x31)",
+      "sb x24, -8(x25)",
+      "sb x22, -8(x23)",
+      "srliw x27, x28, 19",
+      "andi x24, x3, 0",
+      "srliw x7, x21, 24",
+      "sh x25, 8(x14)"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "addi x30, x31, 8",
+      "sltu x27, x26, x25",
+      "subw x27, x24, x23",
+      "sraiw x28, x29, 21",
+      "lw x2, 8(x15)",
+      "mulhsu x4, x8, x16",
+      "sllw x7, x4, x28"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "sh x30, 8(x31)",
+      "sub x26, x25, x24",
+      "rem x26, x23, x22",
+      "lhu x27, 8(x28)",
+      "sw x21, 8(x31)",
+      "lb x12, 0(x17)",
+      "addiw x17, x2, 0"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "srl x29, x31, x30",
+      "mulw x25, x24, x23",
+      "lw x25, 8(x22)",
+      "sltu x26, x28, x27",
+      "xori x21, x26, -8",
+      "lb x28, 8(x14)",
+      "sll x11, x15, x28",
+      "lbu x3, 8(x17)",
+      "sltu x24, x0, x12",
+      "slliw x31, x0, 14",
+      "div x29, x0, x9"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "srli x30, x31, 56",
+      "addi x26, x25, -8",
+      "lw x26, 0(x24)",
+      "subw x27, x29, x28",
+      "divuw x21, x3, x5",
+      "lui x27, 0x0",
+      "lb x21, -8(x5)",
+      "srai x22, x1, 51",
+      "sll x16, x30, x6",
+      "xori x28, x17, 8",
+      "addi x6, x27, 0"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "div x29, x31, x30",
+      "addw x26, x25, x24",
+      "sra x26, x23, x22",
+      "slli x27, x28, 13"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "sh x30, 8(x31)",
+      "addi x25, x24, 0",
+      "and x25, x23, x22",
+      "mul x26, x28, x27",
+      "mulh x12, x24, x9",
+      "auipc x25, 0x0",
+      "srli x5, x13, 62",
+      "ld x13, 0(x18)",
+      "addw x26, x8, x14",
+      "lb x31, 8(x30)",
+      "xor x18, x30, x2"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "slliw x30, x31, 15",
+      "slliw x27, x26, 27",
+      "mulhu x27, x25, x24",
+      "lh x28, -8(x29)",
+      "srliw x11, x15, 16",
+      "xori x29, x28, 0",
+      "sub x22, x7, x7",
+      "sd x14, 8(x13)",
+      "lhu x4, 0(x13)",
+      "remw x22, x15, x0",
+      "lw x19, -8(x13)"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "ld x30, 0(x31)",
+      "sllw x27, x26, x25",
+      "rem x27, x24, x23",
+      "lw x28, 8(x29)",
+      "rem x17, x22, x13",
+      "srl x0, x20, x1",
+      "lb x29, 0(x19)",
+      "auipc x6, 0x8",
+      "lw x10, 0(x30)",
+      "mulw x25, x13, x24",
+      "divu x20, x7, x24"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "lw x30, -8(x31)",
+      "mulw x26, x25, x24",
+      "addiw x26, x23, 0",
+      "srl x27, x29, x28",
+      "remu x19, x27, x3",
+      "subw x29, x27, x21",
+      "sh x31, 8(x30)",
+      "srlw x18, x18, x6",
+      "divu x8, x21, x14",
+      "xor x13, x26, x26",
+      "add x23, x8, x26"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "ori x30, x31, -8",
+      "mul x26, x25, x24",
+      "lw x26, 8(x23)",
+      "sd x28, 0(x29)",
+      "add x0, x27, x22",
+      "divuw x2, x30, x30",
+      "sraw x15, x27, x25",
+      "sd x14, 8(x10)",
+      "addiw x24, x2, -8",
+      "mulhsu x25, x5, x13",
+      "sd x28, -8(x4)"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "auipc x30, 0x8",
+      "ld x27, 8(x26)",
+      "xor x27, x25, x24",
+      "slliw x28, x29, 22",
+      "slli x18, x17, 33",
+      "remu x13, x28, x25",
+      "addi x9, x21, 8",
+      "sraiw x1, x19, 20",
+      "addiw x11, x17, -8",
+      "lhu x26, 8(x21)",
+      "sb x16, 8(x22)"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "srliw x30, x31, 22",
+      "lh x26, -8(x25)",
+      "sw x23, 0(x24)",
+      "mulhu x27, x29, x28",
+      "lhu x18, -8(x2)",
+      "sd x23, 8(x3)",
+      "lwu x19, 8(x19)",
+      "lb x31, 0(x9)",
+      "mulh x22, x28, x4",
+      "andi x25, x11, -8",
+      "mulw x23, x26, x0"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "srli x30, x31, 32",
+      "add x26, x25, x24",
+      "div x26, x23, x22",
+      "sh x28, 0(x29)",
+      "rem x28, x19, x0",
+      "sraiw x7, x26, 11",
+      "addi x0, x18, 0",
+      "mulh x30, x30, x20",
+      "sub x20, x28, x29",
+      "divw x22, x21, x14",
+      "sltu x2, x30, x17"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "srl x29, x31, x30",
+      "lh x25, 0(x24)",
+      "divw x25, x23, x22",
+      "xor x26, x28, x27"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "slli x30, x31, 31",
+      "sltu x26, x25, x24",
+      "divu x26, x23, x22",
+      "divu x27, x29, x28",
+      "auipc x24, 0x8",
+      "sw x1, -8(x3)",
+      "remu x22, x10, x0",
+      "srai x8, x30, 5",
+      "sraiw x21, x26, 23",
+      "ld x17, 8(x6)",
+      "sw x3, 8(x15)",
+      "sra x0, x13, x3"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "srli x30, x31, 29",
+      "sltu x27, x26, x25",
+      "sra x27, x24, x23",
+      "addi x28, x29, 0",
+      "lb x8, -8(x13)",
+      "sub x24, x26, x27",
+      "sltiu x7, x28, -8",
+      "lwu x16, 8(x10)",
+      "lh x13, 8(x3)",
+      "srliw x7, x6, 1",
+      "srai x15, x12, 17",
+      "srliw x9, x7, 3"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "lbu x30, 8(x31)",
+      "xor x27, x26, x25",
+      "sb x23, 8(x24)",
+      "sraiw x28, x29, 26",
+      "sraiw x19, x29, 4",
+      "lwu x28, -8(x15)",
+      "subw x8, x1, x28",
+      "srl x31, x30, x21",
+      "slliw x13, x27, 30",
+      "xor x28, x15, x7",
+      "sub x29, x10, x0",
+      "sltu x19, x26, x23"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "add x29, x31, x30",
+      "divw x25, x24, x23",
+      "remu x25, x22, x21",
+      "srl x26, x28, x27",
+      "addi x5, x29, 0",
+      "sra x6, x6, x15",
+      "slliw x31, x29, 9",
+      "sh x2, 8(x20)",
+      "sraiw x30, x8, 7",
+      "rem x0, x27, x18",
+      "srlw x25, x4, x19",
+      "xori x12, x13, 0"
+    ],
+    "throughput": 21.0
+  },
+  {
+    "instructions": [
+      "lhu x30, 0(x31)",
+      "lhu x27, 0(x26)",
+      "mulhsu x27, x25, x24",
+      "lb x28, 0(x29)",
+      "ori x4, x12, 8",
+      "srai x3, x17, 13",
+      "remu x30, x4, x19",
+      "remw x9, x3, x17",
+      "ld x29, -8(x16)",
+      "slli x12, x30, 54",
+      "sh x18, 8(x6)",
+      "srai x19, x2, 30"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "slli x30, x31, 49",
+      "sub x26, x25, x24",
+      "sraw x26, x23, x22",
+      "add x27, x29, x28",
+      "sllw x4, x27, x29",
+      "lui x6, 0x8",
+      "lh x28, 8(x11)",
+      "slt x1, x15, x19",
+      "srl x20, x5, x23",
+      "slliw x1, x23, 10",
+      "ori x30, x7, -8",
+      "addi x25, x2, 0"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "sb x30, 0(x31)",
+      "sh x24, -8(x25)",
+      "mulh x26, x23, x22",
+      "ori x27, x28, 8",
+      "addiw x11, x19, -8",
+      "sraw x4, x1, x15",
+      "lhu x8, 0(x30)",
+      "sw x25, 8(x14)",
+      "mulw x5, x9, x15",
+      "mulh x14, x17, x26",
+      "slliw x29, x22, 6",
+      "addi x17, x16, 8"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "lh x30, -8(x31)",
+      "auipc x26, 0x8",
+      "srlw x26, x25, x24",
+      "srlw x27, x29, x28",
+      "sraw x31, x8, x3",
+      "srliw x6, x3, 10",
+      "srlw x1, x6, x0",
+      "rem x0, x5, x15",
+      "sraiw x24, x15, 29",
+      "addiw x1, x11, -8",
+      "lhu x20, -8(x3)",
+      "sw x23, 8(x4)"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "srl x29, x31, x30",
+      "and x26, x25, x24",
+      "sb x22, 0(x23)",
+      "srai x27, x28, 57"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "xori x30, x31, 0",
+      "srai x27, x26, 43",
+      "andi x27, x25, -8",
+      "lb x28, -8(x29)",
+      "sub x23, x9, x13",
+      "sh x2, 8(x24)",
+      "srlw x5, x20, x16",
+      "sra x30, x8, x12",
+      "ori x30, x7, 0",
+      "sll x28, x12, x3",
+      "lw x0, 0(x2)",
+      "srlw x11, x20, x10"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "lbu x25, 0(x24)",
+      "lwu x25, -8(x23)",
+      "sw x27, 0(x28)",
+      "lb x6, 0(x28)",
+      "lw x25, 0(x3)",
+      "mulw x17, x25, x17",
+      "remw x28, x5, x7",
+      "srl x13, x1, x21",
+      "sra x19, x11, x13",
+      "lw x22, 0(x21)",
+      "auipc x25, 0x0"
+    ],
+    "throughput": 16.0
+  },
+  {
+    "instructions": [
+      "add x29, x31, x30",
+      "add x25, x24, x23",
+      "sllw x25, x22, x21",
+      "div x26, x28, x27",
+      "slt x31, x26, x3",
+      "slliw x29, x30, 14",
+      "sd x6, 0(x30)",
+      "ori x14, x18, 8",
+      "lbu x16, -8(x5)",
+      "lb x31, -8(x22)",
+      "subw x22, x20, x30",
+      "sllw x5, x5, x4"
+    ],
+    "throughput": 11.0
+  },
+  {
+    "instructions": [
+      "remuw x29, x31, x30",
+      "srlw x25, x24, x23",
+      "srlw x25, x22, x21",
+      "divw x26, x28, x27",
+      "auipc x14, 0x8",
+      "lbu x31, -8(x16)",
+      "sltiu x31, x8, 8",
+      "lbu x8, -8(x8)",
+      "mulw x11, x28, x6",
+      "and x31, x26, x18",
+      "divu x18, x17, x13",
+      "divu x9, x0, x4"
+    ],
+    "throughput": 29.0
+  },
+  {
+    "instructions": [
+      "lb x30, 0(x31)",
+      "mulh x27, x26, x25",
+      "srlw x27, x24, x23",
+      "lwu x28, 0(x29)",
+      "lbu x30, 0(x4)",
+      "lh x3, -8(x3)",
+      "lui x4, 0x8",
+      "sh x24, -8(x31)",
+      "srliw x0, x22, 6",
+      "ld x14, -8(x10)",
+      "sw x9, 8(x31)",
+      "addi x0, x12, 8",
+      "xori x10, x22, -8",
+      "remw x15, x8, x20",
+      "sraw x3, x26, x31",
+      "lh x12, 0(x1)",
+      "lw x16, 8(x29)",
+      "srai x13, x9, 32",
+      "andi x11, x9, 8",
+      "sd x12, 0(x4)",
+      "sraiw x22, x10, 0",
+      "auipc x14, 0x8"
+    ],
+    "throughput": 21.0
+  },
+  {
+    "instructions": [
+      "lw x30, 0(x31)",
+      "srli x27, x26, 40",
+      "lb x27, -8(x25)",
+      "srai x28, x29, 27",
+      "ori x13, x2, 8",
+      "xori x9, x0, 0",
+      "sltiu x7, x14, 8",
+      "srli x12, x9, 45",
+      "subw x17, x18, x0",
+      "addiw x22, x18, 8",
+      "ori x13, x7, -8",
+      "auipc x21, 0x8",
+      "divw x12, x6, x24",
+      "addw x0, x10, x21",
+      "slti x11, x27, 8",
+      "lw x29, 0(x10)",
+      "div x28, x21, x18",
+      "mul x14, x26, x9",
+      "divw x10, x8, x11",
+      "rem x16, x20, x2",
+      "sh x10, 0(x16)",
+      "sra x3, x23, x12"
+    ],
+    "throughput": 40.0
+  },
+  {
+    "instructions": [
+      "srl x29, x31, x30",
+      "andi x26, x25, 8",
+      "slt x26, x24, x23",
+      "andi x27, x28, 0"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "lwu x30, 8(x31)",
+      "ld x26, 0(x25)",
+      "remw x26, x24, x23",
+      "srlw x27, x29, x28",
+      "sll x8, x4, x31",
+      "mul x23, x7, x7",
+      "slliw x26, x16, 27",
+      "and x19, x2, x29",
+      "sh x19, 0(x14)",
+      "ori x6, x25, 8",
+      "remu x11, x8, x26",
+      "srli x6, x24, 26",
+      "lbu x27, 8(x1)",
+      "sllw x7, x22, x0",
+      "srl x24, x18, x7",
+      "sll x10, x13, x20",
+      "sb x21, 8(x13)",
+      "slli x14, x27, 29",
+      "ori x16, x28, 0",
+      "lbu x12, 0(x29)",
+      "sb x17, 8(x11)",
+      "remu x16, x20, x0"
+    ],
+    "throughput": 21.0
+  },
+  {
+    "instructions": [
+      "divw x29, x31, x30",
+      "lwu x25, 0(x24)",
+      "lhu x25, 0(x23)",
+      "addw x26, x28, x27",
+      "srliw x21, x30, 27",
+      "sllw x13, x29, x19",
+      "and x21, x22, x31",
+      "lhu x19, 0(x10)",
+      "srliw x8, x0, 25",
+      "mul x22, x12, x31",
+      "lwu x26, 0(x17)",
+      "mulhu x10, x24, x24",
+      "lh x23, 0(x28)",
+      "sd x22, -8(x21)",
+      "srlw x25, x7, x17",
+      "lhu x0, 0(x23)",
+      "lhu x8, 8(x14)",
+      "auipc x16, 0x0",
+      "srai x7, x13, 11",
+      "add x23, x27, x6",
+      "slliw x16, x0, 15",
+      "sub x26, x14, x2"
+    ],
+    "throughput": 17.0
+  },
+  {
+    "instructions": [
+      "srl x29, x31, x30",
+      "sllw x25, x24, x23",
+      "addiw x25, x22, 0",
+      "remuw x26, x28, x27",
+      "xor x4, x25, x7",
+      "remw x23, x20, x26",
+      "mulhsu x13, x6, x31",
+      "lhu x28, 8(x19)",
+      "lw x25, -8(x17)",
+      "slt x17, x13, x27",
+      "lb x6, 0(x18)",
+      "slt x27, x25, x27",
+      "lh x14, 0(x14)",
+      "sraw x24, x7, x25",
+      "srliw x30, x14, 4",
+      "lwu x15, 0(x28)",
+      "srli x15, x27, 50",
+      "xori x14, x8, -8",
+      "addw x1, x17, x4",
+      "lui x27, 0x8",
+      "srai x0, x2, 19",
+      "lb x28, 8(x7)"
+    ],
+    "throughput": 18.0
+  },
+  {
+    "instructions": [
+      "remu x29, x31, x30",
+      "add x26, x25, x24",
+      "sraw x26, x23, x22",
+      "srai x27, x28, 23",
+      "div x7, x20, x28",
+      "subw x17, x16, x23",
+      "sraiw x3, x17, 10",
+      "auipc x27, 0x0",
+      "mulw x9, x18, x12",
+      "addi x21, x9, -8",
+      "slliw x14, x26, 22",
+      "sll x16, x27, x5",
+      "andi x26, x0, 8",
+      "lwu x21, -8(x21)",
+      "lui x7, 0x8",
+      "srai x13, x13, 21",
+      "lwu x21, 8(x16)",
+      "sraiw x5, x4, 29",
+      "sh x10, -8(x10)",
+      "ld x12, 8(x4)",
+      "lw x22, 0(x28)",
+      "remuw x20, x20, x30"
+    ],
+    "throughput": 27.0
+  },
+  {
+    "instructions": [
+      "ld x30, 8(x31)",
+      "srai x27, x26, 50",
+      "lbu x27, -8(x25)",
+      "lb x28, -8(x29)"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "lui x30, 0x0",
+      "divu x26, x25, x24",
+      "srlw x26, x23, x22",
+      "xor x27, x29, x28",
+      "ori x6, x16, 8",
+      "and x14, x9, x29",
+      "andi x29, x9, -8",
+      "sw x23, 8(x31)",
+      "ori x26, x2, 0",
+      "divu x16, x20, x28",
+      "lwu x15, -8(x12)",
+      "srliw x19, x12, 7",
+      "addw x31, x10, x29",
+      "lhu x3, 0(x20)",
+      "srlw x18, x1, x0",
+      "xor x22, x17, x19",
+      "mulhsu x21, x10, x15",
+      "divu x18, x7, x24",
+      "mul x4, x28, x20",
+      "lb x21, -8(x19)",
+      "sraw x27, x22, x28",
+      "lb x10, -8(x25)"
+    ],
+    "throughput": 20.0
+  },
+  {
+    "instructions": [
+      "div x29, x31, x30",
+      "subw x25, x24, x23",
+      "sd x21, 0(x22)",
+      "add x26, x28, x27",
+      "add x5, x5, x23",
+      "srai x0, x16, 52",
+      "lwu x30, 8(x17)",
+      "mul x1, x28, x8",
+      "sll x15, x23, x25",
+      "slti x16, x23, 0",
+      "mul x10, x0, x13",
+      "srai x6, x10, 22",
+      "lhu x25, 0(x24)",
+      "lh x24, -8(x11)",
+      "srai x15, x10, 46",
+      "sll x4, x29, x22",
+      "srlw x10, x6, x4",
+      "mul x24, x7, x27",
+      "sra x29, x26, x18",
+      "ld x28, -8(x26)",
+      "ld x21, 0(x30)",
+      "sllw x25, x14, x28"
+    ],
+    "throughput": 20.0
+  },
+  {
+    "instructions": [
+      "addi x30, x31, -8",
+      "lb x27, 0(x26)",
+      "sltu x27, x25, x24",
+      "lui x28, 0x0",
+      "srlw x28, x1, x3",
+      "and x22, x15, x4",
+      "lb x2, -8(x7)",
+      "mulh x28, x24, x27",
+      "sltu x31, x10, x16",
+      "xori x29, x12, 8",
+      "add x10, x31, x7",
+      "sd x7, -8(x26)",
+      "sraiw x22, x11, 18",
+      "srlw x11, x10, x31",
+      "remuw x1, x12, x23",
+      "lhu x23, -8(x7)",
+      "addiw x6, x19, 0",
+      "sraw x26, x19, x2",
+      "lui x9, 0x8",
+      "mulw x8, x8, x30",
+      "subw x22, x5, x18",
+      "sh x0, -8(x9)",
+      "div x23, x11, x17",
+      "remw x0, x24, x30",
+      "sub x4, x20, x24",
+      "lw x10, 8(x26)",
+      "divu x28, x22, x26",
+      "mulw x4, x6, x9",
+      "sltiu x23, x2, 8",
+      "div x26, x2, x8",
+      "ori x18, x14, -8",
+      "slt x12, x13, x12",
+      "lhu x13, -8(x21)",
+      "srli x19, x8, 41",
+      "remuw x7, x5, x26",
+      "sll x15, x4, x20",
+      "add x22, x15, x14",
+      "mulhsu x26, x0, x24",
+      "srliw x27, x14, 3"
+    ],
+    "throughput": 46.0
+  },
+  {
+    "instructions": [
+      "remu x29, x31, x30",
+      "sb x24, -8(x25)",
+      "srli x26, x23, 32",
+      "srai x27, x28, 53"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "sb x30, -8(x31)",
+      "lbu x26, 0(x25)",
+      "lwu x26, 0(x24)",
+      "lwu x27, -8(x28)",
+      "lui x23, 0x8",
+      "lh x23, 0(x25)",
+      "lui x22, 0x8",
+      "andi x23, x14, 8",
+      "subw x6, x22, x1",
+      "divu x24, x1, x18",
+      "slli x21, x30, 53",
+      "ld x4, -8(x19)",
+      "xor x23, x8, x20",
+      "lh x26, 0(x28)",
+      "slliw x4, x6, 25",
+      "remuw x23, x24, x18",
+      "slt x27, x29, x4",
+      "mul x7, x10, x27",
+      "slli x1, x8, 58",
+      "sub x6, x28, x17",
+      "lb x31, -8(x13)",
+      "srlw x1, x15, x14",
+      "divw x24, x26, x19"
+    ],
+    "throughput": 27.0
+  },
+  {
+    "instructions": [
+      "sw x30, -8(x31)",
+      "div x26, x25, x24",
+      "divw x26, x23, x22",
+      "lbu x27, 0(x28)",
+      "sllw x3, x21, x10",
+      "mul x19, x19, x21",
+      "sh x27, -8(x14)",
+      "lw x31, 0(x8)",
+      "div x11, x9, x4",
+      "sra x22, x4, x18",
+      "lwu x25, 8(x25)",
+      "lbu x12, 8(x1)",
+      "sra x4, x3, x17",
+      "xor x26, x26, x28",
+      "srliw x24, x14, 11",
+      "slliw x31, x13, 19",
+      "auipc x20, 0x8",
+      "sraw x16, x21, x3",
+      "ori x5, x2, 0",
+      "sltiu x14, x9, 8",
+      "lh x0, -8(x6)",
+      "lh x2, 0(x13)",
+      "remw x18, x22, x8"
+    ],
+    "throughput": 19.0
+  },
+  {
+    "instructions": [
+      "sh x30, 0(x31)",
+      "sub x25, x24, x23",
+      "sw x21, 8(x22)",
+      "addw x26, x28, x27",
+      "slli x30, x22, 50",
+      "sraw x25, x24, x21",
+      "srliw x10, x26, 14",
+      "rem x2, x14, x27",
+      "lb x7, 0(x22)",
+      "sll x12, x0, x2",
+      "sltiu x16, x2, 0",
+      "addw x12, x22, x24",
+      "srai x1, x22, 13",
+      "lw x29, 8(x31)",
+      "sll x30, x16, x5",
+      "sllw x3, x4, x13",
+      "mulhsu x15, x15, x28",
+      "lhu x16, -8(x5)",
+      "sub x31, x5, x24",
+      "remuw x17, x6, x18",
+      "srliw x18, x4, 4",
+      "sltu x4, x9, x29",
+      "sltiu x1, x1, -8"
+    ],
+    "throughput": 17.0
+  },
+  {
+    "instructions": [
+      "slliw x30, x31, 7",
+      "subw x26, x25, x24",
+      "and x26, x23, x22",
+      "sll x27, x29, x28",
+      "sra x31, x24, x5",
+      "xori x15, x23, 0",
+      "rem x29, x2, x18",
+      "sw x12, -8(x22)",
+      "remw x21, x18, x22",
+      "sh x28, 8(x15)",
+      "sh x6, 0(x10)",
+      "mulw x9, x10, x15",
+      "lbu x17, 8(x3)",
+      "addw x9, x1, x9",
+      "divu x16, x23, x16",
+      "and x12, x13, x25",
+      "ori x11, x18, -8",
+      "sw x17, -8(x2)",
+      "divw x0, x22, x8",
+      "addiw x11, x12, 0",
+      "mulw x8, x2, x4",
+      "remuw x6, x0, x23",
+      "slti x1, x7, 8"
+    ],
+    "throughput": 32.0
+  },
+  {
+    "instructions": [
+      "mulhu x29, x31, x30",
+      "sraiw x25, x24, 24",
+      "divuw x25, x23, x22",
+      "mul x26, x28, x27"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "lui x30, 0x0",
+      "andi x27, x26, -8",
+      "sltiu x27, x25, 8",
+      "lb x28, 0(x29)",
+      "divw x0, x4, x25",
+      "remuw x26, x11, x17",
+      "remu x29, x29, x22",
+      "sll x9, x6, x3",
+      "slliw x27, x16, 8",
+      "srl x23, x8, x12"
+    ],
+    "throughput": 21.0
+  },
+  {
+    "instructions": [
+      "and x29, x31, x30",
+      "add x25, x24, x23",
+      "divw x25, x22, x21",
+      "subw x26, x28, x27",
+      "auipc x12, 0x8",
+      "srl x6, x5, x26",
+      "sd x17, 0(x6)",
+      "and x22, x24, x5",
+      "addi x20, x28, -8",
+      "lwu x27, 8(x12)",
+      "lhu x8, 8(x29)",
+      "lhu x17, 8(x21)",
+      "sw x15, -8(x27)",
+      "subw x18, x18, x31",
+      "lw x27, 0(x20)",
+      "remuw x24, x18, x14",
+      "addiw x25, x29, 8",
+      "lwu x16, 8(x4)",
+      "remuw x24, x28, x13",
+      "lbu x31, 8(x29)",
+      "sltu x10, x13, x9",
+      "slli x25, x27, 41",
+      "sw x13, 0(x29)",
+      "lw x19, 0(x9)",
+      "srlw x29, x24, x1"
+    ],
+    "throughput": 28.0
+  },
+  {
+    "instructions": [
+      "sh x30, 8(x31)",
+      "mul x26, x25, x24",
+      "sw x22, 8(x23)",
+      "ld x27, 0(x28)"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "srlw x29, x31, x30",
+      "rem x25, x24, x23",
+      "slliw x25, x22, 17",
+      "srl x26, x28, x27",
+      "lh x6, -8(x8)",
+      "ld x29, 8(x31)",
+      "sraiw x31, x23, 4",
+      "sw x25, 0(x20)",
+      "srliw x27, x19, 29",
+      "sraiw x0, x12, 15",
+      "mulh x14, x27, x24",
+      "xor x29, x6, x12",
+      "sb x3, -8(x9)",
+      "srlw x15, x17, x28",
+      "sltu x22, x2, x23",
+      "sd x23, -8(x30)",
+      "subw x9, x11, x1",
+      "srai x11, x2, 9",
+      "slliw x9, x20, 16",
+      "addw x8, x24, x24",
+      "srlw x4, x10, x23",
+      "lw x5, -8(x29)",
+      "remw x10, x5, x16",
+      "addi x22, x22, -8",
+      "xori x21, x31, 8"
+    ],
+    "throughput": 99.0
+  },
+  {
+    "instructions": [
+      "mulw x29, x31, x30",
+      "ori x25, x24, -8",
+      "ld x25, 8(x23)",
+      "srl x26, x28, x27",
+      "lwu x6, 8(x16)",
+      "add x27, x28, x25",
+      "mul x17, x31, x21",
+      "and x13, x14, x28",
+      "lh x13, 0(x22)",
+      "lbu x21, 0(x22)",
+      "auipc x29, 0x8",
+      "slti x18, x21, 8",
+      "sll x18, x14, x13",
+      "slliw x17, x5, 25",
+      "sw x31, 0(x10)",
+      "lw x2, -8(x1)",
+      "and x28, x7, x7",
+      "lbu x25, 8(x24)",
+      "srli x3, x7, 17",
+      "divuw x28, x18, x29",
+      "sra x3, x14, x30",
+      "sd x7, 0(x24)",
+      "xor x5, x7, x11",
+      "addw x12, x27, x10",
+      "lh x31, 8(x20)"
+    ],
+    "throughput": 19.0
+  },
+  {
+    "instructions": [
+      "lw x30, 0(x31)",
+      "mulh x26, x25, x24",
+      "sra x26, x23, x22",
+      "divw x27, x29, x28",
+      "slli x7, x12, 33",
+      "srl x12, x17, x15",
+      "ori x9, x0, 8",
+      "mul x17, x12, x27",
+      "sllw x0, x20, x21",
+      "ori x23, x31, 0",
+      "lw x17, -8(x25)",
+      "xori x30, x2, 8",
+      "andi x10, x2, 8",
+      "srli x10, x22, 30",
+      "lwu x19, 8(x2)",
+      "sraw x5, x10, x5",
+      "mulhsu x15, x11, x2",
+      "sb x12, 8(x28)",
+      "addw x22, x20, x23",
+      "addiw x7, x6, 0",
+      "slliw x1, x8, 16",
+      "addw x28, x12, x10",
+      "sraw x3, x13, x6",
+      "lhu x17, 0(x22)",
+      "ld x19, -8(x1)"
+    ],
+    "throughput": 24.0
+  },
+  {
+    "instructions": [
+      "slt x29, x31, x30",
+      "xor x25, x24, x23",
+      "sd x21, 8(x22)",
+      "sw x27, -8(x28)",
+      "sh x17, 0(x22)",
+      "divu x3, x28, x27",
+      "sra x16, x22, x18",
+      "addiw x25, x22, -8",
+      "xori x22, x19, -8",
+      "lhu x22, 0(x17)",
+      "auipc x11, 0x0",
+      "ld x26, 0(x7)",
+      "mulhu x25, x17, x18",
+      "div x1, x14, x21",
+      "lhu x18, 8(x13)",
+      "mulhsu x1, x27, x18",
+      "sd x3, -8(x17)",
+      "sll x25, x30, x2",
+      "add x7, x29, x2",
+      "subw x28, x19, x22",
+      "srl x3, x18, x29",
+      "slt x28, x31, x14",
+      "lui x26, 0x8",
+      "and x8, x8, x23",
+      "srai x2, x9, 44"
+    ],
+    "throughput": 20.0
+  },
+  {
+    "instructions": [
+      "auipc x30, 0x8",
+      "lh x27, 0(x26)",
+      "lui x27, 0x0",
+      "lw x28, 8(x29)",
+      "remuw x25, x22, x29",
+      "lb x23, 0(x29)",
+      "srliw x8, x20, 0",
+      "srlw x6, x11, x15",
+      "mulw x22, x19, x24",
+      "lbu x0, 8(x31)",
+      "divu x24, x31, x2",
+      "divw x4, x15, x18",
+      "srliw x15, x6, 20",
+      "srai x4, x13, 7",
+      "sh x11, 0(x5)",
+      "sraw x0, x29, x2"
+    ],
+    "throughput": 26.0
+  },
+  {
+    "instructions": [
+      "xori x30, x31, 8",
+      "mulh x27, x26, x25",
+      "sra x27, x24, x23",
+      "andi x28, x29, 0"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "ld x30, 8(x31)",
+      "srl x26, x25, x24",
+      "auipc x26, 0x8",
+      "divuw x27, x29, x28",
+      "lbu x23, 0(x5)",
+      "and x30, x7, x22",
+      "mulw x29, x12, x4",
+      "mulh x10, x11, x5",
+      "slli x2, x2, 30",
+      "and x21, x13, x19",
+      "mulh x19, x16, x17",
+      "sub x13, x26, x11",
+      "sltu x10, x2, x15",
+      "lwu x3, 0(x16)",
+      "sw x22, -8(x11)",
+      "srai x29, x27, 0"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "sw x30, 0(x31)",
+      "rem x26, x25, x24",
+      "srl x26, x23, x22",
+      "lw x27, -8(x28)",
+      "srai x10, x10, 48",
+      "div x16, x22, x8",
+      "mul x12, x24, x9",
+      "mulhsu x4, x1, x13",
+      "srlw x6, x29, x2",
+      "remw x0, x20, x23",
+      "auipc x30, 0x0",
+      "sd x17, -8(x9)",
+      "lwu x0, -8(x5)",
+      "subw x26, x9, x11",
+      "andi x7, x27, -8",
+      "sw x31, 0(x25)"
+    ],
+    "throughput": 16.0
+  },
+  {
+    "instructions": [
+      "divu x29, x31, x30",
+      "sh x23, 0(x24)",
+      "xori x25, x22, 0",
+      "sra x26, x28, x27"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "lb x30, 0(x31)",
+      "srlw x26, x25, x24",
+      "xori x26, x23, 0",
+      "mulw x27, x29, x28",
+      "remw x18, x31, x6",
+      "auipc x8, 0x8",
+      "lw x8, 8(x17)",
+      "sltiu x21, x26, 8",
+      "lhu x26, -8(x5)",
+      "divuw x17, x3, x21",
+      "srliw x4, x23, 2",
+      "ori x5, x21, -8",
+      "sub x6, x27, x28",
+      "ori x6, x31, 8",
+      "lh x11, 8(x19)",
+      "lwu x19, -8(x15)"
+    ],
+    "throughput": 11.0
+  },
+  {
+    "instructions": [
+      "srl x29, x31, x30",
+      "divuw x31, x7, x12"
+    ],
+    "throughput": 4.0
+  },
+  {
+    "instructions": [
+      "mul x29, x31, x30",
+      "lui x26, 0x0",
+      "ld x26, 0(x25)",
+      "lb x27, 8(x28)",
+      "srlw x19, x0, x16",
+      "subw x8, x4, x1",
+      "lw x19, 8(x13)",
+      "slli x2, x31, 1",
+      "ori x20, x6, 0",
+      "sra x29, x6, x11",
+      "srl x5, x18, x4",
+      "sllw x30, x2, x9",
+      "slliw x1, x7, 18",
+      "lhu x6, 0(x17)",
+      "remw x14, x2, x28",
+      "addw x23, x30, x11",
+      "sd x28, -8(x30)",
+      "slli x24, x18, 53",
+      "sh x0, -8(x3)",
+      "mulhsu x5, x2, x28",
+      "mul x16, x22, x5",
+      "sub x28, x16, x26",
+      "sd x1, 0(x3)",
+      "remuw x14, x1, x22",
+      "add x1, x29, x31",
+      "sltu x15, x6, x17"
+    ],
+    "throughput": 26.0
+  },
+  {
+    "instructions": [
+      "xori x30, x31, 0",
+      "sh x25, -8(x26)",
+      "addw x27, x24, x23",
+      "lwu x28, 8(x29)",
+      "slti x29, x20, 8",
+      "remw x9, x6, x11",
+      "srlw x8, x19, x31",
+      "lwu x8, 0(x7)",
+      "sw x24, 8(x11)",
+      "lh x31, 8(x4)",
+      "lw x23, 8(x30)",
+      "sb x12, 8(x23)",
+      "add x15, x4, x31",
+      "addiw x0, x1, -8",
+      "sub x25, x2, x27",
+      "sb x23, 0(x23)",
+      "sll x19, x18, x14",
+      "srl x25, x6, x5",
+      "addi x22, x21, 0",
+      "divw x23, x23, x29",
+      "sraw x27, x24, x22",
+      "srlw x17, x11, x28",
+      "sra x18, x18, x27",
+      "lhu x8, 8(x11)",
+      "lw x5, -8(x25)",
+      "mulh x7, x18, x10"
+    ],
+    "throughput": 23.0
+  },
+  {
+    "instructions": [
+      "lw x30, -8(x31)",
+      "srlw x31, x12, x24"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "divu x29, x31, x30",
+      "sw x24, 8(x25)",
+      "sw x22, 0(x23)",
+      "xori x27, x28, 0",
+      "sw x3, -8(x15)",
+      "srli x23, x29, 52",
+      "slt x23, x13, x24",
+      "mulw x30, x19, x0",
+      "lui x6, 0x8",
+      "div x25, x2, x27",
+      "lhu x28, -8(x2)",
+      "sra x28, x27, x11",
+      "ori x16, x12, 0",
+      "add x28, x6, x9",
+      "ori x20, x30, 8",
+      "lwu x6, 8(x17)",
+      "sw x15, -8(x8)",
+      "add x30, x13, x1",
+      "lwu x7, 0(x30)",
+      "ld x13, 0(x8)",
+      "rem x19, x28, x29"
+    ],
+    "throughput": 28.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "sll x26, x25, x24",
+      "lw x26, 8(x23)",
+      "ld x27, -8(x28)",
+      "xori x18, x24, 8",
+      "lhu x29, -8(x4)",
+      "remu x12, x2, x21",
+      "lh x10, 8(x10)",
+      "divuw x28, x5, x6",
+      "lhu x3, 0(x6)",
+      "slt x22, x17, x20",
+      "add x30, x7, x6",
+      "sb x21, 0(x5)",
+      "addw x10, x21, x18",
+      "lh x13, 8(x23)",
+      "lhu x31, -8(x8)",
+      "divu x28, x16, x5",
+      "auipc x11, 0x8",
+      "addiw x15, x1, 0",
+      "lb x15, -8(x24)",
+      "andi x6, x0, 8"
+    ],
+    "throughput": 23.0
+  },
+  {
+    "instructions": [
+      "sll x29, x31, x30",
+      "sll x26, x25, x24",
+      "sd x22, 8(x23)",
+      "srai x27, x28, 37",
+      "sraiw x29, x5, 9",
+      "sraiw x29, x31, 30",
+      "sb x8, 8(x24)",
+      "lw x1, 8(x31)",
+      "sb x12, -8(x30)",
+      "srl x14, x3, x28",
+      "lwu x19, 0(x19)",
+      "xor x10, x30, x1",
+      "lb x10, 8(x2)",
+      "sllw x7, x10, x7",
+      "srli x9, x15, 19",
+      "div x9, x19, x25",
+      "slli x17, x22, 56",
+      "remu x0, x0, x26",
+      "rem x9, x4, x4",
+      "lwu x28, -8(x2)",
+      "addi x9, x25, -8"
+    ],
+    "throughput": 38.0
+  },
+  {
+    "instructions": [
+      "andi x30, x31, -8",
+      "mulw x27, x26, x25",
+      "lhu x27, -8(x24)",
+      "ld x28, -8(x29)",
+      "slti x9, x11, 0",
+      "divuw x25, x17, x16",
+      "lw x9, 0(x16)",
+      "sra x23, x29, x9",
+      "sh x11, 8(x14)",
+      "divw x25, x31, x4",
+      "rem x14, x8, x7",
+      "remw x9, x23, x19",
+      "ori x30, x28, -8",
+      "ori x27, x29, 8",
+      "lwu x31, 0(x14)",
+      "sb x18, -8(x14)",
+      "lwu x20, 0(x3)",
+      "mulw x5, x25, x30",
+      "sw x13, 8(x27)",
+      "sd x8, 8(x8)",
+      "addw x16, x12, x22"
+    ],
+    "throughput": 33.0
+  },
+  {
+    "instructions": [
+      "ori x30, x31, 8",
+      "sd x14, 8(x11)"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "srliw x30, x31, 20",
+      "mulh x27, x26, x25",
+      "lb x27, 8(x24)",
+      "slti x28, x29, 8",
+      "auipc x19, 0x8",
+      "mulhu x15, x29, x13",
+      "mulhu x15, x10, x13",
+      "sra x8, x27, x15",
+      "sraiw x18, x27, 13",
+      "sllw x20, x22, x15",
+      "addi x0, x10, -8",
+      "lb x3, -8(x31)",
+      "mulh x20, x9, x24",
+      "sb x2, 8(x29)",
+      "lh x2, -8(x14)",
+      "ld x24, 0(x29)",
+      "sb x7, 8(x2)",
+      "auipc x15, 0x8",
+      "addiw x6, x22, 0",
+      "mul x5, x6, x17",
+      "sw x0, -8(x15)"
+    ],
+    "throughput": 22.0
+  },
+  {
+    "instructions": [
+      "sb x30, 8(x31)",
+      "sltu x25, x24, x23",
+      "xor x25, x22, x21",
+      "sll x26, x28, x27",
+      "srl x27, x23, x28",
+      "lw x2, -8(x14)",
+      "ld x2, 8(x18)",
+      "sll x16, x18, x25",
+      "andi x25, x24, 8",
+      "sw x1, -8(x3)",
+      "ori x31, x17, 0",
+      "srl x5, x14, x2",
+      "divuw x8, x30, x21",
+      "sra x14, x10, x31",
+      "mulh x23, x0, x20",
+      "sb x15, 0(x14)",
+      "addw x26, x29, x6",
+      "srliw x27, x1, 10"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "andi x30, x31, -8",
+      "xor x31, x12, x6"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "srliw x30, x31, 13",
+      "slti x26, x25, -8",
+      "srl x26, x24, x23",
+      "sb x28, 8(x29)",
+      "subw x29, x17, x8",
+      "sub x21, x13, x10",
+      "ori x11, x28, 8",
+      "lw x11, 8(x13)",
+      "srai x21, x16, 30",
+      "mulh x14, x4, x10",
+      "divuw x26, x12, x3",
+      "srli x9, x8, 14",
+      "mulh x16, x14, x20",
+      "sub x19, x8, x14",
+      "mulhu x0, x24, x26",
+      "lb x14, 8(x15)",
+      "sw x0, -8(x15)",
+      "mulw x4, x30, x2"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "mulw x29, x31, x30",
+      "sltiu x26, x25, 8",
+      "lbu x26, 0(x24)",
+      "lh x27, -8(x28)",
+      "ori x16, x29, 8",
+      "lh x2, 0(x12)",
+      "lbu x2, 0(x15)",
+      "add x20, x26, x28",
+      "lhu x2, -8(x7)",
+      "sb x28, -8(x7)",
+      "lwu x17, 0(x6)",
+      "sb x9, 0(x12)",
+      "srai x5, x31, 19",
+      "srl x14, x3, x12",
+      "subw x7, x8, x26",
+      "sw x9, 0(x31)",
+      "lbu x28, -8(x10)",
+      "sraiw x20, x31, 25"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "slt x29, x31, x30",
+      "mulhsu x25, x24, x23",
+      "sb x21, 8(x22)",
+      "sd x27, 0(x28)",
+      "lhu x2, 0(x30)",
+      "auipc x19, 0x8",
+      "slli x18, x19, 62",
+      "auipc x16, 0x8",
+      "sb x14, -8(x4)",
+      "lwu x19, 0(x31)",
+      "lwu x12, 0(x2)",
+      "sllw x25, x19, x31",
+      "divw x23, x2, x7",
+      "srai x12, x29, 7",
+      "div x16, x6, x6",
+      "sub x1, x18, x26",
+      "divuw x1, x3, x16",
+      "auipc x24, 0x8"
+    ],
+    "throughput": 32.0
+  },
+  {
+    "instructions": [
+      "xor x29, x31, x30",
+      "add x26, x25, x24",
+      "divuw x26, x23, x22",
+      "srliw x27, x28, 12",
+      "lwu x15, 0(x16)",
+      "sub x0, x28, x8",
+      "ld x2, -8(x20)",
+      "andi x16, x5, -8",
+      "sh x19, -8(x14)",
+      "sll x28, x12, x14",
+      "lhu x24, 8(x2)",
+      "lwu x29, 8(x2)",
+      "divuw x8, x10, x18",
+      "sll x31, x13, x22",
+      "lwu x4, -8(x28)",
+      "sb x16, 8(x20)",
+      "srlw x25, x1, x2",
+      "remuw x30, x24, x21"
+    ],
+    "throughput": 48.0
+  },
+  {
+    "instructions": [
+      "lh x30, -8(x31)",
+      "sub x31, x24, x5"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "xor x29, x31, x30",
+      "divu x26, x25, x24",
+      "and x26, x23, x22",
+      "auipc x27, 0x0",
+      "addi x18, x15, 0",
+      "sra x5, x6, x14",
+      "divuw x16, x30, x5",
+      "sb x27, 0(x18)",
+      "srliw x16, x17, 31",
+      "lwu x8, -8(x30)",
+      "div x18, x6, x28",
+      "lh x0, 8(x24)",
+      "srli x29, x30, 56",
+      "sllw x8, x31, x14",
+      "lb x18, 8(x4)",
+      "sra x3, x26, x15",
+      "sd x9, -8(x26)",
+      "remw x15, x22, x5"
+    ],
+    "throughput": 29.0
+  },
+  {
+    "instructions": [
+      "and x29, x31, x30",
+      "lwu x26, -8(x25)",
+      "sub x26, x24, x23",
+      "lb x27, 0(x28)",
+      "sub x1, x26, x30",
+      "xori x23, x4, 0",
+      "srai x4, x7, 57",
+      "lbu x5, 8(x21)",
+      "xor x10, x16, x5",
+      "lwu x28, -8(x28)",
+      "slt x6, x0, x19",
+      "xor x18, x1, x10",
+      "slliw x22, x23, 27",
+      "sw x26, -8(x16)",
+      "remw x6, x17, x10",
+      "sub x13, x3, x22",
+      "sltiu x17, x24, -8",
+      "lh x27, 8(x12)"
+    ],
+    "throughput": 12.0
+  },
+  {
+    "instructions": [
+      "srli x30, x31, 63",
+      "lhu x26, 0(x25)",
+      "addw x26, x24, x23",
+      "sw x28, -8(x29)",
+      "slliw x3, x7, 21",
+      "subw x3, x6, x21",
+      "mulw x9, x20, x24",
+      "rem x28, x14, x27",
+      "sraiw x30, x4, 3",
+      "sltiu x2, x8, 8",
+      "add x11, x5, x30",
+      "remw x17, x3, x9",
+      "sh x15, 0(x7)",
+      "lhu x22, 0(x12)",
+      "mulw x15, x12, x9",
+      "slliw x25, x20, 23",
+      "srl x13, x25, x21",
+      "addw x8, x29, x24",
+      "remw x1, x18, x8"
+    ],
+    "throughput": 5507.0
+  },
+  {
+    "instructions": [
+      "ld x30, 0(x31)",
+      "addiw x31, x1, -8"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "lwu x30, 0(x31)",
+      "sll x26, x25, x24",
+      "mulhsu x26, x23, x22",
+      "sltu x27, x29, x28",
+      "remu x15, x21, x26",
+      "srli x6, x23, 17",
+      "lb x25, -8(x12)",
+      "srli x27, x8, 7",
+      "slt x23, x28, x10",
+      "div x7, x4, x0",
+      "lhu x5, 0(x27)",
+      "srai x28, x6, 33",
+      "lh x18, -8(x29)",
+      "slti x20, x15, 8",
+      "sh x29, -8(x15)",
+      "lui x14, 0x0",
+      "xor x23, x28, x19",
+      "sub x5, x11, x20",
+      "sltiu x27, x12, 8"
+    ],
+    "throughput": 17.0
+  },
+  {
+    "instructions": [
+      "lw x30, 0(x31)",
+      "sll x27, x26, x25",
+      "sra x27, x24, x23",
+      "andi x28, x29, -8",
+      "lhu x18, 8(x6)",
+      "srliw x26, x11, 30",
+      "sub x0, x20, x0",
+      "divw x23, x22, x14",
+      "sllw x19, x4, x16",
+      "srlw x24, x30, x4",
+      "slli x14, x8, 48",
+      "rem x29, x26, x2",
+      "and x8, x2, x24",
+      "ori x13, x7, 8",
+      "addiw x6, x0, 8",
+      "remuw x17, x13, x13",
+      "xori x11, x2, 8",
+      "mulh x5, x29, x9",
+      "slti x11, x6, 0"
+    ],
+    "throughput": 22.0
+  },
+  {
+    "instructions": [
+      "sltiu x30, x31, 0",
+      "sra x26, x25, x24",
+      "slliw x26, x23, 6",
+      "mulh x27, x29, x28",
+      "srlw x30, x8, x11",
+      "sltiu x8, x18, 0",
+      "remuw x13, x17, x27",
+      "div x14, x17, x16",
+      "sraiw x21, x16, 27",
+      "andi x1, x17, 8",
+      "sh x0, 8(x6)",
+      "sub x28, x11, x0",
+      "slli x27, x14, 29",
+      "lw x14, 8(x16)",
+      "addiw x6, x30, -8",
+      "div x15, x29, x23",
+      "xor x1, x27, x15",
+      "remu x3, x18, x20",
+      "andi x7, x25, 8"
+    ],
+    "throughput": 21.0
+  },
+  {
+    "instructions": [
+      "sub x29, x31, x30",
+      "add x31, x22, x7"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "lh x30, -8(x31)",
+      "mulw x26, x25, x24",
+      "sll x26, x23, x22",
+      "sh x28, 8(x29)",
+      "addw x10, x9, x26",
+      "xori x10, x13, -8",
+      "srai x19, x11, 59",
+      "sd x15, -8(x13)",
+      "divu x24, x27, x4",
+      "slli x22, x16, 5"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "lui x30, 0x0",
+      "xor x27, x26, x25",
+      "mulh x27, x24, x23",
+      "addiw x28, x29, 8",
+      "auipc x28, 0x8",
+      "ori x28, x10, 0",
+      "ld x29, -8(x19)",
+      "lb x23, 0(x20)",
+      "divuw x30, x29, x18",
+      "slli x16, x12, 20",
+      "slli x31, x6, 35",
+      "lwu x29, 8(x9)",
+      "mulhsu x8, x7, x13",
+      "sw x10, 0(x11)",
+      "remu x23, x0, x25",
+      "ld x3, -8(x21)",
+      "slliw x10, x27, 16",
+      "ld x25, 0(x29)",
+      "mulhu x15, x9, x2",
+      "mulh x16, x26, x26",
+      "srliw x19, x7, 24",
+      "mulw x19, x29, x30",
+      "srai x21, x29, 28",
+      "sh x27, 8(x3)",
+      "and x14, x30, x10",
+      "srai x4, x18, 48",
+      "addiw x1, x0, 0",
+      "sd x5, -8(x12)"
+    ],
+    "throughput": 23.0
+  },
+  {
+    "instructions": [
+      "ld x30, 8(x31)",
+      "lb x26, -8(x25)",
+      "andi x26, x24, -8",
+      "divu x27, x29, x28",
+      "andi x9, x2, 8",
+      "lh x27, 8(x31)",
+      "subw x18, x3, x12",
+      "mulhsu x0, x0, x10",
+      "sb x28, -8(x19)",
+      "srai x27, x6, 63",
+      "srai x30, x15, 31",
+      "ld x8, -8(x2)",
+      "add x23, x30, x4",
+      "srl x26, x25, x14",
+      "mul x21, x16, x8",
+      "sllw x31, x15, x14",
+      "srai x21, x6, 46",
+      "lwu x8, 0(x10)",
+      "ori x30, x14, 0",
+      "lw x4, 0(x15)",
+      "addi x0, x8, 0",
+      "divuw x2, x0, x28",
+      "mul x1, x27, x1",
+      "ld x4, 8(x4)",
+      "sb x20, 8(x23)",
+      "lh x26, 8(x10)",
+      "sd x14, 0(x25)",
+      "rem x19, x25, x17"
+    ],
+    "throughput": 32.0
+  },
+  {
+    "instructions": [
+      "srai x30, x31, 18",
+      "sllw x31, x28, x9"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "addiw x30, x31, 0",
+      "lwu x27, 8(x26)",
+      "remw x27, x25, x24",
+      "srli x28, x29, 56",
+      "slti x0, x7, -8",
+      "ld x4, -8(x18)",
+      "addw x24, x10, x20",
+      "remuw x4, x23, x9",
+      "divw x3, x26, x23",
+      "sll x29, x8, x4",
+      "lbu x23, -8(x9)",
+      "sh x9, 8(x10)",
+      "sd x26, -8(x25)",
+      "lui x13, 0x8",
+      "sh x19, -8(x19)",
+      "mulhu x18, x6, x7",
+      "srli x9, x2, 36",
+      "subw x14, x6, x7",
+      "addi x30, x27, 0",
+      "lui x11, 0x8",
+      "remu x29, x27, x4",
+      "divw x25, x13, x20",
+      "and x3, x12, x5",
+      "divu x12, x25, x13",
+      "srliw x13, x21, 3",
+      "remw x25, x21, x31",
+      "lbu x19, -8(x13)",
+      "lhu x25, 0(x7)"
+    ],
+    "throughput": 49.0
+  },
+  {
+    "instructions": [
+      "srli x30, x31, 8",
+      "lw x26, 8(x25)",
+      "addw x26, x24, x23",
+      "divuw x27, x29, x28",
+      "xori x12, x25, 8",
+      "sw x30, -8(x2)",
+      "sltu x5, x19, x21",
+      "srliw x23, x19, 2",
+      "lb x14, -8(x28)",
+      "andi x26, x8, -8",
+      "ori x30, x23, 8",
+      "xor x5, x10, x9",
+      "andi x0, x13, 0",
+      "lbu x21, 0(x20)",
+      "sllw x19, x5, x23",
+      "remw x18, x7, x26",
+      "addw x27, x11, x17",
+      "addiw x17, x1, 8",
+      "sra x10, x25, x2",
+      "sraw x18, x26, x20",
+      "sll x4, x8, x31",
+      "addiw x12, x8, -8",
+      "and x17, x26, x2",
+      "sraiw x7, x10, 3",
+      "sh x6, -8(x2)",
+      "and x28, x27, x16",
+      "addiw x4, x16, 0",
+      "srliw x16, x2, 20",
+      "ld x31, -8(x18)",
+      "sd x18, -8(x2)",
+      "lw x19, 8(x11)",
+      "sb x28, -8(x8)",
+      "ori x31, x27, -8",
+      "divw x4, x1, x11",
+      "sraw x11, x9, x21",
+      "subw x3, x2, x21",
+      "sltu x12, x2, x28",
+      "sd x20, 0(x20)"
+    ],
+    "throughput": 28.0
+  },
+  {
+    "instructions": [
+      "lwu x30, 0(x31)",
+      "xori x26, x25, -8",
+      "sraiw x26, x24, 18",
+      "sll x27, x29, x28",
+      "sub x1, x5, x30",
+      "sw x17, 0(x16)",
+      "sw x22, 0(x3)",
+      "remu x29, x27, x26",
+      "sllw x7, x7, x8",
+      "srai x22, x26, 25",
+      "srliw x3, x24, 3",
+      "slliw x16, x4, 25",
+      "addiw x2, x2, 0",
+      "lwu x25, 8(x20)",
+      "lw x7, 0(x2)",
+      "andi x21, x16, 8",
+      "ld x24, -8(x5)",
+      "xori x2, x26, 8",
+      "mulhsu x11, x22, x29",
+      "subw x28, x12, x13",
+      "and x0, x11, x11",
+      "slt x7, x24, x31",
+      "add x28, x6, x18",
+      "and x24, x30, x28",
+      "slli x4, x13, 20",
+      "sll x25, x30, x29",
+      "srl x15, x28, x3",
+      "srliw x6, x13, 23",
+      "auipc x0, 0x8",
+      "addi x18, x22, -8",
+      "div x24, x30, x30",
+      "and x2, x0, x24",
+      "sllw x11, x17, x5",
+      "sllw x13, x23, x6",
+      "sd x28, -8(x17)",
+      "srai x17, x3, 1",
+      "lb x15, 8(x10)",
+      "div x21, x22, x27"
+    ],
+    "throughput": 37.0
+  },
+  {
+    "instructions": [
+      "sllw x29, x31, x30",
+      "sd x13, 0(x25)"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "lw x30, 8(x31)",
+      "lwu x31, -8(x9)"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "mulhsu x29, x31, x30",
+      "sraiw x26, x25, 12",
+      "sraw x26, x24, x23",
+      "lh x27, 0(x28)",
+      "andi x2, x7, 0",
+      "lui x10, 0x0",
+      "ld x23, -8(x9)",
+      "sraw x23, x8, x19",
+      "lh x15, 0(x18)",
+      "xor x3, x10, x7",
+      "remu x22, x29, x3",
+      "divu x8, x21, x23",
+      "remw x30, x14, x11",
+      "sra x3, x21, x18",
+      "slliw x0, x28, 25",
+      "slliw x19, x27, 14",
+      "div x16, x4, x8",
+      "lui x7, 0x0",
+      "slt x31, x27, x18",
+      "lwu x15, 0(x20)"
+    ],
+    "throughput": 40.0
+  },
+  {
+    "instructions": [
+      "add x29, x31, x30",
+      "lb x31, 0(x31)"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "lhu x30, 8(x31)",
+      "srai x26, x25, 53",
+      "lh x26, 0(x24)",
+      "slt x27, x29, x28",
+      "subw x13, x21, x0",
+      "ori x22, x21, 0",
+      "sltu x30, x27, x5",
+      "remuw x26, x18, x31",
+      "mul x14, x19, x30",
+      "remw x24, x1, x2",
+      "ld x10, 0(x24)",
+      "lui x25, 0x8",
+      "add x30, x28, x15",
+      "sub x28, x29, x9",
+      "mulhsu x24, x1, x28",
+      "mulhu x1, x13, x20",
+      "addw x5, x16, x23",
+      "xori x25, x31, -8",
+      "sub x7, x2, x23",
+      "lh x26, 0(x8)"
+    ],
+    "throughput": 18.0
+  },
+  {
+    "instructions": [
+      "div x29, x31, x30",
+      "xor x26, x25, x24",
+      "sh x22, 0(x23)",
+      "lw x27, 8(x28)",
+      "sub x8, x31, x24",
+      "add x2, x18, x25",
+      "sd x31, -8(x15)",
+      "slli x20, x8, 2",
+      "lhu x18, 0(x10)",
+      "sraw x25, x2, x11",
+      "ld x21, -8(x13)",
+      "sra x0, x28, x23",
+      "sraw x7, x0, x4",
+      "mulh x18, x13, x9",
+      "sll x17, x16, x25",
+      "lwu x16, 0(x1)",
+      "lui x3, 0x0",
+      "srli x21, x18, 23",
+      "lb x10, 8(x22)",
+      "div x4, x30, x0"
+    ],
+    "throughput": 18.0
+  },
+  {
+    "instructions": [
+      "lh x30, 8(x31)",
+      "xori x27, x26, -8",
+      "sraw x27, x25, x24",
+      "xori x28, x29, 0",
+      "sw x12, 8(x21)",
+      "sb x0, 0(x28)",
+      "sll x11, x4, x23",
+      "sd x16, -8(x19)",
+      "lui x5, 0x8",
+      "mulhu x21, x19, x27",
+      "remuw x18, x13, x28",
+      "sh x9, 8(x6)",
+      "rem x4, x13, x23",
+      "lb x12, 0(x10)",
+      "lui x0, 0x0",
+      "srai x20, x16, 53",
+      "mulw x0, x1, x3",
+      "srliw x26, x31, 20",
+      "divuw x8, x9, x27",
+      "divuw x19, x8, x9"
+    ],
+    "throughput": 25.0
+  },
+  {
+    "instructions": [
+      "sh x30, 8(x31)",
+      "srl x25, x24, x23",
+      "sub x25, x22, x21",
+      "divw x26, x28, x27",
+      "lh x3, -8(x1)",
+      "addiw x14, x31, 0",
+      "slliw x6, x16, 9",
+      "sb x31, -8(x6)",
+      "sllw x6, x6, x11",
+      "sub x18, x21, x29",
+      "remw x10, x2, x31",
+      "srlw x29, x28, x26",
+      "ld x17, 0(x11)",
+      "slti x19, x30, 8",
+      "add x11, x15, x13",
+      "srl x9, x24, x6",
+      "ori x16, x3, -8",
+      "rem x21, x5, x8",
+      "divuw x19, x3, x16",
+      "sw x23, 8(x30)"
+    ],
+    "throughput": 27.0
+  },
+  {
+    "instructions": [
+      "remw x29, x31, x30",
+      "mulhu x25, x24, x23",
+      "lhu x25, 0(x22)",
+      "sd x27, 8(x28)",
+      "sub x18, x5, x2",
+      "sh x18, 0(x20)",
+      "srli x2, x29, 40",
+      "addi x25, x9, 0",
+      "xori x6, x30, 8",
+      "sltiu x4, x28, 0",
+      "mulw x14, x31, x28",
+      "andi x2, x6, -8",
+      "sw x12, 8(x21)",
+      "sb x25, -8(x12)",
+      "lwu x19, 0(x10)",
+      "lw x1, 0(x20)",
+      "addiw x24, x12, -8",
+      "divu x21, x2, x5",
+      "lhu x8, 0(x9)",
+      "lhu x22, -8(x27)"
+    ],
+    "throughput": 26.0
+  },
+  {
+    "instructions": [
+      "lwu x30, -8(x31)",
+      "ori x31, x4, 0"
+    ],
+    "throughput": 2.0
+  },
+  {
+    "instructions": [
+      "slt x29, x31, x30",
+      "lbu x25, -8(x24)",
+      "mulh x25, x23, x22",
+      "mulhu x26, x28, x27",
+      "ori x22, x8, 8",
+      "lh x13, 8(x5)",
+      "srlw x12, x14, x28",
+      "xori x31, x16, -8",
+      "sd x20, -8(x28)",
+      "lui x29, 0x8",
+      "divu x27, x17, x30",
+      "srai x0, x26, 6",
+      "srliw x20, x16, 7",
+      "addi x7, x13, 8",
+      "sltiu x28, x2, 0",
+      "sll x15, x19, x19",
+      "sltu x17, x18, x12",
+      "addiw x31, x26, 0",
+      "and x17, x13, x28",
+      "lh x22, -8(x3)"
+    ],
+    "throughput": 16.0
+  },
+  {
+    "instructions": [
+      "div x29, x31, x30",
+      "auipc x26, 0x8",
+      "sltiu x26, x25, 0",
+      "slti x27, x28, 8",
+      "addi x25, x8, 0",
+      "mul x22, x22, x22",
+      "sll x31, x11, x28",
+      "sd x7, 8(x11)",
+      "lwu x31, 0(x28)",
+      "sllw x10, x4, x30",
+      "slti x0, x4, 8",
+      "slliw x9, x25, 6",
+      "slli x26, x13, 33",
+      "xori x16, x15, 8",
+      "mulh x19, x4, x22",
+      "addw x16, x15, x0",
+      "sraiw x8, x4, 15",
+      "sb x25, 8(x17)",
+      "and x3, x28, x2",
+      "slt x0, x13, x30"
+    ],
+    "throughput": 14.0
+  },
+  {
+    "instructions": [
+      "xor x29, x31, x30",
+      "lw x25, 0(x24)",
+      "subw x25, x23, x22",
+      "sraw x26, x28, x27",
+      "subw x23, x18, x6",
+      "sub x0, x7, x17",
+      "lh x27, 8(x15)",
+      "srlw x24, x23, x9",
+      "slli x1, x1, 33",
+      "lwu x18, 0(x16)",
+      "auipc x26, 0x0",
+      "mulhu x25, x17, x23",
+      "sh x14, -8(x7)",
+      "srai x26, x30, 18",
+      "lh x20, 8(x3)",
+      "sra x9, x15, x20",
+      "srlw x10, x14, x19",
+      "lwu x4, -8(x2)",
+      "divuw x22, x25, x21",
+      "mulw x20, x11, x11"
+    ],
+    "throughput": 15.0
+  },
+  {
+    "instructions": [
+      "sub x29, x31, x30",
+      "srl x26, x25, x24",
+      "addi x26, x23, -8",
+      "addi x27, x28, -8",
+      "lhu x15, 0(x8)",
+      "lbu x21, 0(x2)",
+      "divu x7, x7, x16",
+      "addw x30, x6, x8",
+      "srli x4, x18, 4",
+      "sltu x16, x22, x19",
+      "sh x7, 0(x31)",
+      "slt x29, x12, x1",
+      "srliw x3, x2, 3",
+      "ld x28, 0(x6)",
+      "srli x21, x14, 37",
+      "add x10, x1, x26",
+      "divw x10, x29, x31",
+      "sltu x23, x12, x7",
+      "slli x19, x13, 5",
+      "lb x16, 0(x28)"
+    ],
+    "throughput": 20.0
+  },
+  {
+    "instructions": [
+      "divu x29, x31, x30",
+      "xori x26, x25, -8",
+      "srai x26, x24, 12",
+      "sraiw x27, x28, 26",
+      "mulhu x7, x11, x20",
+      "slli x3, x11, 8",
+      "lh x8, 0(x8)",
+      "mulhsu x15, x4, x8",
+      "srai x22, x30, 62",
+      "sw x17, 8(x19)",
+      "mulhsu x5, x22, x18",
+      "sraiw x30, x26, 17",
+      "xor x8, x8, x17",
+      "lhu x9, 0(x2)",
+      "remuw x4, x23, x22",
+      "sd x1, 0(x28)",
+      "sd x31, 0(x12)",
+      "srl x31, x3, x24",
+      "addi x19, x10, -8",
+      "mulw x18, x17, x16"
+    ],
+    "throughput": 17.0
+  },
+  {
+    "instructions": [
+      "addw x29, x31, x30",
+      "sraiw x25, x24, 14",
+      "slt x25, x23, x22",
+      "sllw x26, x28, x27",
+      "lhu x28, 8(x1)",
+      "sllw x23, x1, x7",
+      "lb x11, -8(x21)",
+      "mulhsu x25, x5, x22",
+      "sraiw x27, x6, 28",
+      "lw x15, 0(x14)",
+      "sd x23, 8(x13)",
+      "addiw x29, x6, -8",
+      "divuw x22, x23, x21",
+      "rem x21, x3, x7",
+      "xori x19, x6, 0",
+      "subw x13, x2, x23",
+      "and x14, x23, x28",
+      "divw x15, x0, x27",
+      "sd x3, 8(x3)",
+      "divu x22, x14, x30"
+    ],
+    "throughput": 27.0
+  },
+  {
+    "instructions": [
+      "remuw x29, x31, x30",
+      "sll x31, x27, x20"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "lhu x30, -8(x31)",
+      "remu x26, x25, x24",
+      "srlw x26, x23, x22",
+      "sra x27, x29, x28",
+      "addw x5, x20, x13",
+      "sraw x8, x12, x0",
+      "subw x29, x13, x11",
+      "sraiw x27, x24, 29",
+      "sw x31, 8(x25)",
+      "mulw x28, x14, x13",
+      "and x31, x8, x1",
+      "remu x4, x19, x2",
+      "ld x11, 0(x4)",
+      "lb x5, -8(x19)",
+      "slti x3, x30, -8",
+      "sh x24, 0(x18)",
+      "srl x8, x28, x24",
+      "sub x0, x25, x4",
+      "lwu x14, 0(x18)",
+      "divu x30, x21, x13",
+      "remw x10, x24, x13",
+      "lb x17, 8(x26)",
+      "lh x22, 0(x21)",
+      "and x3, x27, x5",
+      "sub x29, x28, x26",
+      "auipc x27, 0x8",
+      "divu x28, x22, x17",
+      "mulw x3, x4, x8",
+      "add x7, x30, x23",
+      "ld x1, 8(x19)"
+    ],
+    "throughput": 36.0
+  },
+  {
+    "instructions": [
+      "sltu x29, x31, x30",
+      "remw x25, x24, x23",
+      "ori x25, x22, 8",
+      "div x26, x28, x27",
+      "sll x5, x22, x26",
+      "sraw x6, x0, x13",
+      "remu x5, x18, x5",
+      "sw x0, 8(x16)",
+      "mulhsu x19, x3, x30",
+      "mulhsu x13, x14, x4",
+      "slti x28, x21, 8",
+      "xor x2, x22, x18",
+      "lb x29, -8(x17)",
+      "lwu x6, -8(x7)",
+      "srai x31, x5, 23",
+      "subw x15, x23, x12",
+      "add x14, x9, x26",
+      "sd x17, 0(x25)",
+      "lui x6, 0x0",
+      "addiw x9, x9, 8",
+      "and x16, x23, x2",
+      "lh x14, 8(x23)",
+      "ori x4, x26, 8",
+      "slliw x27, x27, 7",
+      "sd x17, 0(x30)",
+      "remu x16, x3, x25",
+      "ori x30, x1, -8"
+    ],
+    "throughput": 35.0
+  },
+  {
+    "instructions": [
+      "srli x30, x31, 22",
+      "mulh x31, x29, x24"
+    ],
+    "throughput": 3.0
+  },
+  {
+    "instructions": [
+      "sllw x29, x31, x30",
+      "lb x25, -8(x24)",
+      "xori x25, x23, -8",
+      "and x26, x28, x27",
+      "mulw x11, x17, x29",
+      "srli x22, x26, 3",
+      "xor x10, x1, x26",
+      "ld x5, 8(x16)",
+      "slli x13, x18, 49",
+      "divuw x8, x0, x23",
+      "srli x0, x18, 27",
+      "andi x20, x19, 0",
+      "addw x25, x30, x22",
+      "slt x12, x12, x16",
+      "slt x26, x2, x11",
+      "lwu x11, 8(x5)",
+      "ori x24, x23, 8",
+      "lw x1, 0(x4)",
+      "sltiu x26, x11, 0",
+      "lhu x11, -8(x27)",
+      "sw x8, 0(x23)",
+      "srai x18, x6, 8",
+      "srl x13, x7, x13",
+      "xor x30, x20, x9",
+      "sw x15, 8(x31)",
+      "srliw x29, x22, 26",
+      "subw x2, x15, x5"
+    ],
+    "throughput": 15.0
+  },
+  {
+    "instructions": [
+      "sh x30, 8(x31)",
+      "lb x31, 8(x28)"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "xori x30, x31, 8",
+      "lb x26, 0(x25)",
+      "addi x26, x24, 8",
+      "srl x27, x29, x28",
+      "sll x20, x12, x26",
+      "mulhu x9, x16, x17",
+      "slt x23, x22, x0",
+      "addiw x19, x28, -8",
+      "lwu x28, -8(x21)",
+      "mulhu x5, x13, x23",
+      "sw x16, 0(x16)",
+      "addiw x31, x6, -8",
+      "xori x15, x6, -8",
+      "addi x5, x26, 0",
+      "ld x1, 8(x8)",
+      "sraw x31, x20, x31",
+      "remw x2, x9, x17",
+      "add x18, x24, x30",
+      "remuw x18, x23, x13",
+      "rem x13, x5, x31",
+      "lwu x22, 0(x10)",
+      "mulh x22, x3, x0",
+      "auipc x4, 0x8",
+      "divuw x16, x5, x18",
+      "and x6, x26, x7",
+      "auipc x14, 0x8",
+      "slti x6, x5, 0"
+    ],
+    "throughput": 36.0
+  },
+  {
+    "instructions": [
+      "addi x30, x31, 8",
+      "mul x26, x25, x24",
+      "addw x26, x23, x22",
+      "mul x27, x29, x28",
+      "sb x15, 0(x6)",
+      "xor x25, x3, x23",
+      "lb x23, 8(x28)",
+      "auipc x28, 0x0",
+      "sraw x11, x7, x14",
+      "slli x23, x2, 55",
+      "and x17, x16, x16",
+      "lhu x20, -8(x6)",
+      "add x16, x26, x16",
+      "sd x23, 8(x3)",
+      "ld x23, 8(x9)",
+      "ld x11, 0(x29)",
+      "sra x7, x27, x19",
+      "mul x7, x19, x4",
+      "sraw x2, x30, x15",
+      "addw x27, x27, x11",
+      "sllw x29, x7, x20",
+      "add x29, x22, x10",
+      "slli x9, x18, 63",
+      "srliw x16, x13, 3",
+      "mul x13, x2, x24",
+      "slt x11, x10, x24",
+      "sraiw x21, x15, 17"
+    ],
+    "throughput": 25.0
+  },
+  {
+    "instructions": [
+      "mulhsu x29, x31, x30",
+      "xori x31, x25, 0"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "mulw x29, x31, x30",
+      "lw x31, 8(x26)"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "lwu x30, 0(x31)",
+      "add x26, x25, x24",
+      "srliw x26, x23, 23",
+      "mulhu x27, x29, x28",
+      "remu x14, x12, x4",
+      "andi x4, x18, 8",
+      "xori x27, x22, 8",
+      "sra x25, x25, x1",
+      "srl x1, x29, x22",
+      "auipc x26, 0x8"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "slliw x30, x31, 28",
+      "sra x26, x25, x24",
+      "srl x26, x23, x22",
+      "sh x28, 8(x29)",
+      "srl x1, x0, x6",
+      "addw x25, x30, x19",
+      "lb x31, 8(x24)",
+      "sw x22, 0(x4)"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "mulhsu x29, x31, x30",
+      "remw x26, x25, x24",
+      "subw x26, x23, x22",
+      "srli x27, x28, 3",
+      "lwu x7, 8(x7)",
+      "lb x1, 8(x5)",
+      "ori x12, x18, 8",
+      "ld x3, -8(x3)"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "ori x30, x31, 8",
+      "lb x26, -8(x25)",
+      "sd x23, 8(x24)",
+      "mul x27, x29, x28",
+      "sh x14, -8(x4)",
+      "sra x21, x7, x22",
+      "lwu x13, 0(x18)",
+      "mulhu x29, x9, x18"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "xori x30, x31, 0",
+      "lui x26, 0x8",
+      "lh x26, 8(x25)",
+      "sra x27, x29, x28",
+      "srai x23, x31, 62",
+      "ld x17, 0(x11)",
+      "sll x16, x27, x6",
+      "lui x21, 0x8"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "lb x30, -8(x31)",
+      "sllw x26, x25, x24",
+      "ld x26, 0(x23)",
+      "sd x28, 0(x29)",
+      "ld x14, 8(x10)",
+      "sra x18, x15, x22",
+      "slti x23, x13, 0",
+      "ori x8, x8, 8"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "sb x30, 0(x31)",
+      "lw x25, -8(x24)",
+      "remuw x25, x23, x22",
+      "rem x26, x28, x27",
+      "mul x11, x27, x2",
+      "sraw x13, x2, x12",
+      "ld x6, 0(x7)",
+      "xor x22, x7, x17"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "lw x30, 8(x31)",
+      "srl x27, x26, x25",
+      "remu x27, x24, x23",
+      "lb x28, -8(x29)",
+      "lb x25, 8(x6)",
+      "lh x6, 0(x1)",
+      "slt x5, x6, x2",
+      "xori x30, x11, 8"
+    ],
+    "throughput": 11.0
+  },
+  {
+    "instructions": [
+      "lw x30, 0(x31)",
+      "lui x26, 0x8",
+      "auipc x26, 0x8",
+      "sltu x27, x29, x28",
+      "sraiw x4, x24, 20",
+      "sraw x26, x6, x20",
+      "sh x26, -8(x9)",
+      "sraiw x28, x19, 4"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "sd x30, -8(x31)",
+      "srlw x25, x24, x23",
+      "xori x25, x22, 0",
+      "add x26, x28, x27",
+      "lw x24, -8(x10)",
+      "ori x31, x26, -8",
+      "srl x1, x22, x3",
+      "addi x15, x26, 0"
+    ],
+    "throughput": 5.0
+  },
+  {
+    "instructions": [
+      "lui x30, 0x0",
+      "and x27, x26, x25",
+      "remuw x27, x24, x23",
+      "addiw x28, x29, 8",
+      "divw x27, x10, x27",
+      "lui x9, 0x8",
+      "lw x8, 8(x5)",
+      "lhu x29, 8(x31)"
+    ],
+    "throughput": 11.0
+  },
+  {
+    "instructions": [
+      "sltu x29, x31, x30",
+      "sh x24, 0(x25)",
+      "addi x26, x23, 8",
+      "lb x27, -8(x28)",
+      "lhu x30, 0(x14)",
+      "ld x27, 0(x3)",
+      "sb x20, 8(x24)",
+      "remuw x21, x9, x25"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "andi x30, x31, 0",
+      "sllw x26, x25, x24",
+      "andi x26, x23, 0",
+      "sll x27, x29, x28",
+      "rem x17, x5, x12",
+      "lbu x28, 8(x4)",
+      "and x4, x16, x16",
+      "sllw x13, x10, x18"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "slt x29, x31, x30",
+      "remw x26, x25, x24",
+      "sllw x26, x23, x22",
+      "srai x27, x28, 10",
+      "srli x30, x23, 35",
+      "addiw x19, x26, 0",
+      "sra x25, x11, x24",
+      "addw x12, x12, x1"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "srlw x29, x31, x30",
+      "xori x26, x25, 8",
+      "sra x26, x24, x23",
+      "lui x27, 0x0",
+      "and x7, x12, x28",
+      "sd x9, -8(x26)",
+      "mul x26, x19, x17",
+      "slt x12, x27, x2"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "lui x25, 0x0",
+      "sra x25, x24, x23",
+      "mulh x26, x28, x27",
+      "xori x1, x31, 8",
+      "ld x4, 8(x31)",
+      "lwu x19, 8(x12)",
+      "lh x9, 8(x15)"
+    ],
+    "throughput": 9.0
+  },
+  {
+    "instructions": [
+      "lh x30, -8(x31)",
+      "lb x26, -8(x25)",
+      "lui x26, 0x8",
+      "sraw x27, x29, x28",
+      "lh x31, 8(x25)",
+      "xori x4, x9, -8",
+      "add x27, x16, x9",
+      "lw x11, -8(x2)"
+    ],
+    "throughput": 6.0
+  },
+  {
+    "instructions": [
+      "sll x29, x31, x30",
+      "ld x25, 0(x24)",
+      "sub x25, x23, x22",
+      "srlw x26, x28, x27",
+      "mulhu x30, x28, x27",
+      "div x0, x1, x3",
+      "sraw x19, x13, x14",
+      "mulhu x9, x26, x7"
+    ],
+    "throughput": 7.0
+  },
+  {
+    "instructions": [
+      "addiw x30, x31, 8",
+      "sh x24, 8(x25)",
+      "remuw x26, x23, x22",
+      "subw x27, x29, x28",
+      "divuw x11, x18, x10",
+      "sw x15, -8(x14)",
+      "sw x0, 8(x19)",
+      "remw x11, x17, x20",
+      "xor x3, x2, x2",
+      "subw x13, x15, x4",
+      "lwu x23, -8(x22)",
+      "sd x22, 0(x4)",
+      "lb x16, -8(x25)",
+      "xor x14, x23, x24",
+      "srliw x8, x25, 10",
+      "slti x30, x19, 0",
+      "sw x31, -8(x5)",
+      "lhu x22, 8(x29)",
+      "sllw x2, x20, x24",
+      "auipc x28, 0x0",
+      "lhu x18, -8(x20)",
+      "add x9, x6, x14",
+      "xor x7, x8, x4",
+      "divw x19, x23, x12"
+    ],
+    "throughput": 20.0
+  },
+  {
+    "instructions": [
+      "div x29, x31, x30",
+      "slt x25, x24, x23",
+      "lw x25, -8(x22)",
+      "mulhsu x26, x28, x27",
+      "sltiu x28, x12, 8",
+      "slli x25, x14, 3",
+      "rem x12, x30, x17",
+      "sra x30, x6, x5",
+      "lwu x8, -8(x22)",
+      "and x3, x23, x30",
+      "add x1, x29, x14",
+      "remuw x12, x15, x24",
+      "remuw x19, x9, x4",
+      "subw x5, x26, x18",
+      "sh x28, 0(x3)",
+      "sraw x24, x31, x3",
+      "divu x5, x19, x22",
+      "srlw x4, x30, x31",
+      "srliw x11, x12, 4",
+      "sll x3, x29, x11",
+      "sltu x9, x3, x8",
+      "lhu x30, -8(x2)",
+      "andi x1, x4, 8",
+      "add x24, x16, x13"
+    ],
+    "throughput": 30.0
+  },
+  {
+    "instructions": [
+      "sh x30, 8(x31)",
+      "sw x24, -8(x25)",
+      "sd x22, 0(x23)",
+      "lh x27, 0(x28)",
+      "divuw x11, x7, x18",
+      "addw x20, x13, x26",
+      "addiw x9, x3, 0",
+      "lwu x25, 0(x13)",
+      "addi x8, x16, 0",
+      "div x19, x15, x1",
+      "lbu x31, 8(x3)",
+      "sd x6, 0(x14)",
+      "slli x11, x27, 51",
+      "lbu x17, 8(x20)",
+      "slliw x28, x0, 26",
+      "sh x28, -8(x18)",
+      "slt x11, x14, x7",
+      "add x25, x1, x10",
+      "sraw x10, x1, x18",
+      "xori x9, x8, 8",
+      "lh x27, 8(x12)",
+      "andi x10, x27, -8",
+      "mulhu x31, x14, x23",
+      "lb x11, 8(x18)"
+    ],
+    "throughput": 18.0
+  },
+  {
+    "instructions": [
+      "divuw x29, x31, x30",
+      "sd x23, 8(x24)",
+      "xori x25, x22, -8",
+      "slt x26, x28, x27",
+      "lwu x6, 8(x8)",
+      "and x5, x21, x18",
+      "srliw x11, x28, 17",
+      "slli x22, x25, 33",
+      "divuw x1, x31, x12",
+      "lw x25, -8(x3)"
+    ],
+    "throughput": 10.0
+  },
+  {
+    "instructions": [
+      "addiw x30, x31, 0",
+      "sll x26, x25, x24",
+      "srliw x26, x23, 20",
+      "sllw x27, x29, x28",
+      "slliw x24, x0, 5",
+      "slliw x19, x5, 13",
+      "divuw x8, x4, x31",
+      "sb x26, -8(x20)",
+      "mulh x18, x12, x23",
+      "srlw x21, x27, x2",
+      "xori x4, x7, 0",
+      "remuw x15, x4, x19",
+      "lhu x30, 0(x20)",
+      "srl x3, x16, x10",
+      "srli x18, x7, 34",
+      "sw x31, -8(x29)",
+      "add x10, x15, x22",
+      "addw x23, x15, x0",
+      "divw x19, x25, x12",
+      "addw x25, x12, x19",
+      "lh x8, -8(x29)",
+      "lhu x10, 8(x6)",
+      "srl x22, x23, x8",
+      "xor x12, x21, x15"
+    ],
+    "throughput": 28.0
+  },
+  {
+    "instructions": [
+      "xori x30, x31, 8",
+      "sh x25, 8(x26)",
+      "sltiu x27, x24, 0",
+      "lhu x28, 8(x29)",
+      "sb x27, 0(x2)",
+      "div x2, x4, x20",
+      "remu x29, x7, x7",
+      "lhu x19, 8(x23)",
+      "lwu x17, 8(x21)",
+      "mul x27, x5, x26",
+      "sub x31, x6, x29",
+      "ori x29, x6, 8",
+      "srlw x22, x4, x10",
+      "remuw x3, x9, x1",
+      "rem x6, x18, x15",
+      "lhu x10, 8(x25)",
+      "lw x12, -8(x9)",
+      "ori x15, x10, -8",
+      "addw x21, x26, x31",
+      "lb x1, 8(x31)",
+      "auipc x0, 0x0",
+      "div x23, x18, x25",
+      "sraw x7, x2, x10",
+      "subw x17, x10, x19"
+    ],
+    "throughput": 35.0
+  },
+  {
+    "instructions": [
+      "srlw x29, x31, x30",
+      "sll x26, x25, x24",
+      "lb x26, 0(x23)",
+      "slti x27, x28, 0",
+      "divuw x18, x26, x12",
+      "divu x0, x7, x11",
+      "srai x24, x17, 0",
+      "addi x13, x4, 0",
+      "sraiw x28, x16, 9",
+      "add x19, x15, x21",
+      "lh x5, 0(x31)",
+      "addi x18, x11, -8",
+      "ori x26, x12, -8",
+      "sub x0, x24, x21",
+      "lh x25, 0(x31)",
+      "sraiw x8, x28, 9",
+      "add x16, x1, x5",
+      "mulw x2, x26, x7",
+      "remu x10, x24, x2",
+      "ld x17, 8(x18)",
+      "slt x23, x18, x6",
+      "srliw x23, x25, 6",
+      "lbu x30, -8(x3)",
+      "srliw x0, x1, 24"
+    ],
+    "throughput": 24.0
+  },
+  {
+    "instructions": [
+      "lwu x30, -8(x31)",
+      "sraiw x27, x26, 10",
+      "sd x24, 8(x25)",
+      "slti x28, x29, -8",
+      "sd x12, 0(x8)",
+      "ld x28, 8(x2)",
+      "lh x3, 8(x16)",
+      "sllw x8, x30, x24",
+      "lb x29, 8(x3)",
+      "srliw x8, x31, 1"
+    ],
+    "throughput": 8.0
+  },
+  {
+    "instructions": [
+      "lwu x30, 8(x31)",
+      "sll x26, x25, x24",
+      "sra x26, x23, x22",
+      "sub x27, x29, x28",
+      "lb x13, 0(x25)",
+      "lui x18, 0x8",
+      "sraiw x5, x8, 25",
+      "slti x1, x0, -8",
+      "xor x30, x21, x28",
+      "and x19, x31, x14",
+      "slliw x21, x11, 24",
+      "sraw x16, x19, x4",
+      "sra x3, x28, x13",
+      "sub x19, x6, x21",
+      "srai x11, x19, 29",
+      "srlw x29, x7, x14",
+      "addi x16, x8, 8",
+      "lui x9, 0x0",
+      "sd x29, -8(x25)",
+      "sub x18, x6, x2",
+      "sll x4, x9, x11",
+      "slliw x30, x17, 13",
+      "mulhu x16, x29, x1",
+      "mulhsu x22, x22, x12"
+    ],
+    "throughput": 17.0
+  },
+  {
+    "instructions": [
+      "div x29, x31, x30",
+      "ori x26, x25, -8",
+      "srliw x26, x24, 20",
+      "ld x27, -8(x28)",
+      "mulh x24, x6, x17",
+      "divw x3, x2, x20",
+      "slti x25, x25, -8",
+      "mulhsu x30, x17, x22",
+      "slti x8, x11, 8",
+      "lh x0, -8(x5)",
+      "sraw x8, x3, x20",
+      "sllw x5, x19, x24",
+      "lwu x31, 0(x19)",
+      "remu x16, x2, x31",
+      "sllw x10, x28, x1"
+    ],
+    "throughput": 23.0
+  },
+  {
+    "instructions": [
+      "xori x30, x31, 0",
+      "slli x26, x25, 18",
+      "lui x26, 0x8",
+      "div x27, x29, x28",
+      "auipc x19, 0x0",
+      "lhu x16, -8(x20)",
+      "sltiu x30, x5, 0",
+      "sllw x4, x31, x23",
+      "lbu x26, 0(x7)",
+      "mulhu x18, x28, x22",
+      "lb x4, -8(x17)",
+      "add x0, x19, x0",
+      "divw x1, x10, x1",
+      "and x26, x19, x8",
+      "subw x24, x1, x24"
+    ],
+    "throughput": 13.0
+  },
+  {
+    "instructions": [
+      "lhu x30, -8(x31)",
+      "auipc x27, 0x8",
+      "mulw x27, x26, x25",
+      "sraiw x28, x29, 6",
+      "divuw x10, x10, x25",
+      "mulw x10, x19, x13",
+      "sd x1, 0(x23)",
+      "and x17, x15, x28",
+      "srliw x11, x2, 25",
+      "xor x22, x25, x4",
+      "ld x8, 0(x7)",
+      "auipc x24, 0x0",
+      "lb x1, 0(x16)",
+      "div x11, x7, x20",
+      "div x10, x4, x0"
+    ],
+    "throughput": 20.0
+  },
+  {
+    "instructions": [
+      "divu x29, x31, x30",
+      "sra x25, x24, x23",
+      "lhu x25, 8(x22)",
+      "mulw x26, x28, x27",
+      "sh x7, 0(x28)",
+      "srlw x5, x20, x4",
+      "ori x16, x18, 0",
+      "sltiu x18, x20, 0",
+      "sll x20, x4, x4",
+      "sraiw x16, x3, 19",
+      "lb x17, 8(x17)",
+      "xori x31, x22, 0",
+      "sb x21, -8(x8)",
+      "lwu x9, -8(x23)",
+      "sw x20, 0(x26)"
+    ],
+    "throughput": 19.0
+  }
+]

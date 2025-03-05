@@ -23,29 +23,7 @@ class RISCVDataset(Dataset):
     def __len__(self) -> int:
         """返回数据集大小"""
         return self.num_samples
-    
-    # def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
-    #     """
-    #     获取数据集中的一个样本
-    #
-    #     Args:
-    #         idx: 样本索引
-    #
-    #     Returns:
-    #         包含特征和标签的字典
-    #     """
-    #     # 打开HDF5文件
-    #     with h5py.File(self.h5_path, 'r') as f:
-    #         # 获取特征和标签
-    #         X = torch.tensor(f['X'][idx], dtype=torch.long)
-    #         instruction_count = torch.tensor(f['instruction_counts'][idx], dtype=torch.long)
-    #         Y = torch.tensor(f['Y'][idx], dtype=torch.float)
-    #
-    #     return {
-    #         'X': X,
-    #         'instruction_count': instruction_count,
-    #         'Y': Y
-    #     }
+
     def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
         """
         获取数据集中的一个样本

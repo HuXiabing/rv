@@ -1,22 +1,11 @@
 from .base_model import BaseModel
 from .transformer_model import TransformerModel
-from .lstm_model import LSTMModel
+# from .lstm_model import LSTMModel
+from .lstm_model import Fasthemal
 from .gnn_model import GNNModel
 from .layers import GraphAttentionLayer
 from .model_registry import get_model, register_model, list_available_models
-
-from .Ithemal import (
-    AbstractGraphModule,
-    GraphNN,
-    RNN,
-    Fasthemal,
-    BatchRNN,
-    ReductionType,
-    NonlinearityType,
-    RnnHierarchyType,
-    RnnType
-)
-
+from .Ithemal import AbstractGraphModule
 from .DeepPM import DeepPM
 from .deeppm_transformer import DeePPMTransformerEncoder, DeepPMTransformerEncoderLayer
 from .deeppm_basic_blocks import DeepPMBasicBlock, DeepPMSeq, DeepPMOp
@@ -31,7 +20,7 @@ from .graph_encoder import RISCVGraphEncoder
 __all__ = [
     'BaseModel',
     'TransformerModel',
-    'LSTMModel',
+    'Fasthemal',
     'GNNModel',
     'GraphAttentionLayer',
     'get_model',
@@ -45,14 +34,6 @@ __all__ = [
     'DeepPMOp',
     'CustomSelfAttention',
     'AbstractGraphModule',
-    'GraphNN',
-    'RNN',
-    'Fasthemal',
-    'BatchRNN',
-    'ReductionType',
-    'NonlinearityType',
-    'RnnHierarchyType',
-    'RnnType',
     'RISCVGraniteModel',
     'GraphNeuralNetwork',
     'MessagePassingLayer',

@@ -33,14 +33,6 @@ ITHEMAL_CONFIG = {
     "dropout": 0.1,
 }
 
-# # GNN模型默认配置
-# GNN_CONFIG = {
-#     "model_type": "gnn",
-#     "embed_dim": 128,
-#     "hidden_dim": 256,
-#     "num_layers": 3,
-#     "dropout": 0.1,
-# }
 # GNN模型默认配置 (为GRANITE更新)
 GNN_CONFIG = {
     "model_type": "gnn",
@@ -54,8 +46,8 @@ GNN_CONFIG = {
 
 # 数据处理默认配置
 DATA_CONFIG = {
-    "max_instr_length": 20,
-    "max_instr_count": 20,
+    "max_instr_length": 8,
+    "max_instr_count": 200,
     "vocab_size": 2000,
 }
 
@@ -76,7 +68,7 @@ DEFAULT_CONFIG = {
     **DATA_CONFIG,
     **TRAINING_CONFIG,
     "output_dir": "outputs",
-    "experiment_name": "default",
+    "experiment_name": "test",
     "seed": 42,
     "verbose": True,
     "save_best_only": True,

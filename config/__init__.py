@@ -18,11 +18,11 @@ def get_config(model_type="transformer", **kwargs):
     if model_type == "transformer":
         config_dict.update(TRANSFORMER_CONFIG)
     elif model_type == "lstm":
-        config_dict.update(LSTM_CONFIG)
+        config_dict.update(ITHEMAL_CONFIG)
     elif model_type == "gnn":
         config_dict.update(GNN_CONFIG)
-    elif model_type == "ithemal":
-        config_dict.update(ITHEMAL_CONFIG)
+    # elif model_type == "ithemal":
+    #     config_dict.update(ITHEMAL_CONFIG)
     else:
         raise ValueError(f"不支持的模型类型: {model_type}")
 

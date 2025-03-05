@@ -35,13 +35,29 @@ class RISCVGraphEncoder:
         self.token_to_idx['<UNK>'] = 0
         
         # RISC-V instruction mnemonics (just a subset for illustration)
-        risc_v_instructions = [
-            'add', 'addi', 'sub', 'lui', 'auipc', 'jal', 'jalr', 'beq', 'bne', 'blt', 'bge',
-            'bltu', 'bgeu', 'lb', 'lh', 'lw', 'lbu', 'lhu', 'sb', 'sh', 'sw', 'sll', 'slli',
-            'srl', 'srli', 'sra', 'srai', 'and', 'andi', 'or', 'ori', 'xor', 'xori',
-            'slti', 'sltiu', 'slt', 'sltu', 'mul', 'mulh', 'div', 'rem'
-        ]
-        
+        # risc_v_instructions = [
+        #     'add', 'addi', 'sub', 'lui', 'auipc', 'jal', 'jalr', 'beq', 'bne', 'blt', 'bge',
+        #     'bltu', 'bgeu', 'lb', 'lh', 'lw', 'lbu', 'lhu', 'sb', 'sh', 'sw', 'sll', 'slli',
+        #     'srl', 'srli', 'sra', 'srai', 'and', 'andi', 'or', 'ori', 'xor', 'xori',
+        #     'slti', 'sltiu', 'slt', 'sltu', 'mul', 'mulh', 'div', 'rem'
+        # ]
+        risc_v_instructions = ['amoadd.w', 'amoand.w', 'amomax.w', 'amomaxu.w', 'amomin.w', 'amominu.w', 'amoor.w', 'amoswap.w',
+            'amoxor.w', 'lr.w', 'sc.w', 'mul', 'mulh', 'mulhsu', 'mulhu', 'div', 'divu', 'rem', 'remu', 'add',
+            'addi', 'sub', 'lui', 'auipc', 'sll', 'slli', 'srl', 'srli', 'sra', 'srai', 'slt', 'slti', 'sltiu',
+            'sltu', 'and', 'andi', 'or', 'ori', 'xor', 'xori', 'beq', 'bge', 'bgeu', 'blt', 'bltu', 'bne', 'lb',
+            'lbu', 'lh', 'lhu', 'lw', 'sb', 'sh', 'sw', 'jal', 'jalr', 'ebreak', 'ecall', 'fadd.d', 'fadd.s',
+            'fclass.d', 'fclass.s', 'fcvt.d.s', 'fcvt.d.w', 'fcvt.d.wu', 'fcvt.s.d', 'fcvt.s.w', 'fcvt.s.wu',
+            'fcvt.w.d', 'fcvt.w.s', 'fcvt.wu.d', 'fcvt.wu.s', 'fdiv.d', 'fdiv.s', 'fence', 'fence.i', 'feq.d',
+            'feq.s', 'fld', 'fle.d', 'fle.s', 'flt.d', 'flt.s', 'fsw', 'flw', 'fmadd.d', 'fmadd.s', 'fmax.d',
+            'fmax.s', 'fmin.d', 'fmin.s', 'fmsub.d', 'fmsub.s', 'fmul.d', 'fmul.s', 'fmv.w.x', 'fmv.x.w',
+            'fnmadd.d', 'fnmadd.s', 'fnmsub.d', 'fnmsub.s', 'fsd', 'fsgnj.d', 'fsgnj.s', 'fsgnjn.d', 'fsgnjn.s',
+            'fsgnjx.d', 'fsgnjx.s', 'fsqrt.d', 'fsqrt.s', 'fsub.d', 'fsub.s', 'csrrc', 'csrrci', 'csrrs',
+            'csrrsi', 'csrrw', 'csrrwi', 'amoadd.d', 'amoand.d', 'amomax.d', 'amomaxu.d', 'amomin.d',
+            'amominu.d', 'amoor.d', 'amoswap.d', 'amoxor.d', 'lr.d', 'sc.d', 'mulw', 'divw', 'divuw', 'remw',
+            'remuw', 'addiw', 'addw', 'subw', 'srliw', 'srlw', 'slliw', 'sllw', 'sraiw', 'sraw', 'lwu', 'ld',
+            'sd', 'fmv.d.x', 'fmv.x.d', 'fcvt.s.l', 'fcvt.s.lu', 'fcvt.lu.d', 'fcvt.lu.s', 'fcvt.l.d',
+            'fcvt.l.s', 'fcvt.d.l', 'fcvt.d.lu']
+
         # Add RISC-V instructions to token mapping
         for i, instr in enumerate(risc_v_instructions):
             self.token_to_idx[instr] = i + 1  # +1 because 0 is <UNK>

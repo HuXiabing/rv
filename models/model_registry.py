@@ -2,15 +2,16 @@ from typing import Dict, Type, Optional
 
 from .base_model import BaseModel
 from .transformer_model import TransformerModel
-from .lstm_model import LSTMModel
+# from .lstm_model import LSTMModel
+from .lstm_model import Fasthemal
 from .gnn_model import GNNModel
 
 
 MODEL_REGISTRY: Dict[str, Type[BaseModel]] = {
     "transformer": TransformerModel,
-    "lstm": LSTMModel,
+    # "lstm": LSTMModel,
     "gnn": GNNModel,
-    "ithemal": LSTMModel  # 使用同一个LSTMModel类但配置不同
+    "lstm": Fasthemal  # 使用同一个LSTMModel类但配置不同
 }
 def register_model(name: str, model_class: Type[BaseModel]) -> None:
     """

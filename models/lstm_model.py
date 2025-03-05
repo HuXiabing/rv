@@ -1,148 +1,11 @@
-# import torch
-# import torch.nn as nn
-# import torch.nn.functional as F
-# from typing import Tuple, Optional
-#
-# from .base_model import BaseModel
-#
-# class LSTMModel(BaseModel):
-#     """基于LSTM的RISC-V指令集吞吐量预测模型"""
-#
-#     def __init__(self, config):
-#         """
-#         初始化LSTM模型
-#
-#         Args:
-#             config: 配置对象
-#         """
-#         super(LSTMModel, self).__init__(config)
-#
-#         # 嵌入层
-#         self.token_embedding = nn.Embedding(
-#             config.vocab_size,
-#             config.embed_dim,
-#             padding_idx=0
-#         )
-#
-#         # 指令级别LSTM
-#         self.instr_lstm = nn.LSTM(
-#             input_size=config.embed_dim,
-#             hidden_size=config.hidden_dim // 2,  # 双向LSTM，所以隐藏维度减半
-#             num_layers=config.num_layers // 2,
-#             dropout=config.dropout if config.num_layers > 2 else 0,
-#             batch_first=True,
-#             bidirectional=True
-#         )
-#
-#         # 序列级别LSTM
-#         self.seq_lstm = nn.LSTM(
-#             input_size=config.hidden_dim,  # 上一层双向LSTM的输出
-#             hidden_size=config.hidden_dim // 2,  # 双向LSTM，所以隐藏维度减半
-#             num_layers=config.num_layers // 2,
-#             dropout=config.dropout if config.num_layers > 2 else 0,
-#             batch_first=True,
-#             bidirectional=True
-#         )
-#
-#         # 输出全连接层
-#         self.fc = nn.Linear(config.hidden_dim, 1)
-#
-#         # 初始化参数
-#         self._init_parameters()
-#
-#     def _init_parameters(self):
-#         """初始化模型参数"""
-#         # 初始化LSTM参数
-#         for name, param in self.instr_lstm.named_parameters():
-#             if 'weight' in name:
-#                 nn.init.orthogonal_(param)
-#             elif 'bias' in name:
-#                 nn.init.zeros_(param)
-#
-#         for name, param in self.seq_lstm.named_parameters():
-#             if 'weight' in name:
-#                 nn.init.orthogonal_(param)
-#             elif 'bias' in name:
-#                 nn.init.zeros_(param)
-#
-#         # 初始化全连接层
-#         nn.init.xavier_uniform_(self.fc.weight)
-#         nn.init.zeros_(self.fc.bias)
-#
-#     def forward(self, x, instruction_count=None):
-#         """
-#         前向传播
-#
-#         Args:
-#             x: 输入数据 [batch_size, max_instr_count, max_instr_length]
-#             instruction_count: 每个样本的指令数量 [batch_size]
-#
-#         Returns:
-#             预测的吞吐量值 [batch_size]
-#         """
-#         batch_size, max_instr_count, max_instr_length = x.shape
-#
-#         # 生成指令级别掩码（屏蔽填充指令）
-#         if instruction_count is not None:
-#             instr_mask = torch.arange(max_instr_count, device=x.device)[None, :] >= instruction_count[:, None]
-#         else:
-#             instr_mask = torch.zeros((batch_size, max_instr_count), dtype=torch.bool, device=x.device)
-#
-#         # 词嵌入
-#         token_embeds = self.token_embedding(x)  # [batch, instr_count, instr_len, embed_dim]
-#
-#         # 重塑为[batch*instr_count, instr_len, embed_dim]以处理每条指令
-#         token_embeds = token_embeds.reshape(-1, max_instr_length, self.config.embed_dim)
-#
-#         # 对每条指令应用LSTM
-#         instr_out, _ = self.instr_lstm(token_embeds)  # [batch*instr_count, instr_len, hidden_dim]
-#
-#         # 获取最后一个非填充位置的输出作为指令表示
-#         # 创建掩码，标记出非填充位置
-#         padding_mask = (x != 0).long()  # [batch, instr_count, instr_len]
-#         padding_mask = padding_mask.reshape(-1, max_instr_length)  # [batch*instr_count, instr_len]
-#
-#         # 获取每个序列的最后一个非填充位置的索引
-#         seq_lengths = padding_mask.sum(dim=1) - 1  # [batch*instr_count]
-#         seq_lengths = torch.clamp(seq_lengths, min=0)  # 处理全是填充的情况
-#
-#         # 获取对应位置的hidden state
-#         batch_indices = torch.arange(batch_size * max_instr_count, device=x.device)
-#         last_states = instr_out[batch_indices, seq_lengths]  # [batch*instr_count, hidden_dim]
-#
-#         # 重塑回[batch, instr_count, hidden_dim]
-#         instr_repr = last_states.reshape(batch_size, max_instr_count, -1)  # [batch, instr_count, hidden_dim]
-#
-#         # 应用指令掩码，将填充指令的表示设为0
-#         mask_expand = instr_mask.unsqueeze(-1).expand_as(instr_repr)
-#         instr_repr = instr_repr.masked_fill(mask_expand, 0)
-#
-#         # 对指令序列应用LSTM
-#         seq_out, _ = self.seq_lstm(instr_repr)  # [batch, instr_count, hidden_dim]
-#
-#         # 获取有效指令的数量
-#         valid_instr_counts = (~instr_mask).sum(dim=1) - 1  # [batch]
-#         valid_instr_counts = torch.clamp(valid_instr_counts, min=0)  # 处理没有有效指令的情况
-#
-#         # 获取每个样本的最后一个有效指令的序列输出
-#         batch_indices = torch.arange(batch_size, device=x.device)
-#         last_seq_states = seq_out[batch_indices, valid_instr_counts]  # [batch, hidden_dim]
-#
-#         # 全连接层预测
-#         out = self.fc(last_seq_states)  # [batch, 1]
-#
-#         return out.squeeze(-1)  # [batch]
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from typing import Tuple, Optional
-
 from .base_model import BaseModel
-from .Ithemal import BatchRNN
+from .Ithemal import BatchRNN, get_last_false_values, AbstractGraphModule
 
-
-class LSTMModel(BaseModel):
+class Fasthemal(BaseModel):
     """基于Ithemal的RISC-V指令集吞吐量预测模型，采用BatchRNN实现"""
 
     def __init__(self, config):
@@ -152,7 +15,7 @@ class LSTMModel(BaseModel):
         Args:
             config: 配置对象
         """
-        super(LSTMModel, self).__init__(config)
+        super(Fasthemal, self).__init__(config)
 
         # 创建BatchRNN模型
         self.model = BatchRNN(
@@ -178,3 +41,95 @@ class LSTMModel(BaseModel):
         # BatchRNN已经设计为处理批处理输入
         # 所以可以直接传递x
         return self.model(x)
+
+
+class BatchRNN(AbstractGraphModule):
+    def __init__(self, embedding_size=512, hidden_size=512, num_classes=1,
+                 pad_idx=0, num_layers=1, vocab_size=700):
+        super(BatchRNN, self).__init__(embedding_size, hidden_size, num_classes)
+
+        self.pad_idx = pad_idx
+        self.token_rnn = nn.LSTM(self.embedding_size, self.hidden_size, batch_first=True, num_layers=num_layers)
+        self.instr_rnn = nn.LSTM(self.hidden_size, self.hidden_size, batch_first=True, num_layers=num_layers)
+        self.token_rnn.to(self.device)
+        self.instr_rnn.to(self.device)
+
+        self._token_init = self.rnn_init_hidden()
+        self._instr_init = self.rnn_init_hidden()
+
+        self.linear = nn.Linear(self.hidden_size, self.num_classes)
+        self.set_learnable_embedding(mode='none', dictsize=vocab_size)
+
+    def rnn_init_hidden(self):
+        # type: () -> Union[Tuple[nn.Parameter, nn.Parameter], nn.Parameter]
+
+        hidden = self.init_hidden()
+
+        # for h in hidden:
+        #     torch.nn.init.kaiming_uniform_(h)
+
+        return hidden
+        # if self.params.rnn_type == RnnType.LSTM:
+        #     return hidden
+        # else:
+        #     return hidden[0]
+
+    def get_token_init(self):
+        # type: () -> torch.tensor
+        # if self.params.learn_init:
+        #     return self._token_init
+        # else:
+        return self.rnn_init_hidden()
+
+    def get_instr_init(self):
+        # type: () -> torch.tensor
+        # if self.params.learn_init:
+        #     return self._instr_init
+        # else:
+        return self.rnn_init_hidden()
+
+    def pred_of_instr_chain(self, instr_chain):
+        # type: (torch.tensor) -> torch.tensor
+        _, final_state_packed = self.instr_rnn(instr_chain, self.get_instr_init())
+        final_state = final_state_packed[0]
+        # if self.params.rnn_type == RnnType.LSTM:
+        #     final_state = final_state_packed[0]
+        # else:
+        #     final_state = final_state_packed
+        return self.linear(final_state.squeeze()).squeeze()
+
+    def forward(self, x):
+        # mask = B I S
+        # x = B I S
+
+        mask = x == self.pad_idx
+
+        batch_size, inst_size, seq_size = x.shape
+
+        #  tokens = B I S HID
+        tokens = self.final_embeddings(x)
+
+        #  B*I S HID
+        tokens = tokens.view(batch_size * inst_size, seq_size, -1)
+
+        # output = B*I S HID
+        output, _ = self.token_rnn(tokens)
+
+        #  B I S HID
+        output = output.view(batch_size, inst_size, seq_size, -1)
+
+        #  B I HID
+        instr_chain = get_last_false_values(output, mask, dim=2)
+
+        #  B I HID
+        inst_output, _ = self.instr_rnn(instr_chain)
+
+        #  B I
+        mask = mask.all(dim=-1)
+
+        #  B HID
+        final_state = get_last_false_values(inst_output, mask, dim=1)
+
+        #  B
+        output = self.linear(final_state).squeeze(-1)
+        return output

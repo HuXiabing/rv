@@ -691,7 +691,7 @@ class BaseTrainer:
             self.current_epoch = epoch
 
             # 训练一个周期
-            train_metrics = self.train_epoch(train_loader)
+            train_metrics, train_batch_result = self.train_epoch(train_loader)
 
             # 在验证集上评估
             val_metrics = self.validate(val_loader)
@@ -715,6 +715,28 @@ class BaseTrainer:
             # 保存检查点
             if (epoch + 1) % self.config.save_freq == 0 or is_best:
                 self._save_checkpoint(epoch, train_metrics, val_metrics, is_best)
+
+            # 保存指令类型和基本块长度的统计数据
+            instruction_stats = {
+                    "instruction_avg_loss": train_batch_result.get_instruction_avg_loss(),
+                    "instruction_counts": train_batch_result.instruction_counts
+            }
+
+            block_length_stats = {
+                "block_length_avg_loss": train_batch_result.get_block_length_avg_loss(),
+                "block_length_counts": train_batch_result.block_lengths_counts
+            }
+            # 使用实验管理器保存这些统计数据（需要添加到experiment.py）
+            if hasattr(self, 'experiment') and self.experiment:
+                self.experiment.save_instruction_stats(instruction_stats, epoch)
+                self.experiment.save_block_length_stats(block_length_stats, epoch)
+
+                # 生成可视化
+                self.experiment.visualize_epoch_stats(
+                    instruction_stats,
+                    block_length_stats,
+                    epoch
+                )
 
             # 打印进度
             print(f"Epoch {epoch + 1}/{num_epochs} - "
