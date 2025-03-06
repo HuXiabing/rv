@@ -1,4 +1,3 @@
-
 TRANSFORMER_CONFIG = {
     "model_type": "transformer",
     "embed_dim": 512,
@@ -15,16 +14,15 @@ TRANSFORMER_CONFIG = {
     "handle_neg": False
 }
 
-# LSTM模型默认配置 (为BatchRNN更新)
-LSTM_CONFIG = {
-    "model_type": "lstm",
-    "embed_dim": 512,
-    "hidden_dim": 512,
-    "num_layers": 1,
-    "dropout": 0.1,
-}
+# # LSTM模型默认配置 (为BatchRNN更新)
+# LSTM_CONFIG = {
+#     "model_type": "lstm",
+#     "embed_dim": 512,
+#     "hidden_dim": 512,
+#     "num_layers": 1,
+#     "dropout": 0.1,
+# }
 
-# 添加Ithemal配置
 ITHEMAL_CONFIG = {
     "model_type": "ithemal",
     "embed_dim": 512,
@@ -33,25 +31,24 @@ ITHEMAL_CONFIG = {
     "dropout": 0.1,
 }
 
-# GNN模型默认配置 (为GRANITE更新)
 GNN_CONFIG = {
     "model_type": "gnn",
     "embed_dim": 256,
     "hidden_dim": 256,
-    "num_layers": 8,  # 消息传递步数
+    "num_layers": 8,  # message passing layers
     "dropout": 0.1,
     "use_layer_norm": True,
-    "lr": 5e-4,  # 针对GNN的学习率调整
+    "lr": 5e-4,
 }
 
-# 数据处理默认配置
+# default data configuration
 DATA_CONFIG = {
     "max_instr_length": 8,
-    "max_instr_count": 200,
+    "max_instr_count": 400,
     "vocab_size": 2000,
 }
 
-# 训练参数默认配置
+# default training configuration
 TRAINING_CONFIG = {
     "lr": 1e-4,
     "weight_decay": 1e-5,
@@ -60,10 +57,11 @@ TRAINING_CONFIG = {
     "patience": 5,
     "clip_grad_norm": 1.0,
     "loss_type": "mape",  # 'mse', 'mae', 'huber', 'mape'
-    "loss_epsilon": 1e-5,  # 用于MAPE损失函数
-    "huber_delta": 1.0,    # 用于Huber损失函数
+    "loss_epsilon": 1e-5,  # for MAPE
+    "huber_delta": 1.0,    # for Huber
 }
-# 合并默认配置
+# merge all configurations
+
 DEFAULT_CONFIG = {
     **DATA_CONFIG,
     **TRAINING_CONFIG,

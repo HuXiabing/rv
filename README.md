@@ -2,11 +2,14 @@ Quick Start
 1. 数据预处理
 将原始RISC-V指令数据转换为模型可用的格式：
 python main.py preprocess --raw_data data/labeled_data.json --output_dir data
+python main.py incremental_preprocess --raw_data data/output.json --output_dir data
 预处理将生成训练集、验证集和测试集的HDF5文件。
 2. 模型训练
 训练一个Transformer模型：
 python main.py train --model_type transformer --train_data data/train_data.h5 --val_data data/val_data.h5 --experiment_name transformer_v1
 训练过程中的检查点、日志和可视化结果将保存在experiments/{实验名称}目录中。
+python main.py incremental --model_path experiments/transformer_v1_20250304_101004/checkpoints/checkpoint_latest.pth
+
 3. 模型评估
 在测试集上评估模型：
 python main.py evaluate --model_path experiments/transformer_v1/checkpoints/model_best.pth --test_data data/test_data.h5 --output_dir evaluation/transformer_v1

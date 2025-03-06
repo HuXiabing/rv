@@ -14,17 +14,118 @@ class MapeLoss(nn.Module):
         loss = self.loss_fn(output, target) / (torch.abs(target) + self.epsilon)
         return loss
 
-def correct_regression(pred, answer, tolerance=10.0):
+class BatchResult:
+
+    def __init__(self):
+        self.batch_len = 0
+        self.measured = []
+        self.prediction = []
+        self.inst_lens = []
+        self.index = []
+        self.loss_sum = 0
+
+        self.instruction_losses = {}
+        self.block_lengths_losses = {}
+        self.instruction_counts = {}
+        self.block_lengths_counts = {}
+
+    @property
+    def loss(self):
+        if self.batch_len == 0:
+            return float('nan')
+        return self.loss_sum / self.batch_len
+
+    def __iadd__(self, other):
+
+        self.batch_len += other.batch_len
+
+        self.measured.extend(other.measured)
+        self.prediction.extend(other.prediction)
+        self.inst_lens.extend(other.inst_lens)
+        self.index.extend(other.index)
+        self.loss_sum += other.loss_sum
+
+        for instr_type, loss in other.instruction_losses.items():
+            if instr_type not in self.instruction_losses:
+                self.instruction_losses[instr_type] = 0
+                self.instruction_counts[instr_type] = 0
+            self.instruction_losses[instr_type] += loss
+            self.instruction_counts[instr_type] += other.instruction_counts.get(instr_type, 0)
+
+        for block_len, loss in other.block_lengths_losses.items():
+            if block_len not in self.block_lengths_losses:
+                self.block_lengths_losses[block_len] = 0
+                self.block_lengths_counts[block_len] = 0
+            self.block_lengths_losses[block_len] += loss
+            self.block_lengths_counts[block_len] += other.block_lengths_counts.get(block_len, 0)
+
+        return self
+
+    def add_sample(self, prediction, measured, loss, instructions=None, block_len=None):
+
+        self.batch_len += 1
+        self.prediction.append(prediction)
+        self.measured.append(measured)
+        self.loss_sum += loss
+
+        if instructions is not None:
+            for instr_type in instructions:
+                if instr_type not in self.instruction_losses:
+                    self.instruction_losses[instr_type] = 0
+                    self.instruction_counts[instr_type] = 0
+                self.instruction_losses[instr_type] += loss / len(instructions)
+                self.instruction_counts[instr_type] += 1
+
+        if block_len is not None:
+            if block_len not in self.block_lengths_losses:
+                self.block_lengths_losses[block_len] = 0
+                self.block_lengths_counts[block_len] = 0
+            self.block_lengths_losses[block_len] += loss
+            self.block_lengths_counts[block_len] += 1
+
+    def get_instruction_avg_loss(self):
+        """Get the average loss for each instruction type"""
+        return {instr_type: loss / count
+                for instr_type, loss in self.instruction_losses.items()
+                for count in [self.instruction_counts.get(instr_type, 1)]
+                if count > 0}
+
+    def get_block_length_avg_loss(self):
+        """Get the average loss for each basic block length"""
+        return {block_len: loss / count
+                for block_len, loss in self.block_lengths_losses.items()
+                for count in [self.block_lengths_counts.get(block_len, 1)]
+                if count > 0}
+
+    def compute_metrics(self, tolerances=25):
+        y_true = np.array(self.measured)
+        y_pred = np.array(self.prediction)
+
+        metrics = compute_regression_metrics(y_true, y_pred, tolerances)
+        metrics["loss"] = self.loss
+
+        metrics["instruction_avg_loss"] = self.get_instruction_avg_loss()
+        metrics["block_length_avg_loss"] = self.get_block_length_avg_loss()
+        metrics["instruction_counts"] = self.instruction_counts
+        metrics["block_length_counts"] = self.block_lengths_counts
+
+        # return metrics
+        return {
+            "loss": metrics["loss"],
+            "accuracy": metrics["accuracy"]
+        }
+
+def correct_regression(pred, answer, tolerance=25):
     """
-    计算回归预测的正确率
+    Calculate the correctness rate of regression predictions
 
     Args:
-        pred: 预测值
-        answer: 真实值
-        tolerance: 容忍度百分比，默认10%
+        pred: Predicted values
+        answer: True values
+        tolerance: Tolerance percentage, default 10%
 
     Returns:
-        正确预测的数量
+        Number of correct predictions
     """
     if isinstance(pred, list):
         pred = torch.tensor(pred)
@@ -34,18 +135,17 @@ def correct_regression(pred, answer, tolerance=10.0):
     percentage = torch.abs(pred - answer) * 100.0 / (torch.abs(answer) + 1e-3)
     return torch.sum(percentage < tolerance).item()
 
-
-def compute_accuracy(y_true: np.ndarray, y_pred: np.ndarray, tolerance=10.0) -> float:
+def compute_accuracy(y_true: np.ndarray, y_pred: np.ndarray, tolerance=25) -> float:
     """
-    计算预测的准确率
+    Calculate the accuracy of predictions
 
     Args:
-        y_true: 真实值数组
-        y_pred: 预测值数组
-        tolerance: 容忍度百分比，默认10%
+        y_true: Array of true values
+        y_pred: Array of predicted values
+        tolerance: Tolerance percentage, default 10%
 
     Returns:
-        准确率 (0-1之间的浮点数)
+        Accuracy (float between 0 and 1)
     """
     y_true_tensor = torch.tensor(y_true)
     y_pred_tensor = torch.tensor(y_pred)
@@ -55,44 +155,29 @@ def compute_accuracy(y_true: np.ndarray, y_pred: np.ndarray, tolerance=10.0) -> 
 
     return correct_count / total_count if total_count > 0 else 0.0
 
-
-def compute_regression_metrics(y_true: np.ndarray, y_pred: np.ndarray, tolerances=[5.0, 10.0, 15.0]) -> Dict[
-    str, float]:
+def compute_regression_metrics(y_true: np.ndarray, y_pred: np.ndarray, tolerance=25) -> Dict[str, float]:
     """
-    计算回归评估指标
+    Calculate regression evaluation metrics
 
     Args:
-        y_true: 真实值数组
-        y_pred: 预测值数组
-        tolerances: 不同容忍度的列表，用于计算不同标准下的准确率
+        y_true: Array of true values
+        y_pred: Array of predicted values
+        tolerance: List of different tolerance levels for calculating accuracy under different criteria
 
     Returns:
-        包含评估指标的字典
+        Dictionary containing evaluation metrics
     """
-    # 计算均方误差(MSE)
+
     mse = mean_squared_error(y_true, y_pred)
-
-    # 计算均方根误差(RMSE)
     rmse = np.sqrt(mse)
-
-    # 计算平均绝对误差(MAE)
     mae = mean_absolute_error(y_true, y_pred)
-
-    # 计算决定系数(R²)
     r2 = r2_score(y_true, y_pred)
-
-    # 计算平均绝对百分比误差(MAPE)
-    epsilon = 1e-10  # 防止除零错误
+    # MAPE
+    epsilon = 1e-10
     mape = np.mean(np.abs((y_true - y_pred) / (np.abs(y_true) + epsilon))) * 100
-
-    # 计算平均百分比误差(MPE)
+    #MPE
     mpe = np.mean((y_true - y_pred) / (np.abs(y_true) + epsilon)) * 100
-
-    # 计算不同容忍度下的准确率
-    accuracy_metrics = {}
-    for tolerance in tolerances:
-        acc = compute_accuracy(y_true, y_pred, tolerance)
-        accuracy_metrics[f"accuracy_{tolerance:.1f}"] = acc
+    accuracy = compute_accuracy(y_true, y_pred, tolerance)
 
     metrics = {
         "mse": mse,
@@ -101,7 +186,7 @@ def compute_regression_metrics(y_true: np.ndarray, y_pred: np.ndarray, tolerance
         "r2": r2,
         "mape": mape,
         "mpe": mpe,
-        **accuracy_metrics
+        "accuracy": accuracy
     }
 
     return metrics
@@ -159,119 +244,3 @@ def compute_error_distribution(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[s
         "rel_error_stats": rel_error_stats
     }
 
-class BatchResult:
-    """
-    保存批次训练或验证的结果
-    """
-
-    def __init__(self):
-        self.batch_len = 0
-
-        self.measured = []  # 真实值
-        self.prediction = []  # 预测值
-        self.inst_lens = []  # 每个样本的指令长度
-        self.index = []  # 样本索引
-
-        self.loss_sum = 0
-
-        # 详细的统计数据
-        self.instruction_losses = {}  # 每种指令类型的损失总和
-        self.block_lengths_losses = {}  # 每种基本块长度的损失总和
-        self.instruction_counts = {}  # 每种指令类型的出现次数
-        self.block_lengths_counts = {}  # 每种基本块长度的出现次数
-
-    @property
-    def loss(self):
-        if self.batch_len == 0:
-            return float('nan')
-        return self.loss_sum / self.batch_len
-
-    def add_sample(self, prediction, measured, loss, instructions=None, block_len=None):
-        """
-        添加单个样本的结果
-
-        Args:
-            prediction: 预测值
-            measured: 真实值
-            loss: 损失值
-            instructions: 指令类型列表
-            block_len: 基本块长度
-        """
-        self.batch_len += 1
-        self.prediction.append(prediction)
-        self.measured.append(measured)
-        self.loss_sum += loss
-
-        # 更新指令类型和基本块长度的统计
-        if instructions is not None:
-            for instr_type in instructions:
-                if instr_type not in self.instruction_losses:
-                    self.instruction_losses[instr_type] = 0
-                    self.instruction_counts[instr_type] = 0
-                self.instruction_losses[instr_type] += loss / len(instructions)
-                self.instruction_counts[instr_type] += 1
-
-        if block_len is not None:
-            if block_len not in self.block_lengths_losses:
-                self.block_lengths_losses[block_len] = 0
-                self.block_lengths_counts[block_len] = 0
-            self.block_lengths_losses[block_len] += loss
-            self.block_lengths_counts[block_len] += 1
-
-    def __iadd__(self, other):
-        """合并两个BatchResult对象"""
-        self.batch_len += other.batch_len
-
-        self.measured.extend(other.measured)
-        self.prediction.extend(other.prediction)
-        self.inst_lens.extend(other.inst_lens)
-        self.index.extend(other.index)
-
-        self.loss_sum += other.loss_sum
-
-        # 合并指令类型和基本块长度的统计
-        for instr_type, loss in other.instruction_losses.items():
-            if instr_type not in self.instruction_losses:
-                self.instruction_losses[instr_type] = 0
-                self.instruction_counts[instr_type] = 0
-            self.instruction_losses[instr_type] += loss
-            self.instruction_counts[instr_type] += other.instruction_counts.get(instr_type, 0)
-
-        for block_len, loss in other.block_lengths_losses.items():
-            if block_len not in self.block_lengths_losses:
-                self.block_lengths_losses[block_len] = 0
-                self.block_lengths_counts[block_len] = 0
-            self.block_lengths_losses[block_len] += loss
-            self.block_lengths_counts[block_len] += other.block_lengths_counts.get(block_len, 0)
-
-        return self
-
-    def get_instruction_avg_loss(self):
-        """获取每种指令类型的平均损失"""
-        return {instr_type: loss / count
-                for instr_type, loss in self.instruction_losses.items()
-                for count in [self.instruction_counts.get(instr_type, 1)]
-                if count > 0}
-
-    def get_block_length_avg_loss(self):
-        """获取每种基本块长度的平均损失"""
-        return {block_len: loss / count
-                for block_len, loss in self.block_lengths_losses.items()
-                for count in [self.block_lengths_counts.get(block_len, 1)]
-                if count > 0}
-
-    def compute_metrics(self, tolerances=[5.0, 10.0, 15.0]):
-        """计算所有评估指标"""
-        y_true = np.array(self.measured)
-        y_pred = np.array(self.prediction)
-
-        metrics = compute_regression_metrics(y_true, y_pred, tolerances)
-        metrics["loss"] = self.loss
-
-        # 添加指令类型和基本块长度的统计
-        metrics["instruction_avg_loss"] = self.get_instruction_avg_loss()
-        metrics["block_length_avg_loss"] = self.get_block_length_avg_loss()
-        metrics["instruction_counts"] = self.instruction_counts
-        metrics["block_length_counts"] = self.block_lengths_counts
-
-        return metrics

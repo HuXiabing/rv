@@ -5,46 +5,38 @@ from typing import List, Dict, Any, Optional
 from collections import Counter
 
 class RISCVTokenizer:
-    """RISC-V指令的分词器，使用自定义分词和词汇表"""
+    """RISC-V tokenizer with custom tokenization and vocabulary"""
 
     def __init__(self,
                  vocab_size: int = 300,
                  max_instr_length: int = 8):
         """
-        初始化RISC-V分词器
-
         Args:
-            vocab_size: 词汇表大小的上限（不实际使用，为了兼容性保留）
-            max_instr_length: 每条指令的最大标记数，固定为8
+            vocab_size: the upper limit of vocabulary size (not actually used, reserved for compatibility)
+            max_instr_length: maximum number of tokens for each instruction, fixed to 8
         """
         self.vocab_size = vocab_size
-        self.max_instr_length = max_instr_length  # 固定为8
+        self.max_instr_length = max_instr_length
 
-        # 加载预定义的词汇表
         self._load_predefined_dict()
-
-        # 定义隐式寻址指令列表
         self.implicit_list = ['fld', 'flw', 'fsd', 'fsw', 'lb', 'lbu', 'ld', 'lh', 'lhu', 'lw',
                               'lwu', 'sb', 'sd', 'sh', 'sw']
 
     def _load_predefined_dict(self):
-        """加载预定义的词汇表"""
-        # 使用字典定义或加载预保存的字典文件
-        # 尝试直接从代码文件所在目录加载
+        """ load predefined vocabulary """
         dict_path = os.path.join(os.path.dirname(__file__), 'mapping_dict.dump')
         if os.path.exists(dict_path):
             self.vocab = torch.load(dict_path)
         else:
-            # 如果找不到文件，手动构建词汇表
+            # if the predefined dict does not exist, build it manually
             self._build_vocab_manually()
 
-        # 反向映射，用于解码
-        self.inverse_vocab = {v: k for k, v in self.vocab.items()}
+        # inverse the vocabulary to decode token IDs
+        # self.inverse_vocab = {v: k for k, v in self.vocab.items()}
         self.current_vocab_size = len(self.vocab)
 
     def _build_vocab_manually(self):
-        """手动构建词汇表（如果无法加载预定义文件）"""
-        # 特殊标记
+
         special_token = {'<PAD>': 0, '<BLOCK_START>': 1, '<BLOCK_END>': 2, '<ADDRESS>': 3,
                          '<E>': 4, '<D>': 5, '<S>': 6, '<CONST>': 7, '<CSR>': 8}
 
@@ -69,12 +61,9 @@ class RISCVTokenizer:
         # ]
         # _xregs_abi = { _xregs_abi_list[i] : i + shift for i in range(len(_xregs_abi_list))}
 
-        _fregs_abi = {'ft0': 41, 'ft1': 42, 'ft2': 43, 'ft3': 44, 'ft4': 45, 'ft5': 46, 'ft6': 47, 'fs0': 48, 'fs1': 49,
-                      'fa0': 50, 'fa1': 51, \
-                      'fa2': 52, 'fa3': 53, 'fa4': 54, 'fa5': 55, 'fa6': 56, 'fa7': 57, 'fs2': 58, 'fs3': 59, 'fs4': 60,
-                      'fs5': 61, 'fs6': 62, \
-                      'fs7': 63, 'fs8': 64, 'fs9': 65, 'fs10': 66, 'fs11': 67, 'ft8': 68, 'ft9': 69, 'ft10': 70,
-                      'ft11': 71}
+        _fregs_abi = {'ft0': 41, 'ft1': 42, 'ft2': 43, 'ft3': 44, 'ft4': 45, 'ft5': 46, 'ft6': 47, 'fs0': 48, 'fs1': 49, 'fa0': 50,
+                      'fa1': 51, 'fa2': 52, 'fa3': 53, 'fa4': 54, 'fa5': 55, 'fa6': 56, 'fa7': 57, 'fs2': 59, 'fs3': 60, 'fs4': 61,
+                      'fs5': 62, 'fs6': 63, 'fs7': 64, 'fs8': 65, 'fs9': 66, 'fs10': 67, 'fs11': 68, 'ft8': 69, 'ft9': 70, 'ft10': 71, 'ft11': 72}
 
         # shift = 41
         # _fregs_abi_list = [
@@ -136,7 +125,7 @@ class RISCVTokenizer:
         self.vocab ={**special_token, **_xregs_abi, **_fregs_abi, **_rv64, **_xregs_numeric, **_fregs_numeric}
 
     def separate_disp_and_reg(self, s):
-        """分离内存地址中的偏移量和寄存器"""
+
         match = re.match(r'-?\d+\((\w+)\)', s)
         if match:
             full_match = match.group(0)
@@ -148,21 +137,21 @@ class RISCVTokenizer:
             raise ValueError("The string does not match the expected format.")
 
     def is_numeric(self, s):
-        """检查字符串是否为数字"""
+
         pattern = re.compile(r'^-?\d+(\.\d+)?$')
         return bool(pattern.match(s))
 
     def is_address_string(self, s):
-        """检查字符串是否为地址格式"""
+
         pattern = re.compile(r'^0x[0-9a-fA-F]+$')
         return bool(pattern.match(s))
 
     def zero_reg(self, instr):
-        """处理无操作数指令"""
+
         return [instr[0], '<E>', '<PAD>', '<PAD>', '<PAD>', '<PAD>', '<PAD>', '<PAD>']
 
     def one_reg_num(self, instr):
-        """处理单个寄存器或数字的指令"""
+
         pattern = r'^-?\d+$'
         if re.match(pattern, instr[1]):  # "j, -1666"
             return [instr[0], '<CONST>', '<E>', '<PAD>', '<PAD>', '<PAD>', '<PAD>', '<PAD>']
@@ -170,7 +159,7 @@ class RISCVTokenizer:
             return [instr[0], instr[1], '<E>', '<PAD>', '<PAD>', '<PAD>', '<PAD>', '<PAD>']
 
     def two_reg(self, instr):
-        """处理两个操作数的指令"""
+
         if instr[0] in self.implicit_list:
             _, rs = self.separate_disp_and_reg(instr[-1])
             return [instr[0], '<D>', instr[1], '<S>', rs, '<CONST>', '<E>', '<PAD>']
@@ -182,7 +171,7 @@ class RISCVTokenizer:
             return [instr[0], '<D>', instr[1], '<S>', instr[2], '<E>', '<PAD>', '<PAD>']
 
     def three_reg(self, instr):
-        """处理三个操作数的指令"""
+
         if instr[1] == 'csr':
             if self.is_numeric(instr[-1]):
                 return [instr[0], '<D>', instr[1], '<S>', '<CSR>', '<CONST>', '<E>', '<PAD>']
@@ -198,20 +187,21 @@ class RISCVTokenizer:
             return [instr[0], '<D>', instr[1], '<S>', instr[2], instr[3], '<E>', '<PAD>']
 
     def four_reg(self, instr):
-        """处理四个操作数的指令"""
+
         return [instr[0], '<D>', instr[1], '<S>', instr[2], instr[3], instr[4], '<E>']
 
     def tokenize_instruction(self, instruction: str) -> List[str]:
         """
-        将RISC-V指令拆分为令牌列表
+        transform RISC-V instruction into token list,
+        eg: "add a5,s1,a0" -> ['add', '<D>', 'a5', '<S>', 's1', 'a0', '<E>', '<PAD>']
 
         Args:
-            instruction: RISC-V汇编指令字符串
+            instruction: "add a5,s1,a0"
 
         Returns:
-            分词后的标记列表
+            ['add', '<D>', 'a5', '<S>', 's1', 'a0', '<E>', '<PAD>']
         """
-        pattern = r'[^ ,\t]+'  # 匹配非空格、非逗号和非制表符的内容
+        pattern = r'[^ ,\t]+'  # match non-space characters
         instr = re.findall(pattern, instruction)
 
         instr_len = len(instr)
@@ -232,61 +222,61 @@ class RISCVTokenizer:
 
     def encode_instruction(self, instruction: str) -> List[int]:
         """
-        将单条指令编码为token ID序列
+        Encoded the instruction into token ID sequence,
+        eg: "add a5,s1,a0" -> [ 72, 5, 24, 6, 18, 19, 4, 0]
 
         Args:
-            instruction: RISC-V指令字符串
+            instruction: "add a5,s1,a0"
 
         Returns:
-            编码后的token ID列表
+            [ 72, 5, 24, 6, 18, 19, 4, 0]
         """
         tokens = self.tokenize_instruction(instruction)
         encoded = [self.vocab.get(token, self.vocab.get('<PAD>', 0)) for token in tokens]
 
-        # 不需要截断或填充，因为我们固定使用8个令牌
         return encoded
 
-    def decode_tokens(self, token_ids: List[int]) -> List[str]:
-        """
-        将token ID序列解码为令牌列表
+    # def decode_tokens(self, token_ids: List[int]) -> List[str]:
+    #     """
+    #     将token ID序列解码为令牌列表
+    #
+    #     Args:
+    #         token_ids: token ID列表
+    #
+    #     Returns:
+    #         解码后的令牌列表
+    #     """
+    #     return [self.inverse_vocab.get(tid, '<UNK>') for tid in token_ids]
 
-        Args:
-            token_ids: token ID列表
-
-        Returns:
-            解码后的令牌列表
-        """
-        return [self.inverse_vocab.get(tid, '<UNK>') for tid in token_ids]
-
-    def tokenized_bb(self, basic_block: str) -> List[List[str]]:
-        """
-        将基本块分词为令牌列表的列表
-
-        Args:
-            basic_block: 基本块字符串，指令以换行符分隔
-
-        Returns:
-            分词后的标记列表的列表
-        """
-        bb_tokens = []
-        pattern = r'[^ ,\t]+'
-        bb = [re.findall(pattern, s) for s in basic_block.strip().split("\\n")]
-
-        for instruction in bb:
-            instr_len = len(instruction)
-            if instr_len == 1:
-                tokenized = self.zero_reg(instruction)
-            elif instr_len == 2:
-                tokenized = self.one_reg_num(instruction)
-            elif instr_len == 3:
-                tokenized = self.two_reg(instruction)
-            elif instr_len == 4:
-                tokenized = self.three_reg(instruction)
-            elif instr_len == 5:
-                tokenized = self.four_reg(instruction)
-            else:
-                raise ValueError(f"Invalid instruction format: {instruction}")
-
-            bb_tokens.append(tokenized)
-
-        return bb_tokens
+    # def tokenized_bb(self, basic_block: str) -> List[List[str]]:
+    #     """
+    #     将基本块分词为令牌列表的列表
+    #
+    #     Args:
+    #         basic_block: 基本块字符串，指令以换行符分隔
+    #
+    #     Returns:
+    #         分词后的标记列表的列表
+    #     """
+    #     bb_tokens = []
+    #     pattern = r'[^ ,\t]+'
+    #     bb = [re.findall(pattern, s) for s in basic_block.strip().split("\\n")]
+    #
+    #     for instruction in bb:
+    #         instr_len = len(instruction)
+    #         if instr_len == 1:
+    #             tokenized = self.zero_reg(instruction)
+    #         elif instr_len == 2:
+    #             tokenized = self.one_reg_num(instruction)
+    #         elif instr_len == 3:
+    #             tokenized = self.two_reg(instruction)
+    #         elif instr_len == 4:
+    #             tokenized = self.three_reg(instruction)
+    #         elif instr_len == 5:
+    #             tokenized = self.four_reg(instruction)
+    #         else:
+    #             raise ValueError(f"Invalid instruction format: {instruction}")
+    #
+    #         bb_tokens.append(tokenized)
+    #
+    #     return bb_tokens

@@ -3,11 +3,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from typing import List, Dict, Any, Optional, Tuple, Union
+import torch
 
 def set_plot_style():
-    """设置绘图样式"""
+
     sns.set_style("whitegrid")
-    plt.rcParams['font.family'] = 'DejaVu Sans'
+    # plt.rcParams['font.family'] = 'Times New Roman'
     plt.rcParams['font.size'] = 12
     plt.rcParams['axes.labelsize'] = 14
     plt.rcParams['axes.titlesize'] = 16
@@ -16,94 +17,129 @@ def set_plot_style():
     plt.rcParams['legend.fontsize'] = 12
     plt.rcParams['figure.titlesize'] = 20
 
-def plot_learning_curves(train_losses: List[float], 
-                         val_losses: List[float], 
-                         save_path: Optional[str] = None,
-                         title: str = "Learning Curves",
-                         metric_name: str = "Loss") -> plt.Figure:
+def plot_instruction_losses(instruction_losses, instruction_counts=None, save_path=None,
+                            title="Instruction Type Loss Distribution"):
     """
-    绘制学习曲线
-    
+    Plot the average loss of the five major instruction types.
+
+    plot_instruction_losses(
+            instruction_stats["instruction_avg_loss"],
+            instruction_stats["instruction_counts"],
+            save_path=instr_viz_path,
+            title=f"Average Loss by Instruction Type (Epoch {epoch + 1})"
+        )
+
     Args:
-        train_losses: 训练损失列表
-        val_losses: 验证损失列表
-        save_path: 保存路径，如果为None则不保存
-        title: 图表标题
-        metric_name: 指标名称
-        
+        instruction_losses: Mapping of instruction types to losses
+        instruction_counts: Mapping of instruction types to occurrence counts (optional)
+        save_path: Save path, if None, do not save
+        title: Chart title
+
     Returns:
-        图表对象
+        Chart
     """
     set_plot_style()
-    
+
+    mapping_dict = torch.load("data/mapping_dict.dump")
+    compare_insts = ['slt', 'sltu', 'slti', 'sltiu']
+    shifts_arithmetic_logical_insts = ['add', 'addw', 'and', 'sll', 'sllw', 'sra', 'sraw', 'srl', 'srlw', 'sub', 'subw',
+                                       'xor', 'addi', 'addiw', 'andi', 'ori', 'slli', 'slliw', 'srai', 'sraiw', 'srli',
+                                       'srliw', 'xori']
+    mul_div_insts = ['div', 'divu', 'divuw', 'divw', 'mul', 'mulh', 'mulhsu',
+                     'mulhu', 'mulw', 'rem', 'remu', 'remuw', 'remw']
+    load_insts = ['lb', 'lbu', 'ld', 'lh', 'lhu', 'lw', 'lwu']
+    store_insts = ['sb', 'sd', 'sh', 'sw']
+
+    new_dict = {key: instruction_losses.get(value, 0.0) for key, value in mapping_dict.items()}
+
+    shifts_arithmetic_logical_ratio = sum(new_dict.get(inst, 0.0) for inst in shifts_arithmetic_logical_insts)
+    compare_ratio = sum(new_dict.get(inst, 0.0) for inst in compare_insts)
+    mul_div_ratio = sum(new_dict.get(inst, 0.0) for inst in mul_div_insts)
+    load_ratio = sum(new_dict.get(inst, 0.0) for inst in load_insts)
+    store_ratio = sum(new_dict.get(inst, 0.0) for inst in store_insts)
+
+    instr_types = ["shifts_arithmetic_logical_loss", "compare_loss", "mul_div_loss", "load_loss", "store_loss"]
+    losses = [shifts_arithmetic_logical_ratio, compare_ratio, mul_div_ratio, load_ratio, store_ratio]
+
+    plt.figure(figsize=(10, 6))
+    # plt.bar()
     fig, ax = plt.subplots(figsize=(10, 6))
-    
-    epochs = range(1, len(train_losses) + 1)
-    
-    ax.plot(epochs, train_losses, 'b-', marker='o', label=f'Training {metric_name}')
-    ax.plot(epochs, val_losses, 'r-', marker='s', label=f'Validation {metric_name}')
-    
+    ax.barh(instr_types, losses, color='skyblue', linewidth=0.5)
+
     ax.set_title(title)
-    ax.set_xlabel('Epochs')
-    ax.set_ylabel(metric_name)
-    ax.legend()
-    ax.grid(True)
-    
-    # 添加最低点标记
-    best_epoch = val_losses.index(min(val_losses)) + 1
-    best_val = min(val_losses)
-    ax.axvline(x=best_epoch, color='g', linestyle='--', alpha=0.5)
-    ax.axhline(y=best_val, color='g', linestyle='--', alpha=0.5)
-    ax.annotate(f'Best: {best_val:.4f} (Epoch {best_epoch})', 
-               xy=(best_epoch, best_val), 
-               xytext=(best_epoch + 1, best_val * 1.1),
-               arrowprops=dict(facecolor='black', shrink=0.05, width=1.5, headwidth=8),
-               fontsize=12)
-    
+    ax.set_xlabel("Instruction Types")
+    ax.set_ylabel("Average Loss")
+
+    plt.xticks(rotation=45, ha='right')
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+
     plt.tight_layout()
-    
+    # plt.show()
+
     if save_path:
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        print(f"图表已保存到 {save_path}")
-    
+        print(f"Chart saved to {save_path}")
+
     return fig
 
-def plot_lr_schedule(learning_rates: List[float], 
-                    save_path: Optional[str] = None,
-                    title: str = "Learning Rate Schedule") -> plt.Figure:
+def plot_block_length_losses(block_length_losses, block_length_counts=None, save_path=None,
+                             title="Basic Block Length Loss Distribution"):
     """
-    绘制学习率调度曲线
-    
+    Plot the average loss for different basic block lengths
+
     Args:
-        learning_rates: 学习率列表
-        save_path: 保存路径，如果为None则不保存
-        title: 图表标题
-        
+        block_length_losses: Mapping of basic block lengths to losses
+        block_length_counts: Mapping of basic block lengths to occurrence counts (optional)
+        save_path: Save path, if None, do not save
+        title: Chart title
+
     Returns:
-        图表对象
+        Chart object
+
+    plot_block_length_losses(
+            block_length_stats["block_length_avg_loss"],
+            block_length_stats["block_length_counts"],
+            save_path=block_viz_path,
+            title=f"Average Loss by Basic Block Length (Epoch {epoch + 1})"
+        )
     """
     set_plot_style()
-    
+
+    block_lengths = sorted([int(k) for k in block_length_losses.keys()])
+    losses = [block_length_losses[length] for length in block_lengths]
+
+    bins = np.arange(0, max(block_lengths) + 5, 5)
+    bin_indices = np.digitize(block_lengths, bins)
+
+    bin_losses = []
+    for i in range(1, len(bins)):
+        indices = np.where(bin_indices == i)[0]
+        if len(indices) > 0:
+            bin_losses.append(np.mean([losses[idx] for idx in indices]))
+        else:
+            bin_losses.append(0)
+
     fig, ax = plt.subplots(figsize=(10, 6))
-    
-    epochs = range(1, len(learning_rates) + 1)
-    
-    ax.plot(epochs, learning_rates, 'g-', marker='o')
-    ax.set_yscale('log')
-    
-    ax.set_title(title)
-    ax.set_xlabel('Epochs')
-    ax.set_ylabel('Learning Rate')
-    ax.grid(True)
-    
+
+    x_labels = [f"{bins[i]}-{bins[i + 1]}" for i in range(len(bins) - 1)]
+    ax.bar(x_labels, bin_losses, color='lightgreen', edgecolor='black', linewidth=0.5)
+
+    ax.set_title(title, fontsize=16)
+    ax.set_xlabel('Basic Block Length Range', fontsize=14)
+    ax.set_ylabel('Average Loss', fontsize=14)
+
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+
+    plt.xticks(rotation=45, ha='right')  # 旋转 x 轴标签
     plt.tight_layout()
-    
+
     if save_path:
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        print(f"图表已保存到 {save_path}")
-    
+        print(f"Chart saved to {save_path}")
+
+    # plt.show()
     return fig
 
 def plot_prediction_scatter(y_true: np.ndarray, 
@@ -405,6 +441,98 @@ def plot_confusion_matrix(y_true: np.ndarray,
     
     return fig
 
+
+def plot_learning_curves(train_losses: List[float],
+                         val_losses: List[float],
+                         save_path: Optional[str] = None,
+                         title: str = "Learning Curves",
+                         metric_name: str = "Loss") -> plt.Figure:
+    """
+    绘制学习曲线
+
+    Args:
+        train_losses: 训练损失列表
+        val_losses: 验证损失列表
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+        metric_name: 指标名称
+
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    epochs = range(1, len(train_losses) + 1)
+
+    ax.plot(epochs, train_losses, 'b-', marker='o', label=f'Training {metric_name}')
+    ax.plot(epochs, val_losses, 'r-', marker='s', label=f'Validation {metric_name}')
+
+    ax.set_title(title)
+    ax.set_xlabel('Epochs')
+    ax.set_ylabel(metric_name)
+    ax.legend()
+    ax.grid(True)
+
+    # 添加最低点标记
+    best_epoch = val_losses.index(min(val_losses)) + 1
+    best_val = min(val_losses)
+    ax.axvline(x=best_epoch, color='g', linestyle='--', alpha=0.5)
+    ax.axhline(y=best_val, color='g', linestyle='--', alpha=0.5)
+    ax.annotate(f'Best: {best_val:.4f} (Epoch {best_epoch})',
+                xy=(best_epoch, best_val),
+                xytext=(best_epoch + 1, best_val * 1.1),
+                arrowprops=dict(facecolor='black', shrink=0.05, width=1.5, headwidth=8),
+                fontsize=12)
+
+    plt.tight_layout()
+
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+
+    return fig
+
+
+def plot_lr_schedule(learning_rates: List[float],
+                     save_path: Optional[str] = None,
+                     title: str = "Learning Rate Schedule") -> plt.Figure:
+    """
+    绘制学习率调度曲线
+
+    Args:
+        learning_rates: 学习率列表
+        save_path: 保存路径，如果为None则不保存
+        title: 图表标题
+
+    Returns:
+        图表对象
+    """
+    set_plot_style()
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    epochs = range(1, len(learning_rates) + 1)
+
+    ax.plot(epochs, learning_rates, 'g-', marker='o')
+    ax.set_yscale('log')
+
+    ax.set_title(title)
+    ax.set_xlabel('Epochs')
+    ax.set_ylabel('Learning Rate')
+    ax.grid(True)
+
+    plt.tight_layout()
+
+    if save_path:
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"图表已保存到 {save_path}")
+
+    return fig
+
 def create_training_report(train_history: Dict[str, List], 
                           y_true: np.ndarray, 
                           y_pred: np.ndarray, 
@@ -579,125 +707,6 @@ def create_html_report(train_history: Dict[str, List],
     # 保存HTML文件
     with open(os.path.join(output_dir, filename), 'w') as f:
         f.write(html_content)
-
-
-def plot_instruction_losses(instruction_losses, instruction_counts=None, save_path=None,
-                            title="Instruction Type Loss Distribution"):
-    """
-    绘制不同指令类型的平均损失
-
-    Args:
-        instruction_losses: 指令类型到损失的映射
-        instruction_counts: 指令类型到出现次数的映射（可选）
-        save_path: 保存路径，如果为None则不保存
-        title: 图表标题
-
-    Returns:
-        图表对象
-    """
-    set_plot_style()
-
-    # 转换为列表以便绘图
-    instr_types = list(instruction_losses.keys())
-    losses = list(instruction_losses.values())
-
-    # 按损失排序
-    sorted_idx = np.argsort(losses)[::-1]  # 降序
-    sorted_types = [instr_types[i] for i in sorted_idx]
-    sorted_losses = [losses[i] for i in sorted_idx]
-
-    # 仅显示前20个指令类型（如果超过20个）
-    display_limit = 20
-    if len(sorted_types) > display_limit:
-        sorted_types = sorted_types[:display_limit]
-        sorted_losses = sorted_losses[:display_limit]
-        title += f" (Top {display_limit})"
-
-    # 设置图表大小（根据指令类型数量调整）
-    fig_height = max(6, len(sorted_types) * 0.3)
-    fig, ax = plt.subplots(figsize=(10, fig_height))
-
-    # 创建条形图
-    bars = ax.barh(sorted_types, sorted_losses, color='skyblue', edgecolor='black', linewidth=0.5)
-
-    # 如果有指令计数信息，添加标签
-    if instruction_counts:
-        for i, (instr_type, loss) in enumerate(zip(sorted_types, sorted_losses)):
-            count = instruction_counts.get(instr_type, 0)
-            ax.text(loss + max(sorted_losses) * 0.02, i, f"n={count}", va='center')
-
-    # 设置标题和标签
-    ax.set_title(title)
-    ax.set_xlabel('Average Loss')
-    ax.set_ylabel('Instruction Type')
-
-    # 添加网格线
-    ax.grid(axis='x', linestyle='--', alpha=0.7)
-
-    # 调整布局
-    plt.tight_layout()
-
-    # 保存图表
-    if save_path:
-        os.makedirs(os.path.dirname(save_path), exist_ok=True)
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        print(f"图表已保存到 {save_path}")
-
-    return fig
-
-
-def plot_block_length_losses(block_length_losses, block_length_counts=None, save_path=None,
-                             title="Basic Block Length Loss Distribution"):
-    """
-    绘制不同基本块长度的平均损失
-
-    Args:
-        block_length_losses: 基本块长度到损失的映射
-        block_length_counts: 基本块长度到出现次数的映射（可选）
-        save_path: 保存路径，如果为None则不保存
-        title: 图表标题
-
-    Returns:
-        图表对象
-    """
-    set_plot_style()
-
-    # 转换为列表以便绘图
-    block_lengths = sorted(list(block_length_losses.keys()))  # 按长度排序
-    losses = [block_length_losses[length] for length in block_lengths]
-
-    # 设置图表
-    fig, ax = plt.subplots(figsize=(10, 6))
-
-    # 创建条形图
-    bars = ax.bar(block_lengths, losses, color='lightgreen', edgecolor='black', linewidth=0.5)
-
-    # 如果有基本块长度计数信息，添加标签
-    if block_length_counts:
-        for i, (length, loss) in enumerate(zip(block_lengths, losses)):
-            count = block_length_counts.get(length, 0)
-            ax.text(i, loss + max(losses) * 0.02, f"n={count}", ha='center')
-
-    # 设置标题和标签
-    ax.set_title(title)
-    ax.set_xlabel('Basic Block Length')
-    ax.set_ylabel('Average Loss')
-    ax.set_xticks(block_lengths)
-
-    # 添加网格线
-    ax.grid(axis='y', linestyle='--', alpha=0.7)
-
-    # 调整布局
-    plt.tight_layout()
-
-    # 保存图表
-    if save_path:
-        os.makedirs(os.path.dirname(save_path), exist_ok=True)
-        plt.savefig(save_path, dpi=300, bbox_inches='tight')
-        print(f"图表已保存到 {save_path}")
-
-    return fig
-
 
 def create_detailed_training_report(train_history, val_metrics, instruction_metrics, block_length_metrics, output_dir,
                                     report_name="training_detailed_report"):

@@ -1,48 +1,47 @@
 from typing import Dict, Type, Optional
-
 from .base_model import BaseModel
 from .transformer_model import TransformerModel
-# from .lstm_model import LSTMModel
 from .lstm_model import Fasthemal
 from .gnn_model import GNNModel
 
 
 MODEL_REGISTRY: Dict[str, Type[BaseModel]] = {
     "transformer": TransformerModel,
-    # "lstm": LSTMModel,
     "gnn": GNNModel,
-    "lstm": Fasthemal  # 使用同一个LSTMModel类但配置不同
+    "lstm": Fasthemal
 }
+
+
 def register_model(name: str, model_class: Type[BaseModel]) -> None:
     """
-    注册新模型到注册表
-    
+    Register a new model to the registry
+
     Args:
-        name: 模型名称
-        model_class: 模型类
+        name: Model name
+        model_class: Model class
     """
     global MODEL_REGISTRY
     if name in MODEL_REGISTRY:
-        raise ValueError(f"模型 {name} 已经注册")
-    
+        raise ValueError(f"Model {name} is already registered")
+
     MODEL_REGISTRY[name] = model_class
-    print(f"模型 {name} 已注册")
+    print(f"Model {name} registered")
 
 def get_model(config, model_type: Optional[str] = None) -> BaseModel:
     """
-    根据配置创建模型实例
-    
+    Create a model instance based on the configuration
+
     Args:
-        config: 配置对象
-        model_type: 模型类型，如果为None则使用config中的model_type
-        
+        config: Configuration object
+        model_type: Model type, if None, use model_type from config
+
     Returns:
-        模型实例
+        Model instance
     """
     model_type = model_type or config.model_type
     
     if model_type not in MODEL_REGISTRY:
-        raise ValueError(f"未知的模型类型: {model_type}")
+        raise ValueError(f"Unknown model: {model_type}")
     
     model_class = MODEL_REGISTRY[model_type]
     model = model_class(config)
@@ -51,9 +50,9 @@ def get_model(config, model_type: Optional[str] = None) -> BaseModel:
 
 def list_available_models() -> Dict[str, Type[BaseModel]]:
     """
-    列出所有可用的模型
-    
+    List all available models
+
     Returns:
-        模型注册表
+        Model registry
     """
     return MODEL_REGISTRY.copy()

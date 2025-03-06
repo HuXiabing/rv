@@ -6,40 +6,33 @@ from .base_model import BaseModel
 from .Ithemal import BatchRNN, get_last_false_values, AbstractGraphModule
 
 class Fasthemal(BaseModel):
-    """基于Ithemal的RISC-V指令集吞吐量预测模型，采用BatchRNN实现"""
+    """RISC-V instruction set throughput prediction model based on Ithemal, implemented using BatchRNN"""
 
     def __init__(self, config):
-        """
-        初始化LSTM模型
 
-        Args:
-            config: 配置对象
-        """
         super(Fasthemal, self).__init__(config)
 
-        # 创建BatchRNN模型
+        # create BatchRnn model
         self.model = BatchRNN(
             embedding_size=config.embed_dim,
             hidden_size=config.hidden_dim,
-            num_classes=1,  # 回归任务
-            pad_idx=0,  # 假设0是填充索引
+            num_classes=1,  # for regression task
+            pad_idx=0,
             num_layers=config.num_layers,
             vocab_size=config.vocab_size
         )
 
     def forward(self, x, instruction_count=None):
         """
-        前向传播
-
         Args:
-            x: 输入数据 [batch_size, max_instr_count, max_instr_length]
-            instruction_count: 每个样本的指令数量 [batch_size]
+            x: input data [batch_size, max_instr_count, max_instr_length]
+            instruction_count:  [batch_size]
 
         Returns:
-            预测的吞吐量值 [batch_size]
+            y: [batch_size]
         """
-        # BatchRNN已经设计为处理批处理输入
-        # 所以可以直接传递x
+        # BatchRNN is already designed to handle batched inputs
+        # So x can be passed directly
         return self.model(x)
 
 
