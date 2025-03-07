@@ -152,7 +152,8 @@ class ExperimentManager:
     
     def finish(self):
         duration = time.time() - self.start_time
-        self.logger.info(f"Experiment completed. Total time: {duration:.2f} seconds")
+        self.logger.info(f"Experiment completed. Best validation loss: {self.history['best_metric']:.6f} at Epoch "
+              f"{self.history['best_epoch'] + 1}. Total time: {duration:.2f} seconds")
 
     def save_instruction_stats(self, instruction_stats, epoch):
         """

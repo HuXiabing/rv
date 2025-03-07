@@ -261,9 +261,8 @@ class RegressionTrainer(BaseTrainer):
                   f"Val Loss: {val_metrics['loss']:.6f}" +
                   (f" - Best Val Loss: {self.best_metric:.6f} (Epoch {self.best_epoch + 1})" if is_best else ""))
 
-            # 绘制训练进度
-            # if (epoch + 1) % 5 == 0 or epoch == num_epochs - 1:
-            #     self._plot_progress()
+            if (epoch + 1) % 5 == 0 or epoch == num_epochs - 1:
+                self._plot_progress()
 
             # early stopping
             if self.early_stopping_counter >= self.config.patience:
@@ -274,14 +273,7 @@ class RegressionTrainer(BaseTrainer):
         print(f"Training completed! Total time: {training_time:.2f} seconds")
         print(f"Best validation loss: {self.best_metric:.6f} at Epoch {self.best_epoch + 1}")
 
-        # 绘制最终训练进度
-        # self._plot_progress()
-
-        # # 加载最佳模型
-        # best_checkpoint_path = os.path.join(self.checkpoint_dir, "model_best.pth")
-        # if os.path.exists(best_checkpoint_path):
-        #     self._resume_checkpoint(best_checkpoint_path, only_model=True)
-        #     print(f"已加载最佳模型 (Epoch {self.best_epoch + 1})")
+        self._plot_progress()
 
         return {
             "train_losses": self.train_losses,

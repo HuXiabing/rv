@@ -14,15 +14,6 @@ TRANSFORMER_CONFIG = {
     "handle_neg": False
 }
 
-# # LSTM模型默认配置 (为BatchRNN更新)
-# LSTM_CONFIG = {
-#     "model_type": "lstm",
-#     "embed_dim": 512,
-#     "hidden_dim": 512,
-#     "num_layers": 1,
-#     "dropout": 0.1,
-# }
-
 ITHEMAL_CONFIG = {
     "model_type": "ithemal",
     "embed_dim": 512,
@@ -60,12 +51,12 @@ TRAINING_CONFIG = {
     "loss_epsilon": 1e-5,  # for MAPE
     "huber_delta": 1.0,    # for Huber
 }
-# merge all configurations
 
+# merge all configurations
 DEFAULT_CONFIG = {
     **DATA_CONFIG,
     **TRAINING_CONFIG,
-    "output_dir": "outputs",
+    "output_dir": "experiments",
     "experiment_name": "test",
     "seed": 42,
     "verbose": True,

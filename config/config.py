@@ -79,15 +79,6 @@ class Config:
         self.output_dir = output_dir
         self.experiment_name = experiment_name
         
-        # self.experiment_dir = os.path.join(output_dir, experiment_name)
-        # self.checkpoint_dir = os.path.join(self.experiment_dir, "checkpoints")
-        # self.log_dir = os.path.join(self.experiment_dir, "logs")
-        # self.vocab_path = os.path.join(self.experiment_dir, "vocab.json")
-        
-        # 创建必要的目录
-        # os.makedirs(self.checkpoint_dir, exist_ok=True)
-        # os.makedirs(self.log_dir, exist_ok=True)
-        
         self.seed = seed
         self.verbose = verbose
         

@@ -2,13 +2,11 @@ from .config import Config
 from .defaults import (
     DEFAULT_CONFIG, 
     TRANSFORMER_CONFIG, 
-    # LSTM_CONFIG,
-    GNN_CONFIG, 
+    GNN_CONFIG,
     # DATA_CONFIG,
     # TRAINING_CONFIG,
     ITHEMAL_CONFIG
 )
-
 
 def get_config(model_type="transformer", **kwargs):
 

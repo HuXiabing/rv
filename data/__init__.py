@@ -1,5 +1,5 @@
 from .tokenizer import RISCVTokenizer
-from .processor import RISCVDataProcessor
+from .processor_ import RISCVDataProcessor
 from .dataset import RISCVDataset, get_dataloader
 
 ## 创建配置

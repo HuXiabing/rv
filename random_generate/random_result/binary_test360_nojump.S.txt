@@ -1,0 +1,6148 @@
+mmap aux mem: Success
+mprotect: Success
+mprotect: Success
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+bad inst is at 13078, signal = 11
+VAL OF SP = fff38890
+RESTARTING AT 0x1205c, fault addr = 0x7000000
+bad inst is at 1308c, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = 0x2324800
+bad inst is at 1319c, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = 0x2323ff8
+bad inst is at 131ac, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = 0x10dd758
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = (nil)
+bad inst is at 131b0, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+failed to run test
+ult addr = (nil)

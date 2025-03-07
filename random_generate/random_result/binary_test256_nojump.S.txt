@@ -1,0 +1,6148 @@
+mmap aux mem: Success
+mprotect: Success
+mprotect: Success
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+bad inst is at 13078, signal = 11
+VAL OF SP = ffca7890
+RESTARTING AT 0x1205c, fault addr = 0x7000000
+bad inst is at 1308c, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = 0x2324800
+bad inst is at 1316c, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = 0x2323ff8
+bad inst is at 131cc, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x10dd758
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signalget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x131get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+4c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTINGget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING ATget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+badget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VALget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0xget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+st is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OFget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x120get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+8c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SPget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c,get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, faget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ult addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = fffget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+fffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, faultget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault adget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+dr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8,get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+= 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, siget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+gnal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+TARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signaget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+l = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+TING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x13get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+14c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal =get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTINget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+G AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314cget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING Aget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+T 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+baget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+d inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+L OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad iget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+nst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL Oget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+F SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x12get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+08c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad instget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF Sget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+P = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208cget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst isget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP =get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is atget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, faulget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+t addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 13get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+1d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = fffffget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+fff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault aget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ddr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffffget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addrget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, sget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ignal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+REget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+STARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+al = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTAget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+RTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+= 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTIget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+NG AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 1get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+1
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+Vget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+AL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad insget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+t is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst iget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+s at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+= ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is aget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+t 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = fget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+fffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fauget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+lt addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 1get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+31d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131dget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = fffffffget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+f
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+r = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+Rget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr =get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, sigget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+nal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+ARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0x1314c
+bad inst is at 131d8, signal = 11
+VAL OF SP = ffffffff
+RESTARTING AT 0x1208c, fault addr = 0xget regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+failed to run test
+1314c

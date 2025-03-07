@@ -1,0 +1,46 @@
+mmap aux mem: Success
+mprotect: Success
+mprotect: Success
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+get regs: Invalid argument
+set regs: Invalid argument
+cont: Invalid argument
+bad inst is at 13078, signal = 11
+VAL OF SP = ffa7f890
+RESTARTING AT 0x1205c, fault addr = 0x7000000
+bad inst is at 1308c, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = 0x2324800
+bad inst is at 13164, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = 0x2323ff8
+bad inst is at 13194, signal = 11
+VAL OF SP = 2324800
+RESTARTING AT 0x1208c, fault addr = 0x3ff8
+-272450867
+-272449000
+-272447333
+-272445658
+-272443991
+-272442324
+-272440657
+-272438990
+-272437323
+-272435656
+-272433989
+-272423083
+-272421350
+-272419643
+-272417936
+-272416229
+Cycle Max: -272416229
+Cycle Min: -272450867
+Cycle Average(rm max and min): 1317624576421103872.00

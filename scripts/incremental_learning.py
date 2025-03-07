@@ -2,15 +2,11 @@
 """
 Incremental Training Script - Incremental Training Based on an Existing Model
 """
-
 import os
 import sys
 import argparse
 import glob
 from pathlib import Path
-
-from rvmca.utils.time_util import parse_time_for_hms
-
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 import torch
 from config import get_config
@@ -70,7 +66,7 @@ def main():
     # Other Parameters
     parser.add_argument("--seed", type=int, default=42, help="Random seed.")
     parser.add_argument("--device", type=str, default=None, help="Device to run on.")
-    parser.add_argument("--num_workers", type=int, default=4, help="Number of data loading threads.")
+    parser.add_argument("--num_workers", type=int, default=1, help="Number of data loading threads.")
 
     args = parser.parse_args()
 
@@ -84,7 +80,7 @@ def main():
             if os.path.exists("experiments"):
                 experiments = [d for d in os.listdir("experiments")
                                if os.path.isdir(os.path.join("experiments", d))]
-                print("-------------------",experiments)
+
                 if experiments:
                     experiments.sort(key=lambda d: os.path.getmtime(os.path.join("experiments", d)),
                                      reverse=True)

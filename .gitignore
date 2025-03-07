@@ -1,2 +1,4 @@
 experiments/
-random_generate_bb/
+asm/
+data/*.json
+data/*.h5

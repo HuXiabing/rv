@@ -236,47 +236,21 @@ class RISCVTokenizer:
 
         return encoded
 
-    # def decode_tokens(self, token_ids: List[int]) -> List[str]:
-    #     """
-    #     将token ID序列解码为令牌列表
-    #
-    #     Args:
-    #         token_ids: token ID列表
-    #
-    #     Returns:
-    #         解码后的令牌列表
-    #     """
-    #     return [self.inverse_vocab.get(tid, '<UNK>') for tid in token_ids]
+    def tokenized_bb(self, basic_block: str) -> List[List[str]]:
+        """
+        Tokenizes a basic block into a list of token lists.
+        Args:
+            basic_block: A string representing the basic block, with instructions separated by newline characters.
 
-    # def tokenized_bb(self, basic_block: str) -> List[List[str]]:
-    #     """
-    #     将基本块分词为令牌列表的列表
-    #
-    #     Args:
-    #         basic_block: 基本块字符串，指令以换行符分隔
-    #
-    #     Returns:
-    #         分词后的标记列表的列表
-    #     """
-    #     bb_tokens = []
-    #     pattern = r'[^ ,\t]+'
-    #     bb = [re.findall(pattern, s) for s in basic_block.strip().split("\\n")]
-    #
-    #     for instruction in bb:
-    #         instr_len = len(instruction)
-    #         if instr_len == 1:
-    #             tokenized = self.zero_reg(instruction)
-    #         elif instr_len == 2:
-    #             tokenized = self.one_reg_num(instruction)
-    #         elif instr_len == 3:
-    #             tokenized = self.two_reg(instruction)
-    #         elif instr_len == 4:
-    #             tokenized = self.three_reg(instruction)
-    #         elif instr_len == 5:
-    #             tokenized = self.four_reg(instruction)
-    #         else:
-    #             raise ValueError(f"Invalid instruction format: {instruction}")
-    #
-    #         bb_tokens.append(tokenized)
-    #
-    #     return bb_tokens
+        Returns:
+            A list of tokenized lists.
+        """
+        bb_tokens = []
+        pattern = r'[^ ,\t]+'
+        bb = [re.findall(pattern, s) for s in basic_block.strip().split("\\n")]
+
+        for instruction in bb:
+            tokenized = self.tokenize_instruction(instruction)
+            bb_tokens.append(tokenized)
+
+        return bb_tokens

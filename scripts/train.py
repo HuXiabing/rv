@@ -121,7 +121,7 @@ def main():
     experiment_manager.history = history
     experiment_manager.save_history()
 
-    print(f"Training completed! Best validation loss: {history['best_metric']:.6f} at Epoch {history['best_epoch'] + 1}")
+    # print(f"Training completed! Best validation loss: {history['best_metric']:.6f} at Epoch {history['best_epoch'] + 1}")
     experiment_manager.save_summary({
         'model_type': args.model_type,
         'best_val_loss': history['best_metric'],
