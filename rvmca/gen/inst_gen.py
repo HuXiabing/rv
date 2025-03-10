@@ -31,9 +31,9 @@ from rvmca.prog.reg import XREG, FREG
 
 rfmt_insts = {
     n: RFmtInst(n, 'x0', 'x0', 'x0')
-    for n in ['add', 'addw', 'and', 'div', 'divu', 'divuw', 'divw',
-              'mul', 'mulh', 'mulhsu', 'mulhu', 'mulw', 'rem', 'remu',
-              'remuw', 'remw', 'sll', 'sllw', 'slt', 'sltu', 'sra',
+    for n in ['add', 'addw', 'and', 'or'
+              'div', 'divu', 'divuw', 'divw','mul', 'mulh', 'mulhsu', 'mulhu', 'mulw', 'rem', 'remu','remuw', 'remw',  # M
+              'sll', 'sllw', 'slt', 'sltu', 'sra',
               'sraw', 'srl', 'srlw', 'sub', 'subw', 'xor']
 }
 
@@ -48,6 +48,9 @@ ufmt_insts = {
     n: UFmtInst(n, 'x0', 0)
     for n in ['auipc', 'lui']
 }
+
+frrr_insts = {n: FRRRRFmtInst(n, 'f0', 'f0', 'f0', 'f0')
+              for n in ['']}
 
 shifts_arithmetic_logical_insts = {
     **{n: RFmtInst(n, 'x0', 'x0', 'x0')
@@ -90,12 +93,6 @@ branch_insts = {
     for n in ['beq', 'bge', 'bgeu', 'blt', 'bltu', 'bne']
 }
 
-##############################################################################
-
-
-
-
-##############################################################################
 jalr_inst = JalrInst('jalr', 'x0', 'x0', 0)
 jal_inst = JFmtInst('jal', 'x0', 0)
 
@@ -103,13 +100,17 @@ normal_insts = {**rfmt_insts, **ifmt_insts, **load_insts, **store_insts}
 exit_insts = {**branch_insts, 'jalr': jalr_inst, 'jal': jal_inst}
 
 riscv_insts = {**normal_insts, **exit_insts}
+##############################################################################
 
+
+
+
+##############################################################################
 
 def gen_reg(candidates: List = None):
     if candidates is None:
         candidates = XREG
     return random.choice(candidates)
-
 
 def gen_inst(candidates: Dict = None):
     if candidates is None:
@@ -121,10 +122,7 @@ def gen_inst(candidates: Dict = None):
 def gen_imm(start=-8, end=8, divisor=1):
     return random.randint(start // divisor, end // divisor) * divisor
 
-def add_structure_hazard(insts_list, num = 3):
-    pass
-
-def dependency_analyzer(block):
+def dependency_analyzer(block, depth=1):
 
     waw = [0] * 10
     raw = [0] * 10
@@ -156,24 +154,6 @@ def dependency_analyzer(block):
 
 
     return raw, war, waw
-
-
-def verify_dependencies(block, depth, flags):
-    raw = war = waw = False
-
-    # 检查WAW
-    if flags[0] and depth < len(block):
-        waw = (block[0].get_def() == block[depth].get_def())
-
-    # 检查WAR
-    if flags[1] and (depth + 1) < len(block):
-        war = (block[1].get_def() in block[depth + 1].get_uses())
-
-    # 检查RAW
-    if flags[2] and (depth + 2) < len(block):
-        raw = (block[depth + 2].get_def() in block[2].get_uses())
-
-    return waw, war, raw
 
 def gen_block(num_insts: int = 10, seed: int = None):
     if seed is not None:
@@ -301,13 +281,12 @@ def gen_block(num_insts: int = 10, seed: int = None):
 #
 #     return block
 
-def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1, 1, 1, 1], seed: int = None, depth=1):
+def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flags=[1, 1, 1], seed: int = None, depth=1):
     if seed is not None:
         random.seed(seed)
 
     num_insts = vec[0]
     ratios = vec[1:6]
-    dependency_flags = vec[6:9]
 
     # 动态生成策略
     BASE_SIZE = 150
@@ -352,7 +331,7 @@ def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1, 1, 1, 1], seed: i
             inst.set_uses([gen_reg() for _ in range(num_uses)])
 
     registers = XREG.copy()
-    if vec[6]:
+    if dependency_flags[0]:
         target_idx = depth
         if target_idx < len(block):
             reg = registers.pop()
@@ -364,7 +343,7 @@ def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1, 1, 1, 1], seed: i
             if num_uses > 0:
                 block[target_idx].set_uses([gen_reg() for _ in range(num_uses)])
 
-    if vec[7]:
+    if dependency_flags[1]:
         writer_idx = 2
         reader_idx = depth + 2
         if reader_idx < len(block):
@@ -376,7 +355,7 @@ def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1, 1, 1, 1], seed: i
             if len(block[writer_idx].get_uses()) > 0:
                 block[writer_idx].set_uses([gen_reg() for _ in range(len(block[writer_idx].get_uses()))])
 
-    if vec[8]:
+    if dependency_flags[2]:
         reader_idx = 1
         writer_idx = depth + 1
         if writer_idx < len(block):

@@ -319,7 +319,7 @@ def init_states_for_block(prog: Program, name: str) -> List[Inst]:
     history_events = [e for e in history_events if isinstance(e, SimActionConstraint)]
     for i, event in enumerate(history_events):
         constraint = event.constraint
-        assert constraint.ast.op is 'SGE'
+        assert constraint.ast.op == 'SGE'
         reg_symbol = constraint.ast.args[0]
         if not str(reg_symbol).startswith(f'<BV64 {REG_PREFIX}'):
             r = regs_undefined[i]
