@@ -54,8 +54,6 @@ not tested yet
 
 resume
 
-not tested yet
-
   ```bash
   python main.py resume --checkpoint experiments/transformer_v1/checkpoints/checkpoint_epoch_10.pth --additional_epochs 20
   ```
