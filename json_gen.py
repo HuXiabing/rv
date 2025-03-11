@@ -39,9 +39,11 @@ def process_directory(directory, base_path):
 
         # 解析文件名，找到对应的 block 文件
         # 文件名格式：0001a4c4_3_0.S.txt -> 0001a4c4_3_0.S
-        if not file_name.endswith(".txt"):
+        # if not file_name.endswith(".txt"):
+        if not file_name.endswith(".txt") or not file_name.startswith("binary_"):
             continue
-        block_file_name = file_name[:-len(".txt")]
+        # block_file_name = file_name[:-len(".txt")]
+        block_file_name = file_name[len("binary_"):-len(".txt")]
         block_file_path = Path(base_path) / block_file_name
 
         if not block_file_path.exists():

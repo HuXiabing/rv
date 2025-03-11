@@ -68,12 +68,12 @@ def main():
     # group.add_argument("--input_json", type=str, help="输入JSON文件路径")
     # group.add_argument("--input_hdf5", type=str, help="输入HDF5文件路径")
     # predict_parser.add_argument("--output", type=str, default="predictions.json", help="输出文件路径")
-    #
-    # # 恢复训练命令
-    # resume_parser = subparsers.add_parser("resume", help="从检查点恢复训练")
-    # resume_parser.add_argument("--checkpoint", type=str, required=True, help="检查点路径")
-    # resume_parser.add_argument("--additional_epochs", type=int, default=10, help="额外训练的轮数")
-    # resume_parser.add_argument("--experiment_name", type=str, default=None, help="新实验名称")
+
+    # resume training command
+    resume_parser = subparsers.add_parser("resume", help="resume training from a checkpoint")
+    resume_parser.add_argument("--checkpoint", type=str, required=True, help="checkpoint path")
+    resume_parser.add_argument("--additional_epochs", type=int, default=10, help="extra epochs")
+    resume_parser.add_argument("--experiment_name", type=str, default=None, help="new experiment name")
 
     # Incremental Learning Command
     incremental_parser = subparsers.add_parser("incremental",
@@ -183,20 +183,20 @@ def main():
     #         sys.argv.extend(["--device", args.device])
     #     predict_main()
     #
-    # elif args.command == "resume":
-    #     from scripts.resume_training import main as resume_main
-    #     sys.argv = [sys.argv[0]] + [
-    #         "--checkpoint", args.checkpoint,
-    #         "--additional_epochs", str(args.additional_epochs),
-    #         "--seed", str(args.seed)
-    #     ]
-    #
-    #     if args.experiment_name:
-    #         sys.argv.extend(["--experiment_name", args.experiment_name])
-    #
-    #     if args.device:
-    #         sys.argv.extend(["--device", args.device])
-    #     resume_main()
+    elif args.command == "resume":
+        from scripts.resume_training import main as resume_main
+        sys.argv = [sys.argv[0]] + [
+            "--checkpoint", args.checkpoint,
+            "--additional_epochs", str(args.additional_epochs),
+            "--seed", str(args.seed)
+        ]
+
+        if args.experiment_name:
+            sys.argv.extend(["--experiment_name", args.experiment_name])
+
+        if args.device:
+            sys.argv.extend(["--device", args.device])
+        resume_main()
 
     elif args.command == "incremental":
         from scripts.incremental_learning import main as incremental_main

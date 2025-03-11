@@ -36,8 +36,6 @@ incremental training
 python main.py incremental --model_path experiments/transformer_v1_20250304_101004/checkpoints/checkpoint_latest.pth
 ```
 
-
-
 evaluation
 
 not tested yet
@@ -61,5 +59,8 @@ not tested yet
   ```bash
   python main.py resume --checkpoint experiments/transformer_v1/checkpoints/checkpoint_epoch_10.pth --additional_epochs 20
   ```
+
+
+
 
   

@@ -49,13 +49,23 @@ ufmt_insts = {
     for n in ['auipc', 'lui']
 }
 
-frrr_insts = {n: FRRRRFmtInst(n, 'f0', 'f0', 'f0', 'f0')
-              for n in ['']}
+frrrr_insts = {n: FRRRRFmtInst(n, 'f0', 'f0', 'f0', 'f0')
+              for n in ["fmadd.d", "fmadd.s", "fmsub.d", "fmsub.s", "fnmadd.d", "fnmadd.s", "fnmsub.d", "fnmsub.s"]}
+
+frr_insts = {n: FRRFmtInst(n, 'f0', 'f0')
+             for n in ["fclass.d", "fclass.s", "fcvt.d.l", "fcvt.d.lu", "fcvt.d.s", "fcvt.d.w", "fcvt.d.wu",
+                        "fcvt.l.d", "fcvt.l.s", "fcvt.lu.d", "fcvt.lu.s", "fcvt.s.d", "fcvt.s.l", "fcvt.s.lu", "fcvt.s.w", "fcvt.s.wu",
+                        "fcvt.w.d", "fcvt.w.s", "fcvt.wu.d", "fcvt.wu.s", "fmv.d.x", "fmv.w.x", "fmv.x.d", "fmv.x.w", "fsqrt.d", "fsqrt.s"]}
+
+frrr_insts = {n:RFmtInst(n, 'f0', 'f0', 'f0')
+               for n in ['fadd.d', 'fadd.s', 'fdiv.d', 'fdiv.s', "fmax.d", "fmax.s", "fmin.d", "fmin.s", "fmul.d", "fmul.s",
+                         "fsgnj.d", "fsgnj.s", "fsgnjn.d", "fsgnjn.s", "fsgnjx.d", "fsgnjx.s", "fsub.d", "fsub.s"]}
+
 
 shifts_arithmetic_logical_insts = {
     **{n: RFmtInst(n, 'x0', 'x0', 'x0')
      for n in ['add', 'addw', 'and', 'sll', 'sllw', 'sra',
-               'sraw', 'srl', 'srlw', 'sub', 'subw', 'xor']},
+               'sraw', 'srl', 'srlw', 'sub', 'subw', 'xor', 'or']},
 
     **{n: IFmtInst(n, 'x0', 'x0', 0)
      for n in ['addi', 'addiw', 'andi', 'ori', 'slli', 'slliw',

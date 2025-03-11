@@ -83,7 +83,7 @@ class RegressionTrainer(BaseTrainer):
                 mode='min',
                 factor=0.5,
                 patience=self.config.patience // 2,
-                verbose=True
+                # verbose=True
             )
 
     def train_epoch(self, train_loader):
