@@ -4,7 +4,7 @@ from torch.optim import Adam, AdamW
 from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR, StepLR
 from tqdm import tqdm
 from .base_trainer import BaseTrainer
-from utils.metrics import compute_regression_metrics, MapeLoss, BatchResult, correct_regression
+from utils.metrics import compute_regression_metrics, MapeLoss, BatchResult, correct_regression, compute_accuracy
 import time
 import os
 
@@ -32,6 +32,7 @@ class RegressionTrainer(BaseTrainer):
         loss_type = getattr(self.config, 'loss_type', 'mape').lower()
 
         if loss_type == 'mape':
+            print("Using MAPE Loss")
             epsilon = getattr(self.config, 'loss_epsilon', 1e-5)
             self.criterion = MapeLoss(epsilon=epsilon)
         elif loss_type == 'mae' or loss_type == 'l1':
@@ -86,12 +87,96 @@ class RegressionTrainer(BaseTrainer):
                 # verbose=True
             )
 
+    def train(self, train_loader, val_loader, num_epochs=None, resume=False, checkpoint_path=None):
+
+        num_epochs = num_epochs or self.config.epochs
+
+        if resume:
+            self._resume_checkpoint(checkpoint_path)
+
+        start_time = time.time()
+        print(f"Starting training from epoch {self.start_epoch + 1} to {num_epochs}")
+
+        for epoch in range(self.start_epoch, num_epochs):
+            self.current_epoch = epoch
+
+            train_metrics, train_batch_result = self.train_epoch(train_loader)
+
+            val_metrics = self.validate(val_loader)
+
+            if self.scheduler:
+                if isinstance(self.scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
+                    self.scheduler.step(val_metrics["loss"])
+                else:
+                    self.scheduler.step()
+
+            # check if this epoch's validation is the minimum loss
+            is_best = val_metrics["loss"] < self.best_metric
+            if is_best:
+                self.best_metric = val_metrics["loss"]
+                self.best_epoch = epoch
+                self.early_stopping_counter = 0
+            else:
+                self.early_stopping_counter += 1
+
+            # save checkpoint
+            if (epoch + 1) % self.config.save_freq == 0 or is_best:
+                self._save_checkpoint(epoch, train_metrics, val_metrics, is_best)
+
+            instruction_stats = {
+                "instruction_avg_loss": train_batch_result.get_instruction_avg_loss(),
+                "instruction_counts": train_batch_result.instruction_counts
+            }
+
+            block_length_stats = {
+                "block_length_avg_loss": train_batch_result.get_block_length_avg_loss(),
+                "block_length_counts": train_batch_result.block_lengths_counts
+            }
+
+            if hasattr(self, 'experiment') and self.experiment:
+                self.experiment.save_instruction_stats(instruction_stats, epoch)
+                self.experiment.save_block_length_stats(block_length_stats, epoch)
+
+                self.experiment.visualize_epoch_stats(
+                    instruction_stats,
+                    block_length_stats,
+                    epoch
+                )
+
+            print(f"Epoch {epoch + 1}/{num_epochs} - "
+                  f"Train Loss: {train_metrics['loss']:.6f} - "
+                  f"Val Loss: {val_metrics['loss']:.6f}" +
+                  (f" - Best Val Loss: {self.best_metric:.6f} (Epoch {self.best_epoch + 1})" if is_best else ""))
+
+            if (epoch + 1) % 5 == 0 or epoch == num_epochs - 1:
+                self._plot_progress()
+
+            # early stopping
+            if self.early_stopping_counter >= self.config.patience:
+                print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
+                break
+
+        training_time = time.time() - start_time
+        print(f"Training completed! Total time: {training_time:.2f} seconds")
+        print(f"Best validation loss: {self.best_metric:.6f} at Epoch {self.best_epoch + 1}")
+
+        self._plot_progress()
+
+        return {
+            "train_losses": self.train_losses,
+            "val_losses": self.val_losses,
+            "learning_rates": self.learning_rates,
+            "best_metric": self.best_metric,
+            "best_epoch": self.best_epoch
+        }
+
     def train_epoch(self, train_loader):
 
         self.model.train()
         batch_result = BatchResult()
         progress_bar = tqdm(train_loader, desc=f"Epoch {self.current_epoch + 1}/{self.config.epochs}")
-
+        total_loss = 0.0
+        total_samples = 0
         """
         batch {'X': tensor([[[ 73,   5,  29,  ...,   7,   4,   0],
          [ 73,   5,  20,  ...,   7,   4,   0],
@@ -146,6 +231,8 @@ class RegressionTrainer(BaseTrainer):
             loss = self.criterion(output, y)  # [batch_size]
             mean_loss = torch.mean(loss)
             mean_loss.backward()
+            total_loss += torch.sum(loss).item()
+            total_samples += len(x)
 
             if self.clip_grad_norm > 0:
                 torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.clip_grad_norm)
@@ -180,8 +267,11 @@ class RegressionTrainer(BaseTrainer):
 
             self.global_step += 1
 
+        avg_loss = total_loss / total_samples  # 除以样本总数而不是批次数
+        print("training total loss-------------------", total_loss)
         metrics = batch_result.compute_metrics(self.accuracy_tolerance)
-        self.train_losses.append(metrics["loss"])
+        metrics["loss"] = avg_loss
+        self.train_losses.append(avg_loss)
         '''{
             "loss": metrics["loss"],
             "accuracy": metrics["accuracy"]
@@ -200,89 +290,6 @@ class RegressionTrainer(BaseTrainer):
 
         return metrics, batch_result
 
-    def train(self, train_loader, val_loader, num_epochs=None, resume=False, checkpoint_path=None):
-
-        num_epochs = num_epochs or self.config.epochs
-
-        if resume:
-            self._resume_checkpoint(checkpoint_path)
-
-        start_time = time.time()
-        print(f"Starting training---------------------------\nFrom epoch {self.start_epoch + 1} to {num_epochs}")
-
-        for epoch in range(self.start_epoch, num_epochs):
-            self.current_epoch = epoch
-
-            train_metrics, train_batch_result = self.train_epoch(train_loader)
-
-            val_metrics = self.validate(val_loader)
-
-            if self.scheduler:
-                if isinstance(self.scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
-                    self.scheduler.step(val_metrics["loss"])
-                else:
-                    self.scheduler.step()
-
-            # check if this epoch's validation is the minimum loss
-            is_best = val_metrics["loss"] < self.best_metric
-            if is_best:
-                self.best_metric = val_metrics["loss"]
-                self.best_epoch = epoch
-                self.early_stopping_counter = 0
-            else:
-                self.early_stopping_counter += 1
-
-            # save checkpoint
-            if (epoch + 1) % self.config.save_freq == 0 or is_best:
-                self._save_checkpoint(epoch, train_metrics, val_metrics, is_best)
-
-            instruction_stats = {
-                    "instruction_avg_loss": train_batch_result.get_instruction_avg_loss(),
-                    "instruction_counts": train_batch_result.instruction_counts
-            }
-
-            block_length_stats = {
-                "block_length_avg_loss": train_batch_result.get_block_length_avg_loss(),
-                "block_length_counts": train_batch_result.block_lengths_counts
-            }
-
-            if hasattr(self, 'experiment') and self.experiment:
-                self.experiment.save_instruction_stats(instruction_stats, epoch)
-                self.experiment.save_block_length_stats(block_length_stats, epoch)
-
-                self.experiment.visualize_epoch_stats(
-                    instruction_stats,
-                    block_length_stats,
-                    epoch
-                )
-
-            print(f"Epoch {epoch + 1}/{num_epochs} - "
-                  f"Train Loss: {train_metrics['loss']:.6f} - "
-                  f"Val Loss: {val_metrics['loss']:.6f}" +
-                  (f" - Best Val Loss: {self.best_metric:.6f} (Epoch {self.best_epoch + 1})" if is_best else ""))
-
-            if (epoch + 1) % 5 == 0 or epoch == num_epochs - 1:
-                self._plot_progress()
-
-            # early stopping
-            if self.early_stopping_counter >= self.config.patience:
-                print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
-                break
-
-        training_time = time.time() - start_time
-        print(f"Training completed! Total time: {training_time:.2f} seconds")
-        print(f"Best validation loss: {self.best_metric:.6f} at Epoch {self.best_epoch + 1}")
-
-        self._plot_progress()
-
-        return {
-            "train_losses": self.train_losses,
-            "val_losses": self.val_losses,
-            "learning_rates": self.learning_rates,
-            "best_metric": self.best_metric,
-            "best_epoch": self.best_epoch
-        }
-
     def validate(self, val_loader, epoch=None):
 
         if epoch is None:
@@ -290,6 +297,8 @@ class RegressionTrainer(BaseTrainer):
 
         self.model.eval()
         batch_result = BatchResult()
+        total_loss = 0.0
+        total_samples = 0
 
         with torch.no_grad():
             for batch in tqdm(val_loader, desc="Validating"):
@@ -299,35 +308,50 @@ class RegressionTrainer(BaseTrainer):
 
                 output = self.model(x)
                 loss = self.criterion(output, y)
+                total_loss += torch.sum(loss).item()
+                total_samples += len(x)
 
                 for i in range(len(output)):
-
-                    instructions = []
-                    block_len = None
-
-                    if instruction_count is not None:
-                        valid_count = instruction_count[i].item()
-                        block_len = valid_count
-
-                        for j in range(valid_count):
-                            instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
-                            if instr_tokens:
-                                instructions.append(instr_tokens[0])
-
+                #
+                #     instructions = []
+                #     block_len = None
+                #
+                #     if instruction_count is not None:
+                #         valid_count = instruction_count[i].item()
+                #         block_len = valid_count
+                #
+                #         for j in range(valid_count):
+                #             instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
+                #             if instr_tokens:
+                #                 instructions.append(instr_tokens[0])
+                #
                     batch_result.add_sample(
                         prediction=output[i].item(),
                         measured=y[i].item(),
                         loss=loss[i].item(),
-                        instructions=instructions,
-                        block_len=block_len
+                        instructions=None,
+                        block_len=None
                     )
 
+        # metrics = batch_result.compute_metrics(self.accuracy_tolerance)
+        # metrics = {}
+        avg_loss = total_loss / total_samples  # 除以样本总数而不是批次数
+        print("validation total loss-------------------", total_loss)
         metrics = batch_result.compute_metrics(self.accuracy_tolerance)
-        self.val_losses.append(metrics["loss"])
-        current_accuracy = metrics.get("accuracy", 0)
+        metrics["loss"] = avg_loss
+        self.train_losses.append(avg_loss)
+        # print("max(output)", output)
+        # print("max(y)",y)
+        current_accuracy = correct_regression(y, output, self.accuracy_tolerance)
+        avg_loss = total_loss / len(val_loader)
+        print("validate total loss-------------------", total_loss)
+        metrics["loss"] = avg_loss
+        self.val_losses.append(avg_loss)
+        # current_accuracy = metrics.get("accuracy", 0)
+        metrics["accuracy"] = current_accuracy
 
         print(f"\nValidation Results - Epoch {epoch + 1}:")
-        print(f"  Loss: {metrics['loss']:.6f}")
+        print(f"  Loss: {avg_loss:.6f}")
         print(f"  Accuracy: {current_accuracy:.6f}")
 
         # check if this epoch's validation is the best accuracy

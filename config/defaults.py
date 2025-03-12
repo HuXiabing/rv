@@ -35,15 +35,15 @@ GNN_CONFIG = {
 # default data configuration
 DATA_CONFIG = {
     "max_instr_length": 8,
-    "max_instr_count": 400,
-    "vocab_size": 2000,
+    "max_instr_count": 200,
+    "vocab_size": 256,
 }
 
 # default training configuration
 TRAINING_CONFIG = {
     "lr": 1e-4,
     "weight_decay": 1e-5,
-    "batch_size": 32,
+    "batch_size": 8,
     "epochs": 50,
     "patience": 5,
     "clip_grad_norm": 1.0,

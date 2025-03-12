@@ -10,6 +10,7 @@ fi
 # 获取绝对路径并创建输出目录
 INPUT_DIR=$(realpath -m "$1")
 OUTPUT_DIR=$(realpath -m "$2")
+rm -rf "$OUTPUT_DIR" || { echo "无法删除输出目录！"; exit 1; }
 mkdir -p "$OUTPUT_DIR" || { echo "无法创建输出目录！"; exit 1; }
 
 # 设置用于处理空格的字段分隔符
@@ -29,7 +30,7 @@ find "$INPUT_DIR" -type f -name "*.S" -print0 | while IFS= read -r -d $'\0' S_FI
     BASE_NAME=$(basename "$S_FILE" .S)
     OBJ="$TARGET_DIR/${BASE_NAME}.o"
     ELF="$TARGET_DIR/${BASE_NAME}.elf"
-    BIN="$TARGET_DIR/binary_${BASE_NAME}.S"
+    BIN="$TARGET_DIR/${BASE_NAME}.S"
 
     echo "正在处理: $S_FILE"
     

@@ -155,6 +155,10 @@ class ExperimentManager:
         self.logger.info(f"Experiment completed. Best validation loss: {self.history['best_metric']:.6f} at Epoch "
               f"{self.history['best_epoch'] + 1}. Total time: {duration:.2f} seconds")
 
+    def start(self,train_data, val_data, train_dataset, val_dataset):
+        self.logger.info(f"Training data: {train_data}, Number of samples: {len(train_dataset)}")
+        self.logger.info(f"Validation data: {val_data}, Number of samples: {len(val_dataset)}")
+
     def save_instruction_stats(self, instruction_stats, epoch):
         """
         Save instruction type statistics

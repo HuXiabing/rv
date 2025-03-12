@@ -32,16 +32,16 @@ def main():
     preprocess_parser.add_argument("--val_ratio", type=float, default=0.2, help="validation set ratio")
     preprocess_parser.add_argument("--test_ratio", type=float, default=0, help="test set ratio")
 
-    # Incremental preprocessing command
-    incremental_preprocess_parser = subparsers.add_parser("incremental_preprocess", help="Preprocessing RISC-V instruction for incremental learning")
-    incremental_preprocess_parser.add_argument("--raw_data", type=str, required=True, help="new raw JSON path")
-    incremental_preprocess_parser.add_argument("--existing_train_json", type=str, default="data/train_data.json",
-                                               help="processed JSON data file path")
-    incremental_preprocess_parser.add_argument("--existing_train_h5", type=str, default="data/train_data.h5",
-                                               help="processed HDF5 data file path")
-    incremental_preprocess_parser.add_argument("--output_dir", type=str, default="data", help="output directory")
-    incremental_preprocess_parser.add_argument("--max_instr_length", type=int, default=8, help="maximum instruction length")
-    incremental_preprocess_parser.add_argument("--max_instr_count", type=int, default=400, help="maximum instruction count for a single sample")
+    # # Incremental preprocessing command
+    # incremental_preprocess_parser = subparsers.add_parser("incremental_preprocess", help="Preprocessing RISC-V instruction for incremental learning")
+    # incremental_preprocess_parser.add_argument("--raw_data", type=str, required=True, help="new raw JSON path")
+    # incremental_preprocess_parser.add_argument("--existing_train_json", type=str, default="data/train_data.json",
+    #                                            help="processed JSON data file path")
+    # incremental_preprocess_parser.add_argument("--existing_train_h5", type=str, default="data/train_data.h5",
+    #                                            help="processed HDF5 data file path")
+    # incremental_preprocess_parser.add_argument("--output_dir", type=str, default="data", help="output directory")
+    # incremental_preprocess_parser.add_argument("--max_instr_length", type=int, default=8, help="maximum instruction length")
+    # incremental_preprocess_parser.add_argument("--max_instr_count", type=int, default=400, help="maximum instruction count for a single sample")
 
     # Training command
     train_parser = subparsers.add_parser("train", help="Training RISC-V throughput prediction model")
@@ -49,7 +49,7 @@ def main():
                               choices=["transformer", "gnn", "lstm"], help="Model type")
     train_parser.add_argument("--train_data", type=str, default="data/train_data.h5", help="Path to training data")
     train_parser.add_argument("--val_data", type=str, default="data/val_data.h5", help="Path to validation data")
-    train_parser.add_argument("--batch_size", type=int, default=16, help="Batch size")
+    train_parser.add_argument("--batch_size", type=int, default=8, help="Batch size")
     train_parser.add_argument("--epochs", type=int, default=10, help="Number of epochs")
     train_parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate")
     train_parser.add_argument("--output_dir", type=str, default="experiments", help="Output directory")
@@ -82,12 +82,12 @@ def main():
                                     help="Path to the checkpoint of the trained model. Defaults to the most recently trained model.")
     incremental_parser.add_argument("--original", type=str, default=None,
                                     help="Original experiment directory, used to automatically find the latest model (if model_path is not specified).")
-    incremental_parser.add_argument("--new_train_data", type=str, default="data/incremental_train.h5",
+    incremental_parser.add_argument("--train_data", type=str, default="data/train_data.h5",
                                     help="Path to the newly generated training data (HDF5).")
     incremental_parser.add_argument("--val_data", type=str, default="data/val_data.h5",
                                     help="Path to the validation data (HDF5).")
-    incremental_parser.add_argument("--epochs", type=int, default=10, help="Number of epochs for incremental training.")
-    incremental_parser.add_argument("--batch_size", type=int, default=16, help="Batch size.")
+    incremental_parser.add_argument("--epochs", type=int, default=50, help="Number of epochs for incremental training.")
+    incremental_parser.add_argument("--batch_size", type=int, default=8, help="Batch size.")
     incremental_parser.add_argument("--lr", type=float, default=5e-5,
                                     help="Learning rate, typically smaller than the initial learning rate.")
     incremental_parser.add_argument("--output_dir", type=str, default="experiments",
@@ -123,18 +123,18 @@ def main():
         ]
         preprocess_main()
 
-    elif args.command == "incremental_preprocess":
-        from scripts.incremental_preprocess import main as incremental_preprocess_main
-        sys.argv = [sys.argv[0]] + [
-            "--raw_data", args.raw_data,
-            "--existing_train_json", args.existing_train_json,
-            "--existing_train_h5", args.existing_train_h5,
-            "--output_dir", args.output_dir,
-            "--max_instr_length", str(args.max_instr_length),
-            "--max_instr_count", str(args.max_instr_count),
-            "--seed", str(args.seed)
-        ]
-        incremental_preprocess_main()
+    # elif args.command == "incremental_preprocess":
+    #     from scripts.incremental_preprocess import main as incremental_preprocess_main
+    #     sys.argv = [sys.argv[0]] + [
+    #         "--raw_data", args.raw_data,
+    #         "--existing_train_json", args.existing_train_json,
+    #         "--existing_train_h5", args.existing_train_h5,
+    #         "--output_dir", args.output_dir,
+    #         "--max_instr_length", str(args.max_instr_length),
+    #         "--max_instr_count", str(args.max_instr_count),
+    #         "--seed", str(args.seed)
+    #     ]
+    #     incremental_preprocess_main()
 
     
     elif args.command == "train":
@@ -201,7 +201,7 @@ def main():
     elif args.command == "incremental":
         from scripts.incremental_learning import main as incremental_main
         sys.argv = [sys.argv[0]] + [
-            "--new_train_data", args.new_train_data,
+            "--train_data", args.train_data,
             "--val_data", args.val_data,
             "--batch_size", str(args.batch_size),
             "--epochs", str(args.epochs),

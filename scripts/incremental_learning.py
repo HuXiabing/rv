@@ -46,12 +46,12 @@ def main():
                         help="Original experiment directory, used to automatically find the latest model (if model_path is not specified).")
 
     # Data Parameters
-    parser.add_argument("--new_train_data", type=str, required=True, help="Path to the new training data (HDF5).")
+    parser.add_argument("--train_data", type=str, default="data/train_data.h5", help="Path to the new training data (HDF5).")
     parser.add_argument("--val_data", type=str, default="data/val_data.h5", help="Path to the validation data (HDF5).")
 
     # Training Parameters
-    parser.add_argument("--epochs", type=int, default=10, help="Number of epochs for incremental training.")
-    parser.add_argument("--batch_size", type=int, default=32, help="Batch size.")
+    parser.add_argument("--epochs", type=int, default=50, help="Number of epochs for incremental training.")
+    parser.add_argument("--batch_size", type=int, default=8, help="Batch size.")
     parser.add_argument("--lr", type=float, default=5e-5, help="Learning rate.")
     # parser.add_argument("--weight_decay", type=float, default=1e-6, help="Weight decay.")
     # parser.add_argument("--patience", type=int, default=5, help="Patience for early stopping.")
@@ -128,7 +128,7 @@ def main():
     print(f"Create model: {config.model_type.upper()}, Number of parameters: {model.count_parameters():,}")
 
     train_loader = get_dataloader(
-        args.new_train_data,
+        args.train_data,
         batch_size=args.batch_size,
         shuffle=True,
         num_workers=args.num_workers
@@ -154,10 +154,9 @@ def main():
         print("Using a newly initialized optimizer")
 
     # Start Incremental Training
-    print(f"Starting incremental training on device: {device}")
-    print(f"Training data: {args.new_train_data}, Number of samples: {len(train_loader.dataset)}")
-    print(f"Validation data: {args.val_data}, Number of samples: {len(val_loader.dataset)}")
-    print(f"Number of epochs: {args.epochs}, Learning rate: {args.lr}")
+    # print(f"Training data: {args.train_data}, Number of samples: {len(train_loader.dataset)}")
+    # print(f"Validation data: {args.val_data}, Number of samples: {len(val_loader.dataset)}")
+    experiment_manager.start(args.train_data, args.val_data, train_loader.dataset, val_loader.dataset)
 
     history = trainer.train(train_loader, val_loader)
 

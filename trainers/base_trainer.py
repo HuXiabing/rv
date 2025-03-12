@@ -60,162 +60,162 @@ class BaseTrainer:
     def setup_criterion(self):
         raise NotImplementedError("Implemented in child class")
 
-    def train_epoch(self, train_loader) -> Dict[str, float]:
-
-        self.model.train()
-        total_loss = 0.0
-
-        progress_bar = tqdm(train_loader, desc=f"Epoch {self.current_epoch}/{self.config.epochs}")
-
-        for batch_idx, batch in enumerate(progress_bar):
-
-            x = batch['X'].to(self.device)
-            y = batch['Y'].to(self.device)
-            instruction_count = batch.get('instruction_count', None)
-
-            self.optimizer.zero_grad()
-
-            output = self.model(x)
-            loss = self.criterion(output, y)
-            mean_loss = torch.mean(loss)
-            mean_loss.backward()
-
-            if self.clip_grad_norm > 0:
-                torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.clip_grad_norm)
-
-            self.optimizer.step()
-
-            total_loss += mean_loss.item()
-            progress_bar.set_postfix({"loss": mean_loss.item()})
-            self.global_step += 1
-
-        # avg_loss = total_loss / len(train_loader)
-        self.train_losses.append(mean_loss)
-
-        current_lr = self.optimizer.param_groups[0]['lr']
-        self.learning_rates.append(current_lr)
-
-        return {
-            "loss": mean_loss,
-            "lr": current_lr
-        }
-
-    def validate(self, val_loader) -> Dict[str, float]:
-
-        self.model.eval()
-        total_loss = 0.0
-        all_preds = []
-        all_targets = []
-
-        with torch.no_grad():
-            for batch in tqdm(val_loader, desc="Validating"):
-                x = batch['X'].to(self.device)
-                y = batch['Y'].to(self.device)
-                instruction_count = batch.get('instruction_count', None)
-
-                output = self.model(x)
-                loss = self.criterion(output, y)
-                total_loss += loss.item()
-
-                all_preds.extend(output.cpu().numpy())
-                all_targets.extend(y.cpu().numpy())
-
-        avg_loss = total_loss / len(val_loader)
-        self.val_losses.append(avg_loss)
-
-        metrics = {
-            "loss": avg_loss
-        }
-
-        if self.metric_fn:
-            additional_metrics = self.metric_fn(
-                np.array(all_targets),
-                np.array(all_preds)
-            )
-            metrics.update(additional_metrics)
-
-        return metrics
-
-    def train(self, train_loader, val_loader, num_epochs=None, resume=False, checkpoint_path=None):
-
-        num_epochs = num_epochs or self.config.epochs
-
-        if resume:
-            self._resume_checkpoint(checkpoint_path)
-
-        start_time = time.time()
-
-        print(f"Starting training---------------------------\nFrom epoch {self.start_epoch + 1} to {num_epochs}")
-
-        for epoch in range(self.start_epoch, num_epochs):
-            self.current_epoch = epoch
-
-            train_metrics, train_batch_result = self.train_epoch(train_loader)
-
-            val_metrics = self.validate(val_loader)
-
-            if self.scheduler:
-                if isinstance(self.scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
-                    self.scheduler.step(val_metrics["loss"])
-                else:
-                    self.scheduler.step()
-
-            is_best = val_metrics["loss"] < self.best_metric
-            if is_best:
-                self.best_metric = val_metrics["loss"]
-                self.best_epoch = epoch
-                self.early_stopping_counter = 0
-            else:
-                self.early_stopping_counter += 1
-
-            if (epoch + 1) % self.config.save_freq == 0 or is_best:
-                self._save_checkpoint(epoch, train_metrics, val_metrics, is_best)
-
-            instruction_stats = {
-                    "instruction_avg_loss": train_batch_result.get_instruction_avg_loss(),
-                    "instruction_counts": train_batch_result.instruction_counts
-            }
-
-            block_length_stats = {
-                "block_length_avg_loss": train_batch_result.get_block_length_avg_loss(),
-                "block_length_counts": train_batch_result.block_lengths_counts
-            }
-
-            if hasattr(self, 'experiment') and self.experiment:
-                self.experiment.save_instruction_stats(instruction_stats, epoch)
-                self.experiment.save_block_length_stats(block_length_stats, epoch)
-
-                self.experiment.visualize_epoch_stats(
-                    instruction_stats,
-                    block_length_stats,
-                    epoch
-                )
-
-            print(f"Epoch {epoch + 1}/{num_epochs} - "
-                  f"Train Loss: {train_metrics['loss']:.6f} - "
-                  f"Val Loss: {val_metrics['loss']:.6f}" +
-                  (f" - Best Val Loss: {self.best_metric:.6f} (Epoch {self.best_epoch + 1})" if is_best else ""))
-
-            if (epoch + 1) % 5 == 0 or epoch == num_epochs - 1:
-                self._plot_progress()
-
-            if self.early_stopping_counter >= self.config.patience:
-                print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
-                break
-
-        training_time = time.time() - start_time
-        print(f"Training completed! Total time: {training_time:.2f} seconds")
-        print(f"Best validation loss: {self.best_metric:.6f} at Epoch {self.best_epoch + 1}")
-
-        self._plot_progress()
-
-        return {
-            "train_losses": self.train_losses,
-            "val_losses": self.val_losses,
-            "learning_rates": self.learning_rates,
-            "best_metric": self.best_metric,
-            "best_epoch": self.best_epoch
-        }
+    # def train_epoch(self, train_loader) -> Dict[str, float]:
+    #
+    #     self.model.train()
+    #     total_loss = 0.0
+    #
+    #     progress_bar = tqdm(train_loader, desc=f"Epoch {self.current_epoch}/{self.config.epochs}")
+    #
+    #     for batch_idx, batch in enumerate(progress_bar):
+    #
+    #         x = batch['X'].to(self.device)
+    #         y = batch['Y'].to(self.device)
+    #         instruction_count = batch.get('instruction_count', None)
+    #
+    #         self.optimizer.zero_grad()
+    #
+    #         output = self.model(x)
+    #         loss = self.criterion(output, y)
+    #         mean_loss = torch.mean(loss)
+    #         mean_loss.backward()
+    #
+    #         if self.clip_grad_norm > 0:
+    #             torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.clip_grad_norm)
+    #
+    #         self.optimizer.step()
+    #
+    #         total_loss += mean_loss.item()
+    #         progress_bar.set_postfix({"loss": mean_loss.item()})
+    #         self.global_step += 1
+    #
+    #     # avg_loss = total_loss / len(train_loader)
+    #     self.train_losses.append(mean_loss)
+    #
+    #     current_lr = self.optimizer.param_groups[0]['lr']
+    #     self.learning_rates.append(current_lr)
+    #
+    #     return {
+    #         "loss": mean_loss,
+    #         "lr": current_lr
+    #     }
+    #
+    # def validate(self, val_loader) -> Dict[str, float]:
+    #
+    #     self.model.eval()
+    #     total_loss = 0.0
+    #     all_preds = []
+    #     all_targets = []
+    #
+    #     with torch.no_grad():
+    #         for batch in tqdm(val_loader, desc="Validating"):
+    #             x = batch['X'].to(self.device)
+    #             y = batch['Y'].to(self.device)
+    #             instruction_count = batch.get('instruction_count', None)
+    #
+    #             output = self.model(x)
+    #             loss = self.criterion(output, y)
+    #             total_loss += loss.item()
+    #
+    #             all_preds.extend(output.cpu().numpy())
+    #             all_targets.extend(y.cpu().numpy())
+    #
+    #     avg_loss = total_loss / len(val_loader)
+    #     self.val_losses.append(avg_loss)
+    #
+    #     metrics = {
+    #         "loss": avg_loss
+    #     }
+    #
+    #     if self.metric_fn:
+    #         additional_metrics = self.metric_fn(
+    #             np.array(all_targets),
+    #             np.array(all_preds)
+    #         )
+    #         metrics.update(additional_metrics)
+    #
+    #     return metrics
+    #
+    # def train(self, train_loader, val_loader, num_epochs=None, resume=False, checkpoint_path=None):
+    #
+    #     num_epochs = num_epochs or self.config.epochs
+    #
+    #     if resume:
+    #         self._resume_checkpoint(checkpoint_path)
+    #
+    #     start_time = time.time()
+    #
+    #     print(f"Starting training---------------------------\nFrom epoch {self.start_epoch + 1} to {num_epochs}")
+    #
+    #     for epoch in range(self.start_epoch, num_epochs):
+    #         self.current_epoch = epoch
+    #
+    #         train_metrics, train_batch_result = self.train_epoch(train_loader)
+    #
+    #         val_metrics = self.validate(val_loader)
+    #
+    #         if self.scheduler:
+    #             if isinstance(self.scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
+    #                 self.scheduler.step(val_metrics["loss"])
+    #             else:
+    #                 self.scheduler.step()
+    #
+    #         is_best = val_metrics["loss"] < self.best_metric
+    #         if is_best:
+    #             self.best_metric = val_metrics["loss"]
+    #             self.best_epoch = epoch
+    #             self.early_stopping_counter = 0
+    #         else:
+    #             self.early_stopping_counter += 1
+    #
+    #         if (epoch + 1) % self.config.save_freq == 0 or is_best:
+    #             self._save_checkpoint(epoch, train_metrics, val_metrics, is_best)
+    #
+    #         instruction_stats = {
+    #                 "instruction_avg_loss": train_batch_result.get_instruction_avg_loss(),
+    #                 "instruction_counts": train_batch_result.instruction_counts
+    #         }
+    #
+    #         block_length_stats = {
+    #             "block_length_avg_loss": train_batch_result.get_block_length_avg_loss(),
+    #             "block_length_counts": train_batch_result.block_lengths_counts
+    #         }
+    #
+    #         if hasattr(self, 'experiment') and self.experiment:
+    #             self.experiment.save_instruction_stats(instruction_stats, epoch)
+    #             self.experiment.save_block_length_stats(block_length_stats, epoch)
+    #
+    #             self.experiment.visualize_epoch_stats(
+    #                 instruction_stats,
+    #                 block_length_stats,
+    #                 epoch
+    #             )
+    #
+    #         print(f"Epoch {epoch + 1}/{num_epochs} - "
+    #               f"Train Loss: {train_metrics['loss']:.6f} - "
+    #               f"Val Loss: {val_metrics['loss']:.6f}" +
+    #               (f" - Best Val Loss: {self.best_metric:.6f} (Epoch {self.best_epoch + 1})" if is_best else ""))
+    #
+    #         if (epoch + 1) % 5 == 0 or epoch == num_epochs - 1:
+    #             self._plot_progress()
+    #
+    #         if self.early_stopping_counter >= self.config.patience:
+    #             print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
+    #             break
+    #
+    #     training_time = time.time() - start_time
+    #     print(f"Training completed! Total time: {training_time:.2f} seconds")
+    #     print(f"Best validation loss: {self.best_metric:.6f} at Epoch {self.best_epoch + 1}")
+    #
+    #     self._plot_progress()
+    #
+    #     return {
+    #         "train_losses": self.train_losses,
+    #         "val_losses": self.val_losses,
+    #         "learning_rates": self.learning_rates,
+    #         "best_metric": self.best_metric,
+    #         "best_epoch": self.best_epoch
+    #     }
 
     def _save_checkpoint(self, epoch, train_metrics=None, val_metrics=None, is_best=False):
 

@@ -3,14 +3,18 @@
 preprocessing
 
   ```bash
-  python main.py preprocess --raw_data data/coremark_k230.json --output_dir data
+#  python main.py preprocess --raw_data data/coremark_k230.json --output_dir data
+  
+  python preprocess.py --mode full --asm_dirs /path/to/asm1 /path/to/asm2 --cycle_dirs /path/to/cycle1 /path/to/cycle2 [--val_ratio 0.2]
+  python preprocess.py --mode incremental --asm_dirs /path/to/new_asm --cycle_dirs /path/to/new_cycle [--existing_processed_json data/processed_data.json --existing_train_json data/train_data.json --existing_val_json data/val_data.json]
+  
   ```
 
 training
 
-  ```bash
-  python main.py train --model_type transformer --train_data data/train_data.h5 --val_data data/val_data.h5 --experiment_name transformer_v1 --epoch 50
-  ```
+```bash
+python main.py train --model_type transformer --train_data data/train_data.h5 --val_data data/val_data.h5 --experiment_name transformer_v1 --epoch 50
+```
 
 random bb generation
 

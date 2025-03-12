@@ -42,7 +42,7 @@ def generate(normalized_vector, len_bb):
     return block
 
 if __name__ == "__main__":
-    file_path = "experiments/lstm_v1_20250310_164001/analysis_epoch_1/analysis_summary.json"
+    file_path = "experiments/transformer_v1_20250311_143330/analysis_epoch_3/analysis_summary.json"
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 

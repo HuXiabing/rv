@@ -7,11 +7,11 @@ import torch.nn as nn
 class MapeLoss(nn.Module):
     def __init__(self, epsilon=1e-5):
         super().__init__()
-        self.loss_fn = nn.L1Loss(reduction='none')
+        self.loss = nn.L1Loss(reduction='none')
         self.epsilon = epsilon
 
     def forward(self, output, target):
-        loss = self.loss_fn(output, target) / (torch.abs(target) + self.epsilon)
+        loss = self.loss(output, target) / (torch.abs(target) + self.epsilon)
         return loss
 
 class BatchResult:
@@ -33,7 +33,8 @@ class BatchResult:
     def loss(self):
         if self.batch_len == 0:
             return float('nan')
-        return self.loss_sum / self.batch_len
+        # return self.loss_sum / self.batch_len
+        return self.loss_sum / len(self.prediction)
 
     def __iadd__(self, other):
 

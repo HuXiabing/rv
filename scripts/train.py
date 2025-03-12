@@ -34,7 +34,7 @@ def main():
     parser.add_argument("--dropout", type=float, default=0.1, help="Dropout probability")
 
     # Training arguments
-    parser.add_argument("--batch_size", type=int, default=32, help="Batch size")
+    parser.add_argument("--batch_size", type=int, default=8, help="Batch size")
     parser.add_argument("--epochs", type=int, default=50, help="Number of epochs")
     parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate")
     parser.add_argument("--weight_decay", type=float, default=1e-5, help="Weight decay")
@@ -109,6 +109,7 @@ def main():
     trainer.setup_experiment(args.experiment_name, args.output_dir)
 
     # print(f"Starting training..., device: {device}")
+    experiment_manager.start(args.train_data, args.val_data, train_loader.dataset, val_loader.dataset)
     history = trainer.train(train_loader, val_loader)
     # return {
     #     "train_losses": self.train_losses,

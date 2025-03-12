@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e481e3f-ccd3-40d5-a0f4-3acb0f7b9d04" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/json_gen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asm2bin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/asm2bin.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/defaults.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/defaults.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rvmca/gen/inst_gen.py" beforeDir="false" afterPath="$PROJECT_DIR$/rvmca/gen/inst_gen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/resume_training_.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/resume_training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/incremental_learning.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/incremental_learning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainers/base_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainers/base_trainer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trainers/regression_trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainers/regression_trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/experiment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/metrics.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +82,7 @@
       <recent name="D:\rv\data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.json_gen">
+  <component name="RunManager" selected="Python.main">
     <configuration name="json_gen" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="rv" />
       <option name="ENV_FILES" value="" />
@@ -115,7 +122,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="hello.txt -o output_dir --show-instructions" />
+      <option name="PARAMETERS" value="train --model_type transformer --train_data data/train_data.h5 --val_data data/val_data.h5 --experiment_name transformer_v1 --epoch 50" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -235,7 +242,7 @@
       <workItem from="1741593019730" duration="12457000" />
       <workItem from="1741611939697" duration="17000" />
       <workItem from="1741612949903" duration="6694000" />
-      <workItem from="1741654902647" duration="6189000" />
+      <workItem from="1741654902647" duration="45371000" />
     </task>
     <servers />
   </component>
@@ -257,11 +264,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainers/regression_trainer.py</url>
-          <line>182</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scripts/incremental_learning.py</url>
           <line>103</line>
           <option name="timeStamp" value="39" />
@@ -276,12 +278,17 @@
           <line>76</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/trainers/regression_trainer.py</url>
+          <line>172</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/rv$main.coverage" NAME="main Coverage Results" MODIFIED="1741179450238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rv$json_gen.coverage" NAME="json_gen Coverage Results" MODIFIED="1741508182836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:\rv" />
+    <SUITE FILE_PATH="coverage/rv$main.coverage" NAME="main Coverage Results" MODIFIED="1741702007963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/rv$test.coverage" NAME="test Coverage Results" MODIFIED="1741315466913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../app_analysis/disassemble_extract" />
     <SUITE FILE_PATH="coverage/rv$tokenizer.coverage" NAME="tokenizer Coverage Results" MODIFIED="1741506759422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data" />
     <SUITE FILE_PATH="coverage/rv$.coverage" NAME=" Coverage Results" MODIFIED="1741242993333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

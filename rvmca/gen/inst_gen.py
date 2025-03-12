@@ -50,16 +50,20 @@ ufmt_insts = {
 }
 
 frrrr_insts = {n: FRRRRFmtInst(n, 'f0', 'f0', 'f0', 'f0')
-              for n in ["fmadd.d", "fmadd.s", "fmsub.d", "fmsub.s", "fnmadd.d", "fnmadd.s", "fnmsub.d", "fnmsub.s"]}
+              for n in ["fmadd.d", "fmadd.s", "fmsub.d", "fmsub.s", "fnmadd.d", "fnmadd.s", "fnmsub.d", "fnmsub.s"]} # 8
 
 frr_insts = {n: FRRFmtInst(n, 'f0', 'f0')
              for n in ["fclass.d", "fclass.s", "fcvt.d.l", "fcvt.d.lu", "fcvt.d.s", "fcvt.d.w", "fcvt.d.wu",
                         "fcvt.l.d", "fcvt.l.s", "fcvt.lu.d", "fcvt.lu.s", "fcvt.s.d", "fcvt.s.l", "fcvt.s.lu", "fcvt.s.w", "fcvt.s.wu",
-                        "fcvt.w.d", "fcvt.w.s", "fcvt.wu.d", "fcvt.wu.s", "fmv.d.x", "fmv.w.x", "fmv.x.d", "fmv.x.w", "fsqrt.d", "fsqrt.s"]}
+                        "fcvt.w.d", "fcvt.w.s", "fcvt.wu.d", "fcvt.wu.s", "fmv.d.x", "fmv.w.x", "fmv.x.d", "fmv.x.w", "fsqrt.d", "fsqrt.s"]} # 26
 
 frrr_insts = {n:RFmtInst(n, 'f0', 'f0', 'f0')
                for n in ['fadd.d', 'fadd.s', 'fdiv.d', 'fdiv.s', "fmax.d", "fmax.s", "fmin.d", "fmin.s", "fmul.d", "fmul.s",
-                         "fsgnj.d", "fsgnj.s", "fsgnjn.d", "fsgnjn.s", "fsgnjx.d", "fsgnjx.s", "fsub.d", "fsub.s"]}
+                         "fsgnj.d", "fsgnj.s", "fsgnjn.d", "fsgnjn.s", "fsgnjx.d", "fsgnjx.s", "fsub.d", "fsub.s",
+                         'feq.d', 'feq.s', 'fle.d', 'fle.s', 'flt.d', 'flt.s']} # 24
+
+frri_insts = {n:IFmtInst(n, 'f0', 'x0', 0)
+              for n in ['fld', 'flw', 'fsw', 'fsd']} # 4
 
 
 shifts_arithmetic_logical_insts = {
@@ -72,7 +76,7 @@ shifts_arithmetic_logical_insts = {
                'srai', 'sraiw', 'srli', 'srliw', 'xori']},
 
     **ufmt_insts
-}
+} # 26
 
 compare_insts = {
     **{n: RFmtInst(n, 'x0', 'x0', 'x0')
@@ -80,23 +84,23 @@ compare_insts = {
 
     **{n: IFmtInst(n, 'x0', 'x0', 0)
      for n in ['slti', 'sltiu']}
-}
+} # 4
 
 mul_div_insts = {
     n: RFmtInst(n, 'x0', 'x0', 'x0')
     for n in ['div', 'divu', 'divuw', 'divw', 'mul', 'mulh', 'mulhsu',
               'mulhu', 'mulw', 'rem', 'remu', 'remuw', 'remw']
-}
+} # 13
 
 load_insts = {
     n: LoadInst(n, 'x0', 'x0', 0)
     for n in ['lb', 'lbu', 'ld', 'lh', 'lhu', 'lw', 'lwu']
-}
+} # 7
 
 store_insts = {
     n: StoreInst(n, 'x0', 'x0', 0)
     for n in ['sb', 'sd', 'sh', 'sw']
-}
+} # 4
 
 branch_insts = {
     n: BFmtInst(n, 'x0', 'x0', 0)
@@ -107,7 +111,7 @@ jalr_inst = JalrInst('jalr', 'x0', 'x0', 0)
 jal_inst = JFmtInst('jal', 'x0', 0)
 
 normal_insts = {**rfmt_insts, **ifmt_insts, **load_insts, **store_insts}
-exit_insts = {**branch_insts, 'jalr': jalr_inst, 'jal': jal_inst}
+exit_insts = {**branch_insts, 'jalr': jalr_inst, 'jal': jal_inst}  # 8
 
 riscv_insts = {**normal_insts, **exit_insts}
 ##############################################################################
