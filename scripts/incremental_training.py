@@ -128,6 +128,7 @@ def main():
     print(f"Create model: {config.model_type.upper()}, Number of parameters: {model.count_parameters():,}")
 
     train_loader = get_dataloader(
+        config.model_type,
         args.train_data,
         batch_size=args.batch_size,
         shuffle=True,
@@ -135,6 +136,7 @@ def main():
     )
 
     val_loader = get_dataloader(
+        config.model_type,
         args.val_data,
         batch_size=args.batch_size,
         shuffle=False,

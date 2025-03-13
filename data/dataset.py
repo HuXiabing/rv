@@ -51,7 +51,7 @@ class RISCVDataset(Dataset):
 
         return sample
 
-def get_dataloader(dataset_path: str, 
+def get_dataloader(model_type, dataset_path: str,
                   batch_size: int = 32, 
                   shuffle: bool = True, 
                   num_workers: int = 4) -> torch.utils.data.DataLoader:
@@ -67,12 +67,15 @@ def get_dataloader(dataset_path: str,
     Returns:
         Data loader
     """
-    dataset = RISCVDataset(dataset_path)
+
+    if model_type.lower() == "gnn":
+        pass
+    else:
+        dataset = RISCVDataset(dataset_path)
     
-    return torch.utils.data.DataLoader(
-        dataset,
-        batch_size=batch_size,
-        shuffle=shuffle,
-        num_workers=num_workers,
-        pin_memory=True
-    )
+        return torch.utils.data.DataLoader(
+            dataset,
+            batch_size=batch_size,
+            shuffle=shuffle,
+            num_workers=num_workers,
+            pin_memory=True)

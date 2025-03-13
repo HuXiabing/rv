@@ -62,6 +62,7 @@ def main():
     experiment_manager.save_config(config)
     
     train_loader = get_dataloader(
+        config.model_type,
         args.train_data,
         batch_size=config.batch_size,
         shuffle=True,
@@ -69,6 +70,7 @@ def main():
     )
     
     val_loader = get_dataloader(
+        config.model_type,
         args.val_data,
         batch_size=config.batch_size,
         shuffle=False,
