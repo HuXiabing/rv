@@ -21,7 +21,7 @@ class Config:
         dropout: float = 0.1,
         
         # training parameters
-        lr: float = 1e-4,
+        lr: float = 2e-5,
         weight_decay: float = 1e-5,
         batch_size: int = 32,
         epochs: int = 50,

@@ -3,4 +3,4 @@ random_generate/
 data/*.json
 data/*.h5
 .idea/
-__pycache__/
+*__pycache__*

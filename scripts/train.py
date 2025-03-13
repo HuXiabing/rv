@@ -54,14 +54,10 @@ def main():
     parser.add_argument("--num_workers", type=int, default=4, help="Number of data loading threads")
 
     args = parser.parse_args()
-
-    # set_seed(args.seed)
-
     experiment_manager = ExperimentManager(args.experiment_name, args.output_dir)
 
     if args.device is None:
         args.device = "cuda" if torch.cuda.is_available() else "cpu"
-    device = torch.device(args.device)
 
     config = get_config(
         model_type=args.model_type,

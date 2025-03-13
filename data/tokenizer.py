@@ -24,7 +24,7 @@ class RISCVTokenizer:
 
     def _load_predefined_dict(self):
         """ load predefined vocabulary """
-        dict_path = os.path.join(os.path.dirname(__file__), 'mapping_dict.dump')
+        dict_path = os.path.join(os.path.dirname(__file__), 'vocab.dump')
         if os.path.exists(dict_path):
             self.vocab = torch.load(dict_path)
         else:
@@ -112,7 +112,8 @@ jalr': 90, 'lb': 91, 'lbu': 92, 'ld': 93, 'lh': 94, 'lhu': 95, 'lui': 96, 'lw': 
 cvt.lu.d': 171, 'fcvt.lu.s': 172, 'fcvt.s.d': 173, 'fcvt.s.l': 174, 'fcvt.s.lu': 175, 'fcvt.s.w': 176, 'fcvt.s.wu': 177, 'fcvt.w.d': 178, 'fcvt.w.s': 179, 'fcvt.wu.d': 180, 'fcvt.wu.s': 181, 'fdiv.d': 1
 82, 'fdiv.s': 183, 'feq.d': 184, 'feq.s': 185, 'fld': 186, 'fle.d': 187, 'fle.s': 188, 'flt.d': 189, 'flt.s': 190, 'flw': 191, 'fmadd.d': 192, 'fmadd.s': 193, 'fmax.d': 194, 'fmax.s': 195, 'fmin.d': 196
 , 'fmin.s': 197, 'fmsub.d': 198, 'fmsub.s': 199, 'fmul.d': 200, 'fmul.s': 201, 'fmv.d.x': 202, 'fmv.w.x': 203, 'fmv.x.d': 204, 'fmv.x.w': 205, 'fnmadd.d': 206, 'fnmadd.s': 207, 'fnmsub.d': 208, 'fnmsub.
-s': 209, 'fsd': 210, 'fsgnj.d': 211, 'fsgnj.s': 212, 'fsgnjn.d': 213, 'fsgnjn.s': 214, 'fsgnjx.d': 215, 'fsgnjx.s': 216, 'fsqrt.d': 217, 'fsqrt.s': 218, 'fsub.d': 219, 'fsub.s': 220, 'fsw': 221, 'csrrc': 222, 'csrrci': 223, 'csrrs': 224, 'csrrsi': 225, 'csrrw': 226, 'csrrwi': 227, 'fence.i': 228}
+s': 209, 'fsd': 210, 'fsgnj.d': 211, 'fsgnj.s': 212, 'fsgnjn.d': 213, 'fsgnjn.s': 214, 'fsgnjx.d': 215, 'fsgnjx.s': 216, 'fsqrt.d': 217, 'fsqrt.s': 218, 'fsub.d': 219, 'fsub.s': 220, 'fsw': 221,
+ 'csrrc': 222, 'csrrci': 223, 'csrrs': 224, 'csrrsi': 225, 'csrrw': 226, 'csrrwi': 227, 'fence.i': 228}   #73-228
         """
 
     def separate_disp_and_reg(self, s):
@@ -192,22 +193,26 @@ s': 209, 'fsd': 210, 'fsgnj.d': 211, 'fsgnj.s': 212, 'fsgnjn.d': 213, 'fsgnjn.s'
         Returns:
             ['add', '<D>', 'a5', '<S>', 's1', 'a0', '<E>', '<PAD>']
         """
-        pattern = r'[^ ,\t]+'  # match non-space characters
-        instr = re.findall(pattern, instruction)
-
-        instr_len = len(instr)
-        if instr_len == 1:
-            tokenized = self.zero_reg(instr)
-        elif instr_len == 2:
-            tokenized = self.one_reg_num(instr)
-        elif instr_len == 3:
-            tokenized = self.two_reg(instr)
-        elif instr_len == 4:
-            tokenized = self.three_reg(instr)
-        elif instr_len == 5:
-            tokenized = self.four_reg(instr)
+        if instruction.startswith('amo'):
+            pattern = r'(\S+)\s+(\S+),(\S+),\((\S+)\)'
+            instr = re.findall(pattern, instruction)[0]
+            tokenized = [instr[0], '<D>', instr[1], '<S>', instr[2], instr[3], '<E>', '<PAD>']
         else:
-            raise ValueError(f"Invalid instruction format: {instruction}")
+            pattern = r'[^ ,\t]+'  # match non-space characters
+            instr = re.findall(pattern, instruction)
+            instr_len = len(instr)
+            if instr_len == 1:
+                tokenized = self.zero_reg(instr)
+            elif instr_len == 2:
+                tokenized = self.one_reg_num(instr)
+            elif instr_len == 3:
+                tokenized = self.two_reg(instr)
+            elif instr_len == 4:
+                tokenized = self.three_reg(instr)
+            elif instr_len == 5:
+                tokenized = self.four_reg(instr)
+            else:
+                raise ValueError(f"Invalid instruction format: {instruction}")
 
         return tokenized
 
@@ -246,6 +251,9 @@ s': 209, 'fsd': 210, 'fsgnj.d': 211, 'fsgnj.s': 212, 'fsgnjn.d': 213, 'fsgnjn.s'
 
         return bb_tokens
 
-# if __name__ == "__main__":
-#     tokenizer = RISCVTokenizer()
+if __name__ == "__main__":
+    tokenizer = RISCVTokenizer()
+    bb = ["amoswap.w.rl\ta5,a5,(s1)", "amoswap.d.aqrl  a1,a1,(a0)", "sd\ts1,8(sp)"]
+    for i in bb:
+        print(tokenizer.tokenize_instruction(i))
 #     tokenizer._build_vocab_manually()

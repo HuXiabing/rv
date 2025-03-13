@@ -42,13 +42,13 @@ def generate(normalized_vector, len_bb):
     return block
 
 if __name__ == "__main__":
-    file_path = "experiments/transformer_v1_20250311_143330/analysis_epoch_3/analysis_summary.json"
+    file_path = "experiments/transformer_v1_20250312_223609/analysis_epoch_8/analysis_summary.json"
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
 
     os.makedirs('./random_generate/asm', exist_ok=True)
 
-    num_bb = 1000
+    num_bb = 2000
     num = 0
     for key, value in data["block_dict"].items():
         cnt = round(value * num_bb)

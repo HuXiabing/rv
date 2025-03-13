@@ -4,6 +4,7 @@ from typing import Dict, Any, List, Optional, Union
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import torch.nn as nn
 
+
 class MapeLoss(nn.Module):
     def __init__(self, epsilon=1e-5):
         super().__init__()
@@ -30,16 +31,14 @@ class BatchResult:
         self.block_lengths_counts = {}
 
     @property
-    def loss(self):
+    def loss(self):  # average loss of each sample
         if self.batch_len == 0:
             return float('nan')
-        # return self.loss_sum / self.batch_len
-        return self.loss_sum / len(self.prediction)
+        return self.loss_sum / self.batch_len
 
     def __iadd__(self, other):
 
         self.batch_len += other.batch_len
-
         self.measured.extend(other.measured)
         self.prediction.extend(other.prediction)
         self.inst_lens.extend(other.inst_lens)
@@ -101,8 +100,11 @@ class BatchResult:
     def compute_metrics(self, tolerances=25):
         y_true = np.array(self.measured)
         y_pred = np.array(self.prediction)
+        print("y_true", len(y_pred))
 
-        metrics = compute_regression_metrics(y_true, y_pred, tolerances)
+        metrics = {}
+
+        metrics["accuracy"] = compute_accuracy(y_true, y_pred, tolerances)
         metrics["loss"] = self.loss
 
         metrics["instruction_avg_loss"] = self.get_instruction_avg_loss()
@@ -121,8 +123,8 @@ def correct_regression(pred, answer, tolerance=25):
     Calculate the correctness rate of regression predictions
 
     Args:
-        pred: Predicted values
-        answer: True values
+        pred: Predicted values --> tensor
+        answer: True values --> tensor
         tolerance: Tolerance percentage, default 10%
 
     Returns:
@@ -141,107 +143,50 @@ def compute_accuracy(y_true: np.ndarray, y_pred: np.ndarray, tolerance=25) -> fl
     Calculate the accuracy of predictions
 
     Args:
-        y_true: Array of true values
-        y_pred: Array of predicted values
+        y_true:
+        y_pred:
         tolerance: Tolerance percentage, default 10%
 
     Returns:
         Accuracy (float between 0 and 1)
     """
-    y_true_tensor = torch.tensor(y_true)
-    y_pred_tensor = torch.tensor(y_pred)
 
-    correct_count = correct_regression(y_pred_tensor, y_true_tensor, tolerance)
+    correct_count = correct_regression(torch.tensor(y_pred), torch.tensor(y_true), tolerance)
     total_count = len(y_true)
 
     return correct_count / total_count if total_count > 0 else 0.0
 
-def compute_regression_metrics(y_true: np.ndarray, y_pred: np.ndarray, tolerance=25) -> Dict[str, float]:
-    """
-    Calculate regression evaluation metrics
-
-    Args:
-        y_true: Array of true values
-        y_pred: Array of predicted values
-        tolerance: List of different tolerance levels for calculating accuracy under different criteria
-
-    Returns:
-        Dictionary containing evaluation metrics
-    """
-
-    mse = mean_squared_error(y_true, y_pred)
-    rmse = np.sqrt(mse)
-    mae = mean_absolute_error(y_true, y_pred)
-    r2 = r2_score(y_true, y_pred)
-    # MAPE
-    epsilon = 1e-10
-    mape = np.mean(np.abs((y_true - y_pred) / (np.abs(y_true) + epsilon))) * 100
-    #MPE
-    mpe = np.mean((y_true - y_pred) / (np.abs(y_true) + epsilon)) * 100
-    accuracy = compute_accuracy(y_true, y_pred, tolerance)
-
-    metrics = {
-        "mse": mse,
-        "rmse": rmse,
-        "mae": mae,
-        "r2": r2,
-        "mape": mape,
-        "mpe": mpe,
-        "accuracy": accuracy
-    }
-
-    return metrics
-
-def compute_error_distribution(y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, Any]:
-    """
-    计算预测误差分布
-
-    Args:
-        y_true: 真实值数组
-        y_pred: 预测值数组
-
-    Returns:
-        包含误差分布的字典
-    """
-    # 计算误差
-    errors = y_true - y_pred
-
-    # 计算相对误差
-    epsilon = 1e-10  # 防止除零错误
-    rel_errors = errors / (np.abs(y_true) + epsilon)
-
-    # 计算误差统计信息
-    error_stats = {
-        "mean": float(np.mean(errors)),
-        "std": float(np.std(errors)),
-        "min": float(np.min(errors)),
-        "max": float(np.max(errors)),
-        "p25": float(np.percentile(errors, 25)),
-        "p50": float(np.percentile(errors, 50)),
-        "p75": float(np.percentile(errors, 75)),
-        "p90": float(np.percentile(errors, 90)),
-        "p95": float(np.percentile(errors, 95)),
-        "p99": float(np.percentile(errors, 99))
-    }
-
-    # 计算相对误差统计信息
-    rel_error_stats = {
-        "mean_rel": float(np.mean(rel_errors) * 100),  # 转为百分比
-        "std_rel": float(np.std(rel_errors) * 100),
-        "min_rel": float(np.min(rel_errors) * 100),
-        "max_rel": float(np.max(rel_errors) * 100),
-        "p25_rel": float(np.percentile(rel_errors, 25) * 100),
-        "p50_rel": float(np.percentile(rel_errors, 50) * 100),
-        "p75_rel": float(np.percentile(rel_errors, 75) * 100),
-        "p90_rel": float(np.percentile(rel_errors, 90) * 100),
-        "p95_rel": float(np.percentile(rel_errors, 95) * 100),
-        "p99_rel": float(np.percentile(rel_errors, 99) * 100)
-    }
-
-    return {
-        "errors": errors,
-        "rel_errors": rel_errors * 100,  # 转为百分比
-        "error_stats": error_stats,
-        "rel_error_stats": rel_error_stats
-    }
+# def compute_regression_metrics(y_true: np.ndarray, y_pred: np.ndarray, tolerance=25) -> Dict[str, float]:
+#     """
+#     Calculate regression evaluation metrics
+#
+#     Args:
+#         y_true: Array of true values
+#         y_pred: Array of predicted values
+#         tolerance: List of different tolerance levels for calculating accuracy under different criteria
+#
+#     Returns:
+#         Dictionary containing evaluation metrics
+#     """
+#
+#     mse = mean_squared_error(y_true, y_pred)
+#     mae = mean_absolute_error(y_true, y_pred)
+#     r2 = r2_score(y_true, y_pred)
+#     # MAPE
+#     epsilon = 1e-10
+#     mape = np.mean(np.abs((y_true - y_pred) / (np.abs(y_true) + epsilon))) * 100
+#     #MPE
+#     mpe = np.mean((y_true - y_pred) / (np.abs(y_true) + epsilon)) * 100
+#     accuracy = compute_accuracy(y_true, y_pred, tolerance)
+#
+#     metrics = {
+#         "mse": mse,
+#         "mae": mae,
+#         "r2": r2,
+#         "mape": mape,
+#         "mpe": mpe,
+#         "accuracy": accuracy
+#     }
+#
+#     return metrics
 

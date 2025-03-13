@@ -29,7 +29,7 @@ GNN_CONFIG = {
     "num_layers": 8,  # message passing layers
     "dropout": 0.1,
     "use_layer_norm": True,
-    "lr": 5e-4,
+    "lr": 2e-5,
 }
 
 # default data configuration
@@ -41,7 +41,7 @@ DATA_CONFIG = {
 
 # default training configuration
 TRAINING_CONFIG = {
-    "lr": 1e-4,
+    "lr": 2e-5,
     "weight_decay": 1e-5,
     "batch_size": 8,
     "epochs": 50,

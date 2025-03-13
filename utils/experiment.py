@@ -100,7 +100,7 @@ class ExperimentManager:
         self.logger.info(f"Configuration loaded from {config_path}")
         return config
 
-    def log_metrics(self, metrics: Dict[str, Any], step: int, prefix: str = ""):
+    def log_metrics(self, metrics: Dict[str, Any], epoch: int, prefix: str = ""):
         """
         Log training/validation metrics
 
@@ -111,7 +111,7 @@ class ExperimentManager:
             "accuracy": metrics["accuracy"],
             ...
             }
-            step: Current step (e.g., epoch)
+            epoch: Current epoch (e.g., epoch)
             prefix: Metric prefix (e.g., 'train_' or 'val_')
         """
         metrics_str_parts = []
@@ -124,7 +124,7 @@ class ExperimentManager:
 
         metrics_str = ", ".join(metrics_str_parts)
 
-        self.logger.info(f"Step {step} - {prefix}metrics: {metrics_str}")
+        self.logger.info(f"Epoch {epoch} - {prefix}metrics: {metrics_str}")
         # self.save_metrics()
 
     def save_history(self):
@@ -224,7 +224,7 @@ class ExperimentManager:
 
         instruction_vec = analyze_instruction_statistics(
             instruction_stats["instruction_avg_loss"],
-            mapping_dict_path="data/mapping_dict.dump",
+            mapping_dict_path="data/vocab.dump",
             output_dir=analysis_output_dir
         )
 

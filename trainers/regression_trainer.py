@@ -4,7 +4,7 @@ from torch.optim import Adam, AdamW
 from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR, StepLR
 from tqdm import tqdm
 from .base_trainer import BaseTrainer
-from utils.metrics import compute_regression_metrics, MapeLoss, BatchResult, correct_regression, compute_accuracy
+from utils.metrics import MapeLoss, BatchResult, correct_regression, compute_accuracy #,compute_regression_metrics
 import time
 import os
 
@@ -23,7 +23,10 @@ class RegressionTrainer(BaseTrainer):
         # self.accuracy_tolerance = getattr(config, 'accuracy_tolerance', 10.0)
         self.accuracy_tolerance = 25
 
-        self.metric_fn = lambda y_true, y_pred: compute_regression_metrics(
+        # self.metric_fn = lambda y_true, y_pred: compute_regression_metrics(
+        #     y_true, y_pred, self.accuracy_tolerance
+        # )
+        self.metric_fn = lambda y_true, y_pred: compute_accuracy(
             y_true, y_pred, self.accuracy_tolerance
         )
 
@@ -94,8 +97,8 @@ class RegressionTrainer(BaseTrainer):
         if resume:
             self._resume_checkpoint(checkpoint_path)
 
-        start_time = time.time()
-        print(f"Starting training from epoch {self.start_epoch + 1} to {num_epochs}")
+        # start_time = time.time()
+        print(f"Starting training from epoch {self.start_epoch} to {num_epochs}")
 
         for epoch in range(self.start_epoch, num_epochs):
             self.current_epoch = epoch
@@ -103,6 +106,13 @@ class RegressionTrainer(BaseTrainer):
             train_metrics, train_batch_result = self.train_epoch(train_loader)
 
             val_metrics = self.validate(val_loader)
+            """
+                metrics = {
+                        "loss": avg_loss,
+                        "accuracy": current_accuracy,
+                        "is_best_accuracy": True
+                    }
+            """
 
             if self.scheduler:
                 if isinstance(self.scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau):
@@ -143,10 +153,10 @@ class RegressionTrainer(BaseTrainer):
                     epoch
                 )
 
-            print(f"Epoch {epoch + 1}/{num_epochs} - "
+            print(f"Epoch {epoch }/{num_epochs} - "
                   f"Train Loss: {train_metrics['loss']:.6f} - "
                   f"Val Loss: {val_metrics['loss']:.6f}" +
-                  (f" - Best Val Loss: {self.best_metric:.6f} (Epoch {self.best_epoch + 1})" if is_best else ""))
+                  (f" - Best Val Loss: {self.best_metric:.6f} (Epoch {self.best_epoch})" if is_best else ""))
 
             if (epoch + 1) % 5 == 0 or epoch == num_epochs - 1:
                 self._plot_progress()
@@ -156,9 +166,9 @@ class RegressionTrainer(BaseTrainer):
                 print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
                 break
 
-        training_time = time.time() - start_time
-        print(f"Training completed! Total time: {training_time:.2f} seconds")
-        print(f"Best validation loss: {self.best_metric:.6f} at Epoch {self.best_epoch + 1}")
+        # training_time = time.time() - start_time
+        # print(f"Training completed! Total time: {training_time:.2f} seconds")
+        print(f"Best validation loss: {self.best_metric:.6f} at Epoch {self.best_epoch}")
 
         self._plot_progress()
 
@@ -174,9 +184,7 @@ class RegressionTrainer(BaseTrainer):
 
         self.model.train()
         batch_result = BatchResult()
-        progress_bar = tqdm(train_loader, desc=f"Epoch {self.current_epoch + 1}/{self.config.epochs}")
-        total_loss = 0.0
-        total_samples = 0
+        progress_bar = tqdm(train_loader, desc=f"Epoch {self.current_epoch}/{self.config.epochs}")
         """
         batch {'X': tensor([[[ 73,   5,  29,  ...,   7,   4,   0],
          [ 73,   5,  20,  ...,   7,   4,   0],
@@ -229,10 +237,15 @@ class RegressionTrainer(BaseTrainer):
 
             output = self.model(x)
             loss = self.criterion(output, y)  # [batch_size]
+
+            for i in torch.where(loss > 10)[0]:
+                print("x:", x[i])
+                print("y:", y)
+                print("output:", output)
+                print("loss:", loss)
+
             mean_loss = torch.mean(loss)
             mean_loss.backward()
-            total_loss += torch.sum(loss).item()
-            total_samples += len(x)
 
             if self.clip_grad_norm > 0:
                 torch.nn.utils.clip_grad_norm_(self.model.parameters(), self.clip_grad_norm)
@@ -255,6 +268,7 @@ class RegressionTrainer(BaseTrainer):
                         if instr_tokens:
                             instructions.append(instr_tokens[0])
 
+
                 batch_result.add_sample(
                     prediction=output[i].item(),
                     measured=y[i].item(),
@@ -265,13 +279,9 @@ class RegressionTrainer(BaseTrainer):
 
             progress_bar.set_postfix({"loss": mean_loss.item()})
 
-            self.global_step += 1
-
-        avg_loss = total_loss / total_samples  # 除以样本总数而不是批次数
-        print("training total loss-------------------", total_loss)
         metrics = batch_result.compute_metrics(self.accuracy_tolerance)
-        metrics["loss"] = avg_loss
-        self.train_losses.append(avg_loss)
+
+        self.train_losses.append(metrics["loss"])
         '''{
             "loss": metrics["loss"],
             "accuracy": metrics["accuracy"]
@@ -281,7 +291,7 @@ class RegressionTrainer(BaseTrainer):
         metrics["lr"] = current_lr
         self.learning_rates.append(current_lr)
 
-        print(f"\nTraining Statistics - Epoch {self.current_epoch + 1}:")
+        print(f"\nTraining Statistics - Epoch {self.current_epoch}:")
         print(f"  Loss: {metrics['loss']:.6f}")
         print(f"  Accuracy: {metrics.get(f'accuracy', 0):.6f}")
 
@@ -296,61 +306,38 @@ class RegressionTrainer(BaseTrainer):
             epoch = self.current_epoch
 
         self.model.eval()
-        batch_result = BatchResult()
         total_loss = 0.0
         total_samples = 0
+        pred = []
+        true = []
 
         with torch.no_grad():
             for batch in tqdm(val_loader, desc="Validating"):
                 x = batch['X'].to(self.device)
                 y = batch['Y'].to(self.device)
-                instruction_count = batch.get('instruction_count', None)
 
                 output = self.model(x)
                 loss = self.criterion(output, y)
+
+                for i in torch.where(loss > 10)[0]:
+                    print("x:", x[i])
+                    print("y:", y[i])
+                    print("output:", output[i])
+
                 total_loss += torch.sum(loss).item()
                 total_samples += len(x)
+                pred.extend(output.tolist())
+                true.extend(y.tolist())
 
-                for i in range(len(output)):
-                #
-                #     instructions = []
-                #     block_len = None
-                #
-                #     if instruction_count is not None:
-                #         valid_count = instruction_count[i].item()
-                #         block_len = valid_count
-                #
-                #         for j in range(valid_count):
-                #             instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
-                #             if instr_tokens:
-                #                 instructions.append(instr_tokens[0])
-                #
-                    batch_result.add_sample(
-                        prediction=output[i].item(),
-                        measured=y[i].item(),
-                        loss=loss[i].item(),
-                        instructions=None,
-                        block_len=None
-                    )
-
-        # metrics = batch_result.compute_metrics(self.accuracy_tolerance)
-        # metrics = {}
-        avg_loss = total_loss / total_samples  # 除以样本总数而不是批次数
-        print("validation total loss-------------------", total_loss)
-        metrics = batch_result.compute_metrics(self.accuracy_tolerance)
-        metrics["loss"] = avg_loss
-        self.train_losses.append(avg_loss)
-        # print("max(output)", output)
-        # print("max(y)",y)
-        current_accuracy = correct_regression(y, output, self.accuracy_tolerance)
-        avg_loss = total_loss / len(val_loader)
-        print("validate total loss-------------------", total_loss)
-        metrics["loss"] = avg_loss
+        avg_loss = total_loss / total_samples
+        current_accuracy = compute_accuracy(true, pred, self.accuracy_tolerance)
+        metrics = {
+            "loss": avg_loss,
+            "accuracy": current_accuracy
+        }
         self.val_losses.append(avg_loss)
-        # current_accuracy = metrics.get("accuracy", 0)
-        metrics["accuracy"] = current_accuracy
 
-        print(f"\nValidation Results - Epoch {epoch + 1}:")
+        print(f"\nValidation Results - Epoch {epoch}:")
         print(f"  Loss: {avg_loss:.6f}")
         print(f"  Accuracy: {current_accuracy:.6f}")
 

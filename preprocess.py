@@ -60,6 +60,11 @@ def process_directory(cycle_dir, asm_dir):
 
         throughput = parse_throughput(lines[-2].strip())
         if throughput is None:
+            # print(f"Error: None throughput in file {file_name}")
+            continue
+
+        if throughput == 0:
+            print(f"Error: Zero throughput in file {file_name}")
             continue
         if throughput > 100:
             print(f"Warning: throughput > 100 in file {file_name}")
@@ -113,10 +118,18 @@ def process_data(raw_data, tokenizer, max_instr_length, max_instr_count):
             tokenized = tokenizer.tokenize_instruction(instr)
             tokenized_instructions.append(tokenized)
 
+        valid = 1
         encoded_instructions = []
         for tokenized in tokenized_instructions:
             encoded = [tokenizer.vocab.get(token, tokenizer.vocab.get('<PAD>', 0)) for token in tokenized]
-            encoded_instructions.append(encoded)
+            if encoded[0] in list(range(73,229 + 1)):
+                encoded_instructions.append(encoded)
+            else:
+                valid = 0
+                print(f"Warning: Invalid instruction: {tokenized}")
+
+        if valid == 0:
+            continue
 
         # Create a processed sample
         processed_item = {
