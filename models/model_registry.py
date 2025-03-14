@@ -1,18 +1,19 @@
 from typing import Dict, Type, Optional
-from .base_model import BaseModel
+# from .base_model import BaseModel
+import torch.nn as nn
 from .transformer_model import TransformerModel
 from .lstm_model import Fasthemal
 from .gnn_model import GNNModel
 
 
-MODEL_REGISTRY: Dict[str, Type[BaseModel]] = {
+MODEL_REGISTRY: Dict[str, Type[nn.Module]] = {
     "transformer": TransformerModel,
     "gnn": GNNModel,
     "lstm": Fasthemal
 }
 
 
-def register_model(name: str, model_class: Type[BaseModel]) -> None:
+def register_model(name: str, model_class: Type[nn.Module]) -> None:
     """
     Register a new model to the registry
 
@@ -27,7 +28,7 @@ def register_model(name: str, model_class: Type[BaseModel]) -> None:
     MODEL_REGISTRY[name] = model_class
     print(f"Model {name} registered")
 
-def get_model(config, model_type: Optional[str] = None) -> BaseModel:
+def get_model(config, model_type: Optional[str] = None) -> nn.Module:
     """
     Create a model instance based on the configuration
 
@@ -48,7 +49,7 @@ def get_model(config, model_type: Optional[str] = None) -> BaseModel:
     
     return model
 
-def list_available_models() -> Dict[str, Type[BaseModel]]:
+def list_available_models() -> Dict[str, Type[nn.Module]]:
     """
     List all available models
 

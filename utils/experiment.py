@@ -5,6 +5,7 @@ import logging
 import shutil
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Union
+import torch
 
 class ExperimentManager:
 
@@ -297,3 +298,4 @@ class ExperimentManager:
         self.logger.info(f"Epoch {epoch} - Learning rate: {lr:.8f}")
 
         self.save_history()
+

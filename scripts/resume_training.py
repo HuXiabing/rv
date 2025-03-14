@@ -12,7 +12,7 @@ import torch
 from config import Config
 from data import get_dataloader
 from models import get_model
-from trainers import RegressionTrainer
+from trainers import Trainer
 from utils import set_seed, ExperimentManager
 
 
@@ -82,7 +82,7 @@ def main():
     model.load_state_dict(checkpoint['model_state'])
     model.to(device)
     
-    trainer = RegressionTrainer(model, config, experiment_manager.experiment_dir,experiment_manager)
+    trainer = Trainer(model, config, experiment_manager.experiment_dir,experiment_manager)
     
     if hasattr(trainer, 'optimizer') and 'optimizer_state' in checkpoint:
         trainer.optimizer.load_state_dict(checkpoint['optimizer_state'])

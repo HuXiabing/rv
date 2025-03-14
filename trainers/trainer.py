@@ -3,16 +3,48 @@ import torch.nn as nn
 from torch.optim import Adam, AdamW
 from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR, StepLR
 from tqdm import tqdm
-from .base_trainer import BaseTrainer
+# from .base_trainer import BaseTrainer
 from utils.metrics import MapeLoss, BatchResult, correct_regression, compute_accuracy #,compute_regression_metrics
 import time
 import os
+from utils.experiment import ExperimentManager
+from tqdm import tqdm
+import matplotlib.pyplot as plt
 
-class RegressionTrainer(BaseTrainer):
-
+class Trainer:
     def __init__(self, model, config, experiment_dir=None, experiment=None):
 
-        super(RegressionTrainer, self).__init__(model, config, experiment_dir)
+        # super(RegressionTrainer, self).__init__(model, config, experiment_dir)
+        # super(RegressionTrainer, self).__init__()
+        self.model = model
+        self.config = config
+        self.device = torch.device(config.device)
+        self.model.to(self.device)
+
+        self.start_epoch = 0
+        self.current_epoch = 0
+        self.global_step = 0
+        self.best_metric = float('inf')
+        self.best_epoch = 0
+        self.early_stopping_counter = 0
+
+        self.train_losses = []
+        self.val_losses = []
+        self.learning_rates = []
+
+        self.experiment_dir = experiment_dir or config.experiment_dir
+        self.checkpoint_dir = os.path.join(self.experiment_dir, "checkpoints")
+        self.log_dir = os.path.join(self.experiment_dir, "logs")
+        os.makedirs(self.checkpoint_dir, exist_ok=True)
+        os.makedirs(self.log_dir, exist_ok=True)
+
+        # initialize optimizer, scheduler, criterion and metric function
+        self.optimizer = None
+        self.scheduler = None
+        self.criterion = None
+        self.metric_fn = None
+        self.clip_grad_norm = config.clip_grad_norm
+
         self.experiment = experiment
 
         self.setup_criterion()
@@ -29,6 +61,16 @@ class RegressionTrainer(BaseTrainer):
         self.metric_fn = lambda y_true, y_pred: compute_accuracy(
             y_true, y_pred, self.accuracy_tolerance
         )
+
+    def setup_experiment(self, experiment_name=None, base_dir=None):
+
+        experiment_name = experiment_name or getattr(self.config, 'experiment_name', 'unnamed_experiment')
+        base_dir = base_dir or getattr(self.config, 'experiment_base_dir', 'experiments')
+
+        self.experiment = ExperimentManager(experiment_name, base_dir)
+        self.experiment.save_config(self.config)
+
+        return self.experiment
 
     def setup_criterion(self):
 
@@ -239,7 +281,7 @@ class RegressionTrainer(BaseTrainer):
             loss = self.criterion(output, y)  # [batch_size]
 
             for i in torch.where(loss > 10)[0]:
-                print("x:", x[i])
+                print("x:", x["x"][i])
                 print("y:", y)
                 print("output:", output)
                 print("loss:", loss)
@@ -264,7 +306,10 @@ class RegressionTrainer(BaseTrainer):
 
                     for j in range(valid_count):
                         # instruction = [73, 5, 24, 6, 30, 7, 4]
-                        instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
+                        if self.config.model_type == 'transformer':
+                            instr_tokens = [t.item() for t in x['x'][i, j] if t.item() != 0]
+                        else:
+                            instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
                         if instr_tokens:
                             instructions.append(instr_tokens[0])
 
@@ -320,7 +365,7 @@ class RegressionTrainer(BaseTrainer):
                 loss = self.criterion(output, y)
 
                 for i in torch.where(loss > 10)[0]:
-                    print("x:", x[i])
+                    print("x:", x["x"][i])
                     print("y:", y[i])
                     print("output:", output[i])
 
@@ -350,3 +395,116 @@ class RegressionTrainer(BaseTrainer):
         self.experiment.log_metrics(metrics, epoch, prefix="val_")
 
         return metrics
+
+    def _save_checkpoint(self, epoch, train_metrics=None, val_metrics=None, is_best=False):
+
+        checkpoint = {
+            'epoch': epoch,
+            'global_step': self.global_step,
+            'model_state': self.model.state_dict(),
+            'optimizer_state': self.optimizer.state_dict(),
+            'best_metric': self.best_metric,
+            'best_epoch': self.best_epoch,
+            'train_losses': self.train_losses,
+            'val_losses': self.val_losses,
+            'learning_rates': self.learning_rates,
+            'config': self.config.__dict__,
+            'train_metrics': train_metrics,
+            'val_metrics': val_metrics
+        }
+
+        if self.scheduler:
+            checkpoint['scheduler_state'] = self.scheduler.state_dict()
+
+        checkpoint_path = os.path.join(self.checkpoint_dir, f"checkpoint_epoch_{epoch + 1}.pth")
+        torch.save(checkpoint, checkpoint_path)
+
+        latest_path = os.path.join(self.checkpoint_dir, "checkpoint_latest.pth")
+        torch.save(checkpoint, latest_path)
+
+        if is_best:
+            best_path = os.path.join(self.checkpoint_dir, "model_best.pth")
+            torch.save(checkpoint, best_path)
+            print(f"Saving the best model to {best_path}")
+
+        # Delete old checkpoints to keep the number of checkpoints within max_checkpoints
+        self._prune_old_checkpoints()
+
+    def _resume_checkpoint(self, checkpoint_path=None, only_model=False):
+        """
+        Resume training from a checkpoint
+
+        Args:
+            checkpoint_path: Path to the checkpoint, if None, load the latest checkpoint
+            only_model: Whether to load only the model weights and not the training state
+        """
+
+        if checkpoint_path is None:
+            latest_path = os.path.join(self.checkpoint_dir, "checkpoint_latest.pth")
+            if os.path.exists(latest_path):
+                checkpoint_path = latest_path
+            else:
+                raise ValueError("No checkpoint path specified and the latest checkpoint could not be found")
+
+        print(f"Loading checkpoint: {checkpoint_path}")
+        checkpoint = torch.load(checkpoint_path, map_location=self.device)
+
+        self.model.load_state_dict(checkpoint['model_state'])
+
+        if not only_model:
+            self.start_epoch = checkpoint['epoch'] + 1
+            self.global_step = checkpoint.get('global_step', 0)
+            self.best_metric = checkpoint.get('best_metric', float('inf'))
+            self.best_epoch = checkpoint.get('best_epoch', 0)
+
+            self.train_losses = checkpoint.get('train_losses', [])
+            self.val_losses = checkpoint.get('val_losses', [])
+            self.learning_rates = checkpoint.get('learning_rates', [])
+
+            if 'optimizer_state' in checkpoint and self.optimizer:
+                self.optimizer.load_state_dict(checkpoint['optimizer_state'])
+
+            if 'scheduler_state' in checkpoint and self.scheduler:
+                self.scheduler.load_state_dict(checkpoint['scheduler_state'])
+
+    def _prune_old_checkpoints(self):
+
+        checkpoint_files = [f for f in os.listdir(self.checkpoint_dir)
+                            if f.startswith("checkpoint_epoch_") and f.endswith(".pth")]
+
+        if len(checkpoint_files) <= self.config.max_checkpoints:
+            return
+
+        checkpoint_epochs = [(f, int(f.split("_")[-1].split(".")[0])) for f in checkpoint_files]
+        checkpoint_epochs.sort(key=lambda x: x[1])
+
+        for f, _ in checkpoint_epochs[:-self.config.max_checkpoints]:
+            os.remove(os.path.join(self.checkpoint_dir, f))
+
+    def _plot_progress(self):
+        """
+        plot the training progress
+        """
+        epochs = list(range(1, len(self.train_losses) + 1))
+
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+        ax1.plot(epochs, self.train_losses, label='Train Loss')
+        if self.val_losses:
+            val_epochs = epochs[:len(self.val_losses)]
+            ax1.plot(val_epochs, self.val_losses, label='Val Loss')
+        ax1.set_xlabel('Epoch')
+        ax1.set_ylabel('Loss')
+        ax1.set_title('Training Progress')
+        ax1.legend()
+        ax1.grid(True)
+
+        lr_epochs = epochs[:len(self.learning_rates)]
+        ax2.plot(lr_epochs, self.learning_rates)
+        ax2.set_xlabel('Epoch')
+        ax2.set_ylabel('Learning Rate')
+        ax2.set_title('Learning Rate Schedule')
+        ax2.grid(True)
+
+        plt.tight_layout()
+        plt.savefig(os.path.join(self.log_dir, f"training_progress_epoch_{self.current_epoch + 1}.png"))
+        plt.close()

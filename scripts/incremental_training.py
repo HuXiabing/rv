@@ -12,7 +12,7 @@ import torch
 from config import get_config
 from data import get_dataloader
 from models import get_model
-from trainers import RegressionTrainer
+from trainers import Trainer
 from utils import set_seed, ExperimentManager
 
 
@@ -143,7 +143,7 @@ def main():
         num_workers=args.num_workers
     )
 
-    trainer = RegressionTrainer(model, config, experiment_manager.experiment_dir, experiment_manager)
+    trainer = Trainer(model, config, experiment_manager.experiment_dir, experiment_manager)
 
     if not args.restart_optimizer and 'optimizer_state' in checkpoint:
         try:

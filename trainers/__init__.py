@@ -1,9 +1,7 @@
-from .base_trainer import BaseTrainer
-from .regression_trainer import RegressionTrainer
+from .trainer import Trainer
 from .checkpoint import CheckpointManager
 
 __all__ = [
-    'BaseTrainer',
-    'RegressionTrainer',
+    'Trainer',
     'CheckpointManager'
 ]

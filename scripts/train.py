@@ -5,15 +5,12 @@
 import sys
 import argparse
 from pathlib import Path
-
-# 添加项目根目录到Python路径
 sys.path.append(str(Path(__file__).resolve().parent.parent))
-
 import torch
 from config import get_config
 from data import get_dataloader
 from models import get_model
-from trainers import RegressionTrainer
+from trainers import Trainer
 from utils import set_seed, ExperimentManager
 
 
@@ -103,7 +100,7 @@ def main():
     model = get_model(config)
     print(f"Create model: {args.model_type.upper()}, Number of parameters: {model.count_parameters():,}")
 
-    trainer = RegressionTrainer(model, config, experiment_manager.experiment_dir, experiment_manager)
+    trainer = Trainer(model, config, experiment_manager.experiment_dir, experiment_manager)
     trainer.setup_experiment(args.experiment_name, args.output_dir)
 
     # print(f"Starting training..., device: {device}")
