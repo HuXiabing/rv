@@ -3,7 +3,7 @@ import torch.nn as nn
 from torch.optim import Adam, AdamW
 from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR, StepLR
 from tqdm import tqdm
-# from .base_trainer import BaseTrainer
+from data import RISCVGraphDataset
 from utils.metrics import MapeLoss, BatchResult, correct_regression, compute_accuracy #,compute_regression_metrics
 import time
 import os
@@ -274,17 +274,19 @@ class Trainer:
             x = batch['X'].to(self.device)
             y = batch['Y'].to(self.device)
             instruction_count = batch.get('instruction_count', None)
+            instr_type = batch['instr_type']
+            print("batch['instr_type']:", batch)
 
             self.optimizer.zero_grad()
 
             output = self.model(x)
             loss = self.criterion(output, y)  # [batch_size]
 
-            for i in torch.where(loss > 10)[0]:
-                print("x:", x["x"][i])
-                print("y:", y)
-                print("output:", output)
-                print("loss:", loss)
+            # for i in torch.where(loss > 10)[0]:
+            #     print("x:", x["x"][i])
+            #     print("y:", y)
+            #     print("output:", output)
+            #     print("loss:", loss)
 
             mean_loss = torch.mean(loss)
             mean_loss.backward()
@@ -294,32 +296,39 @@ class Trainer:
 
             self.optimizer.step()
 
+            # sample_instruction_types = RISCVGraphDataset.get_instruction_types_from_batch(batch)
+            #
+            # print("sample_instruction_types:", sample_instruction_types)
+
             # collect batch statistics
             for i in range(len(output)):  # batch size
 
-                instructions = []   # record instruction type of each bb
-                block_len = None
+                # instructions = []   # record instruction type of each bb
+                # block_len = None
+                #
+                # if instruction_count is not None:
+                #     valid_count = instruction_count[i].item()
+                #     block_len = valid_count
+                #
+                #     for j in range(valid_count):
+                #         # instruction = [73, 5, 24, 6, 30, 7, 4]
+                #
+                #         if self.config.model_type == 'transformer':
+                #             instr_tokens = [t.item() for t in x['x'][i, j] if t.item() != 0]
+                #         elif self.config.model_type == 'lstm':
+                #             instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
+                #         if instr_tokens:
+                #             instructions.append(instr_tokens[0])
 
-                if instruction_count is not None:
-                    valid_count = instruction_count[i].item()
-                    block_len = valid_count
-
-                    for j in range(valid_count):
-                        # instruction = [73, 5, 24, 6, 30, 7, 4]
-                        if self.config.model_type == 'transformer':
-                            instr_tokens = [t.item() for t in x['x'][i, j] if t.item() != 0]
-                        else:
-                            instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
-                        if instr_tokens:
-                            instructions.append(instr_tokens[0])
-
+                instructions = instr_type[i] if isinstance(instr_type[i], list) else instr_type[i].tolist()
 
                 batch_result.add_sample(
                     prediction=output[i].item(),
                     measured=y[i].item(),
                     loss=loss[i].item(),
                     instructions=instructions,
-                    block_len=block_len
+                    # block_len=block_len
+                    block_len=instruction_count[i].item()
                 )
 
             progress_bar.set_postfix({"loss": mean_loss.item()})
@@ -364,10 +373,10 @@ class Trainer:
                 output = self.model(x)
                 loss = self.criterion(output, y)
 
-                for i in torch.where(loss > 10)[0]:
-                    print("x:", x["x"][i])
-                    print("y:", y[i])
-                    print("output:", output[i])
+                # for i in torch.where(loss > 10)[0]:
+                #     print("x:", x["x"][i])
+                #     print("y:", y[i])
+                #     print("output:", output[i])
 
                 total_loss += torch.sum(loss).item()
                 total_samples += len(x)
