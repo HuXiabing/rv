@@ -114,20 +114,26 @@ class DatasetWithDistanceWeight(Dataset):
         self.num_instructions = [sample['num_instructions'] for sample in self.data]
 
     def _pad_and_stack_encoded(self):
-
         padded_xs = []
         for sample in self.data:
             encoded = sample['encoded']
+
+            if len(encoded) > self.max_instr_count:
+                encoded = encoded[:self.max_instr_count]
+
             padded_encoded = [
                 F.pad(torch.tensor(instr, dtype=torch.long), (0, self.max_instr_length - len(instr)),
                       value=self.pad_idx)
                 for instr in encoded
             ]
+
             if len(padded_encoded) < self.max_instr_count:
                 padding = torch.full((self.max_instr_count - len(padded_encoded), self.max_instr_length), self.pad_idx,
                                      dtype=torch.long)
                 padded_encoded.extend(padding)
+
             padded_xs.append(torch.stack(padded_encoded))
+
         return padded_xs
 
 
@@ -163,14 +169,26 @@ class DatasetWithDistanceWeight(Dataset):
 
         return TorchDict(**x_dict)
 
-def collate_fn(batch):
-
+def collate_fn_transformer(batch):
     xs, ys, num_instructions = zip(*batch)
-    xs = torch.stack(xs)
+
+    # 找出批次中最大的指令数量
+    max_inst_count = max(x.size(0) for x in xs)
+    max_inst_length = xs[0].size(1)  # 假设所有指令长度已经填充到相同
+
+    # 填充每个张量以使指令数量相同
+    padded_xs = []
+    for x in xs:
+        if x.size(0) < max_inst_count:
+            padding = torch.full((max_inst_count - x.size(0), max_inst_length), 0, dtype=torch.long)
+            x = torch.cat([x, padding], dim=0)
+        padded_xs.append(x)
+
+    xs = torch.stack(padded_xs)
     ys = torch.tensor(ys, dtype=torch.float)
     num_instructions = torch.tensor(num_instructions, dtype=torch.long)
 
-    if hasattr(batch[0], '__self__'):  # 如果样本是数据集的一部分
+    if hasattr(batch[0], '__self__'):
         dataset = batch[0].__self__
     else:
         dataset = None
@@ -207,22 +225,27 @@ class RNNDataset(Dataset):
         self.num_instructions = [sample['num_instructions'] for sample in self.data]
 
     def _pad_and_stack_encoded(self):
-
         padded_xs = []
         for sample in self.data:
             encoded = sample['encoded']
+
+            if len(encoded) > self.max_instr_count:
+                encoded = encoded[:self.max_instr_count]
+
             padded_encoded = [
                 F.pad(torch.tensor(instr, dtype=torch.long), (0, self.max_instr_length - len(instr)),
                       value=self.pad_idx)
                 for instr in encoded
             ]
+
             if len(padded_encoded) < self.max_instr_count:
                 padding = torch.full((self.max_instr_count - len(padded_encoded), self.max_instr_length), self.pad_idx,
                                      dtype=torch.long)
                 padded_encoded.extend(padding)
-            padded_xs.append(torch.stack(padded_encoded))
-        return padded_xs
 
+            padded_xs.append(torch.stack(padded_encoded))
+
+        return padded_xs
 
     def __len__(self):
         return len(self.xs)
@@ -236,3 +259,22 @@ class RNNDataset(Dataset):
         }
 
         return sample
+
+
+def collate_fn_lstm(batch):
+    # 从批次中提取 X、Y 和 instruction_count
+    xs = [item['X'] for item in batch]
+    ys = [item['Y'] for item in batch]
+    instruction_counts = [item['instruction_count'] for item in batch]
+
+    # 将所有 X 张量堆叠为一个批次
+    # xs 应该已经通过 _pad_and_stack_encoded 方法填充到相同的形状
+    xs_batch = torch.stack(xs)
+    ys_batch = torch.tensor(ys, dtype=torch.float)
+    instruction_counts_batch = torch.tensor(instruction_counts, dtype=torch.long)
+
+    return {
+        'X': xs_batch,
+        'Y': ys_batch,
+        'instruction_count': instruction_counts_batch
+    }

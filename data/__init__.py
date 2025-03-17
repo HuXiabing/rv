@@ -25,46 +25,29 @@ def get_dataloader(model_type, dataset_path: str,
     """
 
     if model_type.lower() == "gnn":
-        # dataset = RISCVDataset(dataset_path)
-        # return torch.utils.data.DataLoader(
-        #     dataset,
-        #     batch_size=batch_size,
-        #     shuffle=shuffle,
-        #     num_workers=num_workers,
-        #     pin_memory=True)
-        # dataset = RISCVGraphDataset(dataset_path, cache_dir="./cache", rebuild_cache=False)
-        # return PyGDataLoader(
-        #         dataset,
-        #         batch_size=batch_size,
-        #         shuffle=shuffle,
-        #         num_workers=num_workers,
-        #         follow_batch=['x']
-        #     )
         dataset = RISCVGraphDataset(dataset_path, cache_dir="./cache", rebuild_cache=False)
         return PyGDataLoader(
             dataset,
             batch_size=batch_size,
             shuffle=True,
-            collate_fn=custom_collate
         )
 
     elif model_type.lower() == "transformer":
-
         dataset = DatasetWithDistanceWeight(dataset_path)
         return torch.utils.data.DataLoader(
             dataset,
             batch_size=batch_size,
-            collate_fn=collate_fn,
+            collate_fn=collate_fn_transformer,
             shuffle=shuffle,
             num_workers=num_workers,
             pin_memory=True)
 
     elif model_type.lower() == "lstm":
-
         dataset = RNNDataset(dataset_path)
         return torch.utils.data.DataLoader(
             dataset,
             batch_size=batch_size,
+            collate_fn=collate_fn_lstm,
             shuffle=shuffle,
             num_workers=num_workers,
             pin_memory=True)

@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 """
 Combined data processing script for RISC-V instruction throughput data.
-This script combines the functionality of:
-- json_gen.py: Initial data processing from ASM and cycle data
-- preprocess.py: Tokenization, encoding, and data splitting
-- incremental_preprocess.py: Handling incremental data additions
 
 The script supports two modes:
 1. Full processing: Process data from scratch and create train/val splits
@@ -30,8 +26,8 @@ from utils import set_seed
 # ===== Functions from json_gen.py =====
 def parse_throughput(line):
     """Extract throughput value from a line"""
-    if line.startswith("Cycle Min:"):
-        return float(line.split("Cycle Min:")[1].strip())
+    if line.startswith("Cycle Mode:"):
+        return float(line.split("Cycle Mode:")[1].strip())
     return None
 
 
@@ -105,7 +101,7 @@ def generate_json(asm_dirs, cycle_dirs):
 
 
 # ===== Functions from preprocess.py and incremental_preprocess.py =====
-def process_data(raw_data, tokenizer, max_instr_length, max_instr_count):
+def process_data(raw_data, tokenizer):
     """Process raw data to add tokenization and encoding"""
     processed_data = []
 
@@ -122,7 +118,7 @@ def process_data(raw_data, tokenizer, max_instr_length, max_instr_count):
         encoded_instructions = []
         for tokenized in tokenized_instructions:
             encoded = [tokenizer.vocab.get(token, tokenizer.vocab.get('<PAD>', 0)) for token in tokenized]
-            if encoded[0] in list(range(73,229 + 1)):
+            if encoded[0] in list(range(73,164 + 1)):
                 encoded_instructions.append(encoded)
             else:
                 valid = 0
@@ -183,50 +179,80 @@ def split_data(data, val_ratio, train_ratio, seed=42):
     return train_data, val_data
 
 
-def create_hdf5(data, output_path, max_instr_count, max_instr_length):
-    """Create HDF5 file from processed data"""
-    output_dir = os.path.dirname(output_path)
-    if output_dir:
-        os.makedirs(output_dir, exist_ok=True)
+def split_data_by_count(data, train_samples, val_samples, seed=42):
+    """
+    Split data into training and validation sets based on exact sample counts.
 
-    num_samples = len(data)
-    X = np.zeros((num_samples, max_instr_count, max_instr_length), dtype=np.int32)  # [batch_size, sequence_length, embedding_dim]
-    instruction_counts = np.zeros(num_samples, dtype=np.int32)
-    Y = np.zeros((num_samples,), dtype=np.float32)
+    If total samples are insufficient, prioritize validation set requirements.
+    """
+    random.seed(seed)
+    data_copy = data.copy()
+    random.shuffle(data_copy)
 
-    for i, item in enumerate(data):
-        for j, encoded in enumerate(item["encoded"][:max_instr_count]):
-            X[i, j, :len(encoded)] = encoded[:max_instr_length]
+    total_count = len(data_copy)
+    requested_total = train_samples + val_samples
 
-        instruction_counts[i] = min(item["num_instructions"], max_instr_count)
-        Y[i] = item["throughput"]
+    # Case 1: We have enough samples to satisfy both requirements
+    if total_count >= requested_total:
+        val_data = data_copy[:val_samples]
+        train_data = data_copy[val_samples:val_samples + train_samples]
+        print(f"Generated requested sample counts: Validation set: {len(val_data)}, Training set: {len(train_data)}")
 
-    with h5py.File(output_path, 'w') as f:
-        f.create_dataset('X', data=X, compression='gzip')
-        f.create_dataset('instruction_counts', data=instruction_counts)
-        f.create_dataset('Y', data=Y)
+    # Case 2: Not enough samples for both, prioritize validation set
+    else:
+        actual_val_samples = min(val_samples, total_count)
+        actual_train_samples = max(0, total_count - actual_val_samples)
 
-        dt = h5py.special_dtype(vlen=str)
-        instr_text = np.array([json.dumps(item["instructions"]) for item in data], dtype=dt)
-        f.create_dataset('instruction_text', data=instr_text)
+        val_data = data_copy[:actual_val_samples]
+        train_data = data_copy[actual_val_samples:] if actual_train_samples > 0 else []
 
-        f.attrs['num_samples'] = num_samples
-        f.attrs['max_instr_count'] = max_instr_count
-        f.attrs['max_instr_length'] = max_instr_length
+        print(f"Warning: Insufficient samples to meet requested counts")
+        print(f"Generated sample counts: Validation set: {len(val_data)}, Training set: {len(train_data)}")
+        print(f"Requested sample counts: Validation set: {val_samples}, Training set: {train_samples}")
 
-    print(f"HDF5 file created: {output_path}")
-
+    return train_data, val_data
 
 # ===== Function for incremental processing =====
-def incremental_update(existing_train_data, existing_val_data, new_processed_data):
+# def incremental_update(existing_train_data, existing_val_data, new_processed_data):
+#     """
+#     Update training data with new data while keeping validation set unchanged
+#
+#     This function ensures:
+#     1. The validation set remains unchanged
+#     2. New data is added to the training set
+#     3. Duplicates are removed from the training set
+#     4. Any samples in validation are not duplicated in training
+#     """
+#     # Create a set of encoded keys from validation data
+#     val_encoded_keys = {get_encoded_key(item) for item in existing_val_data}
+#
+#     # Create a set of existing training encoded keys
+#     train_encoded_keys = {get_encoded_key(item) for item in existing_train_data}
+#
+#     # Filter new data to remove any duplicates with validation set
+#     filtered_new_data = []
+#     for item in new_processed_data:
+#         key = get_encoded_key(item)
+#         if key not in val_encoded_keys and key not in train_encoded_keys:
+#             filtered_new_data.append(item)
+#             train_encoded_keys.add(key)  # Update to avoid duplicates within new data
+#
+#     # Combine existing and filtered new data
+#     updated_train_data = existing_train_data + filtered_new_data
+#
+#     print(f"Added {len(filtered_new_data)} unique new samples to training data")
+#     print(f"Updated training data size: {len(updated_train_data)}")
+#
+#     return updated_train_data, existing_val_data
+
+def incremental_update(existing_train_data, existing_val_data, new_processed_data, train_samples, val_samples):
     """
-    Update training data with new data while keeping validation set unchanged
+    Update training data with new data while keeping validation set unchanged or expanded to meet requirements
 
     This function ensures:
-    1. The validation set remains unchanged
-    2. New data is added to the training set
-    3. Duplicates are removed from the training set
-    4. Any samples in validation are not duplicated in training
+    1. The validation set meets the requested sample count if possible
+    2. New data is added to the training set to meet the requested count
+    3. Duplicates are removed
     """
     # Create a set of encoded keys from validation data
     val_encoded_keys = {get_encoded_key(item) for item in existing_val_data}
@@ -242,14 +268,45 @@ def incremental_update(existing_train_data, existing_val_data, new_processed_dat
             filtered_new_data.append(item)
             train_encoded_keys.add(key)  # Update to avoid duplicates within new data
 
-    # Combine existing and filtered new data
-    updated_train_data = existing_train_data + filtered_new_data
+    # First, check if we need to expand validation set
+    val_data = existing_val_data.copy()
+    remaining_new_data = filtered_new_data.copy()
 
-    print(f"Added {len(filtered_new_data)} unique new samples to training data")
-    print(f"Updated training data size: {len(updated_train_data)}")
+    if len(val_data) < val_samples:
+        # We need more validation samples
+        needed_val_samples = val_samples - len(val_data)
 
-    return updated_train_data, existing_val_data
+        # Take samples from new data for validation
+        if needed_val_samples > 0 and remaining_new_data:
+            new_val_samples = min(needed_val_samples, len(remaining_new_data))
+            val_data.extend(remaining_new_data[:new_val_samples])
+            remaining_new_data = remaining_new_data[new_val_samples:]
+            val_encoded_keys.update(get_encoded_key(item) for item in val_data[-new_val_samples:])
 
+            print(f"Added {new_val_samples} new samples to validation data")
+
+    # Now handle training data
+    # Start with existing training data
+    train_data = existing_train_data.copy()
+
+    # Calculate how many more training samples we need
+    needed_train_samples = max(0, train_samples - len(train_data))
+
+    # Add samples from remaining new data to training
+    if needed_train_samples > 0 and remaining_new_data:
+        new_train_samples = min(needed_train_samples, len(remaining_new_data))
+        train_data.extend(remaining_new_data[:new_train_samples])
+        print(f"Added {new_train_samples} new samples to training data")
+
+    # If we still have excess training data, trim it
+    if len(train_data) > train_samples:
+        train_data = train_data[:train_samples]
+        print(f"Trimmed training data to {train_samples} samples")
+
+    print(f"Final data sizes: Validation set: {len(val_data)}, Training set: {len(train_data)}")
+    print(f"Requested sizes: Validation set: {val_samples}, Training set: {train_samples}")
+
+    return train_data, val_data
 
 def main():
     parser = argparse.ArgumentParser(description="RISC-V Instruction Throughput Data Processing")
@@ -271,28 +328,20 @@ def main():
                         help="Path to the existing train JSON file (for incremental mode)")
     parser.add_argument("--existing_val_json", type=str, default="data/val_data.json",
                         help="Path to the existing validation JSON file (for incremental mode)")
-    parser.add_argument("--existing_train_h5", type=str, default="data/train_data.h5",
-                        help="Path to the existing train HDF5 file (for incremental mode)")
-    parser.add_argument("--existing_val_h5", type=str, default="data/val_data.h5",
-                        help="Path to the existing validation HDF5 file (for incremental mode)")
 
     # Output paths
-    # parser.add_argument("--raw_json", type=str, default="data/raw_data.json",
-    #                     help="Output path for raw JSON data")
     parser.add_argument("--processed_json", type=str, default="data/processed_data.json",
                         help="Output path for processed JSON data")
     parser.add_argument("--train_json", type=str, default="data/train_data.json",
                         help="Output path for training JSON data")
     parser.add_argument("--val_json", type=str, default="data/val_data.json",
                         help="Output path for validation JSON data")
-    parser.add_argument("--train_h5", type=str, default="data/train_data.h5",
-                        help="Output path for training HDF5 data")
-    parser.add_argument("--val_h5", type=str, default="data/val_data.h5",
-                        help="Output path for validation HDF5 data")
 
-    # Processing parameters
-    parser.add_argument("--max_instr_length", type=int, default=8, help="Maximum length of an instruction")
-    parser.add_argument("--max_instr_count", type=int, default=400, help="Maximum number of instructions per sample")
+    # Sample count parameters
+    parser.add_argument("--train_samples", type=int, default=None,
+                        help="Number of training samples to generate (if None, uses all available samples)")
+    parser.add_argument("--val_samples", type=int, default=None,
+                        help="Number of validation samples to generate (if None, uses val_ratio)")
     parser.add_argument("--val_ratio", type=float, default=0.2, help="Proportion of the validation set")
 
     # Output directory
@@ -311,20 +360,15 @@ def main():
     os.makedirs(args.output_dir, exist_ok=True)
 
     # Initialize tokenizer
-    tokenizer = RISCVTokenizer(max_instr_length=args.max_instr_length)
+    tokenizer = RISCVTokenizer()
 
     # Generate raw JSON data
     print("Generating raw JSON data...")
     raw_data = generate_json(args.asm_dirs, args.cycle_dirs)
 
-    # Save raw data
-    # with open(args.raw_json, 'w') as f:
-    #     json.dump(raw_data, f, indent=2)
-    # print(f"Raw data saved to {args.raw_json} ({len(raw_data)} samples)")
-
     # Process data - tokenize and encode
     print("Processing data...")
-    processed_data = process_data(raw_data, tokenizer, args.max_instr_length, args.max_instr_count)
+    processed_data = process_data(raw_data, tokenizer)
 
     if args.mode == "full":
         # Full processing mode
@@ -337,7 +381,28 @@ def main():
         print(f"Processed data saved to {args.processed_json}")
 
         # Split data into train and validation sets
-        train_data, val_data = split_data(processed_data, args.val_ratio, 1.0 - args.val_ratio, args.seed)
+        total_samples = len(processed_data)
+
+        if args.train_samples is None and args.val_samples is None:
+            # Use val_ratio to determine split
+            val_samples = int(total_samples * args.val_ratio)
+            train_samples = total_samples - val_samples
+        elif args.val_samples is None:
+            # Train samples specified, use val_ratio for validation
+            val_samples = int(min(total_samples - args.train_samples,
+                                  total_samples * args.val_ratio))
+            train_samples = min(args.train_samples, total_samples - val_samples)
+        elif args.train_samples is None:
+            # Val samples specified, use rest for training
+            val_samples = min(args.val_samples, total_samples)
+            train_samples = total_samples - val_samples
+        else:
+            # Both specified
+            val_samples = args.val_samples
+            train_samples = args.train_samples
+
+        # Split data into train and validation sets
+        train_data, val_data = split_data_by_count(processed_data, train_samples, val_samples, args.seed)
 
         # Save split data to JSON
         with open(args.train_json, 'w') as f:
@@ -346,10 +411,6 @@ def main():
             json.dump(val_data, f, indent=2)
         print(f"Train data saved to {args.train_json}")
         print(f"Validation data saved to {args.val_json}")
-
-        # Create HDF5 files
-        create_hdf5(train_data, args.train_h5, args.max_instr_count, args.max_instr_length)
-        create_hdf5(val_data, args.val_h5, args.max_instr_count, args.max_instr_length)
 
     else:
         # Incremental mode
@@ -373,19 +434,29 @@ def main():
             json.dump(deduplicated_processed_data, f, indent=2)
         print(f"Updated processed data saved to {args.processed_json}")
 
-        # Update training data while keeping validation set unchanged
+        # Determine sample counts
+        if args.train_samples is None and args.val_samples is None:
+            # Keep existing validation set and add new data to training
+            val_samples = len(existing_val_data)
+            # Don't limit training samples
+            train_samples = float('inf')
+        else:
+            # Use specified counts
+            val_samples = args.val_samples if args.val_samples is not None else len(existing_val_data)
+            train_samples = args.train_samples if args.train_samples is not None else float('inf')
+
+        # Update training and validation data
         updated_train_data, val_data = incremental_update(
-            existing_train_data, existing_val_data, processed_data
+            existing_train_data, existing_val_data, processed_data, train_samples, val_samples
         )
 
-        # Save updated training data
+        # Save updated data
         with open(args.train_json, 'w') as f:
             json.dump(updated_train_data, f, indent=2)
+        with open(args.val_json, 'w') as f:
+            json.dump(val_data, f, indent=2)
         print(f"Updated train data saved to {args.train_json}")
-
-        # Create HDF5 files
-        create_hdf5(updated_train_data, args.train_h5, args.max_instr_count, args.max_instr_length)
-        create_hdf5(val_data, args.val_h5, args.max_instr_count, args.max_instr_length)
+        print(f"Updated validation data saved to {args.val_json}")
 
     print("Data processing completed!")
 

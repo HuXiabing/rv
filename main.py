@@ -25,8 +25,8 @@ def main():
     train_parser = subparsers.add_parser("train", help="Training RISC-V throughput prediction model")
     train_parser.add_argument("--model_type", type=str, default="transformer",
                               choices=["transformer", "gnn", "lstm"], help="Model type")
-    train_parser.add_argument("--train_data", type=str, default="data/train_data.h5", help="Path to training data")
-    train_parser.add_argument("--val_data", type=str, default="data/val_data.h5", help="Path to validation data")
+    train_parser.add_argument("--train_data", type=str, default="data/train_data.json", help="Path to training data")
+    train_parser.add_argument("--val_data", type=str, default="data/val_data.json", help="Path to validation data")
     train_parser.add_argument("--batch_size", type=int, default=8, help="Batch size")
     train_parser.add_argument("--epochs", type=int, default=50, help="Number of epochs")
     train_parser.add_argument("--lr", type=float, default=2e-5, help="Learning rate")
@@ -46,10 +46,10 @@ def main():
                                     help="Path to the checkpoint of the trained model. Defaults to the most recently trained model.")
     incremental_parser.add_argument("--original", type=str, default=None,
                                     help="Original experiment directory, used to automatically find the latest model (if model_path is not specified).")
-    incremental_parser.add_argument("--train_data", type=str, default="data/train_data.h5",
-                                    help="Path to the newly generated training data (HDF5).")
-    incremental_parser.add_argument("--val_data", type=str, default="data/val_data.h5",
-                                    help="Path to the validation data (HDF5).")
+    incremental_parser.add_argument("--train_data", type=str, default="data/train_data.json",
+                                    help="Path to the newly generated training data.")
+    incremental_parser.add_argument("--val_data", type=str, default="data/val_data.json",
+                                    help="Path to the validation data.")
     incremental_parser.add_argument("--epochs", type=int, default=50, help="Number of epochs for incremental training.")
     incremental_parser.add_argument("--batch_size", type=int, default=8, help="Batch size.")
     incremental_parser.add_argument("--lr", type=float, default=3e-6,

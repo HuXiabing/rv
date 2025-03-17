@@ -227,55 +227,11 @@ class Trainer:
         self.model.train()
         batch_result = BatchResult()
         progress_bar = tqdm(train_loader, desc=f"Epoch {self.current_epoch}/{self.config.epochs}")
-        """
-        batch {'X': tensor([[[ 73,   5,  29,  ...,   7,   4,   0],
-         [ 73,   5,  20,  ...,   7,   4,   0],
-         [  0,   5,  19,  ...,   4,   0,   0],
-         ...,
-         [  0,   0,   0,  ...,   0,   0,   0],
-         [  0,   0,   0,  ...,   0,   0,   0],
-         [  0,   0,   0,  ...,   0,   0,   0]],
-
-        [[185,   5,  24,  ...,   7,   4,   0],
-         [209,   5,  27,  ...,   7,   4,   0],
-         [217,   5,  27,  ...,   7,   4,   0],
-         ...,
-         [  0,   0,   0,  ...,   0,   0,   0],
-         [  0,   0,   0,  ...,   0,   0,   0],
-         [  0,   0,   0,  ...,   0,   0,   0]],
-
-        [[205,   5,  21,  ...,   7,   4,   0],
-         [ 73,   5,  24,  ...,   7,   4,   0],
-         [205,   5,  24,  ...,   7,   4,   0],
-         ...,
-         [  0,   0,   0,  ...,   0,   0,   0],
-         [  0,   0,   0,  ...,   0,   0,   0],
-         [  0,   0,   0,  ...,   0,   0,   0]],
-
-        [[183,   5,  24,  ...,   7,   4,   0],
-         [183,   5,  19,  ...,   7,   4,   0],
-         [  0,   5,  21,  ...,   4,   0,   0],
-         ...,
-         [  0,   0,   0,  ...,   0,   0,   0],
-         [  0,   0,   0,  ...,   0,   0,   0],
-         [  0,   0,   0,  ...,   0,   0,   0]]]), 
-         
-         'instruction_count': tensor([3, 3, 3, 5]), 
-         
-         'Y': tensor([3., 3., 2., 5.]), 
-         'instruction_text': [b'["addi  s4,s2,1", "addi  a1,zero,37", "mv   a0,s4"]', 
-         b'["lhu    a5,102(s1)", "slliw  s2,a0,16", "sraiw  s2,s2,16"]', 
-         b'["sd   a2,0(a3)", "addi    a5,s1,728", "sd   a5,936(s1)"]', 
-         b'["ld   a5,16(s0)", "ld    a0,0(s9)", "mv   a2,zero", "auipc  a1,21", "addi  a1,a1,576"]']}
-
-        """
 
         for batch in progress_bar:
             x = batch['X'].to(self.device)
             y = batch['Y'].to(self.device)
             instruction_count = batch.get('instruction_count', None)
-            instr_type = batch['instr_type']
-            print("batch['instr_type']:", batch)
 
             self.optimizer.zero_grad()
 
@@ -296,40 +252,44 @@ class Trainer:
 
             self.optimizer.step()
 
-            # sample_instruction_types = RISCVGraphDataset.get_instruction_types_from_batch(batch)
-            #
-            # print("sample_instruction_types:", sample_instruction_types)
-
             # collect batch statistics
-            for i in range(len(output)):  # batch size
+            if self.config.model_type in ['lstm','transformer']:
+                for i in range(len(output)):  # batch size
+                    instructions = []   # record instruction type of each bb
 
-                # instructions = []   # record instruction type of each bb
-                # block_len = None
-                #
-                # if instruction_count is not None:
-                #     valid_count = instruction_count[i].item()
-                #     block_len = valid_count
-                #
-                #     for j in range(valid_count):
-                #         # instruction = [73, 5, 24, 6, 30, 7, 4]
-                #
-                #         if self.config.model_type == 'transformer':
-                #             instr_tokens = [t.item() for t in x['x'][i, j] if t.item() != 0]
-                #         elif self.config.model_type == 'lstm':
-                #             instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
-                #         if instr_tokens:
-                #             instructions.append(instr_tokens[0])
+                    if instruction_count is not None:
+                        valid_count = instruction_count[i].item()
 
-                instructions = instr_type[i] if isinstance(instr_type[i], list) else instr_type[i].tolist()
+                        for j in range(min(valid_count, self.config.max_instr_count)):
+                            # instructions = [73, 5, 24, 6, 30, 7, 4]
 
-                batch_result.add_sample(
-                    prediction=output[i].item(),
-                    measured=y[i].item(),
-                    loss=loss[i].item(),
-                    instructions=instructions,
-                    # block_len=block_len
-                    block_len=instruction_count[i].item()
-                )
+                            if self.config.model_type == 'transformer':
+                                instr_tokens = [t.item() for t in x['x'][i, j] if t.item() != 0]
+                            elif self.config.model_type == 'lstm':
+                                instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
+                            if instr_tokens:
+                                instructions.append(instr_tokens[0])
+                    batch_result.add_sample(
+                        prediction=output[i].item(),
+                        measured=y[i].item(),
+                        loss=loss[i].item(),
+                        instructions=instructions,
+                        block_len=instruction_count[i].item())
+
+            elif self.config.model_type == 'gnn':
+
+                graph_list = batch['X'].to_data_list()
+                for i, graph in enumerate(graph_list):
+
+                    batch_result.add_sample(
+                        prediction=output[i].item(),
+                        measured=y[i].item(),
+                        loss=loss[i].item(),
+                        instructions=graph.instruction_token_ids.tolist(),
+                        block_len=instruction_count[i].item())
+
+            else:
+                raise ValueError(f"Unknown model type: {self.config.model_type}")
 
             progress_bar.set_postfix({"loss": mean_loss.item()})
 

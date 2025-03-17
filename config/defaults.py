@@ -35,7 +35,7 @@ GNN_CONFIG = {
 # default data configuration
 DATA_CONFIG = {
     "max_instr_length": 8,
-    "max_instr_count": 200,
+    "max_instr_count": 64,
     "vocab_size": 256,
 }
 

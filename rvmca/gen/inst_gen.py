@@ -136,38 +136,113 @@ def gen_inst(candidates: Dict = None):
 def gen_imm(start=-8, end=8, divisor=1):
     return random.randint(start // divisor, end // divisor) * divisor
 
-def dependency_analyzer(block, depth=1):
 
-    waw = [0] * 10
-    raw = [0] * 10
-    war = [0] * 10
+class DependencyAnalyzer:
+    """
+    Data dependency analyzer for RISC-V assembly basic blocks.
 
-    for i, insn in enumerate(block):
-        def_reg_current = insn.get_def()
-        uses_regs_current = insn.get_uses()
+    Analyzes three types of data dependencies:
+    - RAW (Read After Write): Occurs when an instruction reads a register that was written by a previous instruction
+    - WAR (Write After Read): Occurs when an instruction writes to a register that was read by a previous instruction
+    - WAW (Write After Write): Occurs when an instruction writes to a register that was written by a previous instruction
+    """
 
-        for j, insnj in enumerate(block):
-            if j > i:
-                def_reg_next = insnj.get_def()
-                uses_regs_next = insnj.get_uses()
+    def __init__(self):
+        # Initialize dependency counters
+        self.raw_count = 0  # Read After Write
+        self.war_count = 0  # Write After Read
+        self.waw_count = 0  # Write After Write
 
-                if def_reg_current and def_reg_current == def_reg_next:
-                    # print(insn)
-                    # print(insnj)
-                    # print(def_reg_current)
-                    # print(j, j-i)
-                    waw[j-i] += 1
-                    # print(j)
+        # Lists for detailed reporting
+        self.raw_deps = []  # List storing (def_idx, use_idx, reg) tuples
+        self.war_deps = []  # List storing (use_idx, def_idx, reg) tuples
+        self.waw_deps = []  # List storing (old_def_idx, new_def_idx, reg) tuples
 
-                if def_reg_current in uses_regs_next:
-                    raw[j-i] += 1
+    def analyze(self, basic_block):
+        """
+        Analyzes data dependencies in a RISC-V assembly basic block.
 
-                for uses_reg in uses_regs_current:
-                    if uses_reg == def_reg_next:
-                        war[j-i] += 1
+        Parameters:
+            basic_block: List of instruction objects, each should provide get_def() and get_uses() methods
+
+        Returns:
+            Tuple containing counts of the three dependency types (raw_count, war_count, waw_count)
+        """
+        # Reset counters and dependency lists
+        self.raw_count = 0
+        self.war_count = 0
+        self.waw_count = 0
+        self.raw_deps = []
+        self.war_deps = []
+        self.waw_deps = []
+
+        # Initialize tracking dictionaries
+        last_def = {}  # register -> index of instruction that last defined it
+        readers = {}  # register -> set of instruction indices that read it after its last definition
+
+        # Analyze each instruction
+        for i, insn in enumerate(basic_block):
+            def_reg = insn.get_def()  # Destination register (written)
+            use_regs = insn.get_uses()  # Source registers (read)
+
+            # Check for RAW dependencies (current instruction reads a register written by a previous instruction)
+            for reg in use_regs:
+                if reg in last_def:
+                    self.raw_count += 1
+                    self.raw_deps.append((last_def[reg], i, reg))
+
+            # Check for WAR dependencies (current instruction writes to a register read by a previous instruction)
+            if def_reg and def_reg in readers:
+                for reader_idx in readers[def_reg]:
+                    self.war_count += 1
+                    self.war_deps.append((reader_idx, i, def_reg))
+
+            # Check for WAW dependencies (current instruction writes to a register written by a previous instruction)
+            if def_reg and def_reg in last_def:
+                self.waw_count += 1
+                self.waw_deps.append((last_def[def_reg], i, def_reg))
+
+            # Update tracking information
+            # Add current instruction to readers for all registers it reads
+            for reg in use_regs:
+                if reg not in readers:
+                    readers[reg] = set()
+                readers[reg].add(i)
+
+            # Update last definition for written register
+            if def_reg:
+                last_def[def_reg] = i
+                # Clear the readers set for this register as it has a new definition
+                readers[def_reg] = set()
+
+        return self.raw_count, self.war_count, self.waw_count
+
+    def print_summary(self):
+        """
+        Print a summary of detected dependencies.
+        """
+        print(f"Total dependencies: {self.raw_count + self.war_count + self.waw_count}")
+        print(f"RAW dependencies: {self.raw_count}")
+        print(f"WAR dependencies: {self.war_count}")
+        print(f"WAW dependencies: {self.waw_count}")
+
+    def print_details(self):
+        """
+        Print detailed information about detected dependencies.
+        """
+        print("RAW dependencies:")
+        for def_idx, use_idx, reg in self.raw_deps:
+            print(f"  Instruction {use_idx} reads {reg}, which was written by instruction {def_idx}")
+
+        print("WAR dependencies:")
+        for use_idx, def_idx, reg in self.war_deps:
+            print(f"  Instruction {def_idx} writes to {reg}, which was read by instruction {use_idx}")
+
+        print("WAW dependencies:")
+        for old_def_idx, new_def_idx, reg in self.waw_deps:
+            print(f"  Instruction {new_def_idx} writes to {reg}, which was also written by instruction {old_def_idx}")
 
 
-    return raw, war, waw
 
 def gen_block(num_insts: int = 10, seed: int = None):
     if seed is not None:
@@ -188,11 +263,7 @@ def gen_block(num_insts: int = 10, seed: int = None):
         if num_uses > 0:
             inst.set_uses([gen_reg() for _ in range(num_uses)])
 
-    # # assign immediate
-    # for inst in block[:-1]:
-    #     if hasattr(inst, 'imm'):
-    #         inst.imm = gen_imm(-8, 8, 8)
-        # assign immediate
+    # assign immediate
     for inst in block[:-1]:
         if hasattr(inst, 'imm'):
             if inst.name in ["srli", "srai", "slli"]:
@@ -204,103 +275,10 @@ def gen_block(num_insts: int = 10, seed: int = None):
 
     return block
 
-# def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1, 1, 1, 1], seed: int = None, depth = 1): #waw 1,war 2,  raw3
-#
-#     # [shifts_arithmetic_logical_ratio, compare_ratio, mul_div_ratio, load_ratio, store_ratio]
-#
-#     if seed is not None:
-#         random.seed(seed)
-#
-#     # generate dummy instructions for a block
-#
-#     num_insts = vec[0]
-#     print("生成的基本块指令数为",num_insts)
-#     total_ratio = sum(vec[1:5])
-#     shifts_arithmetic_logical_insts_num = round(num_insts * vec[1] / total_ratio)
-#     compare_insts_num = round(num_insts * vec[2] / total_ratio)
-#     mul_div_insts_num = round(num_insts * vec[3] / total_ratio)
-#     load_insts_num = round(num_insts * vec[4] / total_ratio)
-#     store_insts_num = round(num_insts * vec[5] / total_ratio)
-#
-#     block = []
-#
-#     for i in range(shifts_arithmetic_logical_insts_num):
-#         block.append(gen_inst(shifts_arithmetic_logical_insts))
-#
-#     for i in range(compare_insts_num):
-#         block.append(gen_inst(compare_insts))
-#
-#     for i in range(mul_div_insts_num):
-#         block.append(gen_inst(mul_div_insts))
-#
-#     for i in range(load_insts_num):
-#         block.append(gen_inst(load_insts))
-#
-#     for i in range(store_insts_num):
-#         block.append(gen_inst(store_insts))
-#
-#     random.shuffle(block)
-#     registers = XREG.copy()
-#
-#     # exist_war = vec[6] exist_raw = vec[7] exist_waw = vec[8]
-#
-#     # register allocation
-#     if vec[6]:
-#         reg = registers.pop()
-#         num_uses = len(block[0].get_uses())
-#         block[0].set_uses([reg] + [registers.pop() for _ in range(1, num_uses)])
-#         block[0].set_def(registers.pop())
-#         block[depth].set_def(reg)
-#         num_uses = len(block[depth].get_uses())
-#         if num_uses > 0:
-#             block[depth].set_uses([gen_reg() for _ in range(num_uses)])
-#
-#
-#     if vec[7]:
-#         reg = registers.pop()
-#         block[2].set_def(reg)
-#         num_uses = len(block[depth+2].get_uses())
-#         block[depth+2].set_uses([reg] + [registers.pop() for _ in range(1, num_uses)])
-#         block[depth+2].set_def(registers.pop())
-#         if len(block[2].get_uses()) > 0:
-#             block[2].set_uses([gen_reg() for _ in range(len(block[2].get_uses()))])
-#
-#     if vec[8]:
-#         reg = registers.pop()
-#         block[1].set_def(reg)
-#         if len(block[1].get_uses()) > 0:
-#             block[1].set_uses([registers.pop() for _ in range(len(block[1].get_uses()))])
-#         block[depth+1].set_def(reg)
-#         if len(block[depth+1].get_uses()) > 0:
-#             block[depth+1].set_uses([registers.pop() for _ in range(len(block[depth+1].get_uses()))])
-#
-#     for inst in block:
-#         if inst.get_def() == Reg(0):
-#             if inst.get_def():
-#                 reg = gen_reg()
-#                 inst.set_def(reg)
-#             num_uses = len(inst.get_uses())
-#             if num_uses > 0:
-#                 inst.set_uses([gen_reg() for _ in range(num_uses)])
-#
-#     # assign immediate
-#     for inst in block[:-1]:
-#         if hasattr(inst, 'imm'):
-#             if inst.name in ["srli", "srai", "slli"]:
-#                 inst.imm = gen_imm(0,63,1)
-#             elif inst.name in ["srliw", "slliw", "sraiw"]:
-#                 inst.imm = gen_imm(0,31,1)
-#             else:
-#                 inst.imm = gen_imm(-8, 8, 8)
-#
-#     return block
 
-def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flags=[1, 1, 1], seed: int = None, depth=1):
+def gen_block_vector(num_insts: int = 100, ratios: list = [0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flags=[1, 1, 1], seed: int = None, depth=2):
     if seed is not None:
         random.seed(seed)
-
-    num_insts = vec[0]
-    ratios = vec[1:6]
 
     # 动态生成策略
     BASE_SIZE = 150
@@ -333,8 +311,7 @@ def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flag
         block = block[:num_insts]
         random.shuffle(block)
 
-    # 第一阶段：完全随机分配寄存器
-
+    # first stage：allocate registers randomly
     for inst in block:
         if inst.get_def():
             reg = gen_reg()
@@ -344,8 +321,8 @@ def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flag
         if num_uses > 0:
             inst.set_uses([gen_reg() for _ in range(num_uses)])
 
-    registers = XREG.copy()
-    if dependency_flags[0]:
+    # second stage: inject dependencies as needed
+    if dependency_flags[0]:   # WAW
         target_idx = depth
         if target_idx < len(block):
             reg = registers.pop()
@@ -357,7 +334,7 @@ def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flag
             if num_uses > 0:
                 block[target_idx].set_uses([gen_reg() for _ in range(num_uses)])
 
-    if dependency_flags[1]:
+    if dependency_flags[1]:   # WAR
         writer_idx = 2
         reader_idx = depth + 2
         if reader_idx < len(block):
@@ -369,7 +346,7 @@ def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flag
             if len(block[writer_idx].get_uses()) > 0:
                 block[writer_idx].set_uses([gen_reg() for _ in range(len(block[writer_idx].get_uses()))])
 
-    if dependency_flags[2]:
+    if dependency_flags[2]:   # RAW
         reader_idx = 1
         writer_idx = depth + 1
         if writer_idx < len(block):
@@ -381,35 +358,7 @@ def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flag
             if len(block[writer_idx].get_uses()) > 0:
                 block[writer_idx].set_uses([registers.pop() for _ in range(len(block[writer_idx].get_uses()))])
 
-    # 第二阶段：按需注入依赖
-
-    # # WAW依赖
-    # if dependency_flags[0]:
-    #     target_idx = depth
-    #     if target_idx < len(block):
-    #         reg = block[0].get_def()
-    #         block[target_idx].set_def(reg)
-    #
-    #
-    # # WAR依赖
-    # if dependency_flags[1]:
-    #     writer_idx = 1
-    #     reader_idx = depth + 1
-    #     if reader_idx < len(block):
-    #         reg = block[writer_idx].get_def()
-    #         if block[reader_idx].get_uses():
-    #             block[reader_idx].set_uses([reg] + block[reader_idx].get_uses()[1:])
-    #
-    # # RAW依赖
-    # if dependency_flags[2]:
-    #     reader_idx = 2
-    #     writer_idx = depth + 2
-    #     if writer_idx < len(block):
-    #         reg = block[writer_idx].get_def()
-    #         if block[reader_idx].get_uses():
-    #             block[reader_idx].set_uses([reg] + block[reader_idx].get_uses()[1:])
-
-    # 第三阶段：处理立即数
+    # third stage: assign immediates
     for inst in block:
         if hasattr(inst, 'imm'):
             if inst.name in ["srli", "srai", "slli"]:
@@ -420,133 +369,3 @@ def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flag
                 inst.imm = gen_imm(-8, 8, 8)
 
     return block
-
-
-# def gen_block_vector(vec: list = [10, 0.5, 0.2, 0.1, 0.1, 0.1, 1, 1, 1], seed: int = None, depth=1):
-#     """
-#     Generate a block of instructions with specified ratios and dependencies.
-#
-#     Args:
-#         vec: A list representing [num_insts, shifts_arithmetic_logical_ratio, compare_ratio,
-#                                  mul_div_ratio, load_ratio, store_ratio,
-#                                  exist_waw, exist_war, exist_raw]
-#         seed: Random seed for reproducibility
-#         depth: Depth of dependencies to create
-#
-#     Returns:
-#         A list of instruction objects
-#     """
-#     if seed is not None:
-#         random.seed(seed)
-#
-#     # Extract parameters from vector
-#     num_insts = int(vec[0])
-#     exist_waw = bool(vec[6])
-#     exist_war = bool(vec[7])
-#     exist_raw = bool(vec[8])
-#
-#     print(f"Generating basic block with {num_insts} instructions")
-#
-#     # Calculate the number of instructions to generate initially
-#     initial_pool_size = max(150, num_insts)
-#
-#     # Calculate instruction type counts based on ratios
-#     total_ratio = sum(vec[1:6])
-#     if total_ratio == 0:
-#         # Fallback to equal distribution if all ratios are 0
-#         vec[1:6] = [0.2, 0.2, 0.2, 0.2, 0.2]
-#         total_ratio = 1.0
-#
-#     type_counts = [
-#         round(initial_pool_size * vec[1] / total_ratio),  # shifts_arithmetic_logical
-#         round(initial_pool_size * vec[2] / total_ratio),  # compare
-#         round(initial_pool_size * vec[3] / total_ratio),  # mul_div
-#         round(initial_pool_size * vec[4] / total_ratio),  # load
-#         round(initial_pool_size * vec[5] / total_ratio)  # store
-#     ]
-#
-#     # Generate instruction pool
-#     instruction_pool = []
-#     for count, inst_type in zip(type_counts, [
-#         shifts_arithmetic_logical_insts,
-#         compare_insts,
-#         mul_div_insts,
-#         load_insts,
-#         store_insts
-#     ]):
-#         for _ in range(count):
-#             instruction_pool.append(gen_inst(inst_type))
-#
-#     # Shuffle the instruction pool
-#     random.shuffle(instruction_pool)
-#
-#     # Select the required number of instructions
-#     if num_insts < len(instruction_pool):
-#         block = random.sample(instruction_pool, num_insts)
-#     else:
-#         block = instruction_pool
-#
-#     # Random register allocation for all instructions first
-#     for inst in block:
-#         if inst.get_def():
-#             reg = gen_reg()
-#             inst.set_def(reg)
-#
-#         num_uses = len(inst.get_uses())
-#         if num_uses > 0:
-#             inst.set_uses([gen_reg() for _ in range(num_uses)])
-#
-#     # Create dependencies if needed and if possible
-#     if exist_waw or exist_war or exist_raw:
-#         # Check if dependencies can be inserted based on depth and block size
-#         can_insert_dependencies = len(block) > depth + 2  # Need at least depth+3 instructions
-#
-#         if can_insert_dependencies:
-#             available_regs = XREG.copy()
-#             random.shuffle(available_regs)  # Shuffle to add more randomness
-#
-#             # WAW dependency: same register defined at positions 1 and depth+1
-#             if exist_waw:
-#                 reg = available_regs.pop() if available_regs else gen_reg()
-#                 idx1 = 1
-#                 idx2 = depth + 1
-#
-#                 if idx1 < len(block) and idx2 < len(block):
-#                     block[idx1].set_def(reg)
-#                     block[idx2].set_def(reg)
-#
-#             # WAR dependency: register used at position 0, defined at position depth
-#             if exist_war:
-#                 reg = available_regs.pop() if available_regs else gen_reg()
-#                 idx1 = 0
-#                 idx2 = depth
-#
-#                 if idx1 < len(block) and idx2 < len(block) and len(block[idx1].get_uses()) > 0:
-#                     uses = block[idx1].get_uses()
-#                     block[idx1].set_uses([reg] + [gen_reg() for _ in range(len(uses) - 1)] if len(uses) > 1 else [reg])
-#                     block[idx2].set_def(reg)
-#
-#             # RAW dependency: register defined at position 2, used at position depth+2
-#             if exist_raw:
-#                 reg = available_regs.pop() if available_regs else gen_reg()
-#                 idx1 = 2
-#                 idx2 = depth + 2
-#
-#                 if idx1 < len(block) and idx2 < len(block) and len(block[idx2].get_uses()) > 0:
-#                     block[idx1].set_def(reg)
-#                     uses = block[idx2].get_uses()
-#                     block[idx2].set_uses([reg] + [gen_reg() for _ in range(len(uses) - 1)] if len(uses) > 1 else [reg])
-#         else:
-#             print("Warning: Block size too small for requested dependencies. Dependencies not inserted.")
-#
-#     # Assign immediates
-#     for inst in block:
-#         if hasattr(inst, 'imm'):
-#             if inst.name in ["srli", "srai", "slli"]:
-#                 inst.imm = gen_imm(0, 63, 1)
-#             elif inst.name in ["srliw", "slliw", "sraiw"]:
-#                 inst.imm = gen_imm(0, 31, 1)
-#             else:
-#                 inst.imm = gen_imm(-8, 8, 8)
-#
-#     return block
