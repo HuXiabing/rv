@@ -276,7 +276,7 @@ def gen_block(num_insts: int = 10, seed: int = None):
     return block
 
 
-def gen_block_vector(num_insts: int = 100, ratios: list = [0.5, 0.2, 0.1, 0.1, 0.1,], dependency_flags=[1, 1, 1], seed: int = None, depth=2):
+def gen_block_vector(num_insts: int = 100, ratios: list = [0.5, 0.2, 0.1, 0.1, 0.1], dependency_flags=[1, 1, 1], seed: int = None, depth=3):
     if seed is not None:
         random.seed(seed)
 
@@ -322,41 +322,36 @@ def gen_block_vector(num_insts: int = 100, ratios: list = [0.5, 0.2, 0.1, 0.1, 0
             inst.set_uses([gen_reg() for _ in range(num_uses)])
 
     # second stage: inject dependencies as needed
-    if dependency_flags[0]:   # WAW
+    # Create WAW dependency
+    if dependency_flags[0]:
+        writer_idx = 0
         target_idx = depth
         if target_idx < len(block):
-            reg = registers.pop()
-            num_uses = len(block[0].get_uses())
-            block[0].set_uses([reg] + [registers.pop() for _ in range(1, num_uses)])
-            block[0].set_def(registers.pop())
+            # Get a register for the WAW dependency
+            reg = block[writer_idx].get_def()
+            print(reg)
             block[target_idx].set_def(reg)
-            num_uses = len(block[target_idx].get_uses())
-            if num_uses > 0:
-                block[target_idx].set_uses([gen_reg() for _ in range(num_uses)])
 
-    if dependency_flags[1]:   # WAR
-        writer_idx = 2
-        reader_idx = depth + 2
+    # Create RAW dependency
+    if dependency_flags[1]:
+        writer_idx = 1
+        reader_idx = depth
         if reader_idx < len(block):
-            reg = registers.pop()
-            block[writer_idx].set_def(reg)
-            num_uses = len(block[reader_idx].get_uses())
-            block[reader_idx].set_uses([reg] + [registers.pop() for _ in range(1, num_uses)])
-            block[reader_idx].set_def(registers.pop())
-            if len(block[writer_idx].get_uses()) > 0:
-                block[writer_idx].set_uses([gen_reg() for _ in range(len(block[writer_idx].get_uses()))])
+            reg = block[writer_idx].get_def()
+            uses = block[reader_idx].get_uses()
+            if len(uses) > 0:
+                new_uses = uses.copy()
+                new_uses[0] = reg
+                block[reader_idx].set_uses(new_uses)
 
-    if dependency_flags[2]:   # RAW
-        reader_idx = 1
-        writer_idx = depth + 1
+    # Create WAR dependency
+    if dependency_flags[2]:
+        reader_idx = 2
+        writer_idx = depth
         if writer_idx < len(block):
-            reg = registers.pop()
-            block[reader_idx].set_def(reg)
-            if len(block[reader_idx].get_uses()) > 0:
-                block[reader_idx].set_uses([registers.pop() for _ in range(len(block[reader_idx].get_uses()))])
-            block[writer_idx].set_def(reg)
-            if len(block[writer_idx].get_uses()) > 0:
-                block[writer_idx].set_uses([registers.pop() for _ in range(len(block[writer_idx].get_uses()))])
+            uses = block[reader_idx].get_uses()
+            if len(uses) > 0:
+                block[writer_idx].set_def(uses[0])
 
     # third stage: assign immediates
     for inst in block:

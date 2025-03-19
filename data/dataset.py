@@ -156,14 +156,17 @@ class DatasetWithDistanceWeight(Dataset):
         op_mask = mask.all(dim=2)
 
         if return_bb_mask:
+            # print("return_bb_mask")
             bb_attn_mod = make_attention_weight(bb_mask, is_continual_pad=False)
             x_dict['bb_attn_mod'] = bb_attn_mod
 
         if return_seq_mask:
+            # print("return_seq_mask")
             seq_attn_mod = make_attention_weight(seq_mask)
             x_dict['seq_attn_mod'] = seq_attn_mod
 
         if return_op_mask:
+            # print("return_op_mask")
             op_attn_mod = make_attention_weight(op_mask)
             x_dict['op_attn_mod'] = op_attn_mod
 
@@ -172,11 +175,9 @@ class DatasetWithDistanceWeight(Dataset):
 def collate_fn_transformer(batch):
     xs, ys, num_instructions = zip(*batch)
 
-    # 找出批次中最大的指令数量
     max_inst_count = max(x.size(0) for x in xs)
-    max_inst_length = xs[0].size(1)  # 假设所有指令长度已经填充到相同
+    max_inst_length = xs[0].size(1)
 
-    # 填充每个张量以使指令数量相同
     padded_xs = []
     for x in xs:
         if x.size(0) < max_inst_count:
@@ -262,13 +263,10 @@ class RNNDataset(Dataset):
 
 
 def collate_fn_lstm(batch):
-    # 从批次中提取 X、Y 和 instruction_count
     xs = [item['X'] for item in batch]
     ys = [item['Y'] for item in batch]
     instruction_counts = [item['instruction_count'] for item in batch]
 
-    # 将所有 X 张量堆叠为一个批次
-    # xs 应该已经通过 _pad_and_stack_encoded 方法填充到相同的形状
     xs_batch = torch.stack(xs)
     ys_batch = torch.tensor(ys, dtype=torch.float)
     instruction_counts_batch = torch.tensor(instruction_counts, dtype=torch.long)

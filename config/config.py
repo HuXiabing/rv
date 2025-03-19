@@ -10,8 +10,8 @@ class Config:
         model_type: str = "transformer",  # 'transformer', 'lstm', 'gnn'
 
         max_instr_length: int = 8,
-        max_instr_count: int = 200,
-        vocab_size: int = 2000,
+        max_instr_count: int = 128,
+        vocab_size: int = 140,
         
         # model parameters
         embed_dim: int = 128,
@@ -25,18 +25,16 @@ class Config:
         weight_decay: float = 1e-5,
         batch_size: int = 32,
         epochs: int = 50,
-        patience: int = 5,
+        patience: int = 3,
         clip_grad_norm: float = 1.0,
 
         device: Optional[str] = None,
         
         # data paths
-        raw_data_path: str = "data/labeled_data.json",
         processed_data_path: str = "data/processed_data.json",
-        train_data_path: str = "data/train_data.h5",
-        val_data_path: str = "data/val_data.h5",
-        test_data_path: str = "data/test_data.h5",
-        
+        train_data_path: str = "data/train_data.json",
+        val_data_path: str = "data/val_data.json",
+
         output_dir: str = "experiments",
         experiment_name: Optional[str] = None,
         
@@ -70,12 +68,10 @@ class Config:
         
         self.device = device if device is not None else ("cuda" if torch.cuda.is_available() else "cpu")
         
-        self.raw_data_path = raw_data_path
         self.processed_data_path = processed_data_path
         self.train_data_path = train_data_path
         self.val_data_path = val_data_path
-        self.test_data_path = test_data_path
-        
+
         self.output_dir = output_dir
         self.experiment_name = experiment_name
         

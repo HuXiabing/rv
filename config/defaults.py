@@ -5,11 +5,11 @@ TRANSFORMER_CONFIG = {
     "num_layers": 4,
     "num_heads": 8,
     "dropout": 0.1,
-    "use_layernorm": True,
+    "use_layernorm": False,
     "use_checkpoint": False,
-    "use_bb_attn": True,
+    "use_bb_attn": False,
     "use_seq_attn": True,
-    "use_op_attn": True,
+    "use_op_attn": False,
     "use_pos_2d": False,
     "handle_neg": False
 }
@@ -45,7 +45,7 @@ TRAINING_CONFIG = {
     "weight_decay": 1e-5,
     "batch_size": 8,
     "epochs": 50,
-    "patience": 5,
+    "patience": 3,
     "clip_grad_norm": 1.0,
     "loss_type": "mape",  # 'mse', 'mae', 'huber', 'mape'
     "loss_epsilon": 1e-5,  # for MAPE

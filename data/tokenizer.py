@@ -78,7 +78,7 @@ class RISCVTokenizer:
 
         _rv64M_list = ["div", "divu", "divuw", "divw", "mul", "mulh", "mulhsu", "mulhu", "mulw",
                        "rem", "remu", "remuw", "remw"]  # 13
-        _rv64M = {_rv64M_list[i]: i + 152 for i in range(len(_rv64M_list))}
+        _rv64M = {_rv64M_list[i]: i + 125 for i in range(len(_rv64M_list))}
 
         # _rv64A_list =["amoadd.d", "amoadd.w", "amoand.d", "amoand.w", "amomax.d", "amomax.w",
         #             "amomaxu.d", "amomaxu.w", "amomin.d", "amomin.w", "amominu.d", "amominu.w",
@@ -119,14 +119,14 @@ class RISCVTokenizer:
         'x28': 37, 'x29': 38, 'x30': 39, 'x31': 40, 'f0': 41, 'f1': 42, 'f2': 43, 'f3': 44, 'f4': 45, 'f5': 46, 'f6': 47, 'f7': 48, 
         'f8': 49, 'f9': 50, 'f10': 51, 'f11': 52, 'f12': 53, 'f13': 54, 'f14': 55, 'f15': 56, 'f16': 57, 'f17': 58, 'f18': 59, 
         'f19': 60, 'f20': 61, 'f21': 62, 'f22': 63, 'f23': 64, 'f24': 65, 'f25': 66, 'f26': 67, 'f27': 68, 'f28': 69, 'f29': 70, 
-        'f30': 71, 'f31': 72, 'div': 152, 'divu': 153, 'divuw': 154, 'divw': 155, 'mul': 156, 'mulh': 157, 'mulhsu': 158, 'mulhu': 159, 
-        'mulw': 160, 'rem': 161, 'remu': 162, 'remuw': 163, 'remw': 164, 'add': 73, 'addi': 74, 'addiw': 75, 'addw': 76, 'and': 77, 
+        'f30': 71, 'f31': 72, 'div': 125, 'divu': 126, 'divuw': 127, 'divw': 128, 'mul': 129, 'mulh': 130, 'mulhsu': 131, 'mulhu': 132,
+        'mulw': 133, 'rem': 134, 'remu': 135, 'remuw': 136, 'remw': 137, 'add': 73, 'addi': 74, 'addiw': 75, 'addw': 76, 'and': 77, 
         'andi': 78, 'auipc': 79, 'beq': 80, 'bge': 81, 'bgeu': 82, 'blt': 83, 'bltu': 84, 'bne': 85, 'ebreak': 86, 'ecall': 87, 
         'fence': 88, 'jal': 89, 'jalr': 90, 'lb': 91, 'lbu': 92, 'ld': 93, 'lh': 94, 'lhu': 95, 'lui': 96, 'lw': 97, 'lwu': 98, 
         'or': 99, 'ori': 100, 'sb': 101, 'sd': 102, 'sh': 103, 'sll': 104, 'slli': 105, 'slliw': 106, 'sllw': 107, 'slt': 108, 
         'slti': 109, 'sltiu': 110, 'sltu': 111, 'sra': 112, 'srai': 113, 'sraiw': 114, 'sraw': 115, 'srl': 116, 'srli': 117, 
         'srliw': 118, 'srlw': 119, 'sub': 120, 'subw': 121, 'sw': 122, 'xor': 123, 'xori': 124}
- #73-164
+ #73-137
         """
 
     def separate_disp_and_reg(self, s):
@@ -195,6 +195,27 @@ class RISCVTokenizer:
 
         return [instr[0], '<D>', instr[1], '<S>', instr[2], instr[3], instr[4], '<E>']
 
+    def rformat(self, instr):
+        # and x12, x26, x26
+        return [instr[0], '<D>', instr[1], '<S>', instr[2], instr[3], '<E>', '<PAD>']
+
+    def iformat(self, instr):
+        # andi x3, x5, 8
+        return [instr[0], '<D>', instr[1], '<S>', instr[2], '<CONST>', '<E>', '<PAD>']
+
+    def uformat(self, instr):
+        # auipc x9, 0x8
+        return [instr[0], '<D>', instr[1], '<S>', '<CONST>', '<E>', '<PAD>', '<PAD>']
+
+    def loadformat(self, instr):
+        # ld x30, 8(x26)
+        return [instr[0], '<D>', instr[1], '<S>', '<ADDRESS>', '<E>', '<PAD>', '<PAD>']
+
+    def storeformat(self, instr):
+        # sd x30, 8(x26)
+        return [instr[0], '<D>', '<S>', instr[1], '<ADDRESS>', '<E>', '<PAD>', '<PAD>']
+
+
     def tokenize_instruction(self, instruction: str) -> List[str]:
         """
         transform RISC-V instruction into token list,
@@ -206,26 +227,50 @@ class RISCVTokenizer:
         Returns:
             ['add', '<D>', 'a5', '<S>', 's1', 'a0', '<E>', '<PAD>']
         """
-        if instruction.startswith('amo'):
-            pattern = r'(\S+)\s+(\S+),(\S+),\((\S+)\)'
-            instr = re.findall(pattern, instruction)[0]
-            tokenized = [instr[0], '<D>', instr[1], '<S>', instr[2], instr[3], '<E>', '<PAD>']
+        pattern = r'[^ ,\t]+'
+        instr = re.findall(pattern, instruction)
+        if instr[0] in ['add', 'addw', 'and', 'or',
+              'div', 'divu', 'divuw', 'divw','mul', 'mulh', 'mulhsu', 'mulhu', 'mulw', 'rem', 'remu','remuw', 'remw',
+              'sll', 'sllw', 'slt', 'sltu', 'sra',
+              'sraw', 'srl', 'srlw', 'sub', 'subw', 'xor']:  # 28
+            tokenized = self.rformat(instr)
+        elif instr[0] in ['addi', 'addiw', 'andi', 'ori', 'slli', 'slliw',
+              'slti', 'sltiu', 'srai', 'sraiw', 'srli', 'srliw', 'xori']:  # 13
+            tokenized = self.iformat(instr)
+        elif instr[0] in ['auipc', 'lui']:  #2
+            tokenized = self.uformat(instr)
+        elif instr[0] in ['lb', 'lbu', 'ld', 'lh', 'lhu', 'lw', 'lwu']:  #7
+            tokenized = self.loadformat(instr)
+        elif instr[0] in ['sb', 'sd', 'sh', 'sw']:  #4
+            tokenized = self.storeformat(instr)
+        elif instr[0] in ['fence', 'ebreak', 'ecall']:
+            tokenized = self.zero_reg(instr)
         else:
-            pattern = r'[^ ,\t]+'  # match non-space characters
-            instr = re.findall(pattern, instruction)
-            instr_len = len(instr)
-            if instr_len == 1:
-                tokenized = self.zero_reg(instr)
-            elif instr_len == 2:
-                tokenized = self.one_reg_num(instr)
-            elif instr_len == 3:
-                tokenized = self.two_reg(instr)
-            elif instr_len == 4:
-                tokenized = self.three_reg(instr)
-            elif instr_len == 5:
-                tokenized = self.four_reg(instr)
-            else:
-                raise ValueError(f"Invalid instruction format: {instruction}")
+            print(instr)
+            raise ValueError("The string does not match the expected format.")
+        return tokenized
+
+
+        # if instruction.startswith('amo'):
+        #     pattern = r'(\S+)\s+(\S+),(\S+),\((\S+)\)'
+        #     instr = re.findall(pattern, instruction)[0]
+        #     tokenized = [instr[0], '<D>', instr[1], '<S>', instr[2], instr[3], '<E>', '<PAD>']
+        # else:
+        #     pattern = r'[^ ,\t]+'  # match non-space characters
+        #     instr = re.findall(pattern, instruction)
+        #     instr_len = len(instr)
+        #     if instr_len == 1:
+        #         tokenized = self.zero_reg(instr)
+        #     elif instr_len == 2:
+        #         tokenized = self.one_reg_num(instr)
+        #     elif instr_len == 3:
+        #         tokenized = self.two_reg(instr)
+        #     elif instr_len == 4:
+        #         tokenized = self.three_reg(instr)
+        #     elif instr_len == 5:
+        #         tokenized = self.four_reg(instr)
+        #     else:
+        #         raise ValueError(f"Invalid instruction format: {instruction}")
 
         return tokenized
 

@@ -35,7 +35,7 @@ def main():
     parser.add_argument("--epochs", type=int, default=50, help="Number of epochs")
     parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate")
     parser.add_argument("--weight_decay", type=float, default=1e-5, help="Weight decay")
-    parser.add_argument("--patience", type=int, default=5, help="Early stopping patience")
+    parser.add_argument("--patience", type=int, default=3, help="Early stopping patience")
     parser.add_argument("--clip_grad_norm", type=float, default=1.0, help="Gradient clipping threshold")
     parser.add_argument("--optimizer", type=str, default="adamw", choices=["adam", "adamw"], help="Optimizer")
     parser.add_argument("--scheduler", type=str, default="plateau", choices=["plateau", "cosine", "step"],

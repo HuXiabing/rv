@@ -1,5 +1,4 @@
 from typing import Dict, Type, Optional
-# from .base_model import BaseModel
 import torch.nn as nn
 from .transformer_model import TransformerModel
 from .lstm_model import Fasthemal
