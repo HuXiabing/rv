@@ -27,7 +27,15 @@ from utils import set_seed
 def parse_throughput(line):
     """Extract throughput value from a line"""
     if line.startswith("Cycle Mode:"):
-        return float(line.split("Cycle Mode:")[1].strip())
+        throughput = float(line.split("Cycle Mode:")[1].strip())
+        return throughput
+    return None
+
+def parse_throughput_mca(line):
+    """Extract throughput value from mca"""
+    if line.startswith("Block RThroughput:"):
+        throughput = float(line.split("Block RThroughput:")[1].strip())
+        return throughput
     return None
 
 
@@ -54,7 +62,9 @@ def process_directory(cycle_dir, asm_dir):
         if len(lines) < 2:
             continue
 
-        throughput = parse_throughput(lines[-2].strip())
+        # throughput = parse_throughput(lines[-2].strip())
+        throughput = parse_throughput_mca(lines[10].strip())
+
         if throughput is None:
             # print(f"Error: None throughput in file {file_name}")
             continue
@@ -68,7 +78,7 @@ def process_directory(cycle_dir, asm_dir):
         # Parse filename to find corresponding block file
         if not file_name.endswith(".txt"):
             continue
-        block_file_name = file_name[:-len(".txt")]
+        block_file_name = file_name[:-len(".txt")] # + ".S"
         block_file_path = Path(asm_dir) / block_file_name
 
         if not block_file_path.exists():
@@ -374,6 +384,9 @@ def main():
         # Full processing mode
         # Deduplicate processed data
         processed_data = deduplicate_data(processed_data)
+        saved_samples = args.train_samples + args.val_samples
+        processed_data = processed_data[:saved_samples]
+        print("saved processed data: ", len(processed_data))
 
         # Save processed data to JSON
         with open(args.processed_json, 'w') as f:

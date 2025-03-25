@@ -196,7 +196,41 @@ class ExperimentManager:
 
         self.logger.info(f"Basic block length statistics saved to {stats_path}")
 
-    def visualize_epoch_stats(self, instruction_stats, block_length_stats, epoch):
+    def save_loss_stats(self, loss_stats, epoch):
+        # loss_stats = {
+        #     "instruction_avg_loss": train_batch_result.get_instruction_avg_loss(),
+        #     "instruction_counts": train_batch_result.instruction_counts,
+        #     "block_length_avg_loss": train_batch_result.get_block_length_avg_loss(),
+        #     "block_length_counts": train_batch_result.block_lengths_counts
+        # }
+        token = torch.load("data/vocab.dump")
+        loss_stats["type_avg_loss"] = {key: loss_stats["instruction_avg_loss"][value] for key, value in token.items()
+                                       if value in loss_stats["instruction_avg_loss"]}
+        loss_stats["type_counts"] = {key: loss_stats["instruction_counts"][value] for key, value in token.items()
+                                     if value in loss_stats["instruction_counts"]}
+        import collections
+
+        # 对 block_length_avg_loss 进行排序并保留字典结构
+        loss_stats["block_length_avg_loss_sorted"] = collections.OrderedDict(
+            sorted({int(k): v for k, v in loss_stats["block_length_avg_loss"].items()}.items())
+        )
+
+        # 对 block_length_counts 进行排序并保留字典结构
+        loss_stats["block_length_counts_sorted"] = collections.OrderedDict(
+            sorted({int(k): v for k, v in loss_stats["block_length_counts"].items()}.items())
+        )
+
+        stats_dir = os.path.join(self.experiment_dir, "statistics")
+        os.makedirs(stats_dir, exist_ok=True)
+
+        stats_path = os.path.join(stats_dir, f"loss_stats_epoch_{epoch + 1}.json")
+
+        with open(stats_path, 'w') as f:
+            json.dump(loss_stats, f, indent=4)
+
+        self.logger.info(f"Loss statistics saved to {stats_path}")
+
+    def visualize_epoch_stats(self, loss_stats, epoch):
         """
         Generate statistical visualizations for the current epoch
 
@@ -224,13 +258,13 @@ class ExperimentManager:
         analysis_output_dir = os.path.join(self.experiment_dir, f"analysis_epoch_{epoch + 1}")
 
         instruction_vec = analyze_instruction_statistics(
-            instruction_stats["instruction_avg_loss"],
+            loss_stats["instruction_avg_loss"],
             mapping_dict_path="data/vocab.dump",
             output_dir=analysis_output_dir
         )
 
         block_dict = analyze_block_length_statistics(
-            block_length_stats["block_length_avg_loss"],
+            loss_stats["block_length_avg_loss"],
             output_dir=analysis_output_dir
         )
 
@@ -246,8 +280,8 @@ class ExperimentManager:
         # plot instruction type loss distribution
         instr_viz_path = os.path.join(viz_dir, f"instruction_losses_epoch_{epoch + 1}.png")
         plot_instruction_losses(
-            instruction_stats["instruction_avg_loss"],
-            instruction_stats["instruction_counts"],
+            loss_stats["instruction_avg_loss"],
+            loss_stats["instruction_counts"],
             save_path=instr_viz_path,
             title=f"Average Loss by Instruction Type (Epoch {epoch + 1})"
         )
@@ -255,47 +289,12 @@ class ExperimentManager:
         # plot basic block length loss distribution
         block_viz_path = os.path.join(viz_dir, f"block_length_losses_epoch_{epoch + 1}.png")
         plot_block_length_losses(
-            block_length_stats["block_length_avg_loss"],
-            block_length_stats["block_length_counts"],
+            loss_stats["block_length_avg_loss"],
+            loss_stats["block_length_counts"],
             save_path=block_viz_path,
             title=f"Average Loss by Basic Block Length (Epoch {epoch + 1})"
         )
 
         self.logger.info(f"Statistical visualizations and analysis generated for epoch {epoch + 1}")
 
-    def log_train_val_loss(self, train_metrics: Dict[str, float], val_metrics: Dict[str, float], epoch: int):
-        """
-        记录训练和验证指标
-
-        Args:
-            train_metrics: 训练指标字典
-            val_metrics: 验证指标字典
-            epoch: 当前周期
-        """
-        # 记录训练指标
-        self.log_metrics(train_metrics, epoch, prefix="train_")
-
-        # 记录验证指标
-        self.log_metrics(val_metrics, epoch, prefix="val_")
-
-        # 更新历史
-        if "loss" in train_metrics:
-            self.history["train_losses"].append(train_metrics["loss"])
-        if "loss" in val_metrics:
-            self.history["val_losses"].append(val_metrics["loss"])
-
-        self.save_history()
-
-    def log_learning_rate(self, lr: float, epoch: int):
-        """
-        记录学习率
-
-        Args:
-            lr: 学习率
-            epoch: 当前周期
-        """
-        self.history["learning_rates"].append(lr)
-        self.logger.info(f"Epoch {epoch} - Learning rate: {lr:.8f}")
-
-        self.save_history()
 

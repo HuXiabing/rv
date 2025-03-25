@@ -54,7 +54,7 @@ def main():
     parser.add_argument("--batch_size", type=int, default=8, help="Batch size.")
     parser.add_argument("--lr", type=float, default=5e-5, help="Learning rate.")
     # parser.add_argument("--weight_decay", type=float, default=1e-6, help="Weight decay.")
-    # parser.add_argument("--patience", type=int, default=5, help="Patience for early stopping.")
+    parser.add_argument("--patience", type=int, default=5, help="Patience for early stopping.")
     # parser.add_argument("--clip_grad_norm", type=float, default=1.0, help="Gradient clipping threshold.")
     parser.add_argument("--restart_optimizer", action="store_true", help="Whether to reinitialize the optimizer.")
 

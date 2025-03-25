@@ -276,9 +276,120 @@ def gen_block(num_insts: int = 10, seed: int = None):
     return block
 
 
-def gen_block_vector(num_insts: int = 100, ratios: list = [0.5, 0.2, 0.1, 0.1, 0.1], dependency_flags=[1, 1, 1], seed: int = None, depth=3):
+# def gen_block_vector(num_insts: int = 100, ratios: list = [0.5, 0.2, 0.1, 0.1, 0.1], dependency_flags=[1, 1, 1], seed: int = None, depth=3):
+#     if seed is not None:
+#         random.seed(seed)
+#
+#     # 动态生成策略
+#     BASE_SIZE = 150
+#     if num_insts < BASE_SIZE:
+#         # 按比例生成基础样本池
+#         pool = []
+#         for inst_type, ratio in zip([shifts_arithmetic_logical_insts,
+#                                      compare_insts,
+#                                      mul_div_insts,
+#                                      load_insts,
+#                                      store_insts], ratios):
+#             n = int(BASE_SIZE * ratio)
+#             pool += [gen_inst(inst_type) for _ in range(n)]
+#
+#         random.shuffle(pool)
+#         block = pool[:num_insts]
+#     else:
+#         # 直接按比例生成目标长度
+#         block = []
+#         for inst_type, ratio in zip([shifts_arithmetic_logical_insts,
+#                                      compare_insts,
+#                                      mul_div_insts,
+#                                      load_insts,
+#                                      store_insts], ratios):
+#             n = int(num_insts * ratio)
+#             block += [gen_inst(inst_type) for _ in range(n)]
+#
+#         while len(block) < num_insts:
+#             block.append(gen_inst(shifts_arithmetic_logical_insts))
+#         block = block[:num_insts]
+#         random.shuffle(block)
+#
+#     # first stage：allocate registers randomly
+#     for inst in block:
+#         if inst.get_def():
+#             reg = gen_reg()
+#             inst.set_def(reg)
+#
+#         num_uses = len(inst.get_uses())
+#         if num_uses > 0:
+#             inst.set_uses([gen_reg() for _ in range(num_uses)])
+#
+#     # second stage: inject dependencies as needed
+#     # Create WAW dependency
+#     if dependency_flags[0]:
+#         writer_idx = 0
+#         target_idx = depth
+#         if min(target_idx, writer_idx) < len(block):
+#             # Get a register for the WAW dependency
+#             reg = block[writer_idx].get_def()
+#             block[target_idx].set_def(reg)
+#
+#     # Create RAW dependency
+#     if dependency_flags[1]:
+#         writer_idx = 1
+#         reader_idx = depth
+#         if min(reader_idx, writer_idx) < len(block):
+#             reg = block[writer_idx].get_def()
+#             uses = block[reader_idx].get_uses()
+#             if len(uses) > 0:
+#                 new_uses = uses.copy()
+#                 new_uses[0] = reg
+#                 block[reader_idx].set_uses(new_uses)
+#
+#     # Create WAR dependency
+#     if dependency_flags[2]:
+#         reader_idx = 2
+#         writer_idx = depth
+#         if min(reader_idx, writer_idx) < len(block):
+#             print(reader_idx)
+#             uses = block[reader_idx].get_uses()
+#             if len(uses) > 0:
+#                 block[writer_idx].set_def(uses[0])
+#
+#     # third stage: assign immediates
+#     for inst in block:
+#         if hasattr(inst, 'imm'):
+#             if inst.name in ["srli", "srai", "slli"]:
+#                 inst.imm = gen_imm(0, 63, 1)
+#             elif inst.name in ["srliw", "slliw", "sraiw"]:
+#                 inst.imm = gen_imm(0, 31, 1)
+#             else:
+#                 inst.imm = gen_imm(-8, 8, 8)
+#
+#     return block
+
+
+def gen_block_vector(num_insts: int = 100,
+                     ratios: list = [0.5, 0.2, 0.1, 0.1, 0.1],
+                     dependency_flags=[1, 1, 1],
+                     seed: int = None,
+                     depth=3):
+    """
+    生成具有指定特性的指令基本块
+
+    Args:
+        num_insts: 指令数量
+        ratios: 各指令类型的比例 [shifts_arithmetic, compare, mul_div, load, store]
+        dependency_flags: 依赖关系标志 [WAW, RAW, WAR]
+        seed: 随机种子
+        depth: 依赖关系深度
+
+    Returns:
+        生成的指令基本块
+    """
     if seed is not None:
         random.seed(seed)
+
+    # 安全性检查：确保基本参数有效
+    num_insts = max(num_insts, 3)  # 至少需要3条指令来建立基本依赖
+    depth = min(max(0, depth), num_insts - 1)  # 确保depth在有效范围内
 
     # 动态生成策略
     BASE_SIZE = 150
@@ -290,9 +401,8 @@ def gen_block_vector(num_insts: int = 100, ratios: list = [0.5, 0.2, 0.1, 0.1, 0
                                      mul_div_insts,
                                      load_insts,
                                      store_insts], ratios):
-            n = int(BASE_SIZE * ratio)
+            n = max(1, int(BASE_SIZE * ratio))  # 确保至少生成一条指令
             pool += [gen_inst(inst_type) for _ in range(n)]
-
         random.shuffle(pool)
         block = pool[:num_insts]
     else:
@@ -303,9 +413,8 @@ def gen_block_vector(num_insts: int = 100, ratios: list = [0.5, 0.2, 0.1, 0.1, 0
                                      mul_div_insts,
                                      load_insts,
                                      store_insts], ratios):
-            n = int(num_insts * ratio)
+            n = max(1, int(num_insts * ratio))  # 确保至少生成一条指令
             block += [gen_inst(inst_type) for _ in range(n)]
-
         while len(block) < num_insts:
             block.append(gen_inst(shifts_arithmetic_logical_insts))
         block = block[:num_insts]
@@ -314,44 +423,78 @@ def gen_block_vector(num_insts: int = 100, ratios: list = [0.5, 0.2, 0.1, 0.1, 0
     # first stage：allocate registers randomly
     for inst in block:
         if inst.get_def():
-            reg = gen_reg()
+            reg = gen_reg([Reg(i) for i in range(1, 32)])
             inst.set_def(reg)
-
         num_uses = len(inst.get_uses())
         if num_uses > 0:
-            inst.set_uses([gen_reg() for _ in range(num_uses)])
+            inst.set_uses([gen_reg([Reg(i) for i in range(1, 32)]) for _ in range(num_uses)])
+
+    # 安全创建依赖关系的辅助函数
+    def try_create_waw(writer_idx, target_idx):
+        """尝试创建WAW (Write After Write)依赖"""
+        # 安全性检查
+        if (writer_idx >= len(block) or target_idx >= len(block) or
+                not block[writer_idx].get_def() or not block[target_idx].get_def()):
+            return False
+
+        # 创建WAW依赖
+        reg = block[writer_idx].get_def()
+        block[target_idx].set_def(reg)
+        return True
+
+    def try_create_raw(writer_idx, reader_idx):
+        """尝试创建RAW (Read After Write)依赖"""
+        # 安全性检查
+        if (writer_idx >= len(block) or reader_idx >= len(block) or
+                not block[writer_idx].get_def()):
+            return False
+
+        # 获取使用寄存器列表
+        uses = block[reader_idx].get_uses()
+        if not uses:
+            return False
+
+        # 创建RAW依赖
+        reg = block[writer_idx].get_def()
+        new_uses = uses.copy()
+        new_uses[0] = reg
+        block[reader_idx].set_uses(new_uses)
+        return True
+
+    def try_create_war(reader_idx, writer_idx):
+        """尝试创建WAR (Write After Read)依赖"""
+        # 安全性检查
+        if (reader_idx >= len(block) or writer_idx >= len(block) or
+                not block[writer_idx].get_def()):
+            return False
+
+        # 获取使用寄存器列表
+        uses = block[reader_idx].get_uses()
+        if not uses:
+            return False
+
+        # 创建WAR依赖
+        block[writer_idx].set_def(uses[0])
+        return True
 
     # second stage: inject dependencies as needed
     # Create WAW dependency
     if dependency_flags[0]:
         writer_idx = 0
         target_idx = depth
-        if target_idx < len(block):
-            # Get a register for the WAW dependency
-            reg = block[writer_idx].get_def()
-            print(reg)
-            block[target_idx].set_def(reg)
+        try_create_waw(writer_idx, target_idx)
 
     # Create RAW dependency
     if dependency_flags[1]:
         writer_idx = 1
         reader_idx = depth
-        if reader_idx < len(block):
-            reg = block[writer_idx].get_def()
-            uses = block[reader_idx].get_uses()
-            if len(uses) > 0:
-                new_uses = uses.copy()
-                new_uses[0] = reg
-                block[reader_idx].set_uses(new_uses)
+        try_create_raw(writer_idx, reader_idx)
 
     # Create WAR dependency
     if dependency_flags[2]:
         reader_idx = 2
         writer_idx = depth
-        if writer_idx < len(block):
-            uses = block[reader_idx].get_uses()
-            if len(uses) > 0:
-                block[writer_idx].set_def(uses[0])
+        try_create_war(reader_idx, writer_idx)
 
     # third stage: assign immediates
     for inst in block:

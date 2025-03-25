@@ -101,7 +101,7 @@ def main():
     print(f"Create model: {args.model_type.upper()}, Number of parameters: {model.count_parameters():,}")
 
     trainer = Trainer(model, config, experiment_manager.experiment_dir, experiment_manager)
-    trainer.setup_experiment(args.experiment_name, args.output_dir)
+    # trainer.setup_experiment(args.experiment_name, args.output_dir)
 
     # print(f"Starting training..., device: {device}")
     experiment_manager.start(args.train_data, args.val_data, train_loader.dataset, val_loader.dataset)

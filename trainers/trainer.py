@@ -175,25 +175,16 @@ class Trainer:
             if (epoch + 1) % self.config.save_freq == 0 or is_best:
                 self._save_checkpoint(epoch, train_metrics, val_metrics, is_best)
 
-            instruction_stats = {
+            loss_stats = {
                 "instruction_avg_loss": train_batch_result.get_instruction_avg_loss(),
-                "instruction_counts": train_batch_result.instruction_counts
-            }
-
-            block_length_stats = {
+                "instruction_counts": train_batch_result.instruction_counts,
                 "block_length_avg_loss": train_batch_result.get_block_length_avg_loss(),
                 "block_length_counts": train_batch_result.block_lengths_counts
             }
 
             if hasattr(self, 'experiment') and self.experiment:
-                self.experiment.save_instruction_stats(instruction_stats, epoch)
-                self.experiment.save_block_length_stats(block_length_stats, epoch)
-
-                self.experiment.visualize_epoch_stats(
-                    instruction_stats,
-                    block_length_stats,
-                    epoch
-                )
+                self.experiment.save_loss_stats(loss_stats, epoch)
+                # self.experiment.visualize_epoch_stats(loss_stats, epoch)
 
             print(f"Epoch {epoch }/{num_epochs} - "
                   f"Train Loss: {train_metrics['loss']:.6f} - "
@@ -204,7 +195,7 @@ class Trainer:
                 self._plot_progress()
 
             # early stopping
-            if self.early_stopping_counter >= self.config.patience:
+            if self.early_stopping_counter >= self.config.patience and epoch > 10:
                 print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
                 break
 

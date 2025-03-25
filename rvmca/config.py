@@ -93,7 +93,7 @@ _current_path = Path(os.path.abspath(__file__)).resolve()
 
 # constant: tool dir/paths
 PROJECT_PATH = _current_path.parent.parent.parent
-TOOLS_PATH = PROJECT_PATH / "tools"
+TOOLS_PATH = PROJECT_PATH /"rvmca"/ "tools"
 TESTS_PATH = PROJECT_PATH / "tests"
 
 OUTPUT_PATH = PROJECT_PATH / 'output'

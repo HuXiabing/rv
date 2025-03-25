@@ -208,7 +208,7 @@ def init_states_for_block(prog: Program, name: str) -> List[Inst]:
     init_code = []
 
     def compile_block(program: Program, bin_name: str):
-        wrapper_path = PROJECT_PATH / 'src' / 'rvmca' / 'trans' / 'template' / 'block_wrapper.S'
+        wrapper_path = PROJECT_PATH / 'rv' / 'rvmca' / 'trans' / 'template' / 'block_wrapper.S'
         wrapper = read_file(wrapper_path)
         wrapper = wrapper.replace('#CODE#', program.code)
         write_to_file(f'{OUTPUT_PATH / bin_name}.S', wrapper, append=False)
@@ -474,7 +474,8 @@ def transform_for_profiling(filepath, output_path=''):
 
         # run new block with pp
         test_path = OUTPUT_PATH / test_name
-        result = run_cmd(f"qemu-riscv64 {TOOLS_PATH / 'pp' / 'pp'} {test_path}.init {test_path}.code")
+        result = run_cmd(f"/mnt/d/simulator/bin/qemu-riscv64 {TOOLS_PATH / 'pp' / 'pp'} {test_path}.init {test_path}.code")
+        print("result:", result)
 
         if not result:
             run_cmd(f"echo '# init code' > {output_path}.error")

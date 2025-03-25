@@ -6,7 +6,6 @@ if [ $# -ne 2 ]; then
     exit 1
 fi
 
-
 # 获取绝对路径并创建输出目录
 INPUT_DIR=$(realpath -m "$1")
 OUTPUT_DIR=$(realpath -m "$2")
@@ -17,11 +16,17 @@ mkdir -p "$OUTPUT_DIR" || { echo "无法创建输出目录！"; exit 1; }
 SAVE_IFS=$IFS
 IFS=$'\n'
 
+# 定义输出 JSON 文件路径
+JSON_FILE="$OUTPUT_DIR/output.json"
+
+# 初始化 JSON 文件
+echo "{" > "$JSON_FILE"
+
 # 处理所有.S文件
 find "$INPUT_DIR" -type f -name "*.S" -print0 | while IFS= read -r -d $'\0' S_FILE; do
     # 计算相对路径
     REL_PATH=$(realpath --relative-to="$INPUT_DIR" "$S_FILE")
-    
+
     # 创建目标目录
     TARGET_DIR="$OUTPUT_DIR/$(dirname "$REL_PATH")"
     mkdir -p "$TARGET_DIR" || { echo "无法创建目录 $TARGET_DIR"; continue; }
@@ -33,21 +38,21 @@ find "$INPUT_DIR" -type f -name "*.S" -print0 | while IFS= read -r -d $'\0' S_FI
     BIN="$TARGET_DIR/${BASE_NAME}.S"
 
     echo "正在处理: $S_FILE"
-    
+
     # 汇编阶段（添加调试信息）
     if ! riscv64-unknown-linux-gnu-as -g -o "$OBJ" "$S_FILE"; then
         echo "汇编失败: $S_FILE"
         rm -f "$OBJ"
         continue
     fi
-    
+
     # 链接阶段（指定代码段地址）
     if ! riscv64-unknown-linux-gnu-ld -Ttext=0x00000000 -o "$ELF" "$OBJ"; then
         echo "链接失败: $S_FILE"
         rm -f "$OBJ" "$ELF"
         continue
     fi
-    
+
     # 提取机器码（增强模式匹配）
     if riscv64-unknown-linux-gnu-objdump -d "$ELF" | \
        awk '/^ *[0-9a-f]+:\t/ { print $2 }' > "$BIN"; then
@@ -56,13 +61,21 @@ find "$INPUT_DIR" -type f -name "*.S" -print0 | while IFS= read -r -d $'\0' S_FI
         if [ ! -s "$BIN" ]; then
             echo "警告: 生成的二进制文件为空 $BIN"
         fi
+
+        # 将内容添加到 JSON 文件
+        CONTENT=$(cat "$BIN" | tr '\n' ' ')
+        echo "\"$BASE_NAME\": \"$CONTENT\"," >> "$JSON_FILE"
     else
         echo "提取失败: $S_FILE"
     fi
-    
+
     # 清理中间文件
     rm -f "$OBJ" "$ELF"
 done
+
+# 结束 JSON 文件
+sed -i '$ s/,$//' "$JSON_FILE"  # 删除最后一个逗号
+echo "}" >> "$JSON_FILE"
 
 IFS=$SAVE_IFS
 echo "所有文件处理完成！输出目录: $OUTPUT_DIR"

@@ -3,21 +3,9 @@ import sys
 import json
 from rvmca.gen import gen_block
 from rvmca.gen.inst_gen import gen_block_vector, DependencyAnalyzer
-import argparse
-import os
-
-import numpy as np
-import random
-from typing import Dict, List
-
 import numpy as np
 import random
 from typing import Dict, List, Tuple
-
-import numpy as np
-import random
-from typing import Dict, List, Tuple
-
 
 class EnhancedFuzzer:
     """
@@ -32,8 +20,10 @@ class EnhancedFuzzer:
                  instruction_counts: Dict[str, int],
                  block_length_avg_loss: Dict[str, float],
                  block_length_counts: Dict[str, int],
-                 temp: float = 0.5,
-                 explore_rate: float = 0.2):
+                 temp: float = 0.8,
+                 explore_rate: float = 0.1,
+                 long_block_penalty: float = 0.1,
+                 long_block_threshold: int = 128):
         """
         初始化Fuzzer
 
@@ -44,7 +34,16 @@ class EnhancedFuzzer:
             block_length_counts: 各基本块长度的出现次数字典
             temp: 温度系数，控制loss影响的强度
             explore_rate: 探索率，控制随机探索的比例
+            long_block_penalty: 长基本块惩罚系数(1.0表示无惩罚，0.1表示降低到10%)
+            long_block_threshold: 长基本块阈值，超过此长度的基本块将被惩罚
         """
+        # 控制参数 - 必须首先初始化，因为后续方法会使用这些参数
+        self.temp = temp  # 温度系数
+        self.explore_rate = explore_rate  # 探索率
+        self.depen_boost = [0.5, 0.5, 0.5]  # 依赖关系增强因子 [WAW, RAW, WAR]
+        self.long_block_penalty = long_block_penalty  # 长基本块惩罚系数
+        self.long_block_threshold = long_block_threshold  # 长基本块阈值
+
         # 指令分类映射表
         self.instr_categories = {
             # 移位和算术运算
@@ -85,11 +84,6 @@ class EnhancedFuzzer:
         self.length_probs = self._build_length_distribution(self.length_stats)
         self.length_clusters = self._identify_length_clusters(self.length_stats)
 
-        # 控制参数
-        self.temp = temp  # 温度系数
-        self.explore_rate = explore_rate  # 探索率
-        self.depen_boost = [0.5, 0.5, 0.5]  # 依赖关系增强因子 [WAW, RAW, WAR]
-
         # 性能追踪
         self.perf_history = []  # 记录平均loss历史
         self.update_counter = 0  # 更新计数器
@@ -102,7 +96,7 @@ class EnhancedFuzzer:
                                     instr_loss: Dict[str, float],
                                     instr_counts: Dict[str, int]) -> np.ndarray:
         """
-        将指令级别的loss聚合到类别级别
+        将指令级别的loss聚合到类别级别，同时考虑原始分布
 
         Args:
             instr_loss: 指令级别的loss字典
@@ -111,7 +105,7 @@ class EnhancedFuzzer:
         Returns:
             类别级别的loss权重数组
         """
-        # 初始化类别loss累加器
+        # 初始化类别loss累加器和计数累加器
         category_loss_sum = {cat: 0.0 for cat in self.type_order}
         category_count_sum = {cat: 0 for cat in self.type_order}
 
@@ -119,22 +113,61 @@ class EnhancedFuzzer:
         for instr, loss in instr_loss.items():
             category = self.instr_categories.get(instr)
             if category and category in self.type_order:
-                count = instr_counts.get(instr, 1)  # 如果没有计数数据，默认为1
-                category_loss_sum[category] += loss * count
+                count = instr_counts.get(instr, 1)
+                category_loss_sum[category] += loss
                 category_count_sum[category] += count
 
-        # 计算每个类别的加权平均loss
-        category_weights = []
+        # 计算每个类别的平均loss和原始分布比例
+        category_avg_loss = []
+        category_orig_ratio = []
+        total_count = sum(category_count_sum.values())
+
         for cat in self.type_order:
+            # 计算平均loss
             if category_count_sum[cat] > 0:
                 avg_loss = category_loss_sum[cat] / category_count_sum[cat]
             else:
-                avg_loss = 0.1  # 对于没有数据的类别，使用默认值
-            category_weights.append(avg_loss)
+                avg_loss = 0.01  # 对于没有数据的类别，使用默认值
+            category_avg_loss.append(avg_loss)
 
-        # 转换为numpy数组并标准化
-        weights = np.array(category_weights)
-        return weights / max(weights.sum(), 1e-6)
+            # 计算原始分布比例
+            if total_count > 0:
+                orig_ratio = category_count_sum[cat] / total_count
+            else:
+                orig_ratio = 0.2  # 默认均匀分布
+            category_orig_ratio.append(orig_ratio)
+
+        # 转换为numpy数组
+        avg_loss_array = np.array(category_avg_loss)
+        # print(avg_loss_array/avg_loss_array.sum())
+        orig_ratio_array = np.array(category_orig_ratio)
+        print(category_orig_ratio/orig_ratio_array.sum())
+
+        # 将平均loss转换为权重（归一化）
+        if avg_loss_array.sum() > 0:
+            loss_weights = avg_loss_array / avg_loss_array.sum()
+        else:
+            loss_weights = np.ones_like(avg_loss_array) / len(avg_loss_array)
+
+        # 确保原始比例归一化
+        if orig_ratio_array.sum() > 0:
+            orig_ratio_array = orig_ratio_array / orig_ratio_array.sum()
+        else:
+            orig_ratio_array = np.ones_like(orig_ratio_array) / len(orig_ratio_array)
+
+        # 平衡loss和原始分布 (beta控制两者的平衡)
+        beta = 0.99  # 0.5表示平均考虑loss和原始分布
+        # print("loss_weights",loss_weights)
+        # print("orig_ratio_array",orig_ratio_array)
+        combined_weights = (1 - beta) * loss_weights + beta * orig_ratio_array
+        # print(combined_weights)
+
+        # 应用最小阈值，确保每种类型都有一定表示
+        min_threshold = 0.005
+        combined_weights = np.maximum(combined_weights, min_threshold)
+
+        # 重新归一化
+        return combined_weights / combined_weights.sum()
 
     def _process_length_stats(self,
                               length_loss: Dict[str, float],
@@ -151,30 +184,49 @@ class EnhancedFuzzer:
         """
         length_stats = {}
 
+        # 确保键类型一致，全部转为字符串
+        length_loss_str = {str(k): v for k, v in length_loss.items()}
+        length_counts_str = {str(k): v for k, v in length_counts.items()}
+
+        total_count = sum(float(c) for c in length_counts_str.values())
+
         # 合并两个字典的键集合
-        all_lengths = set(length_loss.keys()) | set(length_counts.keys())
+        all_lengths = set(length_loss_str.keys()) | set(length_counts_str.keys())
 
         for l_str in all_lengths:
-            length = int(l_str)
-            count = length_counts.get(l_str, 0)
-            loss = length_loss.get(l_str, 0.1)  # 默认loss值
+            try:
+                length = int(l_str)
+                count = length_counts_str.get(l_str, 0)
+                loss = length_loss_str.get(l_str, 0.1)  # 默认loss值
 
-            # 根据样本数量计算置信度
-            confidence = min(1.0, count / 100)  # 样本数超过100时置信度为1.0
+                # 确保count是数值类型
+                if not isinstance(count, (int, float)):
+                    print(f"警告: 长度 {l_str} 的计数不是数值: {count}")
+                    count = 0
 
-            # 存储长度统计信息
-            length_stats[length] = {
-                'loss': loss,
-                'count': count,
-                'confidence': confidence,
-                'weighted_loss': loss * (0.3 + 0.7 * confidence)  # 加权loss
-            }
+                # 根据样本数量计算置信度
+                confidence = min(1.0, float(count) / 100)  # 样本数超过100时置信度为1.0
+                # 计算平均loss，避免除以零
+                orig_dist_weight = count / total_count if total_count > 0 else 0
+                avg_loss = loss / max(1, count) if count > 0 else 0.01
+                alpha = 0.6  # 增大这个值会更强调原始分布
+                weighted_loss = (1 - alpha) * avg_loss * (0.3 + 0.7 * confidence) + alpha * orig_dist_weight
+                # weighted_loss = avg_loss * (0.3 + 0.7 * confidence)
+                # 存储长度统计信息
+                length_stats[length] = {
+                    'loss': loss,
+                    'count': count,
+                    'confidence': confidence,
+                    'weighted_loss': weighted_loss  # 加权loss
+                }
+            except (ValueError, TypeError) as e:
+                print(f"处理长度 {l_str} 时出错: {e}")
 
         return length_stats
 
     def _build_length_distribution(self, length_stats: Dict[int, Dict]) -> Dict[int, float]:
         """
-        构建长度概率分布
+        构建长度概率分布，对长基本块应用惩罚
 
         Args:
             length_stats: 长度统计信息
@@ -187,15 +239,33 @@ class EnhancedFuzzer:
             default_lengths = [4, 8, 12, 16, 20]
             return {l: 1.0 / len(default_lengths) for l in default_lengths}
 
-        # 提取加权loss并计算softmax分布
+        # 提取加权loss并计算初始softmax分布
         lengths = list(length_stats.keys())
         weighted_losses = [stats['weighted_loss'] for stats in length_stats.values()]
+        # for length, count in sorted(length_stats.items()):
+        #     print(length,": ", count['weighted_loss'])
 
         # 应用温度缩放的softmax
         exp_losses = np.exp(np.array(weighted_losses) / self.temp)
-        probs = exp_losses / exp_losses.sum()
+        initial_probs = exp_losses / exp_losses.sum()
 
-        return {length: prob for length, prob in zip(lengths, probs)}
+        # 对长基本块应用惩罚
+        final_probs = initial_probs.copy()
+        for i, length in enumerate(lengths):
+            if length > self.long_block_threshold * 0.5:
+                penalty_factor = 1.0 - (1.0 - self.long_block_penalty) * min(1.0, (
+                            length - self.long_block_threshold * 0.5) / (self.long_block_threshold * 0.5))
+
+                final_probs[i] *= penalty_factor
+
+        # 重新归一化概率分布
+        if final_probs.sum() > 0:
+            final_probs = final_probs / final_probs.sum()
+        else:
+            # 如果所有概率都被惩罚到接近0，则使用均匀分布
+            final_probs = np.ones_like(final_probs) / len(final_probs)
+
+        return {length: prob for length, prob in zip(lengths, final_probs)}
 
     def _identify_length_clusters(self, length_stats: Dict[int, Dict]) -> List[Tuple[int, float]]:
         """
@@ -210,20 +280,24 @@ class EnhancedFuzzer:
         if not length_stats:
             return [(10, 3.0)]  # 默认聚类
 
-        # 按加权loss降序排序
-        sorted_lengths = sorted(
+        # 兼顾loss和频率的双重排序
+        frequency_sorted = sorted(
+            [(length, stats['count']) for length, stats in length_stats.items()],
+            key=lambda x: x[1],
+            reverse=True
+        )
+
+        loss_sorted = sorted(
             [(length, stats['weighted_loss']) for length, stats in length_stats.items()],
             key=lambda x: x[1],
             reverse=True
         )
 
-        # 取loss排名前3的长度作为聚类中心（或者更少如果长度不足）
-        top_n = min(3, len(sorted_lengths))
+        # 选择top_n个频率最高的长度，和top_n个loss最高的长度
+        top_n = min(2, len(loss_sorted))
         clusters = []
-
-        for i in range(top_n):
-            center = sorted_lengths[i][0]
-
+        for i in range(min(2, len(frequency_sorted))):
+            center = frequency_sorted[i][0]
             # 确定扩散范围（基于附近长度的可用性）
             nearby_lengths = [l for l in length_stats.keys() if abs(l - center) <= 5]
             if len(nearby_lengths) > 1:
@@ -232,6 +306,19 @@ class EnhancedFuzzer:
                 spread = 3.0  # 默认扩散范围
 
             clusters.append((center, spread))
+
+        # 添加高loss长度聚类
+        for i in range(min(2, len(loss_sorted))):
+            center = loss_sorted[i][0]
+            if center not in [c[0] for c in clusters]:  # 避免重复
+                # 确定扩散范围
+                nearby_lengths = [l for l in length_stats.keys() if abs(l - center) <= 5]
+                if len(nearby_lengths) > 1:
+                    spread = max(2.0, np.std(nearby_lengths))
+                else:
+                    spread = 3.0  # 默认扩散范围
+
+                clusters.append((center, spread))
 
         return clusters
 
@@ -245,54 +332,98 @@ class EnhancedFuzzer:
         # 应用温度缩放
         scaled_weights = np.exp(self.type_weights / self.temp)
         base_ratios = scaled_weights / scaled_weights.sum()
+        # print("base_ratios", base_ratios)
 
         # 如果处于探索模式，添加随机噪声
         if random.random() < self.explore_rate:
             noise = np.random.uniform(-0.2, 0.2, len(base_ratios))
             # 确保不会产生负值或过高的值
-            ratios = np.clip(base_ratios + noise, 0.05, 0.5)
+            ratios = np.clip(base_ratios + noise, 0.005, 0.7)
             # 重新归一化
             ratios = ratios / ratios.sum()
         else:
             ratios = base_ratios
+        # print("ratios", ratios)
 
         return ratios.tolist()
 
     def _choose_length(self) -> int:
         """
-        智能选择基本块长度
+        智能长度选择，限制长基本块生成概率
 
         Returns:
             选择的长度值
         """
         # 探索与利用的策略选择
         if random.random() < self.explore_rate:
-            # 探索模式：尝试更广泛的长度范围
+            # 探索模式：尝试更广泛的长度范围，但限制生成长基本块
             if random.random() < 0.7 and self.length_clusters:
                 # 从随机选择的聚类中采样，但更大的变异
                 cluster_idx = random.randint(0, len(self.length_clusters) - 1)
                 center, spread = self.length_clusters[cluster_idx]
-                return max(1, int(np.random.normal(center, spread * 1.5)))
+
+                # 如果中心点已经超过阈值，使用一个较小的中心点
+                if center > self.long_block_threshold * 0.8:
+                    center = self.long_block_threshold // 8
+
+                length = max(1, int(np.random.normal(center, spread * 1.5)))
+
+                # 对超长基本块应用额外截断
+                if length > self.long_block_threshold:
+                    # 根据惩罚系数，有可能将长度截断到阈值以下
+                    if random.random() > self.long_block_penalty:
+                        length = self.long_block_threshold - random.randint(0, self.long_block_threshold // 2)
             else:
-                # 有时尝试完全新的长度（使用长尾分布）
-                return max(1, min(50, int(np.random.lognormal(1.5, 0.6))))
+                # 增加对短基本块的偏好
+                if random.random() < 0.99:  # 50%概率生成短基本块
+                    # 生成更多短基本块 (长度3-10)
+                    length = random.randint(3, 10)
+                else:
+                    # 有时尝试完全新的长度（使用截断的长尾分布）
+                    length = max(1, min(self.long_block_threshold * 1.5,
+                                        int(np.random.lognormal(1.5, 0.6))))
+
+                    # 对超长基本块应用额外截断
+                    if length > self.long_block_threshold:
+                        # 根据惩罚系数，有可能将长度截断到阈值以下
+                        if random.random() > self.long_block_penalty:
+                            length = self.long_block_threshold - random.randint(0, self.long_block_threshold // 2)
+
         else:
             # 利用模式：使用学习到的分布
-            if self.length_probs and random.random() < 0.8:
+            if self.length_probs and random.random() < 0.99:
                 # 直接从分布中采样
                 lengths = list(self.length_probs.keys())
                 probs = list(self.length_probs.values())
-                return np.random.choice(lengths, p=probs)
+                length = np.random.choice(lengths, p=probs)
             else:
                 # 从聚类中采样
                 if self.length_clusters:
                     # 从随机选择的聚类中采样
                     cluster_idx = random.randint(0, len(self.length_clusters) - 1)
                     center, spread = self.length_clusters[cluster_idx]
-                    return max(1, int(np.random.normal(center, spread)))
+
+                    # 如果中心点已经超过阈值，使用一个较小的中心点
+                    if center > self.long_block_threshold * 0.8:
+                        center = self.long_block_threshold // 8
+
+                    length = max(1, int(np.random.normal(center, spread)))
                 else:
                     # 使用默认值
-                    return random.choice([4, 8, 12, 16])
+                    length = random.choice([4, 8, 12, 16])
+
+        # 增加对短基本块的倾向性
+        if random.random() < 0.99:  # 40%的概率应用短基本块偏好
+            length_bias = max(3, int(length * 0.3))  # 将长度缩小到原来的30%
+            length = min(length, length_bias)
+
+        # 对最终的长度做一次额外的截断检查
+        if length > self.long_block_threshold:
+        # 最终生成长基本块的概率受惩罚系数控制
+            if random.random() > self.long_block_penalty * 0.4:  # 额外降低长基本块概率
+                length = self.long_block_threshold - random.randint(0, self.long_block_threshold // 2)
+
+        return length
 
     def _gen_dependency_flags(self) -> List[int]:
         """
@@ -311,7 +442,7 @@ class EnhancedFuzzer:
         load_weight = self.type_weights[3]  # 加载指令权重
         store_weight = self.type_weights[4]  # 存储指令权重
 
-        # 依赖概率计算 - 基于指令类型特性
+        # 依赖概率计算 - 基于指令类型特性 self.depen_boost = [0.5, 0.5, 0.5]
         # WAW: 写入相同寄存器，与写入寄存器的指令相关 (算术/存储指令更常有def寄存器)
         waw_dep_prob = self.depen_boost[0] + 0.3 * (arith_weight + store_weight)
 
@@ -333,7 +464,7 @@ class EnhancedFuzzer:
 
     def _calculate_depth(self, length: int) -> int:
         """
-        计算适当的深度参数
+        计算适当的深度参数，确保深度不会超出基本块长度
 
         Args:
             length: 基本块长度
@@ -343,7 +474,7 @@ class EnhancedFuzzer:
         """
         # 增强的深度计算逻辑
         if length <= 3:
-            return 1
+            return min(1, length - 1) if length > 1 else 0
         elif length <= 7:
             return 2
         elif length <= 12:
@@ -356,6 +487,8 @@ class EnhancedFuzzer:
     def update_strategy(self,
                         instruction_avg_loss: Dict[str, float],
                         block_length_avg_loss: Dict[str, float],
+                        instruction_counts: Dict[str, int],
+                        block_length_counts: Dict[str, int],
                         avg_loss: float = None):
         """
         根据新的loss信息更新策略
@@ -369,7 +502,7 @@ class EnhancedFuzzer:
 
         # 更新指令类型权重
         new_weights = self._aggregate_instruction_loss(
-            instruction_avg_loss, self.instruction_count_map)
+            instruction_avg_loss, instruction_counts)
 
         # 自适应学习率
         lr = 0.3  # 基础学习率
@@ -393,9 +526,12 @@ class EnhancedFuzzer:
         self.type_weights = (1 - lr) * self.type_weights + lr * new_weights
         self.type_weights /= self.type_weights.sum()  # 重新归一化
 
+        # 使用self.length_stats作为长度计数字典
+        length_counts_dict = {str(k): stats['count'] for k, stats in self.length_stats.items()}
+
         # 更新长度统计和分布
         new_length_stats = self._process_length_stats(
-            block_length_avg_loss, self.length_stats)
+            block_length_avg_loss, block_length_counts)
 
         # 更新现有长度的统计信息
         for length, new_stats in new_length_stats.items():
@@ -458,9 +594,39 @@ class EnhancedFuzzer:
             # 如果性能变差，略微增加探索率
             self.explore_rate = min(0.3, self.explore_rate * 1.1)
 
-    def generate(self) -> List:
+    def plan_generation(self, num_blocks: int) -> Dict[int, int]:
         """
-        生成测试基本块
+        规划生成指定数量的基本块时，各长度的分布情况
+
+        Args:
+            num_blocks: 要生成的基本块数量
+
+        Returns:
+            长度到数量的映射字典
+        """
+        length_distribution = {}
+
+        # 模拟选择过程，统计各长度出现次数
+        for _ in range(num_blocks):
+            length = self._choose_length()
+            # 确保长度至少为3，以防止依赖关系创建出错
+            length = max(3, length)
+
+            # 更新分布字典
+            if length in length_distribution:
+                length_distribution[length] += 1
+            else:
+                length_distribution[length] = 1
+
+        # 按长度排序
+        return dict(sorted(length_distribution.items()))
+
+    def generate(self, preview_plan: bool = False) -> List:
+        """
+        生成单个测试基本块
+
+        Args:
+            preview_plan: 是否预览生成计划 (用于单个基本块生成没有实际意义)
 
         Returns:
             生成的基本块向量表示
@@ -468,8 +634,15 @@ class EnhancedFuzzer:
         # 自适应选择参数
         ratios = self._adapt_type_ratios()
         length = self._choose_length()
+
+        # 确保长度至少为3，以防止依赖关系创建出错
+        length = max(3, length)
+
         dep_flags = self._gen_dependency_flags()
         depth = self._calculate_depth(length)
+
+        # 确保深度不超过长度-1，以防止索引越界
+        depth = min(depth, length - 1)
 
         # 生成基本块向量
         return gen_block_vector(
@@ -479,65 +652,157 @@ class EnhancedFuzzer:
             depth=depth
         )
 
+    def generate_multiple(self, num_blocks: int) -> Tuple[Dict[int, int], List[List]]:
+        """
+        生成多个测试基本块，并返回长度分布信息
 
-# 使用示例
+        Args:
+            num_blocks: 要生成的基本块数量
+
+        Returns:
+            (长度分布字典, 生成的基本块列表)
+        """
+        # 先规划长度分布
+        length_distribution = self.plan_generation(num_blocks)
+
+        # 按照规划生成基本块
+        blocks = []
+        for length, count in length_distribution.items():
+            for _ in range(count):
+                # 自适应选择参数
+                ratios = self._adapt_type_ratios()
+                dep_flags = self._gen_dependency_flags()
+                depth = self._calculate_depth(length)
+
+                # 确保深度不超过长度-1，以防止索引越界
+                depth = min(depth, length - 1)
+
+                # 生成基本块并添加到列表
+                block = gen_block_vector(
+                    num_insts=length,
+                    ratios=ratios,
+                    dependency_flags=dep_flags,
+                    depth=depth
+                )
+                blocks.append(block)
+
+        # 打乱基本块顺序，避免连续的相同长度基本块
+        random.shuffle(blocks)
+
+        return length_distribution, blocks
+
+import os
+import shutil
+
+def rm_all_files(directory: str):
+    if os.path.exists(directory):
+        # 遍历目录中的所有文件
+        for filename in os.listdir(directory):
+            # 构建文件的完整路径
+            file_path = os.path.join(directory, filename)
+            try:
+                # 如果是文件，则删除
+                if os.path.isfile(file_path) or os.path.islink(file_path):
+                    os.unlink(file_path)
+                # 如果是目录，则递归删除（如果需要）
+                elif os.path.isdir(file_path):
+                    shutil.rmtree(file_path)
+            except Exception as e:
+                print(f"Failed to delete {file_path}. Reason: {e}")
+    else:
+        print(f"Directory {directory} does not exist.")
+
 if __name__ == "__main__":
-    # 初始化Fuzzer
-    fuzzer = EnhancedFuzzer(
-        instruction_avg_loss={
-            'add': 0.12, 'addi': 0.14, 'sub': 0.11,
-            'beq': 0.08, 'bne': 0.09,
-            'mul': 0.15, 'div': 0.17,
-            'ld': 0.22, 'lw': 0.20,
-            'sd': 0.18, 'sw': 0.16
-        },
-        instruction_counts={
-            'add': 1200, 'addi': 1500, 'sub': 800,
-            'beq': 600, 'bne': 500,
-            'mul': 400, 'div': 300,
-            'ld': 900, 'lw': 700,
-            'sd': 600, 'sw': 500
-        },
-        block_length_avg_loss={
-            "3": 0.05, "5": 0.12, "8": 0.18, "10": 0.14, "15": 0.08
-        },
-        block_length_counts={
-            "3": 817, "5": 554, "8": 342, "10": 167, "15": 85
-        }
-    )
+    rm_all_files("./random_generate/asm/")
+    rm_all_files("./random_generate/binary/")
 
-    # 生成测试用例
-    for i in range(100):
-        test_block = fuzzer.generate()
+    import argparse
+    parser = argparse.ArgumentParser(description="basic block generator")
+    parser.add_argument("-n", type=int, default=100, help="number of basic blocks to generate")
+    args = parser.parse_args()
 
-        # 每轮迭代
-        if i % 10 == 0:
-            # 假设这里从模型中获取新的loss信息
-            new_instruction_loss = {
-                # 模拟的新loss数据
-                'add': 0.13, 'addi': 0.12, 'sub': 0.12,
-                'beq': 0.09, 'bne': 0.08,
-                'mul': 0.16, 'div': 0.15,
-                'ld': 0.21, 'lw': 0.19,
-                'sd': 0.19, 'sw': 0.17
-            }
+    with open('experiments/lstm_exp2_20250325_091432/statistics/loss_stats_epoch_45.json', 'r', encoding='utf-8') as f:
+    # with open('experiments/incremental_transformer_20250324_173953/statistics/loss_stats_epoch_5.json','r', encoding='utf-8') as f:
+        data = json.load(f)
 
-            new_block_length_loss = {
-                "3": 0.06, "5": 0.11, "8": 0.19, "10": 0.15, "15": 0.07, "12": 0.14
-            }
-
-            # 更新策略
-            fuzzer.update_strategy(
-                new_instruction_loss,
-                new_block_length_loss,
-                avg_loss=0.14
-            )
-
-            # 打印当前状态
-            print(f"迭代 {i}, 温度: {fuzzer.temp:.2f}, 探索率: {fuzzer.explore_rate:.2f}")
+    fuzzer = EnhancedFuzzer(instruction_avg_loss=data['type_avg_loss'],
+                            instruction_counts=data['type_counts'],
+                            block_length_avg_loss=data['block_length_avg_loss'],
+                            block_length_counts=data['block_length_counts'],
+                            long_block_penalty=0.1,  # 强烈惩罚长基本块，将概率降至原来的10%
+                            temp=0.25,
+                            long_block_threshold=128)
 
 
-    # def test2(len_bb):
+
+    print(f"规划生成 {args.n} 个基本块...")
+
+    # 预览长度分布计划
+    length_plan = fuzzer.plan_generation(args.n)
+    print("基本块长度分布计划:")
+    cnt = 0
+    for length, count in length_plan.items():
+        if int(length) <21:
+            cnt += count
+        print(f"  长度 {length}: {count} 个")
+    print(cnt)
+    # 按照计划生成基本块
+    print("\n开始生成基本块...")
+    blocks = []
+    for length, count in length_plan.items():
+        for i in range(count):
+            block = fuzzer.generate()  # 生成单个基本块
+            with open(f'./random_generate/asm/test{len(blocks)}_{len(block)}_nojump.S', 'w') as file:
+            # file.write("# LLVM-MCA-BEGIN A simple example" + '\n')
+                for line in block:
+                    file.write(line.code + '\n')
+                # file.write("# LLVM-MCA-END")
+            blocks.append(block)
+
+    print(f"成功生成 {len(blocks)} 个基本块")
+
+    # # experiments/incremental_transformer_20250324_173953/statistics/loss_stats_epoch_5.json
+    # with open('experiments/incremental_transformer_20250324_173953/statistics/loss_stats_epoch_5.json', 'r', encoding='utf-8') as f:
+    #     new_data = json.load(f)
+    #
+    # fuzzer.update_strategy(
+    #     instruction_avg_loss=new_data['type_avg_loss'],
+    #     instruction_counts=new_data['type_counts'],
+    #     block_length_avg_loss=new_data['block_length_avg_loss'],
+    #     block_length_counts=new_data['block_length_counts'],
+    #     avg_loss=2.614285
+    # )
+    #
+    # print("\n策略更新后的基本块长度分布计划:")
+    # new_length_plan = fuzzer.plan_generation(args.n)
+    # for length, count in new_length_plan.items():
+    #     print(f"  长度 {length}: {count} 个")
+    #
+    # # 比较前后变化
+    # print("\n分布变化分析:")
+    # all_lengths = set(list(length_plan.keys()) + list(new_length_plan.keys()))
+    # for length in sorted(all_lengths):
+    #     before = length_plan.get(length, 0)
+    #     after = new_length_plan.get(length, 0)
+    #     change = after - before
+    #     change_symbol = "+" if change > 0 else ""
+    #     print(f"  长度 {length}: {before} → {after} ({change_symbol}{change})")
+    #
+    # print("\n开始生成基本块...")
+    # blocks = []
+    # for length, count in new_length_plan.items():
+    #     for i in range(count):
+    #         block = fuzzer.generate()  # 生成单个基本块
+    #         with open(f'./random_generate/asm/test{len(blocks)}_{len(block)}_nojump.S', 'w') as file:
+    #         # file.write("# LLVM-MCA-BEGIN A simple example" + '\n')
+    #             for line in block:
+    #                 file.write(line.code + '\n')
+    #             # file.write("# LLVM-MCA-END")
+    #         blocks.append(block)
+    #
+    # print(f"成功生成 {len(blocks)} 个基本块")
+
+#     # def test2(len_bb):
 #     block = gen_block(len_bb)
 #     print(block)
 #     analyzer = DependencyAnalyzer()
@@ -547,46 +812,3 @@ if __name__ == "__main__":
 #     # print()
 #     # analyzer.print_details()
 #     return block
-
-
-    # file_path = "experiments/transformer_v1_20250312_223609/analysis_epoch_8/analysis_summary.json"
-    # with open(file_path, 'r', encoding='utf-8') as f:
-    #     data = json.load(f)
-    #
-    # os.makedirs('./random_generate/asm', exist_ok=True)
-    #
-    # num_bb = 2000
-    # num = 0
-    # for key, value in data["block_dict"].items():
-    #     cnt = round(value * num_bb)
-    #     # 生成指定长度基本块的个数
-    #     for i in range(cnt):
-    #         block = gen_block_vector(normalized_vector = data["instruction_vec"], len_bb = int(key))
-    #
-    #         with open(f'./random_generate/asm/test{num}_nojump.S', 'w') as file:
-    #             # file.write("# LLVM-MCA-BEGIN A simple example" + '\n')
-    #             for line in block:
-    #                 file.write(line.code + '\n')
-    #             # file.write("# LLVM-MCA-END")
-    #         num += 1
-
-    fuzzer = HybridFuzzer(
-        type_loss={
-            'shifts_arithmetic': 0.12,
-            'compare': 0.08,
-            'mul_div': 0.15,
-            'load': 0.22,
-            'store': 0.18
-        },
-        length_loss=block_length_avg_loss,
-        length_counts=block_length_counts
-    )
-
-    # 每轮迭代
-    new_type_loss = ...  # 从模型获取
-    new_length_data = ...
-    fuzzer.update_strategy(new_type_loss, new_length_data)
-
-    # 生成测试用例
-    for _ in range(100):
-        test_block = fuzzer.generate()
