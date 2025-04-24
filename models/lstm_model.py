@@ -15,6 +15,7 @@ def get_device(should_print=True):
         print(f'Using {device}')
     return device
 
+
 def get_last_false_values(x, mask, dim):
     broadcast_shape = list(x.shape)
     broadcast_shape[dim] = 1
@@ -29,7 +30,6 @@ def get_last_false_values(x, mask, dim):
     output = torch.gather(x, dim, br)
     return output.squeeze(dim)
 
-# class Fasthemal(BaseModel):
 class Fasthemal(nn.Module):
     """RISC-V instruction set throughput prediction model based on Ithemal, implemented using BatchRNN"""
 
@@ -62,6 +62,10 @@ class Fasthemal(nn.Module):
         return self.model(x)
 
     def count_parameters(self) -> int:
+        print("self.config.embed_dim", self.config.embed_dim)
+        print("self.config.hidden_dim", self.config.hidden_dim)
+        print("self.config.num_layers", self.config.num_layers)
+        print("self.config.vocab_size", self.config.vocab_size)
 
         return sum(p.numel() for p in self.parameters() if p.requires_grad)
 
@@ -124,7 +128,7 @@ class AbstractGraphModule(nn.Module):
 
 class BatchRNN(AbstractGraphModule):
     def __init__(self, embedding_size=512, hidden_size=512, num_classes=1,
-                 pad_idx=0, num_layers=1, vocab_size=700):
+                 pad_idx=0, num_layers=1, vocab_size=256):
         super(BatchRNN, self).__init__(embedding_size, hidden_size, num_classes)
 
         self.pad_idx = pad_idx
@@ -213,128 +217,128 @@ class BatchRNN(AbstractGraphModule):
         output = self.linear(final_state).squeeze(-1)
         return output
 
-class ModelAbs(nn.Module):
+# class ModelAbs(nn.Module):
+#
+#     """
+#     Abstract model without the forward method.
+#
+#     lstm for processing tokens in sequence and linear layer for output generation
+#     lstm is a uni-directional single layer lstm
+#
+#     num_classes = 1 - for regression
+#     num_classes = n - for classifying into n classes
+#
+#     """
+#
+#     def __init__(self, hidden_size, embedding_size, num_classes):
+#
+#         super(ModelAbs, self).__init__()
+#         self.hidden_size = hidden_size
+#         self.name = 'should be overridden'
+#
+#         #numpy array with batchsize, embedding_size
+#         self.embedding_size = embedding_size
+#         self.num_classes = num_classes
+#
+#         #lstm - input size, hidden size, num layers
+#         self.lstm_token = nn.LSTM(self.embedding_size, self.hidden_size)
+#
+#         #hidden state for the rnn
+#         self.hidden_token = self.init_hidden()
+#
+#         #linear layer for regression - in_features, out_features
+#         self.linear = nn.Linear(self.hidden_size, self.num_classes)
+#
+#     def init_hidden(self):
+#         return (autograd.Variable(torch.zeros(1, 1, self.hidden_size)),
+#                 autograd.Variable(torch.zeros(1, 1, self.hidden_size)))
+#
+#
+#     #this is to set learnable embeddings
+#     def set_learnable_embedding(self, mode, dictsize, seed = None):
+#
+#         self.mode = mode
+#
+#         if mode != 'learnt':
+#             embedding = nn.Embedding(dictsize, self.embedding_size)
+#
+#         if mode == 'none':
+#             print( 'learn embeddings form scratch...')
+#             initrange = 0.5 / self.embedding_size
+#             embedding.weight.data.uniform_(-initrange, initrange)
+#             self.final_embeddings = embedding
+#         elif mode == 'seed':
+#             print( 'seed by word2vec vectors....')
+#             embedding.weight.data = torch.FloatTensor(seed)
+#             self.final_embeddings = embedding
+#         else:
+#             print( 'using learnt word2vec embeddings...')
+#             self.final_embeddings = seed
+#
+#     #remove any references you may have that inhibits garbage collection
+#     def remove_refs(self, item):
+#         return
 
-    """
-    Abstract model without the forward method.
-
-    lstm for processing tokens in sequence and linear layer for output generation
-    lstm is a uni-directional single layer lstm
-
-    num_classes = 1 - for regression
-    num_classes = n - for classifying into n classes
-
-    """
-
-    def __init__(self, hidden_size, embedding_size, num_classes):
-
-        super(ModelAbs, self).__init__()
-        self.hidden_size = hidden_size
-        self.name = 'should be overridden'
-
-        #numpy array with batchsize, embedding_size
-        self.embedding_size = embedding_size
-        self.num_classes = num_classes
-
-        #lstm - input size, hidden size, num layers
-        self.lstm_token = nn.LSTM(self.embedding_size, self.hidden_size)
-
-        #hidden state for the rnn
-        self.hidden_token = self.init_hidden()
-
-        #linear layer for regression - in_features, out_features
-        self.linear = nn.Linear(self.hidden_size, self.num_classes)
-
-    def init_hidden(self):
-        return (autograd.Variable(torch.zeros(1, 1, self.hidden_size)),
-                autograd.Variable(torch.zeros(1, 1, self.hidden_size)))
-
-
-    #this is to set learnable embeddings
-    def set_learnable_embedding(self, mode, dictsize, seed = None):
-
-        self.mode = mode
-
-        if mode != 'learnt':
-            embedding = nn.Embedding(dictsize, self.embedding_size)
-
-        if mode == 'none':
-            print( 'learn embeddings form scratch...')
-            initrange = 0.5 / self.embedding_size
-            embedding.weight.data.uniform_(-initrange, initrange)
-            self.final_embeddings = embedding
-        elif mode == 'seed':
-            print( 'seed by word2vec vectors....')
-            embedding.weight.data = torch.FloatTensor(seed)
-            self.final_embeddings = embedding
-        else:
-            print( 'using learnt word2vec embeddings...')
-            self.final_embeddings = seed
-
-    #remove any references you may have that inhibits garbage collection
-    def remove_refs(self, item):
-        return
-
-class ModelHierarchicalRNN(ModelAbs):
-
-    """
-    Prediction at every hidden state of the unrolled rnn for instructions.
-
-    Input - sequence of tokens processed in sequence by the lstm but seperated into instructions
-    Output - predictions at the every hidden state
-
-    lstm predicting instruction embedding for sequence of tokens
-    lstm_ins processes sequence of instruction embeddings
-    linear layer process hidden states to produce output
-
-    """
-
-    def __init__(self, hidden_size, embedding_size, num_classes, intermediate):
-        super(ModelHierarchicalRNN, self).__init__(hidden_size, embedding_size, num_classes)
-
-        self.hidden_ins = self.init_hidden()
-        self.lstm_ins = nn.LSTM(self.hidden_size, self.hidden_size)
-
-        if intermediate:
-            self.name = 'hierarchical RNN intermediate'
-        else:
-            self.name = 'hierarchical RNN'
-        self.intermediate = intermediate
-
-    def copy(self, model):
-
-        self.linear = model.linear
-        self.lstm_token = model.lstm_token
-        self.lstm_ins = model.lstm_ins
-
-    def forward(self, item):
-
-        self.hidden_token = self.init_hidden()
-        self.hidden_ins = self.init_hidden()
-
-        ins_embeds = autograd.Variable(torch.zeros(len(item.x),self.embedding_size))
-        for i, ins in enumerate(item.x):
-
-            if self.mode == 'learnt':
-                acc_embeds = []
-                for token in ins:
-                    acc_embeds.append(self.final_embeddings[token])
-                token_embeds = torch.FloatTensor(acc_embeds)
-            else:
-                token_embeds = self.final_embeddings(torch.LongTensor(ins))
-
-            #token_embeds = torch.FloatTensor(ins)
-            token_embeds_lstm = token_embeds.unsqueeze(1)
-            out_token, hidden_token = self.lstm_token(token_embeds_lstm,self.hidden_token)
-            ins_embeds[i] = hidden_token[0].squeeze()
-
-        ins_embeds_lstm = ins_embeds.unsqueeze(1)
-
-        out_ins, hidden_ins = self.lstm_ins(ins_embeds_lstm, self.hidden_ins)
-
-        if self.intermediate:
-            values = self.linear(out_ins[:,0,:]).squeeze()
-        else:
-            values = self.linear(hidden_ins[0].squeeze()).squeeze()
-
-        return values
+# class ModelHierarchicalRNN(ModelAbs):
+#
+#     """
+#     Prediction at every hidden state of the unrolled rnn for instructions.
+#
+#     Input - sequence of tokens processed in sequence by the lstm but seperated into instructions
+#     Output - predictions at the every hidden state
+#
+#     lstm predicting instruction embedding for sequence of tokens
+#     lstm_ins processes sequence of instruction embeddings
+#     linear layer process hidden states to produce output
+#
+#     """
+#
+#     def __init__(self, hidden_size, embedding_size, num_classes, intermediate):
+#         super(ModelHierarchicalRNN, self).__init__(hidden_size, embedding_size, num_classes)
+#
+#         self.hidden_ins = self.init_hidden()
+#         self.lstm_ins = nn.LSTM(self.hidden_size, self.hidden_size)
+#
+#         if intermediate:
+#             self.name = 'hierarchical RNN intermediate'
+#         else:
+#             self.name = 'hierarchical RNN'
+#         self.intermediate = intermediate
+#
+#     def copy(self, model):
+#
+#         self.linear = model.linear
+#         self.lstm_token = model.lstm_token
+#         self.lstm_ins = model.lstm_ins
+#
+#     def forward(self, item):
+#
+#         self.hidden_token = self.init_hidden()
+#         self.hidden_ins = self.init_hidden()
+#
+#         ins_embeds = autograd.Variable(torch.zeros(len(item.x),self.embedding_size))
+#         for i, ins in enumerate(item.x):
+#
+#             if self.mode == 'learnt':
+#                 acc_embeds = []
+#                 for token in ins:
+#                     acc_embeds.append(self.final_embeddings[token])
+#                 token_embeds = torch.FloatTensor(acc_embeds)
+#             else:
+#                 token_embeds = self.final_embeddings(torch.LongTensor(ins))
+#
+#             #token_embeds = torch.FloatTensor(ins)
+#             token_embeds_lstm = token_embeds.unsqueeze(1)
+#             out_token, hidden_token = self.lstm_token(token_embeds_lstm,self.hidden_token)
+#             ins_embeds[i] = hidden_token[0].squeeze()
+#
+#         ins_embeds_lstm = ins_embeds.unsqueeze(1)
+#
+#         out_ins, hidden_ins = self.lstm_ins(ins_embeds_lstm, self.hidden_ins)
+#
+#         if self.intermediate:
+#             values = self.linear(out_ins[:,0,:]).squeeze()
+#         else:
+#             values = self.linear(hidden_ins[0].squeeze()).squeeze()
+#
+#         return values

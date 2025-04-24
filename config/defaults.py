@@ -1,14 +1,14 @@
 TRANSFORMER_CONFIG = {
     "model_type": "transformer",
-    "embed_dim": 512,
-    "hidden_dim": 2048,
-    "num_layers": 4,
-    "num_heads": 8,
-    "dropout": 0.1,
+    "embed_dim": 128,
+    "hidden_dim": 256,
+    "num_layers": 1,
+    "num_heads": 2,
+    "dropout": 0.05,
     "use_layernorm": False,
     "use_checkpoint": False,
     "use_bb_attn": False,
-    "use_seq_attn": True,
+    "use_seq_attn": False,
     "use_op_attn": False,
     "use_pos_2d": False,
     "handle_neg": False
@@ -16,17 +16,17 @@ TRANSFORMER_CONFIG = {
 
 ITHEMAL_CONFIG = {
     "model_type": "ithemal",
-    "embed_dim": 512,
-    "hidden_dim": 512,
+    "embed_dim": 128,
+    "hidden_dim": 256,
     "num_layers": 1,
     "dropout": 0.1,
 }
 
 GNN_CONFIG = {
     "model_type": "gnn",
-    "embed_dim": 256,
+    "embed_dim": 128,
     "hidden_dim": 256,
-    "num_layers": 8,  # message passing layers
+    "num_layers": 2,  # message passing layers
     "dropout": 0.1,
     "use_layer_norm": True,
     "lr": 2e-5,

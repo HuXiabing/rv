@@ -31,7 +31,7 @@ from rvmca.prog.reg import XREG, FREG
 
 rfmt_insts = {
     n: RFmtInst(n, 'x0', 'x0', 'x0')
-    for n in ['add', 'addw', 'and', 'or'
+    for n in ['add', 'addw', 'and', 'or',
               'div', 'divu', 'divuw', 'divw','mul', 'mulh', 'mulhsu', 'mulhu', 'mulw', 'rem', 'remu','remuw', 'remw',  # M
               'sll', 'sllw', 'slt', 'sltu', 'sra',
               'sraw', 'srl', 'srlw', 'sub', 'subw', 'xor']
@@ -66,17 +66,31 @@ frri_insts = {n:IFmtInst(n, 'f0', 'x0', 0)
               for n in ['fld', 'flw', 'fsw', 'fsd']} # 4
 
 
-shifts_arithmetic_logical_insts = {
+shifts_insts = {
     **{n: RFmtInst(n, 'x0', 'x0', 'x0')
-     for n in ['add', 'addw', 'and', 'sll', 'sllw', 'sra',
-               'sraw', 'srl', 'srlw', 'sub', 'subw', 'xor', 'or']},
+     for n in ['sll', 'sllw', 'sra', 'sraw', 'srl', 'srlw']},
 
     **{n: IFmtInst(n, 'x0', 'x0', 0)
-     for n in ['addi', 'addiw', 'andi', 'ori', 'slli', 'slliw',
-               'srai', 'sraiw', 'srli', 'srliw', 'xori']},
+     for n in ['slli', 'slliw', 'srai', 'sraiw', 'srli', 'srliw']},
+} # 12
+
+arithmetic_insts = {
+    **{n: RFmtInst(n, 'x0', 'x0', 'x0')
+     for n in ['add', 'addw', 'sub', 'subw']},
+
+    **{n: IFmtInst(n, 'x0', 'x0', 0)
+     for n in ['addi', 'addiw']},
 
     **ufmt_insts
-} # 26
+} # 8
+
+logical_insts = {
+    **{n: RFmtInst(n, 'x0', 'x0', 'x0')
+     for n in ['and', 'xor', 'or']},
+
+    **{n: IFmtInst(n, 'x0', 'x0', 0)
+     for n in ['andi', 'ori', 'xori']},
+} # 6
 
 compare_insts = {
     **{n: RFmtInst(n, 'x0', 'x0', 'x0')
@@ -86,11 +100,20 @@ compare_insts = {
      for n in ['slti', 'sltiu']}
 } # 4
 
-mul_div_insts = {
+mul_insts = {
     n: RFmtInst(n, 'x0', 'x0', 'x0')
-    for n in ['div', 'divu', 'divuw', 'divw', 'mul', 'mulh', 'mulhsu',
-              'mulhu', 'mulw', 'rem', 'remu', 'remuw', 'remw']
-} # 13
+    for n in ['mul', 'mulh', 'mulhsu', 'mulhu', 'mulw']
+} # 5
+
+div_insts = {
+    n: RFmtInst(n, 'x0', 'x0', 'x0')
+    for n in ['div', 'divu', 'divuw', 'divw']
+} # 4
+
+rem_insts = {
+    n: RFmtInst(n, 'x0', 'x0', 'x0')
+    for n in ['rem', 'remu', 'remuw', 'remw']
+} # 4
 
 load_insts = {
     n: LoadInst(n, 'x0', 'x0', 0)
@@ -113,7 +136,9 @@ jal_inst = JFmtInst('jal', 'x0', 0)
 normal_insts = {**rfmt_insts, **ifmt_insts, **load_insts, **store_insts}
 exit_insts = {**branch_insts, 'jalr': jalr_inst, 'jal': jal_inst}  # 8
 
-riscv_insts = {**normal_insts, **exit_insts}
+# riscv_insts = {**normal_insts, **exit_insts}
+riscv_insts = { **load_insts, **store_insts, **shifts_insts, **arithmetic_insts, **logical_insts,
+                **compare_insts, **mul_insts, **div_insts, **rem_insts}  # 54
 ##############################################################################
 
 
@@ -249,7 +274,9 @@ def gen_block(num_insts: int = 10, seed: int = None):
         random.seed(seed)
 
     # generate dummy instructions for a block
-    block = [gen_inst(normal_insts) for _ in range(num_insts)]
+    # block = [gen_inst(mul_insts) for _ in range(int(num_insts*0.8))]
+    # block += [gen_inst(compare_insts) for _ in range(int(num_insts*0.2))]
+    block = [gen_inst() for _ in range(num_insts)]
     # exit_inst = legalize_jump_or_branch_inst(gen_inst(exit_insts))
     # block.append(exit_inst)
 
@@ -367,7 +394,7 @@ def gen_block(num_insts: int = 10, seed: int = None):
 
 
 def gen_block_vector(num_insts: int = 100,
-                     ratios: list = [0.5, 0.2, 0.1, 0.1, 0.1],
+                     ratios: list = [0.2, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
                      dependency_flags=[1, 1, 1],
                      seed: int = None,
                      depth=3):
@@ -376,7 +403,7 @@ def gen_block_vector(num_insts: int = 100,
 
     Args:
         num_insts: 指令数量
-        ratios: 各指令类型的比例 [shifts_arithmetic, compare, mul_div, load, store]
+        ratios: 各指令类型的比例 [shifts_arithmetic, compare, mul_div, load, store] ['arithmetic', 'shifts', 'logical', 'compare', 'mul', 'div', 'rem', 'load', 'store']
         dependency_flags: 依赖关系标志 [WAW, RAW, WAR]
         seed: 随机种子
         depth: 依赖关系深度
@@ -396,9 +423,13 @@ def gen_block_vector(num_insts: int = 100,
     if num_insts < BASE_SIZE:
         # 按比例生成基础样本池
         pool = []
-        for inst_type, ratio in zip([shifts_arithmetic_logical_insts,
+        for inst_type, ratio in zip([arithmetic_insts,
+                                     shifts_insts,
+                                     logical_insts,
                                      compare_insts,
-                                     mul_div_insts,
+                                     mul_insts,
+                                     div_insts,
+                                     rem_insts,
                                      load_insts,
                                      store_insts], ratios):
             n = max(1, int(BASE_SIZE * ratio))  # 确保至少生成一条指令
@@ -408,15 +439,19 @@ def gen_block_vector(num_insts: int = 100,
     else:
         # 直接按比例生成目标长度
         block = []
-        for inst_type, ratio in zip([shifts_arithmetic_logical_insts,
+        for inst_type, ratio in zip([arithmetic_insts,
+                                     shifts_insts,
+                                     logical_insts,
                                      compare_insts,
-                                     mul_div_insts,
+                                     mul_insts,
+                                     div_insts,
+                                     rem_insts,
                                      load_insts,
                                      store_insts], ratios):
             n = max(1, int(num_insts * ratio))  # 确保至少生成一条指令
             block += [gen_inst(inst_type) for _ in range(n)]
         while len(block) < num_insts:
-            block.append(gen_inst(shifts_arithmetic_logical_insts))
+            block.append(gen_inst(arithmetic_insts))
         block = block[:num_insts]
         random.shuffle(block)
 

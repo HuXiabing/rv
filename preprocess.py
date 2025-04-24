@@ -33,8 +33,8 @@ def parse_throughput(line):
 
 def parse_throughput_mca(line):
     """Extract throughput value from mca"""
-    if line.startswith("Block RThroughput:"):
-        throughput = float(line.split("Block RThroughput:")[1].strip())
+    if line.startswith("Cycles Per Block:"):
+        throughput = float(line.split("Cycles Per Block:")[1].strip())
         return throughput
     return None
 
@@ -97,21 +97,80 @@ def process_directory(cycle_dir, asm_dir):
     return results
 
 
-def generate_json(asm_dirs, cycle_dirs):
+# def generate_json(asm_dirs, cycle_dirs):
+#     """Generate JSON data from ASM and cycle directories"""
+#     all_results = []
+#
+#     for asm_dir, cycle_dir in zip(asm_dirs, cycle_dirs):
+#         print(f"Processing ASM dir: {asm_dir}, Cycle dir: {cycle_dir}")
+#         results = process_directory(cycle_dir, asm_dir)
+#         all_results.extend(results)
+#         print(f"  Found {len(results)} samples")
+#
+#     return all_results
+# def generate_json(cycle_jsons):
+#     """Generate JSON data from ASM and cycle directories"""
+#     all_results = []
+#     for cycle_json in cycle_jsons:
+#         with open(cycle_json, 'r') as f:
+#             data = json.load(f)
+#         for k,v in data.items():
+#             for row in v['mca_result'].split("\n"):
+#                 if "Block RThroughput" in row:
+#                     throughput = float(row.split("Block RThroughput:")[1].strip())
+#                     break
+#             instructions = v['asm']
+#
+#             all_results.append({
+#                 "instructions": instructions,
+#                 "throughput": throughput})
+#     return all_results
+def generate_json_mca(cycle_jsons):
     """Generate JSON data from ASM and cycle directories"""
     all_results = []
+    for cycle_json in cycle_jsons:
+        with open('./random_generate/'+cycle_json, 'r') as f:
+            data = json.load(f)
+        print(len(data))
+        for entry in data:
+            # print(entry['mca_result'])
+            for row in entry['mca_result'].split("\n"):
+                if "Cycles Per Block" in row:
+                    throughput = float(row.split("Cycles Per Block:")[1].strip())
+                    break
+            instructions = entry['asm'].replace("\\n", "\n")
+            # print(throughput)
 
-    for asm_dir, cycle_dir in zip(asm_dirs, cycle_dirs):
-        print(f"Processing ASM dir: {asm_dir}, Cycle dir: {cycle_dir}")
-        results = process_directory(cycle_dir, asm_dir)
-        all_results.extend(results)
-        print(f"  Found {len(results)} samples")
-
+            all_results.append({
+                "instructions": instructions.split("\n"),
+                "throughput": throughput})
     return all_results
 
+def generate_json(cycle_jsons):
+    """Generate JSON data from ASM and cycle directories"""
+    all_results = []
+    for cycle_json in cycle_jsons:
+        with open("random_generate/starfive/" + cycle_json, 'r') as f:
+            data = json.load(f)
+        for entry in data:
+            # print(entry['mca_result'])
+            throughput = None
+            for row in entry['result'].split("\n"):
+                # print(row)
+                if "Cycle Mode:" in row:
+                    throughput = float(row.split("Cycle Mode:")[1].strip())
+                    break
+            if throughput == None:
+                continue
+            instructions = entry['asm'].replace("\\n", "\n")
+            # print(throughput)
 
+            all_results.append({
+                "instructions": instructions.split("\n"),
+                "throughput": throughput})
+    return all_results
 # ===== Functions from preprocess.py and incremental_preprocess.py =====
-def process_data(raw_data, tokenizer):
+def process_data(raw_data, tokenizer,seed=71): # 4516
     """Process raw data to add tokenization and encoding"""
     processed_data = []
 
@@ -121,6 +180,7 @@ def process_data(raw_data, tokenizer):
 
         tokenized_instructions = []
         for instr in instructions:
+            instr = instr.replace("\\t", "\t")
             tokenized = tokenizer.tokenize_instruction(instr)
             tokenized_instructions.append(tokenized)
 
@@ -147,8 +207,10 @@ def process_data(raw_data, tokenizer):
         }
 
         processed_data.append(processed_item)
-
-    return processed_data
+    processed_data_copy = processed_data.copy()
+    random.seed(seed)
+    random.shuffle(processed_data_copy)
+    return processed_data_copy
 
 
 def get_encoded_key(item):
@@ -175,9 +237,9 @@ def deduplicate_data(data):
 
 def split_data(data, val_ratio, train_ratio, seed=42):
     """Split data into training and validation sets"""
-    random.seed(seed)
+    # random.seed(seed)
     data_copy = data.copy()
-    random.shuffle(data_copy)
+    # random.shuffle(data_copy)
 
     total_count = len(data_copy)
     val_count = int(total_count * val_ratio)
@@ -195,9 +257,9 @@ def split_data_by_count(data, train_samples, val_samples, seed=42):
 
     If total samples are insufficient, prioritize validation set requirements.
     """
-    random.seed(seed)
+    # random.seed(seed)
     data_copy = data.copy()
-    random.shuffle(data_copy)
+    # random.shuffle(data_copy)
 
     total_count = len(data_copy)
     requested_total = train_samples + val_samples
@@ -318,6 +380,18 @@ def incremental_update(existing_train_data, existing_val_data, new_processed_dat
 
     return train_data, val_data
 
+def updated_training_data(existing_processed_data, processed_data):
+    """Update training data with new data while keeping validation set unchanged"""
+    processed_data_encoded_keys = {get_encoded_key(item) for item in existing_processed_data}
+
+    filtered_new_data = []
+    for item in processed_data:
+        key = get_encoded_key(item)
+        if key not in processed_data_encoded_keys:
+            filtered_new_data.append(item)
+    print(f"Added {len(filtered_new_data)} new samples to training data")
+    return filtered_new_data
+
 def main():
     parser = argparse.ArgumentParser(description="RISC-V Instruction Throughput Data Processing")
 
@@ -325,23 +399,20 @@ def main():
     parser.add_argument("--mode", type=str, choices=["full", "incremental"], default="full",
                         help="Processing mode: full (process from scratch) or incremental (add new data)")
 
-    # Inputs for JSON generation
-    parser.add_argument("--asm_dirs", nargs="+", required=True,
-                        help="List of directories containing ASM files")
-    parser.add_argument("--cycle_dirs", nargs="+", required=True,
-                        help="List of directories containing cycle measurement files")
+    parser.add_argument("--cycle_jsons", nargs="+", required=True,
+                        help="List of jsons containing cycle measurement files")
 
     # Existing data for incremental mode
-    parser.add_argument("--existing_processed_json", type=str, default="data/processed_data.json",
-                        help="Path to the existing processed JSON file (for incremental mode)")
+    # parser.add_argument("--existing_processed_json", type=str, default="data/processed_data.json",
+    #                     help="Path to the existing processed JSON file (for incremental mode)")
     parser.add_argument("--existing_train_json", type=str, default="data/train_data.json",
                         help="Path to the existing train JSON file (for incremental mode)")
     parser.add_argument("--existing_val_json", type=str, default="data/val_data.json",
                         help="Path to the existing validation JSON file (for incremental mode)")
 
     # Output paths
-    parser.add_argument("--processed_json", type=str, default="data/processed_data.json",
-                        help="Output path for processed JSON data")
+    # parser.add_argument("--processed_json", type=str, default="data/processed_data.json",
+    #                     help="Output path for processed JSON data")
     parser.add_argument("--train_json", type=str, default="data/train_data.json",
                         help="Output path for training JSON data")
     parser.add_argument("--val_json", type=str, default="data/val_data.json",
@@ -355,7 +426,7 @@ def main():
     parser.add_argument("--val_ratio", type=float, default=0.2, help="Proportion of the validation set")
 
     # Output directory
-    parser.add_argument("--output_dir", type=str, default="data", help="Output directory")
+    # parser.add_argument("--output_dir", type=str, default="data", help="Output directory")
 
     # Others
     parser.add_argument("--seed", type=int, default=42, help="Random seed")
@@ -363,18 +434,18 @@ def main():
     args = parser.parse_args()
 
     # Check inputs
-    if len(args.asm_dirs) != len(args.cycle_dirs):
-        raise ValueError("Number of ASM directories must match number of cycle directories")
+    # if len(args.asm_dirs) != len(args.cycle_dirs):
+    #     raise ValueError("Number of ASM directories must match number of cycle directories")
 
-    set_seed(args.seed)
-    os.makedirs(args.output_dir, exist_ok=True)
+    # set_seed(args.seed)
+    # os.makedirs(args.output_dir, exist_ok=True)
 
     # Initialize tokenizer
     tokenizer = RISCVTokenizer()
 
     # Generate raw JSON data
     print("Generating raw JSON data...")
-    raw_data = generate_json(args.asm_dirs, args.cycle_dirs)
+    raw_data = generate_json_mca(args.cycle_jsons)
 
     # Process data - tokenize and encode
     print("Processing data...")
@@ -389,9 +460,9 @@ def main():
         print("saved processed data: ", len(processed_data))
 
         # Save processed data to JSON
-        with open(args.processed_json, 'w') as f:
-            json.dump(processed_data, f, indent=2)
-        print(f"Processed data saved to {args.processed_json}")
+        # with open(args.processed_json, 'w') as f:
+        #     json.dump(processed_data, f, indent=2)
+        # print(f"Processed data saved to {args.processed_json}")
 
         # Split data into train and validation sets
         total_samples = len(processed_data)
@@ -429,8 +500,8 @@ def main():
         # Incremental mode
         # Load existing data
         print("Loading existing processed data...")
-        with open(args.existing_processed_json, 'r') as f:
-            existing_processed_data = json.load(f)
+        # with open(args.existing_processed_json, 'r') as f:
+        #     existing_processed_data = json.load(f)
 
         with open(args.existing_train_json, 'r') as f:
             existing_train_data = json.load(f)
@@ -438,14 +509,17 @@ def main():
         with open(args.existing_val_json, 'r') as f:
             existing_val_data = json.load(f)
 
+        existing_processed_data = existing_train_data + existing_val_data
+
         # Merge processed data with existing processed data
         all_processed_data = existing_processed_data + processed_data
+
         deduplicated_processed_data = deduplicate_data(all_processed_data)
 
         # Save merged processed data
-        with open(args.processed_json, 'w') as f:
-            json.dump(deduplicated_processed_data, f, indent=2)
-        print(f"Updated processed data saved to {args.processed_json}")
+        # with open(args.processed_json, 'w') as f:
+        #     json.dump(deduplicated_processed_data, f, indent=2)
+        # print(f"Updated processed data saved to {args.processed_json}")
 
         # Determine sample counts
         if args.train_samples is None and args.val_samples is None:
@@ -459,17 +533,23 @@ def main():
             train_samples = args.train_samples if args.train_samples is not None else float('inf')
 
         # Update training and validation data
-        updated_train_data, val_data = incremental_update(
-            existing_train_data, existing_val_data, processed_data, train_samples, val_samples
-        )
+        # updated_train_data, val_data = incremental_update(
+        #     existing_train_data, existing_val_data, processed_data, train_samples, val_samples
+        # )
+
+        updated_train_data = updated_training_data(existing_processed_data, processed_data)
+        print(len(updated_train_data))
+        updated_train_data += existing_train_data
+        print(len(updated_train_data),len(existing_train_data))
+
 
         # Save updated data
         with open(args.train_json, 'w') as f:
             json.dump(updated_train_data, f, indent=2)
-        with open(args.val_json, 'w') as f:
-            json.dump(val_data, f, indent=2)
+        # with open(args.val_json, 'w') as f:
+        #     json.dump(val_data, f)
         print(f"Updated train data saved to {args.train_json}")
-        print(f"Updated validation data saved to {args.val_json}")
+        # print(f"Updated validation data saved to {args.val_json}")
 
     print("Data processing completed!")
 

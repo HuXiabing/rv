@@ -18,16 +18,16 @@ def main():
     parser = argparse.ArgumentParser(description="RISC-V Instruction Throughput Prediction Model Training")
 
     # Data arguments
-    parser.add_argument("--train_data", type=str, default="data/train_data.h5", help="Path to training data (HDF5)")
-    parser.add_argument("--val_data", type=str, default="data/val_data.h5", help="Path to validation data (HDF5)")
+    parser.add_argument("--train_data", type=str, default="data/train_data.json", help="Path to training data")
+    parser.add_argument("--val_data", type=str, default="data/val_data.json", help="Path to validation data")
 
     # Model arguments
     parser.add_argument("--model_type", type=str, default="transformer",
                         choices=["transformer", "lstm", "gnn"], help="Model type")
     parser.add_argument("--embed_dim", type=int, default=128, help="Embedding dimension")
     parser.add_argument("--hidden_dim", type=int, default=256, help="Hidden layer dimension")
-    parser.add_argument("--num_layers", type=int, default=4, help="Number of layers")
-    parser.add_argument("--num_heads", type=int, default=8, help="Number of attention heads (transformer only)")
+    # parser.add_argument("--num_layers", type=int, default=1, help="Number of layers")
+    # parser.add_argument("--num_heads", type=int, default=2, help="Number of attention heads (transformer only)")
     parser.add_argument("--dropout", type=float, default=0.1, help="Dropout probability")
 
     # Training arguments
@@ -38,7 +38,7 @@ def main():
     parser.add_argument("--patience", type=int, default=3, help="Early stopping patience")
     parser.add_argument("--clip_grad_norm", type=float, default=1.0, help="Gradient clipping threshold")
     parser.add_argument("--optimizer", type=str, default="adamw", choices=["adam", "adamw"], help="Optimizer")
-    parser.add_argument("--scheduler", type=str, default="plateau", choices=["plateau", "cosine", "step"],
+    parser.add_argument("--scheduler", type=str, default="cosine_warmup", choices=["plateau", "cosine", "cosine_warmup", "step"],
                         help="Learning rate scheduler")
 
     # Output arguments
@@ -55,14 +55,15 @@ def main():
 
     if args.device is None:
         args.device = "cuda" if torch.cuda.is_available() else "cpu"
+        print("Using device:", args.device)
 
     config = get_config(
         model_type=args.model_type,
         embed_dim=args.embed_dim,
         hidden_dim=args.hidden_dim,
-        num_layers=args.num_layers,
-        num_heads=args.num_heads,
-        dropout=args.dropout,
+        # num_layers=args.num_layers,
+        # num_heads=args.num_heads,
+        # dropout=args.dropout,
         lr=args.lr,
         weight_decay=args.weight_decay,
         batch_size=args.batch_size,
@@ -78,6 +79,7 @@ def main():
         scheduler=args.scheduler,
         seed=args.seed,
     )
+    print("config", config.num_layers)
 
     experiment_manager.save_config(config)
 
@@ -86,7 +88,10 @@ def main():
         args.train_data,
         batch_size=args.batch_size,
         shuffle=True,
-        num_workers=args.num_workers
+        num_workers=args.num_workers,
+        pin_memory = True,  # 使用pinned memory加速GPU传输
+        prefetch_factor = 2,  # 每个worker预加载的批次数
+        persistent_workers = True
     )
 
     val_loader = get_dataloader(
@@ -94,7 +99,10 @@ def main():
         args.val_data,
         batch_size=args.batch_size,
         shuffle=False,
-        num_workers=args.num_workers
+        num_workers=args.num_workers,
+        pin_memory=True,  # 使用pinned memory加速GPU传输
+        prefetch_factor=2,  # 每个worker预加载的批次数
+        persistent_workers=True
     )
 
     model = get_model(config)

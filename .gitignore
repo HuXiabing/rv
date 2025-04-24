@@ -7,3 +7,8 @@ data/*.h5
 random/
 cache/
 data/exp*
+data/k230/
+data/mca_u74/
+data/nanhu/
+data/starfive/
+data/u74/

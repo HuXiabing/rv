@@ -10,7 +10,10 @@ __all__ = ["get_dataloader",
 def get_dataloader(model_type, dataset_path: str,
                   batch_size: int = 32,
                   shuffle: bool = True,
-                  num_workers: int = 4) -> torch.utils.data.DataLoader:
+                  num_workers: int = 4,
+                  pin_memory=True,  # 使用pinned memory加速GPU传输
+                  prefetch_factor=2,  # 每个worker预加载的批次数
+                  persistent_workers=True) -> torch.utils.data.DataLoader:
     """
     Create a data loader
 
@@ -40,7 +43,10 @@ def get_dataloader(model_type, dataset_path: str,
             collate_fn=collate_fn_transformer,
             shuffle=shuffle,
             num_workers=num_workers,
-            pin_memory=True)
+            pin_memory=True,  # 使用pinned memory加速GPU传输
+            prefetch_factor=2,  # 每个worker预加载的批次数
+            persistent_workers=True
+        )
 
     elif model_type.lower() == "lstm":
         dataset = RNNDataset(dataset_path)
@@ -50,7 +56,10 @@ def get_dataloader(model_type, dataset_path: str,
             collate_fn=collate_fn_lstm,
             shuffle=shuffle,
             num_workers=num_workers,
-            pin_memory=True)
+            pin_memory=True,
+            prefetch_factor=2,  # 每个worker预加载的批次数
+            persistent_workers=True
+        )
 
     else:
         raise ValueError(f"Model type {model_type} not supported")

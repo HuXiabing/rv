@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.optim import Adam, AdamW
-from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR, StepLR
+from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR, StepLR, CosineAnnealingWarmRestarts
 from tqdm import tqdm
 from data import RISCVGraphDataset
 from utils.metrics import MapeLoss, BatchResult, correct_regression, compute_accuracy #,compute_regression_metrics
@@ -10,12 +10,11 @@ import os
 from utils.experiment import ExperimentManager
 from tqdm import tqdm
 import matplotlib.pyplot as plt
+from .earlystopping import EarlyStoppingCriterion
 
 class Trainer:
     def __init__(self, model, config, experiment_dir=None, experiment=None):
 
-        # super(RegressionTrainer, self).__init__(model, config, experiment_dir)
-        # super(RegressionTrainer, self).__init__()
         self.model = model
         self.config = config
         self.device = torch.device(config.device)
@@ -52,32 +51,28 @@ class Trainer:
         self.setup_scheduler()
 
         self.best_accuracy = 0.0
-        # self.accuracy_tolerance = getattr(config, 'accuracy_tolerance', 10.0)
         self.accuracy_tolerance = 25
 
-        # self.metric_fn = lambda y_true, y_pred: compute_regression_metrics(
-        #     y_true, y_pred, self.accuracy_tolerance
-        # )
         self.metric_fn = lambda y_true, y_pred: compute_accuracy(
             y_true, y_pred, self.accuracy_tolerance
         )
 
-    def setup_experiment(self, experiment_name=None, base_dir=None):
-
-        experiment_name = experiment_name or getattr(self.config, 'experiment_name', 'unnamed_experiment')
-        base_dir = base_dir or getattr(self.config, 'experiment_base_dir', 'experiments')
-
-        self.experiment = ExperimentManager(experiment_name, base_dir)
-        self.experiment.save_config(self.config)
-
-        return self.experiment
+    # def setup_experiment(self, experiment_name=None, base_dir=None):
+    #
+    #     experiment_name = experiment_name or getattr(self.config, 'experiment_name', 'unnamed_experiment')
+    #     base_dir = base_dir or getattr(self.config, 'experiment_base_dir', 'experiments')
+    #
+    #     self.experiment = ExperimentManager(experiment_name, base_dir)
+    #     self.experiment.save_config(self.config)
+    #
+    #     return self.experiment
 
     def setup_criterion(self):
 
         loss_type = getattr(self.config, 'loss_type', 'mape').lower()
+        print("Using loss type '{}'".format(loss_type))
 
         if loss_type == 'mape':
-            print("Using MAPE Loss")
             epsilon = getattr(self.config, 'loss_epsilon', 1e-5)
             self.criterion = MapeLoss(epsilon=epsilon)
         elif loss_type == 'mae' or loss_type == 'l1':
@@ -91,6 +86,7 @@ class Trainer:
     def setup_optimizer(self):
 
         optimizer_name = getattr(self.config, 'optimizer', 'adam').lower()
+        print("Using optimizer:", optimizer_name)
 
         if optimizer_name == 'adamw':
             self.optimizer = AdamW(
@@ -107,7 +103,8 @@ class Trainer:
 
     def setup_scheduler(self):
 
-        scheduler_name = getattr(self.config, 'scheduler', 'plateau').lower()
+        scheduler_name = getattr(self.config, 'scheduler', 'cosine_warmup').lower()
+        print("Using scheduler:", scheduler_name)
 
         if scheduler_name == 'cosine':
             self.scheduler = CosineAnnealingLR(
@@ -115,6 +112,9 @@ class Trainer:
                 T_max=self.config.epochs,
                 eta_min=self.config.lr / 100
             )
+        elif scheduler_name == 'cosine_warmup':
+            self.scheduler = CosineAnnealingWarmRestarts(
+                self.optimizer, T_0=10, T_mult=2, eta_min=self.config.lr / 100)
         elif scheduler_name == 'step':
             step_size = getattr(self.config, 'step_size', 10)
             gamma = getattr(self.config, 'gamma', 0.1)
@@ -142,12 +142,20 @@ class Trainer:
         # start_time = time.time()
         print(f"Starting training from epoch {self.start_epoch} to {num_epochs}")
 
+        early_stopping = EarlyStoppingCriterion(
+            train_val_diff_threshold=0.003,  # 训练集和验证集误差差异阈值
+            val_improvement_threshold=0.0001,  # 验证集改善阈值
+            patience=3,
+            verbose=True
+        )
+
+
         for epoch in range(self.start_epoch, num_epochs):
             self.current_epoch = epoch
 
             train_metrics, train_batch_result = self.train_epoch(train_loader)
 
-            val_metrics = self.validate(val_loader)
+            val_metrics, val_batch_result = self.validate(val_loader)
             """
                 metrics = {
                         "loss": avg_loss,
@@ -175,15 +183,25 @@ class Trainer:
             if (epoch + 1) % self.config.save_freq == 0 or is_best:
                 self._save_checkpoint(epoch, train_metrics, val_metrics, is_best)
 
-            loss_stats = {
+            train_loss_stats = {
+                "prefix": "train",
                 "instruction_avg_loss": train_batch_result.get_instruction_avg_loss(),
                 "instruction_counts": train_batch_result.instruction_counts,
                 "block_length_avg_loss": train_batch_result.get_block_length_avg_loss(),
                 "block_length_counts": train_batch_result.block_lengths_counts
             }
 
+            val_loss_stats = {
+                "prefix" : "val",
+                "instruction_avg_loss": val_batch_result.get_instruction_avg_loss(),
+                "instruction_counts": val_batch_result.instruction_counts,
+                "block_length_avg_loss": val_batch_result.get_block_length_avg_loss(),
+                "block_length_counts": val_batch_result.block_lengths_counts
+            }
+
             if hasattr(self, 'experiment') and self.experiment:
-                self.experiment.save_loss_stats(loss_stats, epoch)
+                self.experiment.save_loss_stats(train_loss_stats, epoch)
+                self.experiment.save_loss_stats(val_loss_stats, epoch)
                 # self.experiment.visualize_epoch_stats(loss_stats, epoch)
 
             print(f"Epoch {epoch }/{num_epochs} - "
@@ -195,8 +213,11 @@ class Trainer:
                 self._plot_progress()
 
             # early stopping
-            if self.early_stopping_counter >= self.config.patience and epoch > 10:
-                print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
+            # if self.early_stopping_counter >= self.config.patience and epoch > 10:
+            #     print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
+            #     break
+            if early_stopping(epoch, train_metrics['loss'], val_metrics['loss']):
+                print(f"Training would stop at epoch {epoch}")
                 break
 
         # training_time = time.time() - start_time
@@ -219,6 +240,7 @@ class Trainer:
         batch_result = BatchResult()
         progress_bar = tqdm(train_loader, desc=f"Epoch {self.current_epoch}/{self.config.epochs}")
 
+
         for batch in progress_bar:
             x = batch['X'].to(self.device)
             y = batch['Y'].to(self.device)
@@ -229,11 +251,14 @@ class Trainer:
             output = self.model(x)
             loss = self.criterion(output, y)  # [batch_size]
 
-            # for i in torch.where(loss > 10)[0]:
-            #     print("x:", x["x"][i])
-            #     print("y:", y)
-            #     print("output:", output)
-            #     print("loss:", loss)
+            # for i in torch.where(loss > 1)[0]:
+            #     with open("loss.txt", "a") as f:
+            #         log_content = f"x: {x[i]}\ny: {y}\noutput: {output}\nloss: {loss}\n"
+            #         f.write(log_content)
+                # print("x:", x["x"][i])
+                # print("y:", y)
+                # print("output:", output)
+                # print("loss:", loss)
 
             mean_loss = torch.mean(loss)
             mean_loss.backward()
@@ -315,11 +340,14 @@ class Trainer:
         total_samples = 0
         pred = []
         true = []
+        batch_result = BatchResult()
+        progress_bar = tqdm(val_loader, desc="Validating")
 
         with torch.no_grad():
-            for batch in tqdm(val_loader, desc="Validating"):
+            for batch in progress_bar:
                 x = batch['X'].to(self.device)
                 y = batch['Y'].to(self.device)
+                instruction_count = batch.get('instruction_count', None)
 
                 output = self.model(x)
                 loss = self.criterion(output, y)
@@ -329,21 +357,67 @@ class Trainer:
                 #     print("y:", y[i])
                 #     print("output:", output[i])
 
+                # collect batch statistics
+                if self.config.model_type in ['lstm', 'transformer']:
+                    for i in range(len(output)):  # batch size
+
+                        instructions = []  # record instruction type of each bb
+
+                        if instruction_count is not None:
+                            valid_count = instruction_count[i].item()
+
+                            for j in range(min(valid_count, self.config.max_instr_count)):
+                                # instructions = [73, 5, 24, 6, 30, 7, 4]
+
+                                if self.config.model_type == 'transformer':
+
+                                    instr_tokens = [t.item() for t in x['x'][i, j] if t.item() != 0]
+                                elif self.config.model_type == 'lstm':
+
+                                    instr_tokens = [t.item() for t in x[i, j] if t.item() != 0]
+                                if instr_tokens:
+                                    instructions.append(instr_tokens[0])
+                        batch_result.add_sample(
+                            prediction=output[i].item(),
+                            measured=y[i].item(),
+                            loss=loss[i].item(),
+                            instructions=instructions,
+                            block_len=instruction_count[i].item())
+
+                elif self.config.model_type == 'gnn':
+
+                    graph_list = batch['X'].to_data_list()
+                    for i, graph in enumerate(graph_list):
+                        batch_result.add_sample(
+                            prediction=output[i].item(),
+                            measured=y[i].item(),
+                            loss=loss[i].item(),
+                            instructions=graph.instruction_token_ids.tolist(),
+                            block_len=instruction_count[i].item())
+
+                else:
+                    raise ValueError(f"Unknown model type: {self.config.model_type}")
+
+                progress_bar.set_postfix({"loss": torch.mean(loss).item()})
+
+
                 total_loss += torch.sum(loss).item()
-                total_samples += len(x)
+                total_samples += len(y)
                 pred.extend(output.tolist())
                 true.extend(y.tolist())
 
+        metrics = batch_result.compute_metrics(self.accuracy_tolerance)
         avg_loss = total_loss / total_samples
+        print("avg_loss:", avg_loss, "metrics",metrics["loss"],metrics["accuracy"],"total_loss",total_loss,"total_samples",total_samples)
         current_accuracy = compute_accuracy(true, pred, self.accuracy_tolerance)
-        metrics = {
-            "loss": avg_loss,
-            "accuracy": current_accuracy
-        }
-        self.val_losses.append(avg_loss)
+        # metric = {
+        #     "loss": avg_loss,
+        #     "accuracy": current_accuracy
+        # }
+        self.val_losses.append(metrics["loss"])
 
         print(f"\nValidation Results - Epoch {epoch}:")
-        print(f"  Loss: {avg_loss:.6f}")
+        print(f"  Loss: {metrics['loss']:.6f}")
         print(f"  Accuracy: {current_accuracy:.6f}")
 
         # check if this epoch's validation is the best accuracy
@@ -354,7 +428,7 @@ class Trainer:
 
         self.experiment.log_metrics(metrics, epoch, prefix="val_")
 
-        return metrics
+        return metrics, batch_result
 
     def _save_checkpoint(self, epoch, train_metrics=None, val_metrics=None, is_best=False):
 

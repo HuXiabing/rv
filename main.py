@@ -35,6 +35,8 @@ def main():
 
     # resume training command
     resume_parser = subparsers.add_parser("resume", help="resume training from a checkpoint")
+    resume_parser.add_argument("--train_data", type=str, default="data/train_data.json", help="Path to training data")
+    resume_parser.add_argument("--val_data", type=str, default="data/val_data.json", help="Path to validation data")
     resume_parser.add_argument("--checkpoint", type=str, required=True, help="checkpoint path")
     resume_parser.add_argument("--additional_epochs", type=int, default=50, help="extra epochs")
     resume_parser.add_argument("--experiment_name", type=str, default=None, help="new experiment name")
@@ -94,6 +96,8 @@ def main():
         from scripts.resume_training import main as resume_main
         sys.argv = [sys.argv[0]] + [
             "--checkpoint", args.checkpoint,
+            "--train_data", args.train_data,
+            "--val_data", args.val_data,
             "--additional_epochs", str(args.additional_epochs),
             "--seed", str(args.seed)
         ]

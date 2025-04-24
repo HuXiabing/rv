@@ -199,6 +199,18 @@ class RISCVTokenizer:
         # and x12, x26, x26
         return [instr[0], '<D>', instr[1], '<S>', instr[2], instr[3], '<E>', '<PAD>']
 
+    def extract_register_parts(self, text):
+        """
+        8(x26) ->  (number, register) or None if the pattern doesn't match
+        """
+        pattern = r'(\d+)\(([^)]+)\)'
+        match = re.search(pattern, text)
+
+        if match:
+            return match.group(1), match.group(2)
+        else:
+            return None
+
     def iformat(self, instr):
         # andi x3, x5, 8
         return [instr[0], '<D>', instr[1], '<S>', instr[2], '<CONST>', '<E>', '<PAD>']
@@ -209,11 +221,14 @@ class RISCVTokenizer:
 
     def loadformat(self, instr):
         # ld x30, 8(x26)
-        return [instr[0], '<D>', instr[1], '<S>', '<ADDRESS>', '<E>', '<PAD>', '<PAD>']
+        _, reg = self.extract_register_parts(instr[-1])
+        return [instr[0], '<D>', instr[1], '<S>', '<ADDRESS>', reg, '<E>', '<PAD>']
 
     def storeformat(self, instr):
         # sd x30, 8(x26)
-        return [instr[0], '<D>', '<S>', instr[1], '<ADDRESS>', '<E>', '<PAD>', '<PAD>']
+        _, reg = self.extract_register_parts(instr[-1])
+
+        return [instr[0], '<D>', '<ADDRESS>', reg, '<S>', instr[1],  '<E>','<PAD>']
 
 
     def tokenize_instruction(self, instruction: str) -> List[str]:

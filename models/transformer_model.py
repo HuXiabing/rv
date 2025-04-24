@@ -49,10 +49,10 @@ class TransformerModel(nn.Module):
             num_instruction_layer=2,
             num_op_layer=config.num_layers,
             use_checkpoint=getattr(config, 'use_checkpoint', False),
-            use_layernorm=getattr(config, 'use_layernorm', True),
-            use_bb_attn=getattr(config, 'use_bb_attn', True),
-            use_seq_attn=getattr(config, 'use_seq_attn', True),
-            use_op_attn=getattr(config, 'use_op_attn', True),
+            use_layernorm=getattr(config, 'use_layernorm', False),
+            use_bb_attn=getattr(config, 'use_bb_attn', False),
+            use_seq_attn=getattr(config, 'use_seq_attn', False),
+            use_op_attn=getattr(config, 'use_op_attn', False),
             use_pos_2d=getattr(config, 'use_pos_2d', False),
             dropout=config.dropout,
             pred_drop=config.dropout,
@@ -74,19 +74,19 @@ class TransformerModel(nn.Module):
         return output
 
     def count_parameters(self) -> int:
-
+        print("dropout",self.config.dropout)
         return sum(p.numel() for p in self.parameters() if p.requires_grad)
 
 
 class DeepPM(nn.Module):
     """DeepPM model with Trasformer """
 
-    def __init__(self, dim=512, n_heads=8, dim_ff=2048,
-                 pad_idx=0, vocab_size=700,
-                 num_basic_block_layer=2,
-                 num_instruction_layer=2,
-                 num_op_layer=4, use_checkpoint=False, use_layernorm=False,
-                 use_bb_attn=True, use_seq_attn=True, use_op_attn=True,
+    def __init__(self, dim=128, n_heads=2, dim_ff=256,
+                 pad_idx=0, vocab_size=256,
+                 num_basic_block_layer=1,
+                 num_instruction_layer=0,
+                 num_op_layer=0, use_checkpoint=False, use_layernorm=False,
+                 use_bb_attn=False, use_seq_attn=False, use_op_attn=False,
                  use_pos_2d=False, dropout=None, pred_drop=0.0, activation='gelu', handle_neg=False):
         super().__init__()
 
@@ -309,33 +309,33 @@ class DeepPMOp(nn.Module):
         x = x.masked_fill(op_seq_mask.unsqueeze(-1), 0)
         return x
 
-class DeePPMTransformerEncoder(nn.Module):
-    def __init__(self, num_layers, dim, n_heads, dim_ff=2048, use_layernorm=False,
-                 layer_norm_eps=1e-05, dropout=None, use_checkpoint=False, activation='gelu', handle_neg=False):
-        super().__init__()
-
-        self.layers = nn.ModuleList(
-            [
-                DeepPMTransformerEncoderLayer(dim, n_heads, dim_ff,
-                                              use_layernorm=use_layernorm, layer_norm_eps=layer_norm_eps,
-                                              dropout=dropout,
-                                              activation=activation, handle_neg=handle_neg)
-                for _ in range(num_layers)
-            ]
-        )
-
-        self.use_checkpoint = use_checkpoint
-        if self.use_checkpoint:
-            device = get_device(should_print=False)
-            self.dummy = torch.zeros(1, requires_grad=True, device=device)
-
-    def forward(self, src, src_key_padding_mask=None, weighted_attn=None):
-        for block in self.layers:
-            if self.use_checkpoint:
-                output = checkpoint(method_dummy_wrapper(block), self.dummy, src, src_key_padding_mask, weighted_attn)
-            else:
-                output = block(src, src_key_padding_mask, weighted_attn)
-        return output
+# class DeePPMTransformerEncoder(nn.Module):
+#     def __init__(self, num_layers, dim, n_heads, dim_ff=2048, use_layernorm=False,
+#                  layer_norm_eps=1e-05, dropout=None, use_checkpoint=False, activation='gelu', handle_neg=False):
+#         super().__init__()
+#
+#         self.layers = nn.ModuleList(
+#             [
+#                 DeepPMTransformerEncoderLayer(dim, n_heads, dim_ff,
+#                                               use_layernorm=use_layernorm, layer_norm_eps=layer_norm_eps,
+#                                               dropout=dropout,
+#                                               activation=activation, handle_neg=handle_neg)
+#                 for _ in range(num_layers)
+#             ]
+#         )
+#
+#         self.use_checkpoint = use_checkpoint
+#         if self.use_checkpoint:
+#             device = get_device(should_print=False)
+#             self.dummy = torch.zeros(1, requires_grad=True, device=device)
+#
+#     def forward(self, src, src_key_padding_mask=None, weighted_attn=None):
+#         for block in self.layers:
+#             if self.use_checkpoint:
+#                 output = checkpoint(method_dummy_wrapper(block), self.dummy, src, src_key_padding_mask, weighted_attn)
+#             else:
+#                 output = block(src, src_key_padding_mask, weighted_attn)
+#         return output
 
 class DeepPMTransformerEncoderLayer(nn.Module):
     def __init__(self, dim, n_heads, dim_ff=2048, use_layernorm=False, layer_norm_eps=1e-05, dropout=None,

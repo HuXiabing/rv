@@ -1,7 +1,7 @@
 from .trainer import Trainer
-from .checkpoint import CheckpointManager
+from .earlystopping import EarlyStoppingCriterion
 
 __all__ = [
     'Trainer',
-    'CheckpointManager'
+    'EarlyStoppingCriterion'
 ]

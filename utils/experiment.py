@@ -6,6 +6,7 @@ import shutil
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Union
 import torch
+import collections
 
 class ExperimentManager:
 
@@ -208,7 +209,58 @@ class ExperimentManager:
                                        if value in loss_stats["instruction_avg_loss"]}
         loss_stats["type_counts"] = {key: loss_stats["instruction_counts"][value] for key, value in token.items()
                                      if value in loss_stats["instruction_counts"]}
-        import collections
+
+        instr_categories = {
+            # Arithmetic
+            'add': 'arithmetic', 'addi': 'arithmetic',
+            'addw': 'arithmetic', 'addiw': 'arithmetic',
+            'sub': 'arithmetic', 'subw': 'arithmetic',
+            'lui': 'arithmetic', 'auipc': 'arithmetic', # 8
+
+            # Shifts
+            'sll': 'shifts', 'sllw': 'shifts',
+            'slli': 'shifts', 'slliw': 'shifts',
+            'srl': 'shifts', 'srlw': 'shifts',
+            'srli': 'shifts', 'srliw': 'shifts',
+            'sra': 'shifts', 'sraw': 'shifts',
+            'srai': 'shifts', 'sraiw': 'shifts',  # 12
+
+            # Logical
+            'or': 'logical', 'ori': 'logical',
+            'xor': 'logical', 'xori': 'logical',
+            'and': 'logical', 'andi': 'logical', # 6
+
+            # Comparison instructions
+            'slt': 'compare', 'slti': 'compare', 'sltu': 'compare', 'sltiu': 'compare',  # 4
+
+            # Multiplication
+            'mul': 'mul', 'mulh': 'mul', 'mulhu': 'mul', 'mulhsu': 'mul', 'mulw': 'mul', # 5
+
+            # Division
+            'div': 'div', 'divu': 'div', 'divw': 'div', 'divuw': 'div', # 4
+
+            # Remainder
+            'rem': 'rem', 'remu': 'rem', 'remw': 'rem', 'remuw': 'rem', # 4
+
+            # Load instructions
+            'lb': 'load', 'lh': 'load', 'lw': 'load', 'ld': 'load',
+            'lbu': 'load', 'lhu': 'load', 'lwu': 'load',  # 7
+
+            # Store instructions
+            'sb': 'store', 'sh': 'store', 'sw': 'store', 'sd': 'store' # 4
+        }
+        type_order = ['arithmetic', 'shifts', 'logical', 'compare', 'mul', 'div', 'rem', 'load', 'store']
+        # Initialize category loss and count accumulators
+        loss_stats["category_loss_sum"] = {cat: 0.0 for cat in type_order}
+        loss_stats["category_count_sum"] = {cat: 0 for cat in type_order}
+
+        # Aggregate loss and counts by category
+        for instr, loss in loss_stats['type_avg_loss'].items():
+            category = instr_categories.get(instr)
+            if category and category in type_order:
+                count = loss_stats['type_counts'].get(instr, 1)
+                loss_stats["category_loss_sum"][category] += loss
+                loss_stats["category_count_sum"][category] += count
 
         # 对 block_length_avg_loss 进行排序并保留字典结构
         loss_stats["block_length_avg_loss_sorted"] = collections.OrderedDict(
@@ -223,7 +275,7 @@ class ExperimentManager:
         stats_dir = os.path.join(self.experiment_dir, "statistics")
         os.makedirs(stats_dir, exist_ok=True)
 
-        stats_path = os.path.join(stats_dir, f"loss_stats_epoch_{epoch + 1}.json")
+        stats_path = os.path.join(stats_dir, f"{loss_stats['prefix']}_loss_stats_epoch_{epoch + 1}.json")
 
         with open(stats_path, 'w') as f:
             json.dump(loss_stats, f, indent=4)

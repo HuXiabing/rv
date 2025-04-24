@@ -1,39 +1,93 @@
 #!/bin/bash
+# Usage: ./run_llvm_mca.sh [input_json] [output_json]
 
-# 默认值 ./run_llvm_mca.sh [-i my_asm_folder] [-o my_output_folder]
-DEFAULT_ASM_DIR="random_generate/asm"
-DEFAULT_OUTPUT_DIR="random_generate/mca"
+# Default values
+DEFAULT_INPUT_JSON="./random_generate/asm.json"
+DEFAULT_OUTPUT_JSON="./random_generate/mca.json"
 
-rm -rf $DEFAULT_OUTPUT_DIR
-mkdir -p $DEFAULT_OUTPUT_DIR
+# Check parameters and set input/output files
+if [ $# -eq 0 ]; then
+    INPUT_JSON="$DEFAULT_INPUT_JSON"
+    OUTPUT_JSON="$DEFAULT_OUTPUT_JSON"
+elif [ $# -eq 1 ]; then
+    INPUT_JSON="$1"
+    OUTPUT_JSON="$DEFAULT_OUTPUT_JSON"
+elif [ $# -eq 2 ]; then
+    INPUT_JSON="$1"
+    OUTPUT_JSON="$2"
+else
+    echo "Error: Too many parameters"
+    echo "Usage: $0 [input_json] [output_json]"
+    exit 1
+fi
 
-# 解析命令行参数
-while getopts "i:o:" opt; do
-  case $opt in
-    i) ASM_DIR="$OPTARG" ;;
-    o) OUTPUT_DIR="$OPTARG" ;;
-    *) echo "Usage: $0 [-i input_dir] [-o output_dir]"; exit 1 ;;
-  esac
-done
+TEMP_DIR=$(mktemp -d)
+TEMP_ASM="$TEMP_DIR/temp.S"
 
-# 如果没有提供输入文件夹，则使用默认值
-ASM_DIR="${ASM_DIR:-$DEFAULT_ASM_DIR}"
-# 如果没有提供输出文件夹，则使用默认值
-OUTPUT_DIR="${OUTPUT_DIR:-$DEFAULT_OUTPUT_DIR}"
-
-# 确保输出文件夹存在
+# Ensure output directory exists
+OUTPUT_DIR=$(dirname "$OUTPUT_JSON")
 mkdir -p "$OUTPUT_DIR"
 
-# 遍历输入文件夹下的所有 .S 文件
-for file in "$ASM_DIR"/*.S; do
-    # 获取文件名（不带路径）
-    filename=$(basename "$file" .S)
-    # 定义输出文件路径
-    output_file="$OUTPUT_DIR/$filename.S.txt"
-    # 执行 llvm-mca 命令，并将结果重定向到输出文件
-    /mnt/d/riscv/bin/llvm-mca -mcpu=xiangshan-nanhu -iterations=1000 "$file" > "$output_file"
-    # 打印处理信息
-    echo "Processed $file -> $output_file"
+# Clean up temporary files on exit
+trap 'rm -rf "$TEMP_DIR"' EXIT
+
+# Check if input file exists
+if [ ! -f "$INPUT_JSON" ]; then
+    echo "Error: Input file '$INPUT_JSON' does not exist"
+    exit 1
+fi
+
+# Check if llvm-mca is executable
+if ! command -v /mnt/d/riscv/bin/llvm-mca &> /dev/null; then
+    echo "Error: '/mnt/d/riscv/bin/llvm-mca' does not exist or is not executable"
+    exit 1
+fi
+
+# Initialize output JSON
+echo "[" > "$OUTPUT_JSON"
+first_entry=true
+
+# Parse JSON input using jq (must be installed)
+if ! command -v jq &> /dev/null; then
+    echo "Error: 'jq' is required but not installed. Please install jq first."
+    exit 1
+fi
+
+# Get total number of entries
+total_entries=$(jq '. | length' "$INPUT_JSON")
+echo "Found $total_entries entries to process..."
+
+# Process each entry
+for i in $(seq 0 $(($total_entries - 1))); do
+    # Extract asm content
+    asm_content=$(jq -r ".[$i].asm" "$INPUT_JSON")
+
+    # Write asm to temporary file
+    echo -e "$asm_content" > "$TEMP_ASM"
+
+    # Run llvm-mca
+    mca_output=$(/mnt/d/riscv/bin/llvm-mca -mcpu=sifive-u74 -iterations=1000 --instruction-info=0 -resource-pressure=0 "$TEMP_ASM" 2>&1)
+
+    # Check if command was successful
+    if [ $? -ne 0 ]; then
+        mca_output="Error running llvm-mca: $mca_output"
+    fi
+
+    # Add comma separator if not the first entry
+    if [ "$first_entry" = false ]; then
+        echo "," >> "$OUTPUT_JSON"
+    fi
+    first_entry=false
+
+    # Write result to output JSON
+    jq -n --arg asm "$asm_content" --arg mca "$mca_output" \
+       '{"asm": $asm, "mca_result": $mca}' >> "$OUTPUT_JSON"
+
+#    echo "Processed entry $((i+1))/$total_entries"
 done
 
-echo "All files processed. Input directory: $ASM_DIR, Output directory: $OUTPUT_DIR"
+# Close the JSON array
+echo "]" >> "$OUTPUT_JSON"
+
+echo "Processing complete. Results saved to $OUTPUT_JSON"
+exit 0

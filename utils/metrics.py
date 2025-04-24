@@ -97,14 +97,14 @@ class BatchResult:
                 for count in [self.block_lengths_counts.get(block_len, 1)]
                 if count > 0}
 
-    def compute_metrics(self, tolerances=25):
+    def compute_metrics(self, tolerance=25):
         y_true = np.array(self.measured)
         y_pred = np.array(self.prediction)
         print("y_true", len(y_pred))
 
         metrics = {}
 
-        metrics["accuracy"] = compute_accuracy(y_true, y_pred, tolerances)
+        metrics["accuracy"] = compute_accuracy(y_true, y_pred, tolerance)
         metrics["loss"] = self.loss
 
         metrics["instruction_avg_loss"] = self.get_instruction_avg_loss()

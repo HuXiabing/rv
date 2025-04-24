@@ -20,14 +20,14 @@ def main():
     parser = argparse.ArgumentParser(description="resume training from a checkpoint")
     
     parser.add_argument("--checkpoint", type=str, required=True, help="checkpoint path")
-    parser.add_argument("--train_data", type=str, default="data/train_data.h5", help="Path to training data(HDF5)")
-    parser.add_argument("--val_data", type=str, default="data/val_data.h5", help="Path to validation data(HDF5)")
+    parser.add_argument("--train_data", type=str, default="data/train_data.json", help="Path to training data(HDF5)")
+    parser.add_argument("--val_data", type=str, default="data/val_data.json", help="Path to validation data(HDF5)")
     parser.add_argument("--additional_epochs", type=int, default=10, help="extra training epochs")
     parser.add_argument("--experiment_name", type=str, help="new experiment name")
 
     parser.add_argument("--seed", type=int, default=42, help="Random seed.")
     parser.add_argument("--device", type=str, default=None, help="Device to run on.")
-    parser.add_argument("--num_workers", type=int, default=1, help="Number of data loading threads.")
+    parser.add_argument("--num_workers", type=int, default=4, help="Number of data loading threads.")
     
     args = parser.parse_args()
 
@@ -86,9 +86,11 @@ def main():
     
     if hasattr(trainer, 'optimizer') and 'optimizer_state' in checkpoint:
         trainer.optimizer.load_state_dict(checkpoint['optimizer_state'])
+        print("Loaded the optimizer state from the previous model")
     
     if hasattr(trainer, 'scheduler') and 'scheduler_state' in checkpoint:
         trainer.scheduler.load_state_dict(checkpoint['scheduler_state'])
+        print("Loaded the scheduler state from the previous model")
     
     trainer.start_epoch = checkpoint.get('epoch', 0) + 1
     trainer.global_step = checkpoint.get('global_step', 0)

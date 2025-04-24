@@ -7,6 +7,9 @@ import sys
 import argparse
 import glob
 from pathlib import Path
+
+from pandas.tests.tools.test_to_datetime import epochs
+
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 import torch
 from config import get_config
@@ -66,7 +69,7 @@ def main():
     # Other Parameters
     parser.add_argument("--seed", type=int, default=42, help="Random seed.")
     parser.add_argument("--device", type=str, default=None, help="Device to run on.")
-    parser.add_argument("--num_workers", type=int, default=1, help="Number of data loading threads.")
+    parser.add_argument("--num_workers", type=int, default=4, help="Number of data loading threads.")
 
     args = parser.parse_args()
 
@@ -111,6 +114,7 @@ def main():
     experiment_manager.save_config(config)
 
     model = get_model(config)
+    print("gnn num_layers:", config.num_layers)
 
     model_state_dict = model.state_dict()
     for name, param in checkpoint['model_state'].items():
@@ -155,12 +159,18 @@ def main():
     else:
         print("Using a newly initialized optimizer")
 
+    if hasattr(trainer, 'scheduler') and 'scheduler_state' in checkpoint:
+        trainer.scheduler.load_state_dict(checkpoint['scheduler_state'])
+        print("Loaded the scheduler state from the original model")
+
+
     # Start Incremental Training
     # print(f"Training data: {args.train_data}, Number of samples: {len(train_loader.dataset)}")
     # print(f"Validation data: {args.val_data}, Number of samples: {len(val_loader.dataset)}")
     experiment_manager.start(args.train_data, args.val_data, train_loader.dataset, val_loader.dataset)
+    epoch = args.epochs
 
-    history = trainer.train(train_loader, val_loader)
+    history = trainer.train(train_loader, val_loader, epoch)
 
     experiment_manager.history = history
     experiment_manager.save_history()

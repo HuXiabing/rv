@@ -16,8 +16,8 @@ class Config:
         # model parameters
         embed_dim: int = 128,
         hidden_dim: int = 256,
-        num_layers: int = 4,
-        num_heads: int = 8,
+        num_layers: int = 1,
+        num_heads: int = 2,
         dropout: float = 0.1,
         
         # training parameters
