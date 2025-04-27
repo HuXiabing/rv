@@ -130,7 +130,42 @@ def random_scheduling(program: Program, limit=1000, plot=False):
         new_prog.insts = order
         yield new_prog
 
+def riscv_asm_to_hex(assembly_code):
+    import subprocess
+    import tempfile
+    import os
+    with tempfile.NamedTemporaryFile(suffix='.s', delete=False) as asm_file:
+        asm_file.write(assembly_code.encode())
+        asm_file_name = asm_file.name
 
+    obj_file_name = asm_file_name + '.o'
+
+    try:
+        subprocess.run(['riscv64-unknown-linux-gnu-as', '-march=rv64g', asm_file_name, '-o', obj_file_name], check=True, stderr=subprocess.DEVNULL)
+
+        result = subprocess.run(['riscv64-unknown-linux-gnu-objdump', '-d', obj_file_name],
+                                capture_output=True, text=True, check=True)
+
+        hex_codes = []
+        for line in result.stdout.splitlines():
+            if ':' in line:
+                parts = line.split('\t')
+                if len(parts) > 1:
+                    hex_part = parts[1].strip()
+                    if hex_part:
+                        hex_codes.append(hex_part)
+
+        return " ".join(hex_codes)
+
+    except subprocess.CalledProcessError as e:
+        print(f"Error during compilation: {e}")
+        return None
+    finally:
+        if os.path.exists(asm_file_name):
+            os.remove(asm_file_name)
+        if os.path.exists(obj_file_name):
+            os.remove(obj_file_name)
+import json
 def transform_for_random_scheduling(filepath, output_path='', limit=1000):
     # read file
     INFO(f'transform [{filepath}]')
@@ -144,7 +179,13 @@ def transform_for_random_scheduling(filepath, output_path='', limit=1000):
     INFO(f'<Block>:\n{content}')
     prog = parse_program(content)
     i = 0
+    blocks = []
     for new_prog in random_scheduling(prog, limit):
-        write_to_file(f'{output_path}-{i}.S', new_prog.code, append=False)
+        # write_to_file(f'{output_path}-{i}.S', new_prog.code, append=False)
+        blocks.append({"asm": new_prog.code,
+                       "binary": riscv_asm_to_hex(new_prog.code)})
         i += 1
+    print(blocks)
+    with open(f'{output_path}.json', 'w') as file:
+        json.dump(blocks, file, indent=2)
     print(f'Successfully generate {i} files ({output_path}-*.S).')

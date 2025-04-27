@@ -57,16 +57,6 @@ class Trainer:
             y_true, y_pred, self.accuracy_tolerance
         )
 
-    # def setup_experiment(self, experiment_name=None, base_dir=None):
-    #
-    #     experiment_name = experiment_name or getattr(self.config, 'experiment_name', 'unnamed_experiment')
-    #     base_dir = base_dir or getattr(self.config, 'experiment_base_dir', 'experiments')
-    #
-    #     self.experiment = ExperimentManager(experiment_name, base_dir)
-    #     self.experiment.save_config(self.config)
-    #
-    #     return self.experiment
-
     def setup_criterion(self):
 
         loss_type = getattr(self.config, 'loss_type', 'mape').lower()
@@ -139,12 +129,11 @@ class Trainer:
         if resume:
             self._resume_checkpoint(checkpoint_path)
 
-        # start_time = time.time()
         print(f"Starting training from epoch {self.start_epoch} to {num_epochs}")
 
         early_stopping = EarlyStoppingCriterion(
-            train_val_diff_threshold=0.003,  # 训练集和验证集误差差异阈值
-            val_improvement_threshold=0.0001,  # 验证集改善阈值
+            train_val_diff_threshold=0.003,
+            val_improvement_threshold=0.0001,
             patience=3,
             verbose=True
         )

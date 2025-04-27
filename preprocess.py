@@ -14,6 +14,8 @@ import json
 from pathlib import Path
 import numpy as np
 import h5py
+from sympy.core.random import shuffle
+from torchgen.api.types import iTensorListRefT
 from tqdm import tqdm
 import random
 
@@ -129,9 +131,9 @@ def generate_json_mca(cycle_jsons):
     """Generate JSON data from ASM and cycle directories"""
     all_results = []
     for cycle_json in cycle_jsons:
-        with open('./random_generate/'+cycle_json, 'r') as f:
+        with open(cycle_json, 'r') as f:
             data = json.load(f)
-        print(len(data))
+        # print(len(data))
         for entry in data:
             # print(entry['mca_result'])
             for row in entry['mca_result'].split("\n"):
@@ -170,11 +172,11 @@ def generate_json(cycle_jsons):
                 "throughput": throughput})
     return all_results
 # ===== Functions from preprocess.py and incremental_preprocess.py =====
-def process_data(raw_data, tokenizer,seed=71): # 4516
+def process_data(raw_data, tokenizer, seed = 71, shuffle = True): # 4516
     """Process raw data to add tokenization and encoding"""
     processed_data = []
 
-    for item in tqdm(raw_data, desc="Processing data"):
+    for idx, item in enumerate(tqdm(raw_data, desc="Processing data")):
         instructions = item["instructions"]
         throughput = item["throughput"]
 
@@ -203,13 +205,15 @@ def process_data(raw_data, tokenizer,seed=71): # 4516
             "tokenized": tokenized_instructions,
             "encoded": encoded_instructions,
             "throughput": throughput,
-            "num_instructions": len(instructions)
+            "num_instructions": len(instructions),
+            "id": idx,
         }
 
         processed_data.append(processed_item)
     processed_data_copy = processed_data.copy()
-    random.seed(seed)
-    random.shuffle(processed_data_copy)
+    if shuffle == True:
+        random.seed(seed)
+        random.shuffle(processed_data_copy)
     return processed_data_copy
 
 

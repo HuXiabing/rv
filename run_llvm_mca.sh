@@ -38,7 +38,7 @@ if [ ! -f "$INPUT_JSON" ]; then
 fi
 
 # Check if llvm-mca is executable
-if ! command -v /mnt/d/riscv/bin/llvm-mca &> /dev/null; then
+if ! command -v llvm-mca &> /dev/null; then
     echo "Error: '/mnt/d/riscv/bin/llvm-mca' does not exist or is not executable"
     exit 1
 fi
@@ -66,7 +66,7 @@ for i in $(seq 0 $(($total_entries - 1))); do
     echo -e "$asm_content" > "$TEMP_ASM"
 
     # Run llvm-mca
-    mca_output=$(/mnt/d/riscv/bin/llvm-mca -mcpu=sifive-u74 -iterations=1000 --instruction-info=0 -resource-pressure=0 "$TEMP_ASM" 2>&1)
+    mca_output=$(llvm-mca -mcpu=sifive-u74 -iterations=1000 --instruction-info=0 -resource-pressure=0 "$TEMP_ASM" 2>&1)
 
     # Check if command was successful
     if [ $? -ne 0 ]; then

@@ -1,0 +1,51 @@
+[
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\naddi x18, x9, 0\naddi x9, x16, 0\naddiw x12, x12, 48\nauipc x1, 0xffd64",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      38004\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.29\nIPC:               0.29\nCycles Per Block:  38.00\nBlock RThroughput: 33.0"
+}
+,
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\naddi x18, x9, 0\naddi x9, x16, 0\nauipc x1, 0xffd64\naddiw x12, x12, 48",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      38004\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.29\nIPC:               0.29\nCycles Per Block:  38.00\nBlock RThroughput: 33.0"
+}
+,
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\naddi x18, x9, 0\naddiw x12, x12, 48\naddi x9, x16, 0\nauipc x1, 0xffd64",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      38004\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.29\nIPC:               0.29\nCycles Per Block:  38.00\nBlock RThroughput: 33.0"
+}
+,
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\naddi x18, x9, 0\naddiw x12, x12, 48\nauipc x1, 0xffd64\naddi x9, x16, 0",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      39003\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.28\nIPC:               0.28\nCycles Per Block:  39.00\nBlock RThroughput: 33.0"
+}
+,
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\naddi x18, x9, 0\nauipc x1, 0xffd64\naddi x9, x16, 0\naddiw x12, x12, 48",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      38004\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.29\nIPC:               0.29\nCycles Per Block:  38.00\nBlock RThroughput: 33.0"
+}
+,
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\naddi x18, x9, 0\nauipc x1, 0xffd64\naddiw x12, x12, 48\naddi x9, x16, 0",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      39003\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.28\nIPC:               0.28\nCycles Per Block:  39.00\nBlock RThroughput: 33.0"
+}
+,
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\naddiw x12, x12, 48\naddi x18, x9, 0\naddi x9, x16, 0\nauipc x1, 0xffd64",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      38004\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.29\nIPC:               0.29\nCycles Per Block:  38.00\nBlock RThroughput: 33.0"
+}
+,
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\naddiw x12, x12, 48\naddi x18, x9, 0\nauipc x1, 0xffd64\naddi x9, x16, 0",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      39003\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.28\nIPC:               0.28\nCycles Per Block:  39.00\nBlock RThroughput: 33.0"
+}
+,
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\naddiw x12, x12, 48\nauipc x1, 0xffd64\naddi x18, x9, 0\naddi x9, x16, 0",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      39003\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.28\nIPC:               0.28\nCycles Per Block:  39.00\nBlock RThroughput: 33.0"
+}
+,
+{
+  "asm": "addiw x16, x9, 1\nremw x12, x16, x22\nslt x14, x23, x9\naddi x15, x0, 0\naddi x13, x0, 1\naddi x11, x26, -1824\naddi x10, x20, 0\nauipc x1, 0xffd64\naddi x18, x9, 0\naddi x9, x16, 0\naddiw x12, x12, 48",
+  "mca_result": "Iterations:        1000\nInstructions:      11\nTotal Insts:       11000\nTotal Cycles:      38004\nTotal uOps:        11000\n\nDispatch Width:    2\nuOps Per Cycle:    0.29\nIPC:               0.29\nCycles Per Block:  38.00\nBlock RThroughput: 33.0"
+}
+]
