@@ -14,3 +14,5 @@ data/starfive/
 data/u74/
 mca.json
 inference.json
+data/u54/*
+data/xiangshan/*
