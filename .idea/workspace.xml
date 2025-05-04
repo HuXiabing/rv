@@ -5,11 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e481e3f-ccd3-40d5-a0f4-3acb0f7b9d04" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/gnn_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/gnn_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/tokenizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/tokenizer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fuzzer.py" beforeDir="false" afterPath="$PROJECT_DIR$/fuzzer/fuzzer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mca.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/lstm_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/lstm_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_llvm_mca.sh" beforeDir="false" afterPath="$PROJECT_DIR$/run_llvm_mca.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rvmca/trans/sched.py" beforeDir="false" afterPath="$PROJECT_DIR$/rvmca/trans/sched.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/incremental_training.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/incremental_training.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainers/earlystopping.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainers/earlystopping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trainers/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/trainers/trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/experiment.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/experiment.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/metrics.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,38 +53,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Python tests in test.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.fuzzer.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.generate_bb.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.json_gen.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.main.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.merge_h5.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.test.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.tokenizer.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/rv/data/exp3&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Python tests in test.py.executor": "Run",
+    "Python.fuzzer.executor": "Debug",
+    "Python.generate_bb.executor": "Debug",
+    "Python.json_gen.executor": "Debug",
+    "Python.main.executor": "Debug",
+    "Python.merge_h5.executor": "Debug",
+    "Python.test.executor": "Debug",
+    "Python.tokenizer.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/mnt/data/rv/fuzzer",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fuzzer" />
       <recent name="D:\rv\data\exp3" />
       <recent name="D:\rv\data\exp2" />
       <recent name="D:\rv\experiments" />
       <recent name="D:\rv" />
-      <recent name="D:\rv\rvmca" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/fuzzer" />
+      <recent name="$PROJECT_DIR$/data/xiangshan" />
       <recent name="D:\rv\data\exp3" />
       <recent name="D:\rv\random_generate" />
       <recent name="D:\rv\data" />
@@ -92,7 +107,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fuzzer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fuzzer/fuzzer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -252,7 +267,10 @@
       <workItem from="1745371650353" duration="10000" />
       <workItem from="1745371777931" duration="6000" />
       <workItem from="1745477015265" duration="5195000" />
-      <workItem from="1745571438338" duration="8601000" />
+      <workItem from="1745571438338" duration="21757000" />
+      <workItem from="1745913924867" duration="4671000" />
+      <workItem from="1745975426002" duration="3059000" />
+      <workItem from="1746069617362" duration="33756000" />
     </task>
     <servers />
   </component>
@@ -285,7 +303,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/data/gnn_dataset.py</url>
-          <line>317</line>
+          <line>312</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -298,9 +316,13 @@
           <option name="timeStamp" value="50" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/fuzzer.py</url>
-          <line>736</line>
+          <url>file://$PROJECT_DIR$/fuzzer/fuzzer.py</url>
+          <line>734</line>
           <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/data/tokenizer.py</url>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

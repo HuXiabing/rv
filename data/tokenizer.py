@@ -2,7 +2,6 @@ import re
 import torch
 import os
 from typing import List, Dict, Any, Optional
-from collections import Counter
 
 class RISCVTokenizer:
     """RISC-V tokenizer with custom tokenization and vocabulary"""

@@ -172,16 +172,3 @@ def save_dict_to_file(data: Dict[int, float], file_path: str) -> None:
     with open(file_path, 'w') as file:
         for key, value in data.items():
             file.write(f'{key}: {value}\n')
-
-
-def save_vector_to_file(vector: List[float], file_path: str) -> None:
-    """
-    将向量保存到文本文件
-
-    Args:
-        vector: 要保存的向量
-        file_path: 保存的文件路径
-    """
-    os.makedirs(os.path.dirname(file_path), exist_ok=True)
-    with open(file_path, 'w') as file:
-        file.write(f'{vector}\n')

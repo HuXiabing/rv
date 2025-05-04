@@ -12,10 +12,6 @@ import sys
 import argparse
 import json
 from pathlib import Path
-import numpy as np
-import h5py
-from sympy.core.random import shuffle
-from torchgen.api.types import iTensorListRefT
 from tqdm import tqdm
 import random
 

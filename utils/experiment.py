@@ -2,7 +2,6 @@ import os
 import json
 import time
 import logging
-import shutil
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Union
 import torch

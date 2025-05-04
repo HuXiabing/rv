@@ -27,7 +27,7 @@ def main():
                               choices=["transformer", "gnn", "lstm"], help="Model type")
     train_parser.add_argument("--train_data", type=str, default="data/train_data.json", help="Path to training data")
     train_parser.add_argument("--val_data", type=str, default="data/val_data.json", help="Path to validation data")
-    train_parser.add_argument("--batch_size", type=int, default=8, help="Batch size")
+    train_parser.add_argument("--batch_size", type=int, default=4, help="Batch size")
     train_parser.add_argument("--epochs", type=int, default=50, help="Number of epochs")
     train_parser.add_argument("--lr", type=float, default=2e-5, help="Learning rate")
     train_parser.add_argument("--output_dir", type=str, default="experiments", help="Output directory")
@@ -53,7 +53,7 @@ def main():
     incremental_parser.add_argument("--val_data", type=str, default="data/val_data.json",
                                     help="Path to the validation data.")
     incremental_parser.add_argument("--epochs", type=int, default=50, help="Number of epochs for incremental training.")
-    incremental_parser.add_argument("--batch_size", type=int, default=8, help="Batch size.")
+    incremental_parser.add_argument("--batch_size", type=int, default=4, help="Batch size.")
     incremental_parser.add_argument("--lr", type=float, default=3e-6,
                                     help="Learning rate, typically smaller than the initial learning rate.")
     incremental_parser.add_argument("--output_dir", type=str, default="experiments",

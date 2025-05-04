@@ -12,3 +12,5 @@ data/mca_u74/
 data/nanhu/
 data/starfive/
 data/u74/
+mca.json
+inference.json

@@ -2,14 +2,13 @@ import torch
 import torch.nn as nn
 from torch.optim import Adam, AdamW
 from torch.optim.lr_scheduler import ReduceLROnPlateau, CosineAnnealingLR, StepLR, CosineAnnealingWarmRestarts
-from tqdm import tqdm
-from data import RISCVGraphDataset
 from utils.metrics import MapeLoss, BatchResult, correct_regression, compute_accuracy #,compute_regression_metrics
 import time
 import os
-from utils.experiment import ExperimentManager
 from tqdm import tqdm
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')  # 使用非交互式后端
 from .earlystopping import EarlyStoppingCriterion
 
 class Trainer:
@@ -132,9 +131,8 @@ class Trainer:
         print(f"Starting training from epoch {self.start_epoch} to {num_epochs}")
 
         early_stopping = EarlyStoppingCriterion(
-            train_val_diff_threshold=0.003,
-            val_improvement_threshold=0.0001,
-            patience=3,
+            val_improvement_threshold=0.001,
+            patience=2,
             verbose=True
         )
 
@@ -397,7 +395,7 @@ class Trainer:
 
         metrics = batch_result.compute_metrics(self.accuracy_tolerance)
         avg_loss = total_loss / total_samples
-        print("avg_loss:", avg_loss, "metrics",metrics["loss"],metrics["accuracy"],"total_loss",total_loss,"total_samples",total_samples)
+        # print("avg_loss:", avg_loss, "metrics",metrics["loss"],metrics["accuracy"],"total_loss",total_loss,"total_samples",total_samples)
         current_accuracy = compute_accuracy(true, pred, self.accuracy_tolerance)
         # metric = {
         #     "loss": avg_loss,
@@ -511,6 +509,7 @@ class Trainer:
         epochs = list(range(1, len(self.train_losses) + 1))
 
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
+
         ax1.plot(epochs, self.train_losses, label='Train Loss')
         if self.val_losses:
             val_epochs = epochs[:len(self.val_losses)]

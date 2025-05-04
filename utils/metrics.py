@@ -1,7 +1,5 @@
 import numpy as np
 import torch
-from typing import Dict, Any, List, Optional, Union
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import torch.nn as nn
 
 
@@ -104,18 +102,23 @@ class BatchResult:
 
         metrics = {}
 
-        metrics["accuracy"] = compute_accuracy(y_true, y_pred, tolerance)
+        metrics["accuracy25"] = compute_accuracy(y_true, y_pred, 25)
+        metrics["accuracy10"] = compute_accuracy(y_true, y_pred, 10)
+        metrics["accuracy5"] = compute_accuracy(y_true, y_pred, 5)
+
         metrics["loss"] = self.loss
 
-        metrics["instruction_avg_loss"] = self.get_instruction_avg_loss()
-        metrics["block_length_avg_loss"] = self.get_block_length_avg_loss()
-        metrics["instruction_counts"] = self.instruction_counts
-        metrics["block_length_counts"] = self.block_lengths_counts
+        # metrics["instruction_avg_loss"] = self.get_instruction_avg_loss()
+        # metrics["block_length_avg_loss"] = self.get_block_length_avg_loss()
+        # metrics["instruction_counts"] = self.instruction_counts
+        # metrics["block_length_counts"] = self.block_lengths_counts
 
         # return metrics
         return {
             "loss": metrics["loss"],
-            "accuracy": metrics["accuracy"]
+            "accuracy25": metrics["accuracy25"],
+            "accuracy10": metrics["accuracy10"],
+            "accuracy5": metrics["accuracy5"]
         }
 
 def correct_regression(pred, answer, tolerance=25):

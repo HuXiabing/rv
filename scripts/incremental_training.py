@@ -114,7 +114,7 @@ def main():
     experiment_manager.save_config(config)
 
     model = get_model(config)
-    print("gnn num_layers:", config.num_layers)
+    print(f" {config.model_type }num_layers:", config.num_layers)
 
     model_state_dict = model.state_dict()
     for name, param in checkpoint['model_state'].items():

@@ -31,7 +31,7 @@ def main():
     parser.add_argument("--dropout", type=float, default=0.1, help="Dropout probability")
 
     # Training arguments
-    parser.add_argument("--batch_size", type=int, default=8, help="Batch size")
+    parser.add_argument("--batch_size", type=int, default=4, help="Batch size")
     parser.add_argument("--epochs", type=int, default=50, help="Number of epochs")
     parser.add_argument("--lr", type=float, default=1e-4, help="Learning rate")
     parser.add_argument("--weight_decay", type=float, default=1e-5, help="Weight decay")
@@ -61,9 +61,6 @@ def main():
         model_type=args.model_type,
         embed_dim=args.embed_dim,
         hidden_dim=args.hidden_dim,
-        # num_layers=args.num_layers,
-        # num_heads=args.num_heads,
-        # dropout=args.dropout,
         lr=args.lr,
         weight_decay=args.weight_decay,
         batch_size=args.batch_size,

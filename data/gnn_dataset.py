@@ -2,16 +2,11 @@ import os
 import json
 import time
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
 import torch_geometric
-from torch_geometric.loader import DataLoader as PyGDataLoader
 from torch.utils.data import Dataset
-from typing import Dict, List, Tuple, Optional, Union
+from typing import Dict, List
 import re
-import numpy as np
 from tqdm import tqdm
-from triton.language import tensor
 
 class RISCVGraphEncoder:
 
