@@ -5,9 +5,9 @@ from typing import Dict, Optional, List, Tuple, Any
 from pathlib import Path
 class EarlyStoppingCriterion:
     def __init__(self,
-                 train_val_diff_threshold=0.005,
-                 val_improvement_threshold=0.0001,
-                 patience=3,
+                 train_val_diff_threshold=0.000005,
+                 val_improvement_threshold=0.001,
+                 patience=2,
                  verbose=True):
         self.train_val_diff_threshold = train_val_diff_threshold
         self.val_improvement_threshold = val_improvement_threshold

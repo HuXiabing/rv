@@ -132,13 +132,15 @@ class Trainer:
 
         early_stopping = EarlyStoppingCriterion(
             val_improvement_threshold=0.001,
-            patience=2,
+            patience=3,
             verbose=True
         )
 
 
         for epoch in range(self.start_epoch, num_epochs):
             self.current_epoch = epoch
+            with open("loss.txt", "a") as f:
+                f.write("training epoch: " + str(epoch) + "\n")
 
             train_metrics, train_batch_result = self.train_epoch(train_loader)
 
@@ -238,9 +240,9 @@ class Trainer:
             output = self.model(x)
             loss = self.criterion(output, y)  # [batch_size]
 
-            # for i in torch.where(loss > 1)[0]:
+            # for i in torch.where(loss > 0.5)[0]:
             #     with open("loss.txt", "a") as f:
-            #         log_content = f"x: {x[i]}\ny: {y}\noutput: {output}\nloss: {loss}\n"
+            #         log_content = f"x: {x[i]}\ny: {y[i]}\noutput: {output[i]}\nloss: {loss[i]}\n"
             #         f.write(log_content)
                 # print("x:", x["x"][i])
                 # print("y:", y)

@@ -185,6 +185,7 @@ def process_data(raw_data, tokenizer, seed = 71, shuffle = True): # 4516
         valid = 1
         encoded_instructions = []
         for tokenized in tokenized_instructions:
+            print(tokenized)
             encoded = [tokenizer.vocab.get(token, tokenizer.vocab.get('<PAD>', 0)) for token in tokenized]
             if encoded[0] in list(range(73,137 + 1)):
                 encoded_instructions.append(encoded)

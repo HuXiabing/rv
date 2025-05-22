@@ -1,5 +1,7 @@
 import json
-from rvmca.gen import gen_block
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).parent.parent))
 from rvmca.gen.inst_gen import gen_block_vector
 import numpy as np
 from fuzzer import EnhancedFuzzer
@@ -141,24 +143,24 @@ if __name__ == "__main__":
     parser.add_argument("-n", type=int, default=100, help="number of basic blocks to generate")
     args = parser.parse_args()
 
-    # fuzzer = generator('experiments/incremental_transformer_20250427_130635/statistics/train_loss_stats_epoch_15.json')
-    fuzzer = generator('../experiments/transformer_20250424_190140/statistics/train_loss_stats_epoch_8.json')
-    fuzzer = incre_generator(
-        '../experiments/incremental_transformer_20250427_130635/statistics/train_loss_stats_epoch_15.json', 0.073801, fuzzer)
-    fuzzer = incre_generator(
-        '../experiments/incremental_transformer_20250428_155219/statistics/train_loss_stats_epoch_2.json', 0.073657, fuzzer)
-    fuzzer = incre_generator(
-        '../experiments/incremental_transformer_20250429_095051/statistics/train_loss_stats_epoch_14.json', 0.062113, fuzzer)
-    fuzzer = incre_generator(
-        '../experiments/incremental_transformer_20250429_161420/statistics/train_loss_stats_epoch_3.json', 0.061019, fuzzer)
-    fuzzer = incre_generator(
-        '../experiments/incremental_transformer_20250430_114213/statistics/train_loss_stats_epoch_2.json', 0.058142, fuzzer)
-    fuzzer = incre_generator(
-        '../experiments/incremental_transformer_20250430_153531/statistics/train_loss_stats_epoch_9.json', 0.055054, fuzzer)
-    fuzzer = incre_generator(
-        '../experiments/incremental_transformer_20250502_100511/statistics/train_loss_stats_epoch_4.json', 0.054091, fuzzer)
-    fuzzer = incre_generator(
-        '../experiments/incremental_transformer_20250502_152704/statistics/train_loss_stats_epoch_2.json', 0.054348, fuzzer)
+    fuzzer = generator('experiments/case_study_20250508_101822/statistics/train_loss_stats_epoch_4.json')
+    # fuzzer = generator('../experiments/transformer_20250424_190140/statistics/train_loss_stats_epoch_8.json')
+    # fuzzer = incre_generator(
+    #     '../experiments/incremental_transformer_20250427_130635/statistics/train_loss_stats_epoch_15.json', 0.073801, fuzzer)
+    # fuzzer = incre_generator(
+    #     '../experiments/incremental_transformer_20250428_155219/statistics/train_loss_stats_epoch_2.json', 0.073657, fuzzer)
+    # fuzzer = incre_generator(
+    #     '../experiments/incremental_transformer_20250429_095051/statistics/train_loss_stats_epoch_14.json', 0.062113, fuzzer)
+    # fuzzer = incre_generator(
+    #     '../experiments/incremental_transformer_20250429_161420/statistics/train_loss_stats_epoch_3.json', 0.061019, fuzzer)
+    # fuzzer = incre_generator(
+    #     '../experiments/incremental_transformer_20250430_114213/statistics/train_loss_stats_epoch_2.json', 0.058142, fuzzer)
+    # fuzzer = incre_generator(
+    #     '../experiments/incremental_transformer_20250430_153531/statistics/train_loss_stats_epoch_9.json', 0.055054, fuzzer)
+    # fuzzer = incre_generator(
+    #     '../experiments/incremental_transformer_20250502_100511/statistics/train_loss_stats_epoch_4.json', 0.054091, fuzzer)
+    # fuzzer = incre_generator(
+    #     '../experiments/incremental_transformer_20250502_152704/statistics/train_loss_stats_epoch_2.json', 0.054348, fuzzer)
 
     # incremental_transformer_20250430_114213 - INFO - Experiment completed. Best validation loss: 0.058142 at Epoch 2. Total time: 7491.18 seconds
     # incremental_transformer_20250430_153531 - INFO - Experiment completed. Best validation loss: 0.055054 at Epoch 9. Total time: 16032.83 seconds
@@ -193,7 +195,7 @@ if __name__ == "__main__":
     #     json.dump(blocks, file, indent=2) #for mca
 
     rm_all_files("./random_generate/")
-    chunk_size = 4000
+    chunk_size = 800
     total_chunks = (len(blocks) + chunk_size - 1) // chunk_size
     for i in range(total_chunks):
         start_idx = i * chunk_size

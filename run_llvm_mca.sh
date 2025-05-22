@@ -66,7 +66,7 @@ for i in $(seq 0 $(($total_entries - 1))); do
     echo -e "$asm_content" > "$TEMP_ASM"
 
     # Run llvm-mca
-    mca_output=$(llvm-mca -mcpu=sifive-u74 -iterations=1000 --instruction-info=0 -resource-pressure=0 "$TEMP_ASM" 2>&1)
+    mca_output=$(llvm-mca -mcpu=xiangshan-nanhu -iterations=1000 --instruction-info=0 -resource-pressure=0 "$TEMP_ASM" 2>&1)
 
     # Check if command was successful
     if [ $? -ne 0 ]; then

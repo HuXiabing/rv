@@ -1,7 +1,6 @@
 experiments/
 random_generate/
 data/*.json
-data/*.h5
 .idea/
 *__pycache__*
 random/

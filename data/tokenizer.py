@@ -26,6 +26,7 @@ class RISCVTokenizer:
         dict_path = os.path.join(os.path.dirname(__file__), 'vocab.dump')
         if os.path.exists(dict_path):
             self.vocab = torch.load(dict_path)
+            self.inverse_vocab = torch.load("data/inverse_vocab.dump")
         else:
             # if the predefined dict does not exist, build it manually
             self._build_vocab_manually()
@@ -104,7 +105,10 @@ class RISCVTokenizer:
         _rv64 = {**_rv64M, **_rv64I}
 
         self.vocab ={**special_token, **_xregs_abi, **_fregs_abi, **_xregs_numeric, **_fregs_numeric, **_rv64}
+        self.inverse_vocab = {v: k for k, v in {**special_token, **_xregs_abi, **_fregs_abi, **_rv64}.items()}
+
         torch.save(self.vocab, "data/vocab.dump")
+        torch.save(self.inverse_vocab, "data/inverse_vocab.dump")
         """
         {'<PAD>': 0, '<BLOCK_START>': 1, '<BLOCK_END>': 2, '<ADDRESS>': 3, '<E>': 4, '<D>': 5, '<S>': 6, '<CONST>': 7, '<CSR>': 8, 
         'zero': 9, 'ra': 10, 'sp': 11, 'gp': 12, 'tp': 13, 't0': 14, 't1': 15, 't2': 16, 's0': 17, 's1': 18, 'a0': 19, 'a1': 20, 
@@ -323,9 +327,36 @@ class RISCVTokenizer:
 
         return bb_tokens
 
+    def decode_instruction(self, instruction: List[int]) -> str:
+        """
+        Decode the instruction from token ID sequence to instruction string,
+        eg: [72, 5, 24, 6, 18, 19, 4, 0] -> ['add', '<D>', 'a5', '<S>', 's1', 'a0', '<E>', '<PAD>']
+        """
+        decoded = [self.inverse_vocab.get(token, '<PAD>') for token in instruction]
+        return decoded
+
 if __name__ == "__main__":
     tokenizer = RISCVTokenizer()
     # bb = ["amoswap.w.rl\ta5,a5,(s1)", "amoswap.d.aqrl  a1,a1,(a0)", "sd\ts1,8(sp)"]
     # for i in bb:
     #     print(tokenizer.tokenize_instruction(i))
-    tokenizer._build_vocab_manually()
+    bb = [[ 94,   5,  24,   6,   3,  19,   4,   0],
+        [ 97,   5,  22,   6,   3,  19,   4,   0],
+        [ 97,   5,  23,   6,   3,  19,   4,   0],
+        [ 97,   5,  21,   6,   3,  19,   4,   0],
+        [133,   5,  22,   6,  22,  24,   4,   0],
+        [ 74,   5,  11,   6,  11,   7,   4,   0],
+        [ 74,   5,  25,   6,   9,   7,   4,   0],
+        [102,   5,   3,  11,   6,  27,   4,   0],
+        [102,   5,   3,  11,   6,  28,   4,   0],
+        [102,   5,   3,  11,   6,  29,   4,   0],
+        [102,   5,   3,  11,   6,  10,   4,   0],
+        [102,   5,   3,  11,   6,  17,   4,   0],
+        [102,   5,   3,  11,   6,  18,   4,   0],
+        [ 78,   5,  21,   6,  21,   7,   4,   0],
+        [133,   5,  24,   6,  23,  24,   4,   0],
+        [ 74,   5,  27,   6,  20,   7,   4,   0],
+        [128,   5,  28,   6,  22,  25,   4,   0],
+        [128,   5,  29,   6,  24,  25,   4,   0]]
+    for i in bb:
+        print(tokenizer.decode_instruction(i))

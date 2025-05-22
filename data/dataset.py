@@ -1,9 +1,14 @@
+from random import sample
+
+from utils.experiment import *
 import torch
 import numpy as np
 from torch.utils.data import Dataset
 import torch.nn.functional as F
 from typing import Dict, Any, Union, Optional, Tuple
 import json
+from .tokenizer import RISCVTokenizer
+
 class TorchDict(dict):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -14,52 +19,52 @@ class TorchDict(dict):
                 self[k] = v.to(device)
         return self
 
-class RISCVDataset(Dataset):
-
-    def __init__(self, h5_path: str):
-
-        self.h5_path = h5_path
-
-        with h5py.File(h5_path, 'r') as f:
-            self.num_samples = f.attrs['num_samples']
-    
-    def __len__(self) -> int:
-
-        return self.num_samples
-
-    def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
-        """
-        Retrieve a sample from the dataset
-
-        Args:
-            idx: Sample index
-
-        Returns:
-            Dictionary containing features and labels
-        """
-
-        actual_idx = self.indices[idx] if hasattr(self, 'indices') else idx
-
-        with h5py.File(self.h5_path, 'r') as f:
-
-            X = torch.tensor(f['X'][actual_idx], dtype=torch.long)
-            instruction_count = torch.tensor(f['instruction_counts'][actual_idx], dtype=torch.long)
-            Y = torch.tensor(f['Y'][actual_idx], dtype=torch.float)
-
-            instruction_text = None
-            if 'instruction_text' in f:
-                instruction_text = f['instruction_text'][actual_idx]
-
-        sample = {
-            'X': X,  #encoded matrix
-            'instruction_count': instruction_count,
-            'Y': Y
-        }
-
-        if instruction_text is not None:
-            sample['instruction_text'] = instruction_text
-
-        return sample
+# class RISCVDataset(Dataset):
+#
+#     def __init__(self, h5_path: str):
+#
+#         self.h5_path = h5_path
+#
+#         with h5py.File(h5_path, 'r') as f:
+#             self.num_samples = f.attrs['num_samples']
+#
+#     def __len__(self) -> int:
+#
+#         return self.num_samples
+#
+#     def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
+#         """
+#         Retrieve a sample from the dataset
+#
+#         Args:
+#             idx: Sample index
+#
+#         Returns:
+#             Dictionary containing features and labels
+#         """
+#
+#         actual_idx = self.indices[idx] if hasattr(self, 'indices') else idx
+#
+#         with h5py.File(self.h5_path, 'r') as f:
+#
+#             X = torch.tensor(f['X'][actual_idx], dtype=torch.long)
+#             instruction_count = torch.tensor(f['instruction_counts'][actual_idx], dtype=torch.long)
+#             Y = torch.tensor(f['Y'][actual_idx], dtype=torch.float)
+#
+#             instruction_text = None
+#             if 'instruction_text' in f:
+#                 instruction_text = f['instruction_text'][actual_idx]
+#
+#         sample = {
+#             'X': X,  #encoded matrix
+#             'instruction_count': instruction_count,
+#             'Y': Y
+#         }
+#
+#         if instruction_text is not None:
+#             sample['instruction_text'] = instruction_text
+#
+#         return sample
 
 
 def make_attention_weight(mask, is_continual_pad=True):
@@ -91,12 +96,18 @@ def make_attention_weight(mask, is_continual_pad=True):
     return all_masking
 
 class DatasetWithDistanceWeight(Dataset):
-    def __init__(self, json_path, max_instr_length = 8, max_instr_count = 64,
-                 return_bb_mask=True, return_seq_mask=True, return_op_mask=True):
+    def __init__(self, json_path,
+                 max_instr_length = 8,
+                 max_instr_count = 64,
+                 return_bb_mask=True,
+                 return_seq_mask=True,
+                 return_op_mask=True):
 
         self.json_path = json_path
         with open(json_path, 'r', encoding='utf-8') as file:
             self.data = json.load(file)
+
+
 
         self.pad_idx = 0
         self.return_bb_mask = return_bb_mask
@@ -107,12 +118,15 @@ class DatasetWithDistanceWeight(Dataset):
         self.max_instr_count = max_instr_count
         self.xs = self._pad_and_stack_encoded()
         self.ys = [sample['throughput'] for sample in self.data]
-        self.num_instructions = [sample['num_instructions'] for sample in self.data]
+        self.num_instructions = [len(sample['instructions']) for sample in self.data]
 
     def _pad_and_stack_encoded(self):
+        tokenizer = RISCVTokenizer()
         padded_xs = []
         for sample in self.data:
-            encoded = sample['encoded']
+            bb = sample['instructions']
+            encoded = [tokenizer.encode_instruction(i) for i in bb ]
+            # encoded = sample['encoded']
 
             if len(encoded) > self.max_instr_count:
                 encoded = encoded[:self.max_instr_count]
@@ -219,12 +233,15 @@ class RNNDataset(Dataset):
         self.max_instr_count = max_instr_count
         self.xs = self._pad_and_stack_encoded()
         self.ys = [sample['throughput'] for sample in self.data]
-        self.num_instructions = [sample['num_instructions'] for sample in self.data]
+        self.num_instructions = [len(sample['instructions']) for sample in self.data]
 
     def _pad_and_stack_encoded(self):
+        tokenizer = RISCVTokenizer()
         padded_xs = []
         for sample in self.data:
-            encoded = sample['encoded']
+            bb = sample['instructions']
+            encoded = [tokenizer.encode_instruction(i) for i in bb]
+            # encoded = sample['encoded']
 
             if len(encoded) > self.max_instr_count:
                 encoded = encoded[:self.max_instr_count]
