@@ -18,7 +18,7 @@ class ExperimentManager:
         self.experiment_id = f"{experiment_name}_{self.timestamp}"
 
         self.experiment_dir = os.path.join(base_dir, self.experiment_id)
-        self.checkpoint_dir = os.path.join(self.experiment_dir, "checkpoints") #save trained models
+        self.checkpoint_dir = os.path.join(self.experiment_dir, "checkpoints")
         self.log_dir = os.path.join(self.experiment_dir, "logs")
         self.setup_directories()
         self.setup_logger()
@@ -154,7 +154,7 @@ class ExperimentManager:
     def finish(self):
         duration = time.time() - self.start_time
         self.logger.info(f"Experiment completed. Best validation loss: {self.history['best_metric']:.6f} at Epoch "
-              f"{self.history['best_epoch'] + 1}. Total time: {duration:.2f} seconds")
+              f"{self.history['best_epoch']}. Total time: {duration:.2f} seconds")
 
     def start(self,train_data, val_data, train_dataset, val_dataset):
         self.logger.info(f"Training data: {train_data}, Number of samples: {len(train_dataset)}")
@@ -261,12 +261,10 @@ class ExperimentManager:
                 loss_stats["category_loss_sum"][category] += loss
                 loss_stats["category_count_sum"][category] += count
 
-        # 对 block_length_avg_loss 进行排序并保留字典结构
         loss_stats["block_length_avg_loss_sorted"] = collections.OrderedDict(
             sorted({int(k): v for k, v in loss_stats["block_length_avg_loss"].items()}.items())
         )
 
-        # 对 block_length_counts 进行排序并保留字典结构
         loss_stats["block_length_counts_sorted"] = collections.OrderedDict(
             sorted({int(k): v for k, v in loss_stats["block_length_counts"].items()}.items())
         )
@@ -274,7 +272,7 @@ class ExperimentManager:
         stats_dir = os.path.join(self.experiment_dir, "statistics")
         os.makedirs(stats_dir, exist_ok=True)
 
-        stats_path = os.path.join(stats_dir, f"{loss_stats['prefix']}_loss_stats_epoch_{epoch + 1}.json")
+        stats_path = os.path.join(stats_dir, f"{loss_stats['prefix']}_loss_stats_epoch_{epoch}.json")
 
         with open(stats_path, 'w') as f:
             json.dump(loss_stats, f, indent=4)

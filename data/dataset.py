@@ -1,6 +1,3 @@
-from random import sample
-
-from utils.experiment import *
 import torch
 import numpy as np
 from torch.utils.data import Dataset
@@ -18,54 +15,6 @@ class TorchDict(dict):
             if hasattr(v, 'to'):
                 self[k] = v.to(device)
         return self
-
-# class RISCVDataset(Dataset):
-#
-#     def __init__(self, h5_path: str):
-#
-#         self.h5_path = h5_path
-#
-#         with h5py.File(h5_path, 'r') as f:
-#             self.num_samples = f.attrs['num_samples']
-#
-#     def __len__(self) -> int:
-#
-#         return self.num_samples
-#
-#     def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
-#         """
-#         Retrieve a sample from the dataset
-#
-#         Args:
-#             idx: Sample index
-#
-#         Returns:
-#             Dictionary containing features and labels
-#         """
-#
-#         actual_idx = self.indices[idx] if hasattr(self, 'indices') else idx
-#
-#         with h5py.File(self.h5_path, 'r') as f:
-#
-#             X = torch.tensor(f['X'][actual_idx], dtype=torch.long)
-#             instruction_count = torch.tensor(f['instruction_counts'][actual_idx], dtype=torch.long)
-#             Y = torch.tensor(f['Y'][actual_idx], dtype=torch.float)
-#
-#             instruction_text = None
-#             if 'instruction_text' in f:
-#                 instruction_text = f['instruction_text'][actual_idx]
-#
-#         sample = {
-#             'X': X,  #encoded matrix
-#             'instruction_count': instruction_count,
-#             'Y': Y
-#         }
-#
-#         if instruction_text is not None:
-#             sample['instruction_text'] = instruction_text
-#
-#         return sample
-
 
 def make_attention_weight(mask, is_continual_pad=True):
     sizes = (~mask).sum(dim=1)
@@ -106,8 +55,6 @@ class DatasetWithDistanceWeight(Dataset):
         self.json_path = json_path
         with open(json_path, 'r', encoding='utf-8') as file:
             self.data = json.load(file)
-
-
 
         self.pad_idx = 0
         self.return_bb_mask = return_bb_mask

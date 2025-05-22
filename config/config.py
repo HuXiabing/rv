@@ -7,8 +7,7 @@ class Config:
 
     def __init__(
         self,
-        model_type: str = "transformer",  # 'transformer', 'lstm', 'gnn'
-
+        model_type: str = "transformer",
         max_instr_length: int = 8,
         max_instr_count: int = 128,
         vocab_size: int = 140,
@@ -23,7 +22,7 @@ class Config:
         # training parameters
         lr: float = 2e-5,
         weight_decay: float = 1e-5,
-        batch_size: int = 32,
+        batch_size: int = 8,
         epochs: int = 50,
         patience: int = 3,
         clip_grad_norm: float = 1.0,
@@ -31,7 +30,6 @@ class Config:
         device: Optional[str] = None,
         
         # data paths
-        processed_data_path: str = "data/processed_data.json",
         train_data_path: str = "data/train_data.json",
         val_data_path: str = "data/val_data.json",
 
@@ -68,7 +66,6 @@ class Config:
         
         self.device = device if device is not None else ("cuda" if torch.cuda.is_available() else "cpu")
         
-        self.processed_data_path = processed_data_path
         self.train_data_path = train_data_path
         self.val_data_path = val_data_path
 

@@ -7,9 +7,9 @@ TRANSFORMER_CONFIG = {
     "dropout": 0.05,
     "use_layernorm": False,
     "use_checkpoint": False,
-    "use_bb_attn": False,
-    "use_seq_attn": False,
-    "use_op_attn": False,
+    "use_bb_attn": True,
+    "use_seq_attn": True,
+    "use_op_attn": True,
     "use_pos_2d": False,
     "handle_neg": False
 }
@@ -28,8 +28,7 @@ GNN_CONFIG = {
     "hidden_dim": 256,
     "num_layers": 2,  # message passing layers
     "dropout": 0.1,
-    "use_layer_norm": True,
-    "lr": 2e-5,
+    "use_layer_norm": True
 }
 
 # default data configuration
@@ -45,11 +44,13 @@ TRAINING_CONFIG = {
     "weight_decay": 1e-5,
     "batch_size": 8,
     "epochs": 50,
-    "patience": 3,
+    "patience": 5,
     "clip_grad_norm": 1.0,
     "loss_type": "mape",  # 'mse', 'mae', 'huber', 'mape'
     "loss_epsilon": 1e-5,  # for MAPE
     "huber_delta": 1.0,    # for Huber
+    "optimizer": "adamw",  # 'adam', 'adamw'
+    "scheduler": "cosine_warmup",  # 'plateau', 'cosine', 'cosine_warmup', 'step'
 }
 
 # merge all configurations

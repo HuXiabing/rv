@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.use('Agg')  # 使用非交互式后端
 from .earlystopping import EarlyStoppingCriterion
+from scipy.stats import spearmanr, pearsonr, kendalltau
 
 class Trainer:
     def __init__(self, model, config, experiment_dir=None, experiment=None):
@@ -130,17 +131,17 @@ class Trainer:
 
         print(f"Starting training from epoch {self.start_epoch} to {num_epochs}")
 
-        early_stopping = EarlyStoppingCriterion(
-            val_improvement_threshold=0.001,
-            patience=3,
-            verbose=True
-        )
+        # early_stopping = EarlyStoppingCriterion(
+        #     val_improvement_threshold=0.001,
+        #     patience=3,
+        #     verbose=True
+        # )
 
 
         for epoch in range(self.start_epoch, num_epochs):
             self.current_epoch = epoch
-            with open("loss.txt", "a") as f:
-                f.write("training epoch: " + str(epoch) + "\n")
+            # with open("loss.txt", "a") as f:
+            #     f.write("training epoch: " + str(epoch) + "\n")
 
             train_metrics, train_batch_result = self.train_epoch(train_loader)
 
@@ -202,12 +203,12 @@ class Trainer:
                 self._plot_progress()
 
             # early stopping
-            # if self.early_stopping_counter >= self.config.patience and epoch > 10:
-            #     print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
-            #     break
-            if early_stopping(epoch, train_metrics['loss'], val_metrics['loss']):
-                print(f"Training would stop at epoch {epoch}")
+            if self.early_stopping_counter >= self.config.patience and epoch > 10:
+                print(f"Early stopping: Validation loss did not improve for {self.config.patience} epochs")
                 break
+            # if early_stopping(epoch, train_metrics['loss'], val_metrics['loss']):
+            #     print(f"Training would stop at epoch {epoch}")
+            #     break
 
         # training_time = time.time() - start_time
         # print(f"Training completed! Total time: {training_time:.2f} seconds")
@@ -396,13 +397,18 @@ class Trainer:
                 true.extend(y.tolist())
 
         metrics = batch_result.compute_metrics(self.accuracy_tolerance)
-        avg_loss = total_loss / total_samples
-        # print("avg_loss:", avg_loss, "metrics",metrics["loss"],metrics["accuracy"],"total_loss",total_loss,"total_samples",total_samples)
+        pearsonr_corr, pearsonr_p_value = pearsonr(pred, true)
+        spearmanr_corr, spearmanr_p_value = spearmanr(pred, true)
+        kendalltau_corr, kendalltau_p_value = kendalltau(pred, true)
+
         current_accuracy = compute_accuracy(true, pred, self.accuracy_tolerance)
-        # metric = {
-        #     "loss": avg_loss,
-        #     "accuracy": current_accuracy
-        # }
+        metrics.update({"pearsonr_corr": pearsonr_corr,
+                        "pearsonr_p_value": pearsonr_p_value,
+                        "spearmanr_corr": spearmanr_corr,
+                        "spearmanr_p_value": spearmanr_p_value,
+                        "kendalltau_corr": kendalltau_corr,
+                        "kendalltau_p_value": kendalltau_p_value})
+
         self.val_losses.append(metrics["loss"])
 
         print(f"\nValidation Results - Epoch {epoch}:")

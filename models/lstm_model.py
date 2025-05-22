@@ -3,19 +3,6 @@ import torch.nn as nn
 import torch.autograd as autograd
 from typing import Any, Callable, Dict, List, NamedTuple, Optional, Union, Tuple
 
-def get_device(should_print=True):
-    if torch.cuda.is_available():
-        str_device = 'cuda'
-    else:
-        str_device = 'cpu'
-
-    device = torch.device(str_device)
-
-    if should_print:
-        print(f'Using {device}')
-    return device
-
-
 def get_last_false_values(x, mask, dim):
     broadcast_shape = list(x.shape)
     broadcast_shape[dim] = 1
@@ -75,7 +62,7 @@ class AbstractGraphModule(nn.Module):
         # type: (int, int, int) -> None
         super(AbstractGraphModule, self).__init__()
 
-        self.device = get_device(False)
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.embedding_size = embedding_size
         self.num_classes = num_classes
         self.hidden_size = hidden_size

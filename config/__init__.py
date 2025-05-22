@@ -3,8 +3,6 @@ from .defaults import (
     DEFAULT_CONFIG, 
     TRANSFORMER_CONFIG, 
     GNN_CONFIG,
-    # DATA_CONFIG,
-    # TRAINING_CONFIG,
     ITHEMAL_CONFIG
 )
 

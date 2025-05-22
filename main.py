@@ -29,7 +29,7 @@ def main():
     train_parser.add_argument("--val_data", type=str, default="data/val_data.json", help="Path to validation data")
     train_parser.add_argument("--batch_size", type=int, default=4, help="Batch size")
     train_parser.add_argument("--epochs", type=int, default=50, help="Number of epochs")
-    train_parser.add_argument("--lr", type=float, default=2e-5, help="Learning rate")
+    # train_parser.add_argument("--lr", type=float, default=2e-5, help="Learning rate")
     train_parser.add_argument("--output_dir", type=str, default="experiments", help="Output directory")
     train_parser.add_argument("--experiment_name", type=str, default=None, help="Experiment name")
 
@@ -83,13 +83,13 @@ def main():
             "--val_data", args.val_data,
             "--batch_size", str(args.batch_size),
             "--epochs", str(args.epochs),
-            "--lr", str(args.lr),
+            # "--lr", str(args.lr),
             "--output_dir", args.output_dir,
             "--experiment_name", args.experiment_name,
             "--seed", str(args.seed)
         ]
-        if args.device:
-            sys.argv.extend(["--device", args.device])
+        # if args.device:
+        #     sys.argv.extend(["--device", args.device])
         train_main()
 
     elif args.command == "resume":
