@@ -206,35 +206,35 @@ def main():
 
         # Split data into train and validation sets
         print(len(processed_data))
-        with open("data/xiangshan.json", 'w') as f:
+        with open("random_generate/xiangshan.json", 'w') as f:
             json.dump(processed_data, f, indent=2)
         # Save split data to JSON
-        with open("data/xiangshan/train_data1.json", 'w') as f:
-            json.dump(processed_data[:10], f, indent=2)
-        with open("data/xiangshan/train_data2.json", 'w') as f:
-            json.dump(processed_data[:20], f, indent=2)
-        with open("data/xiangshan/train_data5.json", 'w') as f:
-            json.dump(processed_data[:50], f, indent=2)
-        with open("data/xiangshan/train_data10.json", 'w') as f:
-            json.dump(processed_data[:100], f, indent=2)
-        with open("data/xiangshan/train_data20.json", 'w') as f:
-            json.dump(processed_data[:200], f, indent=2)
-        with open("data/xiangshan/train_data30.json", 'w') as f:
-            json.dump(processed_data[:300], f, indent=2)
-        # with open("data/xiangshan/train_data40.json", 'w') as f:
-        #     json.dump(processed_data[:400000], f, indent=2)
-        # with open("data/xiangshan/train_data50.json", 'w') as f:
-        #     json.dump(processed_data[:500000], f, indent=2)
-        # with open("data/xiangshan/train_data60.json", 'w') as f:
-        #     json.dump(processed_data[:600000], f, indent=2)
-        # with open("data/xiangshan/train_data70.json", 'w') as f:
-        #     json.dump(processed_data[:700000], f, indent=2)
-        # with open("data/xiangshan/train_data80.json", 'w') as f:
-        #     json.dump(processed_data[:800000], f, indent=2)
+        with open("random_generate/xiangshan/train_data1.json", 'w') as f:
+            json.dump(processed_data[:10000], f, indent=2)
+        with open("random_generate/xiangshan/train_data2.json", 'w') as f:
+            json.dump(processed_data[:20000], f, indent=2)
+        with open("random_generate/xiangshan/train_data5.json", 'w') as f:
+            json.dump(processed_data[:50000], f, indent=2)
+        with open("random_generate/xiangshan/train_data10.json", 'w') as f:
+            json.dump(processed_data[:100000], f, indent=2)
+        with open("random_generate/xiangshan/train_data20.json", 'w') as f:
+            json.dump(processed_data[:200000], f, indent=2)
+        with open("random_generate/xiangshan/train_data30.json", 'w') as f:
+            json.dump(processed_data[:300000], f, indent=2)
+        with open("random_generate/xiangshan/train_data40.json", 'w') as f:
+            json.dump(processed_data[:400000], f, indent=2)
+        with open("random_generate/xiangshan/train_data50.json", 'w') as f:
+            json.dump(processed_data[:500000], f, indent=2)
+        with open("random_generate/xiangshan/train_data60.json", 'w') as f:
+            json.dump(processed_data[:600000], f, indent=2)
+        with open("random_generate/xiangshan/train_data70.json", 'w') as f:
+            json.dump(processed_data[:700000], f, indent=2)
+        with open("random_generate/xiangshan/train_data80.json", 'w') as f:
+            json.dump(processed_data[:800000], f, indent=2)
+        with open("random_generate/xiangshan/val_data.json", 'w') as f:
+            json.dump(processed_data[800000:], f, indent=2)
         # with open("data/xiangshan/val_data.json", 'w') as f:
-        #     json.dump(processed_data[800000:], f, indent=2)
-        with open("data/xiangshan/val_data.json", 'w') as f:
-            json.dump(processed_data[300:], f, indent=2)
+        #     json.dump(processed_data[300:], f, indent=2)
 
     else:
         print("Generating raw JSON data...")

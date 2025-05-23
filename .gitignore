@@ -5,10 +5,6 @@ data/*.json
 .idea/
 *__pycache__*
 cache/
-data/mca_u74/
-data/xiangshan/
-data/starfive/
-data/u74/
+random_generate/xiangshan/
 inference.json
-data/u54/
 

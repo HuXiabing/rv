@@ -2,8 +2,7 @@
 
 preprocessing
 ```bash
-python preprocess.py --mode full --cycle_jsons random_generate/output0.json  
-
+python preprocess.py --mode full --cycle_jsons random_generate/output0.json  random_generate/output5.json random_generate/output1.json  random_generate/output6.json random_generate/output2.json  random_generate/output7.json random_generate/output3.json  random_generate/output8.json random_generate/output4.json  random_generate/output9.json
 python preprocess.py --cycle_jsons random_generate/output2.json --existing_train_json data/xiangshan/train_data1.json --existing_val_json data/xiangshan/val_data.json --train_json data/xiangshan/tr.json
 ```
 

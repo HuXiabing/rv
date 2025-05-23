@@ -6,6 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="2e481e3f-ccd3-40d5-a0f4-3acb0f7b9d04" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bash/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/xiangshan/train_data1.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/xiangshan/train_data1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/xiangshan/train_data2.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/xiangshan/train_data2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/xiangshan/train_data5.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/xiangshan/train_data5.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/xiangshan/val_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/xiangshan/val_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/mnt/data/rv_1",
+    "last_opened_file_path": "/mnt/data/rv_1/random_generate",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -61,11 +68,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/random_generate" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/fuzzer" />
       <recent name="D:\rv\data\exp3" />
       <recent name="D:\rv\data\exp2" />
-      <recent name="D:\rv\experiments" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bash" />
@@ -256,7 +263,7 @@
       <workItem from="1747748663487" duration="4187000" />
       <workItem from="1747814007926" duration="492000" />
       <workItem from="1747841025020" duration="3588000" />
-      <workItem from="1747897538138" duration="16931000" />
+      <workItem from="1747897538138" duration="20346000" />
     </task>
     <servers />
   </component>
